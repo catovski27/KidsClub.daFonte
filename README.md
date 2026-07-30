@@ -2,6 +2,8 @@
 
 > **"cuidar e educar | natureza e arte | brincar e crescer"**
 
+🌐 **Website Oficial (GitHub Pages):** [https://catovski27.github.io/KidsClub.daFonte/](https://catovski27.github.io/KidsClub.daFonte/)
+
 O **KidsClub.daFonte** é um projeto lúdico-pedagógico e comunitário localizado na **Terra da Fonte** (Milharado, Mafra), desenvolvido sob a coordenação artística e pedagógica da **Amálgama Associação Cultural** para o ano letivo **2026 | 2027**.
 
 O projeto destina-se a bebés e crianças das faixas etárias dos **6 meses aos 3 anos** e dos **3 aos 6 anos**, oferecendo uma resposta integrada de acolhimento, desenvolvimento consciente e conciliação familiar num ambiente rodeado pela natureza.
