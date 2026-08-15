@@ -28,7 +28,7 @@ h1, h2, h3, .font-heading {
 
 /* Glassmorphism & Cards */
 .glass-card {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(232, 240, 230, 0.8);
@@ -96,6 +96,12 @@ h1, h2, h3, .font-heading {
   box-shadow: 0 4px 14px rgba(217, 119, 87, 0.3);
 }
 
+.activity-filter-btn.active {
+  background-color: var(--verde-folha);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(74, 107, 83, 0.25);
+}
+
 /* Badge highlight pulse */
 .pulse-badge {
   animation: pulseGlow 2.5s infinite;
@@ -111,4 +117,32 @@ h1, h2, h3, .font-heading {
   100% {
     box-shadow: 0 0 0 0 rgba(244, 197, 66, 0);
   }
+}
+
+/* Custom Team Member Portrait Framing */
+.team-img-alexandra {
+  object-position: center 18% !important;
+}
+.team-img-margarida {
+  object-position: center 25% !important;
+}
+.team-img-tiago {
+  object-position: center 12% !important;
+}
+.team-img-silvia {
+  object-position: center 30% !important;
+}
+.team-img-catarina {
+  object-position: center 12% !important;
+}
+.team-img-natalia {
+  object-position: center 18% !important;
+}
+
+/* Social link hover bounce */
+.social-icon-btn {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.social-icon-btn:hover {
+  transform: translateY(-3px) scale(1.08);
 }

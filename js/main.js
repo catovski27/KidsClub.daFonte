@@ -1,7 +1,7 @@
 /**
  * KidsClub.daFonte - Main Application Logic
- * Integrates GSAP animations, interactive schedule, space lightbox,
- * pedagogy tabs, and dynamic enrollment calculator modal.
+ * Integrates GSAP animations, interactive schedule with paired media,
+ * activity filters, space lightbox, pedagogy tabs, and dynamic enrollment submission.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Sticky Header Shadow on Scroll
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 30) {
+    if (window.scrollY > 20) {
       navbar.classList.add('shadow-md', 'bg-opacity-95');
     } else {
       navbar.classList.remove('shadow-md');
@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileMenuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
     });
-    // Close mobile menu when clicking a link
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
     });
@@ -37,66 +36,109 @@ document.addEventListener('DOMContentLoaded', () => {
   if (typeof gsap !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
 
-    // Fade-in animated elements with scroll trigger
     gsap.utils.toArray('.gsap-reveal').forEach((elem) => {
       gsap.fromTo(
         elem,
-        { opacity: 0, y: 30 },
+        { opacity: 0, y: 25 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
+          duration: 0.7,
           ease: 'power2.out',
           scrollTrigger: {
             trigger: elem,
-            start: 'top 85%',
+            start: 'top 88%',
             toggleActions: 'play none none none',
           },
         }
       );
     });
 
-    // Stagger animation for team cards and activity cards
     gsap.utils.toArray('.gsap-stagger-container').forEach((container) => {
       const cards = container.querySelectorAll('.gsap-stagger-item');
       gsap.fromTo(
         cards,
-        { opacity: 0, y: 25 },
+        { opacity: 0, y: 20 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.6,
-          stagger: 0.12,
+          duration: 0.5,
+          stagger: 0.08,
           ease: 'power2.out',
           scrollTrigger: {
             trigger: container,
-            start: 'top 80%',
+            start: 'top 85%',
           },
         }
       );
     });
   }
 
-  // Schedule Switcher (Manhãs / Tardes / Ver Completo)
+  // Schedule Switcher (Manhãs / Tardes / Ver Dia Completo)
   const scheduleTabs = document.querySelectorAll('.schedule-tab');
-  const scheduleContents = document.querySelectorAll('.schedule-content');
+  const scheduleColManha = document.getElementById('schedule-col-manha');
+  const scheduleColTarde = document.getElementById('schedule-col-tarde');
+  const scheduleMediaManha = document.getElementById('schedule-media-manha');
+  const scheduleMediaTarde = document.getElementById('schedule-media-tarde');
 
   scheduleTabs.forEach((tab) => {
     tab.addEventListener('click', () => {
-      scheduleTabs.forEach((t) => t.classList.remove('active', 'bg-[#4A6B53]', 'text-white'));
-      scheduleTabs.forEach((t) => t.classList.add('bg-white', 'text-[#3D342F]'));
+      scheduleTabs.forEach((t) => {
+        t.classList.remove('active', 'bg-[#4A6B53]', 'text-white');
+        t.classList.add('bg-white', 'text-[#3D342F]');
+      });
 
       tab.classList.add('active', 'bg-[#4A6B53]', 'text-white');
       tab.classList.remove('bg-white', 'text-[#3D342F]');
 
-      const target = tab.getAttribute('data-target');
-      scheduleContents.forEach((content) => {
-        if (target === 'all' || content.id === target) {
-          content.classList.remove('hidden');
-          content.classList.add('block');
+      const mode = tab.getAttribute('data-mode');
+
+      if (mode === 'all') {
+        // Show both schedule lists side by side
+        if (scheduleColManha) scheduleColManha.classList.remove('hidden');
+        if (scheduleColTarde) scheduleColTarde.classList.remove('hidden');
+        if (scheduleMediaManha) scheduleMediaManha.classList.add('hidden');
+        if (scheduleMediaTarde) scheduleMediaTarde.classList.add('hidden');
+      } else if (mode === 'manha') {
+        // Show Morning Schedule on left + Morning Media Card on right
+        if (scheduleColManha) scheduleColManha.classList.remove('hidden');
+        if (scheduleColTarde) scheduleColTarde.classList.add('hidden');
+        if (scheduleMediaManha) scheduleMediaManha.classList.remove('hidden');
+        if (scheduleMediaTarde) scheduleMediaTarde.classList.add('hidden');
+      } else if (mode === 'tarde') {
+        // Show Afternoon Media Card on left + Afternoon Schedule on right
+        if (scheduleColManha) scheduleColManha.classList.add('hidden');
+        if (scheduleColTarde) scheduleColTarde.classList.remove('hidden');
+        if (scheduleMediaManha) scheduleMediaManha.classList.add('hidden');
+        if (scheduleMediaTarde) scheduleMediaTarde.classList.remove('hidden');
+      }
+
+      if (window.lucide) lucide.createIcons();
+    });
+  });
+
+  // Activity Categories Filter
+  const filterBtns = document.querySelectorAll('.activity-filter-btn');
+  const activityItems = document.querySelectorAll('.activity-item');
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach((b) => {
+        b.classList.remove('active', 'bg-[#4A6B53]', 'text-white');
+        b.classList.add('bg-[#FAF7F2]', 'text-[#3D342F]');
+      });
+      btn.classList.add('active', 'bg-[#4A6B53]', 'text-white');
+      btn.classList.remove('bg-[#FAF7F2]', 'text-[#3D342F]');
+
+      const category = btn.getAttribute('data-filter');
+      activityItems.forEach((item) => {
+        const itemCat = item.getAttribute('data-category');
+        if (category === 'all' || itemCat === category) {
+          item.classList.remove('hidden');
+          item.classList.add('block');
         } else {
-          content.classList.add('hidden');
-          content.classList.remove('block');
+          item.classList.add('hidden');
+          item.classList.remove('block');
         }
       });
     });
@@ -128,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Lightbox Modal for Space Adapting Images
+  // Lightbox Modal for Space Images & Videos
   const lightboxModal = document.getElementById('lightbox-modal');
   const lightboxImg = document.getElementById('lightbox-img');
   const lightboxTitle = document.getElementById('lightbox-title');
@@ -183,7 +225,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (plan === 'meio-dia') basePrice = 200;
     else if (plan === 'avulso') basePrice = 50;
 
-    // Apply 10% sibling discount for 2+ kids
     let total = basePrice * kids;
     if (kids > 1 && plan !== 'avulso') {
       total = Math.round(total * 0.9);
@@ -210,6 +251,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       calculatePrice();
       if (enrollmentModal) {
+        // Reset form view if previously submitted
+        const successBox = document.getElementById('form-success-message');
+        if (successBox) successBox.classList.add('hidden');
+        if (enrollmentForm) enrollmentForm.classList.remove('hidden');
+
         enrollmentModal.classList.remove('hidden');
         enrollmentModal.classList.add('flex');
       }
@@ -223,23 +269,66 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     enrollmentModal.addEventListener('click', (e) => {
-      e.target === enrollmentModal && enrollmentModal.classList.add('hidden');
+      if (e.target === enrollmentModal) {
+        enrollmentModal.classList.add('hidden');
+        enrollmentModal.classList.remove('flex');
+      }
     });
   }
 
+  // Direct Submission handler via WhatsApp & Email
   if (enrollmentForm) {
     enrollmentForm.addEventListener('submit', (e) => {
       e.preventDefault();
+
+      const guardianName = document.getElementById('input-guardian-name')?.value || '';
+      const guardianPhone = document.getElementById('input-guardian-phone')?.value || '';
+      const guardianEmail = document.getElementById('input-guardian-email')?.value || '';
+      const childInfo = document.getElementById('input-child-info')?.value || '';
+      const planSelect = document.getElementById('modal-plan');
+      const planText = planSelect ? planSelect.options[planSelect.selectedIndex].text : '';
+      const kidsCount = document.getElementById('modal-kids')?.value || '1';
+      const estimatedPrice = document.getElementById('calculated-price')?.textContent || '';
+      const notes = document.getElementById('input-notes')?.value || '';
+
+      const summaryText = `*Pré-Inscrição KidsClub.daFonte*\n\n` +
+        `• *Encarregado de Educação:* ${guardianName}\n` +
+        `• *Telemóvel:* ${guardianPhone}\n` +
+        `• *E-mail:* ${guardianEmail}\n` +
+        `• *Criança:* ${childInfo}\n` +
+        `• *Modalidade:* ${planText}\n` +
+        `• *N.º Crianças:* ${kidsCount}\n` +
+        `• *Estimativa:* ${estimatedPrice}\n` +
+        (notes ? `• *Observações:* ${notes}\n` : '');
+
       const successBox = document.getElementById('form-success-message');
-      if (successBox) {
-        enrollmentForm.classList.add('hidden');
-        successBox.classList.remove('hidden');
+      const summaryDisplay = document.getElementById('summary-display');
+      const whatsappBtn = document.getElementById('btn-whatsapp-submit');
+      const emailBtn = document.getElementById('btn-email-submit');
+
+      if (summaryDisplay) {
+        summaryDisplay.textContent = `${guardianName} | ${childInfo} | ${planText} (${estimatedPrice})`;
       }
+
+      if (whatsappBtn) {
+        const encodedWa = encodeURIComponent(summaryText);
+        whatsappBtn.href = `https://wa.me/351918080412?text=${encodedWa}`;
+      }
+
+      if (emailBtn) {
+        const emailSubject = encodeURIComponent(`Pré-Inscrição KidsClub.daFonte - ${childInfo}`);
+        const emailBody = encodeURIComponent(summaryText.replace(/\*/g, ''));
+        emailBtn.href = `mailto:info.terradafonte@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+      }
+
+      enrollmentForm.classList.add('hidden');
+      if (successBox) successBox.classList.remove('hidden');
+      if (window.lucide) lucide.createIcons();
     });
   }
 });
 
-// Helper for quick copy of phone / email
+// Helper for quick copy of phone / email / map
 function copyToClipboard(text, label) {
   navigator.clipboard.writeText(text).then(() => {
     alert(`${label} (${text}) copiado para a área de transferência!`);
