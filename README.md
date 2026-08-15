@@ -40,7 +40,7 @@ O projeto destina-se a bebés e crianças das faixas etárias dos **6 meses aos 
 Como o projeto é construído em HTML5, CSS3 e JavaScript puro, não necessita de etapas de compilação complexas:
 
 ### Opção 1: Abrir diretamente no Browser
-Basta dar dois cliques ou abrir o ficheiro [`index.html`](file:///c:/Users/diogo/Desktop/KidsClub.daFonte/index.html) em qualquer navegador moderno.
+Basta dar dois cliques ou abrir o ficheiro [`index.html`](index.html) em qualquer navegador moderno.
 
 ### Opção 2: Servidor Local (Recomendado)
 Para uma melhor experiência com o carregamento de fontes e recursos:

@@ -11,6 +11,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
   
+  <!-- Web Icon / Favicon (Logo2) -->
+  <link rel="icon" type="image/jpeg" href="assets/images/Logo/Logo2.jpg">
+  <link rel="apple-touch-icon" href="assets/images/Logo/Logo2.jpg">
+  
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -53,9 +57,7 @@
       <div class="flex items-center justify-between h-20">
         <!-- Logo -->
         <a href="#" class="flex items-center gap-3 group">
-          <div class="w-11 h-11 rounded-2xl bg-[#4A6B53] flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
-            <i data-lucide="sprout" class="w-6 h-6"></i>
-          </div>
+          <img src="assets/images/Logo/Logo2.jpg" alt="Logo KidsClub.daFonte" class="w-12 h-12 rounded-2xl object-cover shadow-sm group-hover:scale-105 transition-transform border border-[#4A6B53]/20 bg-white">
           <div>
             <span class="font-fredoka text-2xl font-bold text-[#4A6B53] tracking-tight block leading-none">KidsClub<span class="text-[#D97757]">.daFonte</span></span>
             <span class="text-[10px] tracking-widest text-[#3D342F]/70 font-semibold uppercase block mt-1">Terra da Fonte • Mafra</span>
@@ -172,16 +174,12 @@
           </div>
         </div>
 
-        <!-- Hero Image Frame -->
+        <!-- Hero Image Frame (Logo1 Principal) -->
         <div class="lg:col-span-5 gsap-reveal">
           <div class="relative group">
             <div class="absolute -inset-2 bg-gradient-to-r from-[#4A6B53] to-[#D97757] rounded-3xl blur-md opacity-30 group-hover:opacity-50 transition duration-500"></div>
-            <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-              <img src="images/hero_nature.png" alt="Crianças no KidsClub Terra da Fonte" class="w-full h-[420px] object-cover transform group-hover:scale-105 transition-transform duration-700">
-              <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent p-6 text-white">
-                <span class="font-fredoka text-lg font-semibold block">Natureza & Arte em Sintonia</span>
-                <span class="text-xs text-white/80">Espaço exterior verde com acompanhamento multidisciplinar.</span>
-              </div>
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-[#FAF7F2]">
+              <img src="assets/images/Logo/Logo1.jpg" alt="KidsClub.daFonte - Terra da Fonte, Mafra" class="w-full h-auto object-contain max-h-[460px] mx-auto transform group-hover:scale-[1.02] transition-transform duration-700">
             </div>
           </div>
         </div>
@@ -303,7 +301,7 @@
 
         <!-- Visual Side Card -->
         <div class="lg:col-span-5 relative rounded-3xl overflow-hidden shadow-lg border border-[#E8F0E6] flex flex-col justify-end p-8 gsap-reveal min-h-[380px]">
-          <img src="images/open_day.png" alt="Apresentação Presencial KidsClub" class="absolute inset-0 w-full h-full object-cover">
+          <img src="assets/images/Open_Day/apresentação.jpg" alt="Apresentação Presencial KidsClub" class="absolute inset-0 w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-[#4A6B53]/90 via-[#4A6B53]/40 to-transparent"></div>
           <div class="relative z-10 text-white space-y-3">
             <div class="w-10 h-10 rounded-xl bg-[#F4C542] text-[#3D342F] flex items-center justify-center font-bold">
@@ -327,7 +325,7 @@
         <!-- Left Column: Image collage -->
         <div class="lg:col-span-5 space-y-4 gsap-reveal">
           <div class="relative rounded-3xl overflow-hidden shadow-lg border-4 border-white">
-            <img src="images/nature_trail.png" alt="Exploração da Natureza" class="w-full h-72 object-cover">
+            <img src="assets/images/Kids/contacto com a natureza.jpg" alt="Exploração da Natureza" class="w-full h-72 object-cover">
           </div>
           <div class="grid grid-cols-2 gap-4">
             <div class="bg-[#E8F0E6] p-5 rounded-2xl border border-[#4A6B53]/20 text-center">
@@ -550,11 +548,11 @@
         
         <!-- Space Card 1: Cozinha de Lama Exterior -->
         <div class="space-card group cursor-pointer bg-white rounded-3xl overflow-hidden border border-[#E8F0E6] shadow-sm hover:shadow-xl transition-all"
-             data-img="images/mud_kitchen.png"
+             data-img="assets/images/Space/jardim (2).jpg"
              data-title="Cozinha Exterior de Lama"
              data-desc="Construção de cozinha exterior de lama totalmente equipada com utensílios em madeira e elementos naturais para exploração sensorial ao ar livre.">
           <div class="h-48 overflow-hidden relative">
-            <img src="images/mud_kitchen.png" alt="Cozinha de Lama Exterior" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <img src="assets/images/Space/jardim (2).jpg" alt="Cozinha de Lama Exterior" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
             <span class="absolute top-3 left-3 bg-[#4A6B53] text-white text-[10px] uppercase font-bold px-2.5 py-1 rounded-full">Exterior</span>
           </div>
           <div class="p-5 space-y-2">
@@ -568,11 +566,11 @@
 
         <!-- Space Card 2: Sala Interior & Mesas Baixas -->
         <div class="space-card group cursor-pointer bg-white rounded-3xl overflow-hidden border border-[#E8F0E6] shadow-sm hover:shadow-xl transition-all"
-             data-img="images/indoor_room.png"
+             data-img="assets/images/Space/sala de brincar.jpg"
              data-title="Salas Interiores & Mesas Baixas"
              data-desc="Ambiente interior acolhedor com mesas de refeição baixas, construção de 2 bancos corridos e móveis Montessori de acesso direto.">
           <div class="h-48 overflow-hidden relative">
-            <img src="images/indoor_room.png" alt="Espaços Interiores" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <img src="assets/images/Space/sala de brincar.jpg" alt="Espaços Interiores" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
             <span class="absolute top-3 left-3 bg-[#D97757] text-white text-[10px] uppercase font-bold px-2.5 py-1 rounded-full">Interior</span>
           </div>
           <div class="p-5 space-y-2">
@@ -586,11 +584,11 @@
 
         <!-- Space Card 3: Proteção de Escadas -->
         <div class="space-card group cursor-pointer bg-white rounded-3xl overflow-hidden border border-[#E8F0E6] shadow-sm hover:shadow-xl transition-all"
-             data-img="images/hero_nature.png"
+             data-img="assets/images/Space/CC_Terra-da-Fonte-768x512.jpg"
              data-title="Proteção de Escadas (Piso Sup. e Inf.)"
              data-desc="Portões de segurança reforçados e proteção de escadas no piso superior e inferior garantindo total proteção contra quedas.">
           <div class="h-48 overflow-hidden relative">
-            <img src="images/hero_nature.png" alt="Proteções de Segurança" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <img src="assets/images/Space/CC_Terra-da-Fonte-768x512.jpg" alt="Proteções de Segurança" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
             <span class="absolute top-3 left-3 bg-[#F4C542] text-[#3D342F] text-[10px] uppercase font-bold px-2.5 py-1 rounded-full">Segurança</span>
           </div>
           <div class="p-5 space-y-2">
@@ -604,11 +602,11 @@
 
         <!-- Space Card 4: Proteções Exteriores & Lago -->
         <div class="space-card group cursor-pointer bg-white rounded-3xl overflow-hidden border border-[#E8F0E6] shadow-sm hover:shadow-xl transition-all"
-             data-img="images/nature_trail.png"
+             data-img="assets/images/Space/tenda e trampolim.jpg"
              data-title="Proteção Corredor & Portão da Piscina/Lago"
              data-desc="Cobertura e proteção no corredor do pavilhão exterior + vedação rigorosa e trancada no portão da piscina/lago da quinta.">
           <div class="h-48 overflow-hidden relative">
-            <img src="images/nature_trail.png" alt="Recinto Exterior Seguro" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <img src="assets/images/Space/tenda e trampolim.jpg" alt="Recinto Exterior Seguro" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
             <span class="absolute top-3 left-3 bg-[#4A6B53] text-white text-[10px] uppercase font-bold px-2.5 py-1 rounded-full">Exterior</span>
           </div>
           <div class="p-5 space-y-2">
@@ -928,47 +926,65 @@
           <h3 class="font-fredoka text-2xl font-bold text-[#4A6B53]">Equipa de Direção & Coordenação</h3>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-6">
+        <div class="grid md:grid-cols-3 gap-8">
           <!-- Alexandra Battaglia -->
-          <div class="bg-white p-6 rounded-3xl border border-[#E8F0E6] shadow-sm hover:shadow-lg transition-all space-y-3">
-            <div class="w-14 h-14 rounded-2xl bg-[#4A6B53] text-white font-fredoka text-xl font-bold flex items-center justify-center shadow-md">
-              AB
-            </div>
+          <div class="bg-white rounded-3xl border border-[#E8F0E6] shadow-sm hover:shadow-xl transition-all duration-300 group overflow-hidden flex flex-col justify-between">
             <div>
-              <h4 class="font-fredoka text-xl font-bold text-[#4A6B53]">Alexandra Battaglia</h4>
-              <span class="text-xs font-semibold text-[#D97757] block">Diretora da Associação Cultural Amálgama</span>
+              <div class="h-80 w-full overflow-hidden relative bg-[#FAF7F2]">
+                <img src="assets/images/Team/Alexandra.jpg" alt="Alexandra Battaglia" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              </div>
+              <div class="p-6 space-y-2">
+                <span class="inline-block bg-[#E8F0E6] text-[#4A6B53] text-xs font-semibold px-3 py-1 rounded-full">
+                  Direção Amálgama
+                </span>
+                <h4 class="font-fredoka text-xl font-bold text-[#4A6B53] pt-1">Alexandra Battaglia</h4>
+                <p class="text-xs font-semibold text-[#D97757]">Diretora da Associação Cultural Amálgama</p>
+                <p class="text-xs text-gray-600 leading-relaxed pt-1">
+                  Artista, Bailarina e Professora. Detentora de Mestrado em Metodologias de Educação Artística.
+                </p>
+              </div>
             </div>
-            <p class="text-xs text-gray-600 leading-relaxed">
-              Artista, Bailarina e Professora. Detentora de Mestrado em Metodologias de Educação Artística.
-            </p>
           </div>
 
           <!-- Margarida Battaglia -->
-          <div class="bg-white p-6 rounded-3xl border border-[#E8F0E6] shadow-sm hover:shadow-lg transition-all space-y-3">
-            <div class="w-14 h-14 rounded-2xl bg-[#D97757] text-white font-fredoka text-xl font-bold flex items-center justify-center shadow-md">
-              MB
-            </div>
+          <div class="bg-white rounded-3xl border border-[#E8F0E6] shadow-sm hover:shadow-xl transition-all duration-300 group overflow-hidden flex flex-col justify-between">
             <div>
-              <h4 class="font-fredoka text-xl font-bold text-[#4A6B53]">Margarida Battaglia</h4>
-              <span class="text-xs font-semibold text-[#D97757] block">Coordenadora do Projeto</span>
+              <div class="h-80 w-full overflow-hidden relative bg-[#FAF7F2]">
+                <img src="assets/images/Team/Margarida.jpg" alt="Margarida Battaglia" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              </div>
+              <div class="p-6 space-y-2">
+                <span class="inline-block bg-[#FAF7F2] text-[#D97757] border border-[#D97757]/20 text-xs font-semibold px-3 py-1 rounded-full">
+                  Coordenação
+                </span>
+                <h4 class="font-fredoka text-xl font-bold text-[#4A6B53] pt-1">Margarida Battaglia</h4>
+                <p class="text-xs font-semibold text-[#D97757]">Coordenadora do Projeto</p>
+                <p class="text-xs text-gray-600 leading-relaxed pt-1">
+                  Artista e Produtora cultural. Formação em Artes Plásticas e Mestrado em Artes Visuais.
+                </p>
+              </div>
             </div>
-            <p class="text-xs text-gray-600 leading-relaxed">
-              Artista e Produtora cultural. Formação em Artes Plásticas e Mestrado em Artes Visuais.
-            </p>
           </div>
 
           <!-- Tiago Rocha -->
-          <div class="bg-white p-6 rounded-3xl border border-[#E8F0E6] shadow-sm hover:shadow-lg transition-all space-y-3">
-            <div class="w-14 h-14 rounded-2xl bg-[#F4C542] text-[#3D342F] font-fredoka text-xl font-bold flex items-center justify-center shadow-md">
-              TR
-            </div>
+          <div class="bg-white rounded-3xl border border-[#E8F0E6] shadow-sm hover:shadow-xl transition-all duration-300 group overflow-hidden flex flex-col justify-between">
             <div>
-              <h4 class="font-fredoka text-xl font-bold text-[#4A6B53]">Tiago Rocha</h4>
-              <span class="text-xs font-semibold text-[#D97757] block">Coordenador do Projeto</span>
+              <div class="h-80 w-full overflow-hidden relative bg-[#FAF7F2]">
+                <img src="assets/images/Team/Tiago.jpg" alt="Tiago Rocha" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              </div>
+              <div class="p-6 space-y-2">
+                <span class="inline-block bg-[#F4C542]/20 text-[#3D342F] text-xs font-semibold px-3 py-1 rounded-full">
+                  Coordenação & Música
+                </span>
+                <h4 class="font-fredoka text-xl font-bold text-[#4A6B53] pt-1">Tiago Rocha</h4>
+                <p class="text-xs font-semibold text-[#D97757]">Coordenador do Projeto</p>
+                <p class="text-xs text-gray-600 leading-relaxed pt-1">
+                  Artista, Músico, Cantor e Videógrafo. Formação sólida em Audiovisual, Cinema e Música.
+                </p>
+              </div>
             </div>
-            <p class="text-xs text-gray-600 leading-relaxed">
-              Artista, Músico, Cantor e Videógrafo. Formação sólida em Audiovisual, Cinema e Música.
-            </p>
           </div>
         </div>
       </div>
@@ -980,35 +996,65 @@
           <h3 class="font-fredoka text-2xl font-bold text-[#4A6B53]">Equipa de Implementação & Cuidadoras</h3>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-6 mb-6">
+        <div class="grid md:grid-cols-3 gap-8 mb-8">
           <!-- Sílvia Cabral -->
-          <div class="bg-white p-6 rounded-3xl border border-[#E8F0E6] shadow-sm hover:shadow-lg transition-all space-y-3">
-            <div class="w-12 h-12 rounded-2xl bg-[#E8F0E6] text-[#4A6B53] font-fredoka text-lg font-bold flex items-center justify-center">
-              SC
+          <div class="bg-white rounded-3xl border border-[#E8F0E6] shadow-sm hover:shadow-xl transition-all duration-300 group overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="h-80 w-full overflow-hidden relative bg-[#FAF7F2]">
+                <img src="assets/images/Team/Sílvia.jpeg" alt="Sílvia Cabral" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              </div>
+              <div class="p-6 space-y-2">
+                <span class="inline-block bg-[#E8F0E6] text-[#4A6B53] text-xs font-semibold px-3 py-1 rounded-full">
+                  Educadora Waldorf
+                </span>
+                <h4 class="font-fredoka text-xl font-bold text-[#4A6B53] pt-1">Sílvia Cabral</h4>
+                <p class="text-xs font-semibold text-[#D97757]">Cuidadora & Educadora Waldorf</p>
+                <p class="text-xs text-gray-600 leading-relaxed pt-1">
+                  Formação académica e prática contínua em Educação com abordagem de respeito pelo ritmo.
+                </p>
+              </div>
             </div>
-            <h4 class="font-fredoka text-lg font-bold text-[#4A6B53]">Sílvia Cabral</h4>
-            <span class="text-xs font-bold text-[#4A6B53] bg-[#E8F0E6] px-2.5 py-1 rounded-full inline-block">Cuidadora & Educadora Waldorf</span>
-            <p class="text-xs text-gray-600">Formação académica e prática contínua em Educação.</p>
           </div>
 
           <!-- Catarina Martins -->
-          <div class="bg-white p-6 rounded-3xl border border-[#E8F0E6] shadow-sm hover:shadow-lg transition-all space-y-3">
-            <div class="w-12 h-12 rounded-2xl bg-[#FAF7F2] text-[#D97757] font-fredoka text-lg font-bold flex items-center justify-center">
-              CM
+          <div class="bg-white rounded-3xl border border-[#E8F0E6] shadow-sm hover:shadow-xl transition-all duration-300 group overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="h-80 w-full overflow-hidden relative bg-[#FAF7F2]">
+                <img src="assets/images/Team/Catarina.jpg" alt="Catarina Martins" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              </div>
+              <div class="p-6 space-y-2">
+                <span class="inline-block bg-[#FAF7F2] text-[#D97757] border border-[#D97757]/20 text-xs font-semibold px-3 py-1 rounded-full">
+                  Psicologia da Educação
+                </span>
+                <h4 class="font-fredoka text-xl font-bold text-[#4A6B53] pt-1">Catarina Martins</h4>
+                <p class="text-xs font-semibold text-[#D97757]">Cuidadora dos Kids</p>
+                <p class="text-xs text-gray-600 leading-relaxed pt-1">
+                  Formação especializada em Psicologia da Educação e desenvolvimento emocional infantil.
+                </p>
+              </div>
             </div>
-            <h4 class="font-fredoka text-lg font-bold text-[#4A6B53]">Catarina Martins</h4>
-            <span class="text-xs font-bold text-[#D97757] bg-[#FAF7F2] px-2.5 py-1 rounded-full inline-block">Cuidadora dos Kids</span>
-            <p class="text-xs text-gray-600">Formação especializada em Psicologia da Educação.</p>
           </div>
 
           <!-- Natália Kozhevnikova -->
-          <div class="bg-white p-6 rounded-3xl border border-[#E8F0E6] shadow-sm hover:shadow-lg transition-all space-y-3">
-            <div class="w-12 h-12 rounded-2xl bg-[#F4C542]/20 text-[#3D342F] font-fredoka text-lg font-bold flex items-center justify-center">
-              NK
+          <div class="bg-white rounded-3xl border border-[#E8F0E6] shadow-sm hover:shadow-xl transition-all duration-300 group overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="h-80 w-full overflow-hidden relative bg-[#FAF7F2]">
+                <img src="assets/images/Team/Natalia.jpeg" alt="Natália Kozhevnikova" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              </div>
+              <div class="p-6 space-y-2">
+                <span class="inline-block bg-[#F4C542]/20 text-[#3D342F] text-xs font-semibold px-3 py-1 rounded-full">
+                  Waldorf & Piano
+                </span>
+                <h4 class="font-fredoka text-xl font-bold text-[#4A6B53] pt-1">Natália Kozhevnikova</h4>
+                <p class="text-xs font-semibold text-[#D97757]">Educadora Waldorf & Prof. Piano</p>
+                <p class="text-xs text-gray-600 leading-relaxed pt-1">
+                  Formação técnica e superior em Educação e Música com foco em sensibilidade artística.
+                </p>
+              </div>
             </div>
-            <h4 class="font-fredoka text-lg font-bold text-[#4A6B53]">Natália Kozhevnikova</h4>
-            <span class="text-xs font-bold text-[#3D342F] bg-[#F4C542]/20 px-2.5 py-1 rounded-full inline-block">Educadora Waldorf & Prof. Piano</span>
-            <p class="text-xs text-gray-600">Formação técnica e superior em Educação e Música.</p>
           </div>
         </div>
 
@@ -1171,9 +1217,7 @@
         
         <div class="md:col-span-6 space-y-2">
           <div class="flex items-center gap-3">
-            <div class="w-9 h-9 rounded-xl bg-[#4A6B53] flex items-center justify-center text-white">
-              <i data-lucide="sprout" class="w-5 h-5"></i>
-            </div>
+            <img src="assets/images/Logo/Logo2.jpg" alt="Logo KidsClub.daFonte" class="w-10 h-10 rounded-xl object-cover border border-white/20 bg-white">
             <span class="font-fredoka text-2xl font-bold text-white tracking-tight">KidsClub<span class="text-[#F4C542]">.daFonte</span></span>
           </div>
           <p class="text-xs text-gray-300 italic">
