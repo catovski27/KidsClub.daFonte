@@ -220,21 +220,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!modalPlanSelect || !calculatedPriceElem) return;
     const plan = modalPlanSelect.value;
     const kids = parseInt(modalKidsSelect ? modalKidsSelect.value : '1', 10);
-    let basePrice = 350;
-
-    if (plan === 'meio-dia') basePrice = 200;
-    else if (plan === 'avulso') basePrice = 50;
+    const basePrice = (plan === 'meio-dia') ? 200 : 350;
 
     let total = basePrice * kids;
-    if (kids > 1 && plan !== 'avulso') {
+    if (kids > 1) {
       total = Math.round(total * 0.9);
     }
 
-    if (plan === 'avulso') {
-      calculatedPriceElem.textContent = `${total}€ / dia avulso`;
-    } else {
-      calculatedPriceElem.textContent = `${total}€ / mês ${kids > 1 ? '(com 10% de desconto de irmão)' : ''}`;
-    }
+    calculatedPriceElem.textContent = `${total}€ / mês ${kids > 1 ? '(com 10% de desconto de irmão)' : ''}`;
   }
 
   if (modalPlanSelect && modalKidsSelect) {
@@ -277,6 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Direct Submission handler via WhatsApp & Email
+  // Direct Submission handler via E-mail (Gmail Web & Mailto)
   if (enrollmentForm) {
     enrollmentForm.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -291,35 +285,49 @@ document.addEventListener('DOMContentLoaded', () => {
       const estimatedPrice = document.getElementById('calculated-price')?.textContent || '';
       const notes = document.getElementById('input-notes')?.value || '';
 
-      const summaryText = `*Pré-Inscrição KidsClub.daFonte*\n\n` +
-        `• *Encarregado de Educação:* ${guardianName}\n` +
-        `• *Telemóvel:* ${guardianPhone}\n` +
-        `• *E-mail:* ${guardianEmail}\n` +
-        `• *Criança:* ${childInfo}\n` +
-        `• *Modalidade:* ${planText}\n` +
-        `• *N.º Crianças:* ${kidsCount}\n` +
-        `• *Estimativa:* ${estimatedPrice}\n` +
-        (notes ? `• *Observações:* ${notes}\n` : '');
+      const summaryText = 
+        `Pré-Inscrição KidsClub.daFonte\n\n` +
+        `Encarregado de Educação: ${guardianName}\n` +
+        `Telemóvel: ${guardianPhone}\n` +
+        `E-mail: ${guardianEmail}\n` +
+        `Criança (Nome e Idade): ${childInfo}\n` +
+        `Modalidade: ${planText}\n` +
+        `N.º de Crianças: ${kidsCount}\n` +
+        `Estimativa Mensal: ${estimatedPrice}\n` +
+        (notes ? `Observações: ${notes}\n` : '') +
+        `\n--\nEnviado através do site KidsClub.daFonte`;
+
+      const emailSubject = encodeURIComponent(`Pré-Inscrição KidsClub.daFonte - ${childInfo}`);
+      const emailBody = encodeURIComponent(summaryText);
+      const gmailWebUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=info.terradafonte@gmail.com&su=${emailSubject}&body=${emailBody}`;
+      const mailtoUrl = `mailto:info.terradafonte@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+
+      // Open Gmail Web in new tab automatically
+      const newWin = window.open(gmailWebUrl, '_blank');
+      if (!newWin || newWin.closed || typeof newWin.closed === 'undefined') {
+        // If popup blocked, fallback to mailto
+        window.location.href = mailtoUrl;
+      }
 
       const successBox = document.getElementById('form-success-message');
       const summaryDisplay = document.getElementById('summary-display');
-      const whatsappBtn = document.getElementById('btn-whatsapp-submit');
+      const gmailWebBtn = document.getElementById('btn-gmail-web-submit');
       const emailBtn = document.getElementById('btn-email-submit');
 
       if (summaryDisplay) {
-        summaryDisplay.textContent = `${guardianName} | ${childInfo} | ${planText} (${estimatedPrice})`;
+        summaryDisplay.textContent = `${guardianName} • ${childInfo} • ${planText}`;
       }
 
-      if (whatsappBtn) {
-        const encodedWa = encodeURIComponent(summaryText);
-        whatsappBtn.href = `https://wa.me/351918080412?text=${encodedWa}`;
+      if (gmailWebBtn) {
+        gmailWebBtn.href = gmailWebUrl;
       }
 
       if (emailBtn) {
-        const emailSubject = encodeURIComponent(`Pré-Inscrição KidsClub.daFonte - ${childInfo}`);
-        const emailBody = encodeURIComponent(summaryText.replace(/\*/g, ''));
-        emailBtn.href = `mailto:info.terradafonte@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+        emailBtn.href = mailtoUrl;
       }
+
+      // Store summary for copying
+      window._currentEmailSummary = summaryText;
 
       enrollmentForm.classList.add('hidden');
       if (successBox) successBox.classList.remove('hidden');
@@ -327,6 +335,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// Helper to copy current email text
+function copyEmailSummary() {
+  const text = window._currentEmailSummary || '';
+  if (text) {
+    navigator.clipboard.writeText(text).then(() => {
+      alert('Texto da inscrição copiado com sucesso para a área de transferência!');
+    }).catch(() => {
+      alert('Selecione e copie os dados manualmente.');
+    });
+  }
+}
 
 // Helper for quick copy of phone / email / map
 function copyToClipboard(text, label) {

@@ -10,12 +10,17 @@
   --castanho-texto: #3D342F;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+  overflow-x: hidden;
+}
+
 body {
   background-color: var(--creme-fundo);
   color: var(--castanho-texto);
   font-family: 'Plus Jakarta Sans', sans-serif;
   overflow-x: hidden;
-  scroll-behavior: smooth;
 }
 
 h1, h2, h3, .font-heading {
@@ -144,5 +149,33 @@ h1, h2, h3, .font-heading {
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .social-icon-btn:hover {
-  transform: translateY(-3px) scale(1.08);
+  transform: translateY(-2px);
+}
+
+/* Infinite Photo Marquee Animation */
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.photo-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 40s linear infinite;
+}
+
+.photo-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Video Player Card Container */
+.media-video-frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1.25rem;
 }

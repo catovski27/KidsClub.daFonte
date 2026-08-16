@@ -2,7 +2,8 @@
 
 > **"cuidar e educar | natureza e arte | brincar e crescer"**
 
-🌐 **Website Oficial (GitHub Pages):** [https://catovski27.github.io/KidsClub.daFonte/](https://catovski27.github.io/KidsClub.daFonte/)
+🌐 **Website Oficial (GitHub Pages):** [https://catovski27.github.io/KidsClub.daFonte/](https://catovski27.github.io/KidsClub.daFonte/)  
+📝 **Formulário de Inscrição Oficial (Google Forms):** [Preencher Formulário de Inscrição](https://docs.google.com/forms/d/11l4VuL1tLVeBoZVqpM1so1B5nwW7g1xuZIPPCdEGzOw/viewform?edit_requested=true)
 
 O **KidsClub.daFonte** é um projeto lúdico-pedagógico e comunitário localizado na **Terra da Fonte** (Milharado, Mafra), desenvolvido sob a coordenação artística e pedagógica da **Amálgama Associação Cultural** para o ano letivo **2026 | 2027**.
 
@@ -31,7 +32,8 @@ O projeto destina-se a bebés e crianças das faixas etárias dos **6 meses aos 
 6. **Programa Diário:** Comutador de horários detalhados para o período da **Manhã (08:15 - 13:00)** e da **Tarde (13:00 - 18:00)**.
 7. **Leque de Atividades:** Grelha com 15 experiências (yoga infantil, oficinas criativas, passeios na floresta, horta, contos, ética ambiental, festas de aniversário, etc.).
 8. **Nossa Equipa:** Perfis da Equipa de Direção (Alexandra Battaglia, Margarida Battaglia, Tiago Rocha) e Cuidadoras/Educadoras (Sílvia Cabral, Catarina Martins, Natália Kozhevnikova).
-9. **Preçário, Contactos & Inscrição Online:** Tabela comparativa de modalidades (**Dia Inteiro 350€**, **Meio Dia 200€**, **Avulso 50€**), formulário modal com cálculo dinâmico de mensalidade (com desconto de irmão) e contactos diretos.
+9. **Modalidades & Preçário:** Tabela com as 2 modalidades oficiais de inscrição (**Dia Inteiro 350€/mês**, **Meio Dia 200€/mês** com 10% de desconto de irmão) e informação sobre a utilização pontual avulsa (50€/sessão).
+10. **Informações Directas & Localização:** Contactos oficiais da coordenação (telefone, e-mail) e Google Maps integrado em layout lado a lado ("efeito de quadro").
 
 ---
 
@@ -55,6 +57,39 @@ Em seguida, aceda a `http://localhost:8080` ou `http://127.0.0.1:8080`.
 
 ---
 
+### Opção 3: Partilhar / Ver em Dispositivos na Mesma Rede (Wi-Fi / LAN)
+Para que outras pessoas na mesma rede Wi-Fi (em smartphones, tablets ou outros computadores) possam aceder e testar o website em tempo real:
+
+1. **Iniciar o Servidor Local:**
+   ```bash
+   # Com Python (acessível por toda a rede)
+   python -m http.server 8080
+
+   # Ou com npx serve
+   npx serve .
+   ```
+
+2. **Descobrir o teu Endereço IP Local:**
+   * **Windows:** Abre o terminal (PowerShell ou CMD) e executa:
+     ```powershell
+     ipconfig
+     ```
+     Procura pela linha **Endereço IPv4** (exemplo: `192.168.1.75` ou `192.168.0.120`).
+   * **macOS / Linux:** Abre o terminal e executa:
+     ```bash
+     ipconfig getifaddr en0   # macOS
+     hostname -I              # Linux
+     ```
+
+3. **Aceder a partir de Qualquer Dispositivo:**
+   No telemóvel ou tablet ligado à mesma rede Wi-Fi, abre o navegador (Chrome, Safari, etc.) e escreve:
+   ```text
+   http://<O-TEU-IP-LOCAL>:8080
+   # Exemplo: http://192.168.1.75:8080
+   ```
+
+---
+
 ## 📁 Estrutura de Diretórios
 
 ```
@@ -66,9 +101,9 @@ KidsClub.daFonte/
 │   └── main.css         # Tokens de design, fontes e estilos personalizados
 ├── js/
 │   └── main.js          # Animações GSAP, comutadores e lógica do formulário
-├── images/              # Imagens geradas e recursos visuais do espaço
-└── docs/
-    └── Apresentação kidsclub.pdf  # Documento original de apresentação
+└── assets/
+    ├── images/          # Fotografias oficiais (Logo, Equipa, Espaço, Open Day, Atividades)
+    └── videos/          # Vídeos ilustrativos do espaço e das dinâmicas
 ```
 
 ---

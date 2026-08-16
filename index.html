@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-PT" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KidsClub.daFonte | Natureza & Arte em Mafra</title>
-  <meta name="description" content="KidsClub.daFonte na Terra da Fonte, Milharado, Mafra. Um projeto lúdico-pedagógico da Terra da Fonte sob coordenação da Amálgama Associação Cultural. Cuidar e educar, natureza e arte, brincar e crescer.">
-  
+  <meta name="description"
+    content="KidsClub.daFonte na Terra da Fonte, Milharado, Mafra. Um projeto lúdico-pedagógico da Terra da Fonte sob coordenação da Amálgama Associação Cultural. Cuidar e educar, natureza e arte, brincar e crescer.">
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Quicksand:wght@500;600;700&display=swap"
+    rel="stylesheet">
+
   <!-- Web Icon / Favicon (Logo2) -->
   <link rel="icon" type="image/jpeg" href="assets/images/Logo/Logo2.jpg">
   <link rel="apple-touch-icon" href="assets/images/Logo/Logo2.jpg">
-  
+
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -49,23 +53,31 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/main.css">
 </head>
+
 <body class="bg-[#FAF7F2] text-[#3D342F] font-sans antialiased selection:bg-[#F4C542] selection:text-[#3D342F]">
 
   <!-- HEADER & NAVIGATION -->
-  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#FAF7F2]/95 backdrop-blur-md border-b border-[#E8F0E6]">
-    <div class="max-w-[1400px] w-full mx-auto px-4 sm:px-8 lg:px-12">
+  <nav id="navbar"
+    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#FAF7F2]/95 backdrop-blur-md border-b border-[#E8F0E6]">
+    <div class="max-w-[1400px] w-full mx-auto px-3.5 sm:px-6 lg:px-12">
       <div class="flex items-center justify-between h-20">
         <!-- Logo -->
-        <a href="#" class="flex items-center gap-3 group shrink-0">
-          <img src="assets/images/Logo/Logo2.jpg" alt="Logo KidsClub.daFonte" class="w-12 h-12 rounded-2xl object-cover shadow-sm group-hover:scale-105 transition-transform border border-[#4A6B53]/20 bg-white">
-          <div>
-            <span class="font-fredoka text-2xl font-bold text-[#4A6B53] tracking-tight block leading-none">KidsClub<span class="text-[#D97757]">.daFonte</span></span>
-            <span class="text-[10px] tracking-widest text-[#3D342F]/70 font-semibold uppercase block mt-1">Terra da Fonte • Mafra</span>
+        <a href="#" class="flex items-center gap-2.5 sm:gap-3 group shrink-0 min-w-0">
+          <img src="assets/images/Logo/Logo2.jpg" alt="Logo KidsClub.daFonte"
+            class="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-xl sm:rounded-2xl object-cover shadow-sm group-hover:scale-105 transition-transform border border-[#4A6B53]/20 bg-white shrink-0">
+          <div class="truncate">
+            <span
+              class="font-fredoka text-lg sm:text-2xl font-bold text-[#4A6B53] tracking-tight block leading-none truncate">KidsClub<span
+                class="text-[#D97757]">.daFonte</span></span>
+            <span
+              class="text-[8.5px] sm:text-[10px] tracking-wider sm:tracking-widest text-[#3D342F]/70 font-semibold uppercase block mt-0.5 sm:mt-1 truncate">Terra
+              da
+              Fonte • Mafra</span>
           </div>
         </a>
 
-        <!-- Desktop Navigation Links -->
-        <div class="hidden xl:flex items-center space-x-7 text-sm font-medium text-[#3D342F]">
+        <!-- Desktop Navigation Links (Apenas em ecrãs muito largos 2xl para nunca quebrar em laptops) -->
+        <div class="hidden 2xl:flex items-center space-x-6 text-sm font-medium text-[#3D342F]">
           <a href="#apresentacao" class="hover:text-[#4A6B53] transition-colors py-1">Dia Aberto</a>
           <a href="#proposito" class="hover:text-[#4A6B53] transition-colors py-1">Quem Somos</a>
           <a href="#pedagogia" class="hover:text-[#4A6B53] transition-colors py-1">Pedagogia</a>
@@ -74,113 +86,164 @@
           <a href="#atividades" class="hover:text-[#4A6B53] transition-colors py-1">Atividades</a>
           <a href="#equipa" class="hover:text-[#4A6B53] transition-colors py-1">Equipa</a>
           <a href="#precario" class="hover:text-[#4A6B53] transition-colors py-1">Preçário</a>
+          <a href="#contactos" class="hover:text-[#4A6B53] transition-colors py-1">Contactos</a>
         </div>
 
-        <!-- CTA Action -->
-        <div class="hidden sm:flex items-center gap-3">
-          <button class="open-enrollment-btn bg-[#D97757] hover:bg-[#c26547] text-white font-fredoka px-5 py-2.5 rounded-full shadow-sm hover:shadow-md transition-all flex items-center gap-2 text-sm font-semibold">
-            <i data-lucide="edit-3" class="w-4 h-4"></i>
-            Inscrições Online
-          </button>
+        <!-- Desktop CTA Action (2xl+) -->
+        <div class="hidden 2xl:flex items-center gap-3 shrink-0">
+          <a href="https://docs.google.com/forms/d/11l4VuL1tLVeBoZVqpM1so1B5nwW7g1xuZIPPCdEGzOw/viewform?edit_requested=true"
+            target="_blank" rel="noopener noreferrer"
+            class="bg-[#D97757] hover:bg-[#c26547] text-white font-fredoka px-5 py-2.5 rounded-full shadow-sm hover:shadow-md transition-all flex items-center gap-2 text-sm font-semibold whitespace-nowrap">
+            <i data-lucide="external-link" class="w-4 h-4"></i>
+            Inscrição Oficial
+          </a>
         </div>
 
-        <!-- Mobile Menu Button -->
-        <div class="xl:hidden">
-          <button id="mobile-menu-btn" class="p-2 rounded-xl text-[#4A6B53] hover:bg-[#E8F0E6] focus:outline-none" aria-label="Abrir Menu">
-            <i data-lucide="menu" class="w-7 h-7"></i>
+        <!-- Mobile & Tablet Menu Controls (< 2xl) -->
+        <div class="flex items-center gap-2 2xl:hidden shrink-0">
+          <a href="https://docs.google.com/forms/d/11l4VuL1tLVeBoZVqpM1so1B5nwW7g1xuZIPPCdEGzOw/viewform?edit_requested=true"
+            target="_blank" rel="noopener noreferrer"
+            class="hidden sm:inline-flex bg-[#D97757] hover:bg-[#c26547] text-white font-fredoka px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-semibold items-center gap-1.5 shadow-sm whitespace-nowrap">
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Inscrição
+          </a>
+          <button id="mobile-menu-btn"
+            class="p-2 rounded-xl text-[#4A6B53] hover:bg-[#E8F0E6] focus:outline-none transition-colors"
+            aria-label="Abrir Menu de Navegação">
+            <i data-lucide="menu" class="w-6 h-6 sm:w-7 sm:h-7"></i>
           </button>
         </div>
       </div>
     </div>
 
     <!-- Mobile Drawer Menu -->
-    <div id="mobile-menu" class="hidden xl:hidden bg-[#FAF7F2] border-b border-[#E8F0E6] px-6 pt-3 pb-6 space-y-3">
-      <a href="#apresentacao" class="block py-2.5 text-[#3D342F] hover:text-[#4A6B53] font-medium border-b border-gray-100">Dia Aberto (Apresentação Presencial)</a>
-      <a href="#proposito" class="block py-2.5 text-[#3D342F] hover:text-[#4A6B53] font-medium border-b border-gray-100">Quem Somos & Filosofia</a>
-      <a href="#pedagogia" class="block py-2.5 text-[#3D342F] hover:text-[#4A6B53] font-medium border-b border-gray-100">Pedagogias & Valores</a>
-      <a href="#espaco" class="block py-2.5 text-[#3D342F] hover:text-[#4A6B53] font-medium border-b border-gray-100">O Nosso Espaço</a>
-      <a href="#programa" class="block py-2.5 text-[#3D342F] hover:text-[#4A6B53] font-medium border-b border-gray-100">Programa Diário</a>
-      <a href="#atividades" class="block py-2.5 text-[#3D342F] hover:text-[#4A6B53] font-medium border-b border-gray-100">Leque de Atividades</a>
-      <a href="#equipa" class="block py-2.5 text-[#3D342F] hover:text-[#4A6B53] font-medium border-b border-gray-100">Nossa Equipa</a>
-      <a href="#precario" class="block py-2.5 text-[#3D342F] hover:text-[#4A6B53] font-medium">Preçário & Contactos</a>
+    <div id="mobile-menu"
+      class="hidden 2xl:hidden bg-[#FAF7F2] border-b border-[#E8F0E6] px-5 sm:px-8 pt-3 pb-6 space-y-2.5 max-h-[calc(100vh-5.5rem)] overflow-y-auto shadow-2xl">
+      <a href="#apresentacao"
+        class="block py-2.5 text-[#3D342F] hover:text-[#4A6B53] font-medium border-b border-gray-100 text-sm">Dia Aberto
+        (Apresentação Presencial)</a>
+      <a href="#proposito"
+        class="block py-2.5 text-[#3D342F] hover:text-[#4A6B53] font-medium border-b border-gray-100 text-sm">Quem Somos
+        &
+        Filosofia</a>
+      <a href="#pedagogia"
+        class="block py-2.5 text-[#3D342F] hover:text-[#4A6B53] font-medium border-b border-gray-100 text-sm">Pedagogias
+        &
+        Valores</a>
+      <a href="#espaco"
+        class="block py-2.5 text-[#3D342F] hover:text-[#4A6B53] font-medium border-b border-gray-100 text-sm">O
+        Nosso Espaço</a>
+      <a href="#programa"
+        class="block py-2.5 text-[#3D342F] hover:text-[#4A6B53] font-medium border-b border-gray-100 text-sm">Programa
+        Diário</a>
+      <a href="#atividades"
+        class="block py-2.5 text-[#3D342F] hover:text-[#4A6B53] font-medium border-b border-gray-100 text-sm">Leque de
+        Atividades</a>
+      <a href="#equipa"
+        class="block py-2.5 text-[#3D342F] hover:text-[#4A6B53] font-medium border-b border-gray-100 text-sm">Nossa
+        Equipa</a>
+      <a href="#precario"
+        class="block py-2.5 text-[#3D342F] hover:text-[#4A6B53] font-medium border-b border-gray-100 text-sm">Modalidades
+        & Preçário</a>
+      <a href="#contactos" class="block py-2.5 text-[#3D342F] hover:text-[#4A6B53] font-medium text-sm">Informações &
+        Localização</a>
       <div class="pt-3">
-        <button class="open-enrollment-btn w-full bg-[#D97757] text-white font-fredoka py-3.5 rounded-2xl font-semibold flex items-center justify-center gap-2 shadow-sm">
-          <i data-lucide="edit-3" class="w-4 h-4"></i> Inscrições Online (Vagas Limitadas)
-        </button>
+        <a href="https://docs.google.com/forms/d/11l4VuL1tLVeBoZVqpM1so1B5nwW7g1xuZIPPCdEGzOw/viewform?edit_requested=true"
+          target="_blank" rel="noopener noreferrer"
+          class="w-full bg-[#D97757] text-white font-fredoka py-3.5 rounded-2xl font-semibold flex items-center justify-center gap-2 shadow-sm text-center text-sm">
+          <i data-lucide="external-link" class="w-4 h-4"></i> Inscrição Oficial no Google Forms
+        </a>
       </div>
     </div>
   </nav>
 
   <!-- 1. HERO SECTION -->
-  <header class="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden bg-gradient-to-b from-[#FAF7F2] via-[#FAF7F2] to-[#E8F0E6]/50">
+  <header
+    class="relative pt-24 pb-16 sm:pt-28 sm:pb-20 md:pt-36 md:pb-28 overflow-hidden bg-gradient-to-b from-[#FAF7F2] via-[#FAF7F2] to-[#E8F0E6]/50">
     <!-- Floating background decorative leaves -->
     <div class="absolute top-24 left-10 text-[#4A6B53]/20 animate-leaf pointer-events-none">
-      <i data-lucide="leaf" class="w-16 h-16"></i>
+      <i data-lucide="leaf" class="w-12 h-12 sm:w-16 sm:h-16"></i>
     </div>
     <div class="absolute top-40 right-12 text-[#D97757]/20 animate-leaf-delayed pointer-events-none">
-      <i data-lucide="trees" class="w-20 h-20"></i>
+      <i data-lucide="trees" class="w-14 h-14 sm:w-20 sm:h-20"></i>
     </div>
     <div class="absolute bottom-10 left-1/3 text-[#F4C542]/30 animate-leaf pointer-events-none">
-      <i data-lucide="sun" class="w-14 h-14"></i>
+      <i data-lucide="sun" class="w-10 h-10 sm:w-14 sm:h-14"></i>
     </div>
 
     <div class="max-w-[1400px] w-full mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
-      <div class="grid lg:grid-cols-12 gap-12 items-center">
-        
+      <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+
         <!-- Text Column -->
-        <div class="lg:col-span-7 space-y-6 gsap-reveal">
-          <div class="inline-flex items-center gap-2 bg-[#E8F0E6] text-[#4A6B53] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold tracking-wide border border-[#4A6B53]/20 shadow-sm">
-            <i data-lucide="map-pin" class="w-4 h-4 text-[#D97757]"></i>
+        <div class="lg:col-span-7 space-y-5 sm:space-y-6 gsap-reveal text-center lg:text-left">
+          <div
+            class="inline-flex items-center gap-2 bg-[#E8F0E6] text-[#4A6B53] px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-semibold tracking-wide border border-[#4A6B53]/20 shadow-sm">
+            <i data-lucide="map-pin" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#D97757]"></i>
             <span>Terra da Fonte • Milharado, Mafra</span>
           </div>
 
-          <h1 class="font-fredoka text-4xl sm:text-5xl lg:text-6xl font-bold text-[#4A6B53] leading-tight">
+          <h1 class="font-fredoka text-3xl sm:text-5xl lg:text-6xl font-bold text-[#4A6B53] leading-tight">
             KidsClub<span class="text-[#D97757]">.daFonte</span>
           </h1>
 
-          <p class="font-quicksand text-xl sm:text-2xl font-bold text-[#D97757] italic tracking-wide">
+          <p class="font-quicksand text-base sm:text-xl lg:text-2xl font-bold text-[#D97757] italic tracking-wide">
             cuidar e educar | natureza e arte | brincar e crescer
           </p>
 
-          <p class="text-base sm:text-lg text-[#3D342F]/85 leading-relaxed max-w-3xl">
-            Um projeto comunitário e acolhedor na <strong class="text-[#4A6B53]">Terra da Fonte</strong>, sob coordenação artística e pedagógica da <strong class="text-[#4A6B53]">Amálgama Associação Cultural</strong>. Resposta integrada de conciliação familiar e bem-estar em Mafra.
+          <p class="text-sm sm:text-base lg:text-lg text-[#3D342F]/85 leading-relaxed max-w-3xl mx-auto lg:mx-0">
+            Um projeto comunitário e acolhedor na <strong class="text-[#4A6B53]">Terra da Fonte</strong>, sob
+            coordenação artística e pedagógica da <strong class="text-[#4A6B53]">Amálgama Associação Cultural</strong>.
+            Resposta integrada de conciliação familiar e bem-estar em Mafra.
           </p>
 
           <!-- Key Banner Info Card -->
-          <div class="p-5 rounded-2xl bg-white/90 border border-[#E8F0E6] shadow-sm flex flex-wrap sm:flex-nowrap items-center justify-between gap-4">
-            <div class="flex items-center gap-3.5">
-              <div class="w-12 h-12 rounded-xl bg-[#F4C542]/25 flex items-center justify-center text-[#4A6B53] shrink-0">
-                <i data-lucide="calendar" class="w-6 h-6"></i>
+          <div
+            class="p-4 sm:p-5 rounded-2xl bg-white/90 border border-[#E8F0E6] shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4 text-left">
+            <div class="flex items-center gap-3.5 w-full sm:w-auto">
+              <div
+                class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#F4C542]/25 flex items-center justify-center text-[#4A6B53] shrink-0">
+                <i data-lucide="calendar" class="w-5 h-5 sm:w-6 sm:h-6"></i>
               </div>
               <div>
-                <span class="text-xs text-gray-500 font-semibold block uppercase tracking-wider">Período Oficial de Inscrições</span>
-                <span class="font-fredoka text-lg text-[#4A6B53] font-bold">1 de Julho a 15 de Agosto</span>
+                <span class="text-[11px] sm:text-xs text-gray-500 font-semibold block uppercase tracking-wider">Período
+                  Oficial de
+                  Inscrições</span>
+                <span class="font-fredoka text-base sm:text-lg text-[#4A6B53] font-bold">1 de Julho a 15 de
+                  Agosto</span>
               </div>
             </div>
-            <span class="pulse-badge inline-flex items-center gap-1.5 bg-[#F4C542] text-[#3D342F] px-4 py-2 rounded-full text-xs font-bold shrink-0">
+            <span
+              class="pulse-badge inline-flex items-center gap-1.5 bg-[#F4C542] text-[#3D342F] px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-bold shrink-0 self-start sm:self-center">
               <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Vagas Limitadas
             </span>
           </div>
 
           <!-- Hero Action Buttons -->
-          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
-            <button class="open-enrollment-btn bg-[#4A6B53] hover:bg-[#3b5743] text-white font-fredoka px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 text-base font-bold flex items-center justify-center gap-3">
-              <i data-lucide="edit-3" class="w-5 h-5"></i>
-              Garantir Pré-Inscrição Online
-            </button>
-            <a href="#apresentacao" class="bg-white/90 hover:bg-white text-[#3D342F] border-2 border-[#4A6B53]/20 hover:border-[#4A6B53]/50 font-fredoka px-7 py-4 rounded-2xl shadow-sm transition-all text-base font-semibold flex items-center justify-center gap-2.5">
-              <i data-lucide="coffee" class="w-5 h-5 text-[#D97757]"></i>
-              Dia Aberto & Apresentação
+          <div
+            class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3.5 sm:gap-4 pt-2">
+            <a href="https://docs.google.com/forms/d/11l4VuL1tLVeBoZVqpM1so1B5nwW7g1xuZIPPCdEGzOw/viewform?edit_requested=true"
+              target="_blank" rel="noopener noreferrer"
+              class="bg-[#4A6B53] hover:bg-[#3b5743] text-white font-fredoka px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 text-sm sm:text-base font-bold flex items-center justify-center gap-2.5 sm:gap-3 text-center">
+              <i data-lucide="external-link" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+              Inscrição Online (Recomendado)
             </a>
+            <button
+              class="open-enrollment-btn bg-white/90 hover:bg-white text-[#3D342F] border-2 border-[#4A6B53]/20 hover:border-[#4A6B53]/50 font-fredoka px-5 sm:px-7 py-3.5 sm:py-4 rounded-2xl shadow-sm transition-all text-sm sm:text-base font-semibold flex items-center justify-center gap-2 text-center">
+              <i data-lucide="mail" class="w-4 h-4 sm:w-5 sm:h-5 text-[#D97757]"></i>
+              Inscrição via E-mail (Alternativo)
+            </button>
           </div>
         </div>
 
         <!-- Hero Image Frame (Logo1 Principal em Destaque) -->
-        <div class="lg:col-span-5 gsap-reveal">
-          <div class="relative group">
-            <div class="absolute -inset-2 bg-gradient-to-r from-[#4A6B53] to-[#D97757] rounded-3xl blur-md opacity-30 group-hover:opacity-50 transition duration-500"></div>
-            <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-[#FAF7F2] p-2 flex items-center justify-center">
-              <img src="assets/images/Logo/Logo1.jpg" alt="KidsClub.daFonte - Terra da Fonte, Mafra" class="w-full h-auto object-contain max-h-[480px] rounded-2xl mx-auto transform group-hover:scale-[1.02] transition-transform duration-700">
+        <div class="lg:col-span-5 gsap-reveal mt-4 lg:mt-0">
+          <div class="relative group max-w-sm sm:max-w-md lg:max-w-none mx-auto">
+            <div
+              class="absolute -inset-2 bg-gradient-to-r from-[#4A6B53] to-[#D97757] rounded-3xl blur-md opacity-30 group-hover:opacity-50 transition duration-500">
+            </div>
+            <div
+              class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-[#FAF7F2] p-2 flex items-center justify-center">
+              <img src="assets/images/Logo/Logo1.jpg" alt="KidsClub.daFonte - Terra da Fonte, Mafra"
+                class="w-full h-auto object-contain max-h-[380px] sm:max-h-[480px] rounded-2xl mx-auto transform group-hover:scale-[1.02] transition-transform duration-700">
             </div>
           </div>
         </div>
@@ -191,7 +254,9 @@
     <!-- Wave divider bottom -->
     <div class="absolute bottom-0 inset-x-0 leading-none pointer-events-none">
       <svg class="w-full h-12 text-[#E8F0E6] fill-current" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.06,140.23,121.21,211.23,110.15,248.8,104.3,285.45,82.4,321.39,56.44Z"></path>
+        <path
+          d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.06,140.23,121.21,211.23,110.15,248.8,104.3,285.45,82.4,321.39,56.44Z">
+        </path>
       </svg>
     </div>
   </header>
@@ -200,21 +265,27 @@
   <section id="apresentacao" class="py-16 md:py-24 bg-[#E8F0E6] relative">
     <div class="max-w-[1400px] w-full mx-auto px-4 sm:px-8 lg:px-12">
       <div class="text-center max-w-3xl mx-auto mb-12 gsap-reveal">
-        <span class="text-xs uppercase tracking-widest font-bold text-[#D97757] bg-white px-4 py-1.5 rounded-full border border-[#D97757]/20 shadow-sm inline-block mb-3">Reunião de Boas-Vindas</span>
-        <h2 class="font-fredoka text-3xl sm:text-4xl font-bold text-[#4A6B53]">Evento de Apresentação Presencial (Dia Aberto)</h2>
+        <span
+          class="text-xs uppercase tracking-widest font-bold text-[#D97757] bg-white px-4 py-1.5 rounded-full border border-[#D97757]/20 shadow-sm inline-block mb-3">Reunião
+          de Boas-Vindas</span>
+        <h2 class="font-fredoka text-3xl sm:text-4xl font-bold text-[#4A6B53]">Evento de Apresentação Presencial (Dia
+          Aberto)</h2>
         <p class="text-base text-[#3D342F]/80 mt-3">
-          Venha conhecer a equipa, explorar as instalações da Terra da Fonte e clarificar todas as dúvidas num ambiente descontraído e seguro para a sua família.
+          Venha conhecer a equipa, explorar as instalações da Terra da Fonte e clarificar todas as dúvidas num ambiente
+          descontraído e seguro para a sua família.
         </p>
       </div>
 
       <div class="grid lg:grid-cols-12 gap-8 items-stretch">
         <!-- Event Info & Timeline Card -->
-        <div class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-[#4A6B53]/15 flex flex-col justify-between gsap-reveal">
+        <div
+          class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-[#4A6B53]/15 flex flex-col justify-between gsap-reveal">
           <div>
             <div class="flex items-center justify-between border-b border-gray-100 pb-4 mb-6">
               <div>
                 <h3 class="font-fredoka text-2xl font-bold text-[#4A6B53]">Programa do Dia Aberto</h3>
-                <p class="text-xs text-gray-500 mt-0.5">Objetivo: Criar confiança, transmitir profissionalismo e acolhimento.</p>
+                <p class="text-xs text-gray-500 mt-0.5">Objetivo: Criar confiança, transmitir profissionalismo e
+                  acolhimento.</p>
               </div>
               <div class="w-12 h-12 rounded-2xl bg-[#E8F0E6] text-[#4A6B53] flex items-center justify-center font-bold">
                 <i data-lucide="clock" class="w-6 h-6"></i>
@@ -222,11 +293,15 @@
             </div>
 
             <!-- Timeline -->
-            <div class="space-y-3.5 relative before:absolute before:left-3.5 before:top-2 before:bottom-2 before:w-0.5 before:bg-[#F4C542]">
-              
+            <div
+              class="space-y-3.5 relative before:absolute before:left-3.5 before:top-2 before:bottom-2 before:w-0.5 before:bg-[#F4C542]">
+
               <div class="flex items-start gap-4 relative">
-                <div class="w-7 h-7 rounded-full bg-[#F4C542] text-[#3D342F] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">1</div>
-                <div class="bg-[#FAF7F2] p-3.5 rounded-xl border border-gray-100 w-full flex justify-between items-center">
+                <div
+                  class="w-7 h-7 rounded-full bg-[#F4C542] text-[#3D342F] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
+                  1</div>
+                <div
+                  class="bg-[#FAF7F2] p-3.5 rounded-xl border border-gray-100 w-full flex justify-between items-center">
                   <div>
                     <span class="font-bold text-[#4A6B53] text-sm block">10h00 - 10h15</span>
                     <span class="text-sm text-[#3D342F]">Chegadas & Boas-Vindas</span>
@@ -236,8 +311,11 @@
               </div>
 
               <div class="flex items-start gap-4 relative">
-                <div class="w-7 h-7 rounded-full bg-[#F4C542] text-[#3D342F] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">2</div>
-                <div class="bg-[#FAF7F2] p-3.5 rounded-xl border border-gray-100 w-full flex justify-between items-center">
+                <div
+                  class="w-7 h-7 rounded-full bg-[#F4C542] text-[#3D342F] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
+                  2</div>
+                <div
+                  class="bg-[#FAF7F2] p-3.5 rounded-xl border border-gray-100 w-full flex justify-between items-center">
                   <div>
                     <span class="font-bold text-[#4A6B53] text-sm block">10h15 - 10h30</span>
                     <span class="text-sm text-[#3D342F]">Apresentação do Projeto</span>
@@ -247,8 +325,11 @@
               </div>
 
               <div class="flex items-start gap-4 relative">
-                <div class="w-7 h-7 rounded-full bg-[#F4C542] text-[#3D342F] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">3</div>
-                <div class="bg-[#FAF7F2] p-3.5 rounded-xl border border-gray-100 w-full flex justify-between items-center">
+                <div
+                  class="w-7 h-7 rounded-full bg-[#F4C542] text-[#3D342F] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
+                  3</div>
+                <div
+                  class="bg-[#FAF7F2] p-3.5 rounded-xl border border-gray-100 w-full flex justify-between items-center">
                   <div>
                     <span class="font-bold text-[#4A6B53] text-sm block">10h30 - 10h45</span>
                     <span class="text-sm text-[#3D342F]">Conhecer a Equipa</span>
@@ -258,8 +339,11 @@
               </div>
 
               <div class="flex items-start gap-4 relative">
-                <div class="w-7 h-7 rounded-full bg-[#F4C542] text-[#3D342F] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">4</div>
-                <div class="bg-[#FAF7F2] p-3.5 rounded-xl border border-gray-100 w-full flex justify-between items-center">
+                <div
+                  class="w-7 h-7 rounded-full bg-[#F4C542] text-[#3D342F] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
+                  4</div>
+                <div
+                  class="bg-[#FAF7F2] p-3.5 rounded-xl border border-gray-100 w-full flex justify-between items-center">
                   <div>
                     <span class="font-bold text-[#4A6B53] text-sm block">10h45 - 11h00</span>
                     <span class="text-sm text-[#3D342F]">Visita Guiada ao Espaço</span>
@@ -269,8 +353,11 @@
               </div>
 
               <div class="flex items-start gap-4 relative">
-                <div class="w-7 h-7 rounded-full bg-[#F4C542] text-[#3D342F] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">5</div>
-                <div class="bg-[#FAF7F2] p-3.5 rounded-xl border border-gray-100 w-full flex justify-between items-center">
+                <div
+                  class="w-7 h-7 rounded-full bg-[#F4C542] text-[#3D342F] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
+                  5</div>
+                <div
+                  class="bg-[#FAF7F2] p-3.5 rounded-xl border border-gray-100 w-full flex justify-between items-center">
                   <div>
                     <span class="font-bold text-[#4A6B53] text-sm block">11h00 - 11h30</span>
                     <span class="text-sm text-[#3D342F]">Café / Chá + Perguntas & Respostas</span>
@@ -280,8 +367,11 @@
               </div>
 
               <div class="flex items-start gap-4 relative">
-                <div class="w-7 h-7 rounded-full bg-[#F4C542] text-[#3D342F] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">6</div>
-                <div class="bg-[#FAF7F2] p-3.5 rounded-xl border border-gray-100 w-full flex justify-between items-center">
+                <div
+                  class="w-7 h-7 rounded-full bg-[#F4C542] text-[#3D342F] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
+                  6</div>
+                <div
+                  class="bg-[#FAF7F2] p-3.5 rounded-xl border border-gray-100 w-full flex justify-between items-center">
                   <div>
                     <span class="font-bold text-[#4A6B53] text-sm block">11h30 - 12h00</span>
                     <span class="text-sm text-[#3D342F]">Espaço Livre e Apoio às Inscrições</span>
@@ -295,15 +385,18 @@
 
           <div class="mt-6 pt-4 border-t border-gray-100 flex flex-wrap items-center justify-between gap-4">
             <p class="text-xs text-gray-500 italic">Entrada livre mediante confirmação prévia de presença.</p>
-            <button class="open-enrollment-btn bg-[#D97757] hover:bg-[#c26547] text-white font-fredoka px-5 py-2.5 rounded-xl text-sm font-semibold flex items-center gap-2 shadow-sm">
+            <button
+              class="open-enrollment-btn bg-[#D97757] hover:bg-[#c26547] text-white font-fredoka px-5 py-2.5 rounded-xl text-sm font-semibold flex items-center gap-2 shadow-sm">
               <i data-lucide="check-circle" class="w-4 h-4"></i> Confirmar Presença no Dia Aberto
             </button>
           </div>
         </div>
 
         <!-- Visual Side Card with Real Open Day Image -->
-        <div class="lg:col-span-5 relative rounded-3xl overflow-hidden shadow-lg border border-[#E8F0E6] flex flex-col justify-end p-8 gsap-reveal min-h-[380px]">
-          <img src="assets/images/Open_Day/apresentação.jpg" alt="Apresentação Presencial KidsClub" class="absolute inset-0 w-full h-full object-cover">
+        <div
+          class="lg:col-span-5 relative rounded-3xl overflow-hidden shadow-lg border border-[#E8F0E6] flex flex-col justify-end p-8 gsap-reveal min-h-[380px]">
+          <img src="assets/images/Open_Day/apresentação.jpg" alt="Apresentação Presencial KidsClub"
+            class="absolute inset-0 w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-[#4A6B53]/95 via-[#4A6B53]/50 to-transparent"></div>
           <div class="relative z-10 text-white space-y-3">
             <div class="w-10 h-10 rounded-xl bg-[#F4C542] text-[#3D342F] flex items-center justify-center font-bold">
@@ -311,83 +404,433 @@
             </div>
             <h3 class="font-fredoka text-2xl font-bold">Um Ambiente Seguro e Acolhedor</h3>
             <p class="text-xs sm:text-sm text-white/90 leading-relaxed">
-              Proporcionamos uma experiência transparente onde os pais conhecem diretamente as cuidadoras, verificam as adaptações de segurança e sentem a tranquilidade da Terra da Fonte.
+              Proporcionamos uma experiência transparente onde os pais conhecem diretamente as cuidadoras, verificam as
+              adaptações de segurança e sentem a tranquilidade da Terra da Fonte.
             </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- OPEN DAY REAL MEDIA GALLERY & VIDEO (Registos do Dia Aberto) -->
+      <div class="mt-12 pt-10 border-t border-[#4A6B53]/20 gsap-reveal">
+        <div class="text-center max-w-2xl mx-auto mb-8">
+          <span
+            class="text-xs uppercase tracking-widest font-bold text-[#4A6B53] bg-white px-3.5 py-1 rounded-full border border-[#4A6B53]/20 inline-block mb-2">Registos
+            Reais</span>
+          <h3 class="font-fredoka text-2xl sm:text-3xl font-bold text-[#4A6B53]">Memórias & Vivências do Dia Aberto</h3>
+          <p class="text-xs sm:text-sm text-[#3D342F]/80 mt-1.5">Veja como foi o acolhimento, as atividades lúdicas e o
+            contacto próximo com as famílias.</p>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-6 items-center">
+          <!-- Open Day Video (Flush Modern Player) -->
+          <div class="lg:col-span-5 relative rounded-3xl overflow-hidden shadow-lg border-2 border-white bg-black h-[310px] sm:h-[328px]">
+            <video src="assets/videos/Open_Day/VID-20260719-WA0005.mp4" controls preload="metadata"
+              class="w-full h-full object-cover" style="object-position: center 30%;">
+              O seu navegador não suporta a reprodução de vídeo.
+            </video>
+          </div>
+
+          <!-- Open Day Photos Grid -->
+          <div class="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-3.5">
+            <div class="group relative rounded-2xl overflow-hidden shadow-sm h-36 sm:h-40 border border-white">
+              <img src="assets/images/Open_Day/apresentação (2).jpg" alt="Encontro de Apresentação com Famílias"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-2.5">
+                <span class="text-[11px] font-semibold text-white leading-tight">Encontro & Diálogo</span>
+              </div>
+            </div>
+
+            <div class="group relative rounded-2xl overflow-hidden shadow-sm h-36 sm:h-40 border border-white">
+              <img src="assets/images/Open_Day/atividade fitas.jpg" alt="Dinâmicas Criativas com Fitas"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-2.5">
+                <span class="text-[11px] font-semibold text-white leading-tight">Dança & Fitas</span>
+              </div>
+            </div>
+
+            <div class="group relative rounded-2xl overflow-hidden shadow-sm h-36 sm:h-40 border border-white">
+              <img src="assets/images/Open_Day/jogo do galo.jpg" alt="Jogos ao Ar Livre"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-2.5">
+                <span class="text-[11px] font-semibold text-white leading-tight">Jogos na Natureza</span>
+              </div>
+            </div>
+
+            <div class="group relative rounded-2xl overflow-hidden shadow-sm h-36 sm:h-40 border border-white">
+              <img src="assets/images/Open_Day/trampolim.jpg" alt="Brincadeiras no Trampolim"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-2.5">
+                <span class="text-[11px] font-semibold text-white leading-tight">Movimento Livre</span>
+              </div>
+            </div>
+
+            <div class="group relative rounded-2xl overflow-hidden shadow-sm h-36 sm:h-40 border border-white">
+              <img src="assets/images/Open_Day/pessoas (2).jpg" alt="Comunidade na Terra da Fonte"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-2.5">
+                <span class="text-[11px] font-semibold text-white leading-tight">Comunidade & Pais</span>
+              </div>
+            </div>
+
+            <div class="group relative rounded-2xl overflow-hidden shadow-sm h-36 sm:h-40 border border-white">
+              <img src="assets/images/Open_Day/equipa.jpg" alt="Equipa KidsClub"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-2.5">
+                <span class="text-[11px] font-semibold text-white leading-tight">Equipa Acolhedora</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 3. QUEM SOMOS, PROPÓSITO & FILOSOFIA -->
-  <section id="proposito" class="py-20 bg-[#FAF7F2]">
+  <!-- 3. QUEM SOMOS, PROPÓSITO & ECOPEDAGOGIA -->
+  <section id="proposito" class="py-20 bg-[#FAF7F2] relative">
     <div class="max-w-[1400px] w-full mx-auto px-4 sm:px-8 lg:px-12">
-      <div class="grid lg:grid-cols-12 gap-12 items-center">
-        
-        <!-- Left Column: Image collage -->
-        <div class="lg:col-span-5 space-y-4 gsap-reveal">
-          <div class="relative rounded-3xl overflow-hidden shadow-lg border-4 border-white">
-            <img src="assets/images/Kids/contacto com a natureza.jpg" alt="Contacto com a Natureza na Terra da Fonte" class="w-full h-80 object-cover">
+
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-14 gsap-reveal">
+        <span
+          class="text-xs uppercase tracking-widest font-bold text-[#4A6B53] bg-[#E8F0E6] px-4 py-1.5 rounded-full inline-block mb-3">Propósito,
+          Missão & Filosofia</span>
+        <h2 class="font-fredoka text-3xl sm:text-4xl lg:text-5xl font-bold text-[#4A6B53]">Ecopedagogia: Crescer e
+          Aprender em Comunhão com a Natureza</h2>
+        <p class="text-base text-[#3D342F]/85 mt-3 leading-relaxed">
+          O <strong class="text-[#4A6B53]">KidsClub.daFonte</strong> proporciona um espaço de desenvolvimento integral
+          onde o cuidar, a natureza, a arte e o brincar livre se unem para respeitar a essência de cada criança.
+        </p>
+      </div>
+
+      <!-- Top Row: Nature Video & Core Pillars -->
+      <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-16">
+
+        <!-- Left: Nature Space Video & Age Badges -->
+        <div class="lg:col-span-6 space-y-5 gsap-reveal">
+          <div class="bg-white p-4 rounded-3xl shadow-sm border border-[#E8F0E6]">
+            <div
+              class="relative rounded-2xl overflow-hidden shadow-inner bg-black aspect-video flex items-center justify-center">
+              <video src="assets/videos/Space/VID-20260719-WA0003.mp4" controls preload="metadata"
+                class="w-full h-full object-cover">
+                O seu navegador não suporta a reprodução de vídeo.
+              </video>
+            </div>
+            <div class="pt-3 px-2 flex items-center justify-between text-xs">
+              <span class="font-fredoka font-bold text-[#4A6B53] flex items-center gap-1.5">
+                <i data-lucide="trees" class="w-4 h-4 text-[#4A6B53]"></i> Vivências na Terra da Fonte
+              </span>
+              <span class="text-gray-500 text-[11px]">Natureza & Espaço</span>
+            </div>
           </div>
+
+          <!-- Age Badges -->
           <div class="grid grid-cols-2 gap-4">
             <div class="bg-[#E8F0E6] p-5 rounded-2xl border border-[#4A6B53]/20 text-center">
-              <span class="font-fredoka text-2xl sm:text-3xl font-bold text-[#4A6B53] block mb-1">6 meses aos 3 anos</span>
+              <span class="font-fredoka text-xl sm:text-2xl font-bold text-[#4A6B53] block mb-1">6 meses aos 3
+                anos</span>
               <span class="text-xs text-[#3D342F] font-semibold">Bebés e Primeira Infância</span>
             </div>
-            <div class="bg-[#FAF7F2] p-5 rounded-2xl border border-[#D97757]/20 text-center shadow-sm">
-              <span class="font-fredoka text-2xl sm:text-3xl font-bold text-[#D97757] block mb-1">3 aos 6 anos</span>
+            <div class="bg-white p-5 rounded-2xl border border-[#D97757]/30 text-center shadow-sm">
+              <span class="font-fredoka text-xl sm:text-2xl font-bold text-[#D97757] block mb-1">3 aos 6 anos</span>
               <span class="text-xs text-[#3D342F] font-semibold">Idade Pré-Escolar</span>
             </div>
           </div>
         </div>
 
-        <!-- Right Column: Content -->
-        <div class="lg:col-span-7 space-y-6 gsap-reveal">
-          <div>
-            <span class="text-xs uppercase tracking-widest font-bold text-[#4A6B53] bg-[#E8F0E6] px-4 py-1.5 rounded-full inline-block mb-3">Propósito & Missão</span>
-            <h2 class="font-fredoka text-3xl sm:text-4xl font-bold text-[#4A6B53]">Ecopedagogia e Desenvolvimento Integral do Ser</h2>
+        <!-- Right: Vision Cards & Philosophy -->
+        <div class="lg:col-span-6 space-y-5 gsap-reveal">
+          <div class="p-6 rounded-3xl bg-white border border-[#E8F0E6] shadow-sm space-y-3">
+            <div class="w-10 h-10 rounded-2xl bg-[#E8F0E6] text-[#4A6B53] flex items-center justify-center font-bold">
+              <i data-lucide="home" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-fredoka text-xl font-bold text-[#4A6B53]">Ambiente Familiar & Rácios Reduzidos</h3>
+            <p class="text-xs sm:text-sm text-[#3D342F]/80 leading-relaxed">
+              Ateliers de férias, oficinas criativas e rotinas diárias num ambiente calmo e seguro. Garantimos atenção
+              individualizada para responder com amor e carinho às necessidades de cada momento.
+            </p>
           </div>
 
-          <p class="text-base text-[#3D342F]/85 leading-relaxed">
-            O <strong class="text-[#4A6B53]">KidsClub.daFonte</strong> nasce como uma resposta consciente à necessidade de conciliação entre a vida familiar e profissional dos pais, promovendo um acompanhamento baseado no respeito absoluto pelo ritmo de cada criança.
-          </p>
-
-          <!-- Proposta de Valor Cards -->
-          <div class="grid sm:grid-cols-2 gap-4 pt-2">
-            <div class="p-5 rounded-2xl bg-white border border-[#E8F0E6] shadow-sm space-y-2">
-              <div class="w-9 h-9 rounded-xl bg-[#E8F0E6] text-[#4A6B53] flex items-center justify-center">
-                <i data-lucide="smile" class="w-5 h-5"></i>
-              </div>
-              <h4 class="font-fredoka text-lg font-bold text-[#4A6B53]">Ambiente Familiar</h4>
-              <p class="text-xs text-[#3D342F]/75 leading-relaxed">Ateliers de férias, oficinas criativas e programa diário com rácios reduzidos e cuidado afetuoso.</p>
+          <div class="p-6 rounded-3xl bg-white border border-[#E8F0E6] shadow-sm space-y-3">
+            <div
+              class="w-10 h-10 rounded-2xl bg-[#F4C542]/25 text-[#D97757] flex items-center justify-center font-bold">
+              <i data-lucide="compass" class="w-5 h-5"></i>
             </div>
-
-            <div class="p-5 rounded-2xl bg-white border border-[#E8F0E6] shadow-sm space-y-2">
-              <div class="w-9 h-9 rounded-xl bg-[#F4C542]/20 text-[#D97757] flex items-center justify-center">
-                <i data-lucide="compass" class="w-5 h-5"></i>
-              </div>
-              <h4 class="font-fredoka text-lg font-bold text-[#D97757]">Novo Mundo</h4>
-              <p class="text-xs text-[#3D342F]/75 leading-relaxed">Alinhamento pedagógico que prepara crianças mais empáticas, conscientes, autónomas e criativas.</p>
-            </div>
-          </div>
-
-          <!-- Os 6 Sentidos -->
-          <div class="p-6 rounded-3xl bg-[#E8F0E6]/60 border border-[#4A6B53]/20 space-y-3">
-            <h4 class="font-fredoka text-base font-bold text-[#4A6B53] flex items-center gap-2">
-              <i data-lucide="sparkles" class="w-4 h-4 text-[#D97757]"></i>
-              Aprender através dos 6 Sentidos da Ecopedagogia:
-            </h4>
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs font-semibold">
-              <span class="bg-white text-[#4A6B53] px-3 py-2 rounded-xl border border-[#4A6B53]/20 shadow-sm text-center">1. Experimentar</span>
-              <span class="bg-white text-[#4A6B53] px-3 py-2 rounded-xl border border-[#4A6B53]/20 shadow-sm text-center">2. Sentir</span>
-              <span class="bg-white text-[#4A6B53] px-3 py-2 rounded-xl border border-[#4A6B53]/20 shadow-sm text-center">3. Interpretar</span>
-              <span class="bg-white text-[#4A6B53] px-3 py-2 rounded-xl border border-[#4A6B53]/20 shadow-sm text-center">4. Socializar</span>
-              <span class="bg-white text-[#4A6B53] px-3 py-2 rounded-xl border border-[#4A6B53]/20 shadow-sm text-center">5. Contemplar</span>
-              <span class="bg-white text-[#4A6B53] px-3 py-2 rounded-xl border border-[#4A6B53]/20 shadow-sm text-center">6. Integrar</span>
-            </div>
+            <h3 class="font-fredoka text-xl font-bold text-[#D97757]">Educação para um Novo Mundo</h3>
+            <p class="text-xs sm:text-sm text-[#3D342F]/80 leading-relaxed">
+              Alinhamento pedagógico que prepara crianças empáticas, conscientes da sustentabilidade, emocionalmente
+              seguras e com elevada autonomia prática no seu dia a dia.
+            </p>
           </div>
         </div>
+      </div>
 
+      <!-- THE 6 SENSES OF ECOPEDAGOGY (OS 6 SENTIDOS EM DESTAQUE) -->
+      <div class="pt-6 gsap-reveal">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <span
+            class="text-xs uppercase tracking-widest font-bold text-[#D97757] bg-[#FAF7F2] px-3.5 py-1 rounded-full border border-[#D97757]/30 inline-block mb-2">Abordagem
+            Sensorial</span>
+          <h3 class="font-fredoka text-2xl sm:text-3xl font-bold text-[#4A6B53]">Os 6 Sentidos da Ecopedagogia</h3>
+          <p class="text-xs sm:text-sm text-gray-600 mt-1">Desenvolver o Ser humano na sua totalidade através da
+            experiência direta com o mundo vivo.</p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- 1. Experimentar -->
+          <div
+            class="bg-white p-6 rounded-3xl border border-[#E8F0E6] shadow-sm hover:shadow-md transition-all space-y-3 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="w-12 h-12 rounded-2xl bg-[#E8F0E6] text-[#4A6B53] flex items-center justify-center font-bold">
+                <i data-lucide="hand" class="w-6 h-6"></i>
+              </div>
+              <span class="text-xs font-bold text-[#4A6B53] uppercase tracking-wider block">Sentido 1</span>
+              <h4 class="font-fredoka text-xl font-bold text-[#4A6B53]">Experimentar</h4>
+              <p class="text-xs sm:text-sm text-[#3D342F]/80 leading-relaxed">
+                Contacto tátil e corpóreo direto com a terra húmida, argila, água, folhas e sementes. Aprender
+                manipulando a matéria natural.
+              </p>
+            </div>
+            <span
+              class="text-[11px] font-semibold text-[#4A6B53] bg-[#E8F0E6]/50 px-3 py-1 rounded-full inline-block w-fit">Tato
+              & Exploração</span>
+          </div>
+
+          <!-- 2. Sentir -->
+          <div
+            class="bg-white p-6 rounded-3xl border border-[#E8F0E6] shadow-sm hover:shadow-md transition-all space-y-3 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div
+                class="w-12 h-12 rounded-2xl bg-[#D97757]/15 text-[#D97757] flex items-center justify-center font-bold">
+                <i data-lucide="heart" class="w-6 h-6"></i>
+              </div>
+              <span class="text-xs font-bold text-[#D97757] uppercase tracking-wider block">Sentido 2</span>
+              <h4 class="font-fredoka text-xl font-bold text-[#D97757]">Sentir</h4>
+              <p class="text-xs sm:text-sm text-[#3D342F]/80 leading-relaxed">
+                Acolhimento afetivo diário no círculo de boas-vindas, escuta ativa das emoções e desenvolvimento da
+                empatia interpessoal.
+              </p>
+            </div>
+            <span
+              class="text-[11px] font-semibold text-[#D97757] bg-[#D97757]/10 px-3 py-1 rounded-full inline-block w-fit">Coração
+              & Afeto</span>
+          </div>
+
+          <!-- 3. Interpretar -->
+          <div
+            class="bg-white p-6 rounded-3xl border border-[#E8F0E6] shadow-sm hover:shadow-md transition-all space-y-3 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div
+                class="w-12 h-12 rounded-2xl bg-[#F4C542]/25 text-[#3D342F] flex items-center justify-center font-bold">
+                <i data-lucide="search" class="w-6 h-6"></i>
+              </div>
+              <span class="text-xs font-bold text-[#3D342F] uppercase tracking-wider block">Sentido 3</span>
+              <h4 class="font-fredoka text-xl font-bold text-[#4A6B53]">Interpretar</h4>
+              <p class="text-xs sm:text-sm text-[#3D342F]/80 leading-relaxed">
+                Estímulo à curiosidade nata, levantamento de hipóteses, descoberta guiada e pensamento crítico perante
+                fenómenos naturais.
+              </p>
+            </div>
+            <span
+              class="text-[11px] font-semibold text-[#3D342F] bg-[#F4C542]/20 px-3 py-1 rounded-full inline-block w-fit">Mente
+              & Curiosidade</span>
+          </div>
+
+          <!-- 4. Socializar -->
+          <div
+            class="bg-white p-6 rounded-3xl border border-[#E8F0E6] shadow-sm hover:shadow-md transition-all space-y-3 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="w-12 h-12 rounded-2xl bg-[#E8F0E6] text-[#4A6B53] flex items-center justify-center font-bold">
+                <i data-lucide="users" class="w-6 h-6"></i>
+              </div>
+              <span class="text-xs font-bold text-[#4A6B53] uppercase tracking-wider block">Sentido 4</span>
+              <h4 class="font-fredoka text-xl font-bold text-[#4A6B53]">Socializar</h4>
+              <p class="text-xs sm:text-sm text-[#3D342F]/80 leading-relaxed">
+                Brincadeira livre partilhada, trabalho em equipa nas tarefas da quinta, cooperação harmoniosa e respeito
+                mútuo entre pares.
+              </p>
+            </div>
+            <span
+              class="text-[11px] font-semibold text-[#4A6B53] bg-[#E8F0E6]/50 px-3 py-1 rounded-full inline-block w-fit">Comunidade
+              & Pares</span>
+          </div>
+
+          <!-- 5. Contemplar -->
+          <div
+            class="bg-white p-6 rounded-3xl border border-[#E8F0E6] shadow-sm hover:shadow-md transition-all space-y-3 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div
+                class="w-12 h-12 rounded-2xl bg-[#D97757]/15 text-[#D97757] flex items-center justify-center font-bold">
+                <i data-lucide="sun" class="w-6 h-6"></i>
+              </div>
+              <span class="text-xs font-bold text-[#D97757] uppercase tracking-wider block">Sentido 5</span>
+              <h4 class="font-fredoka text-xl font-bold text-[#D97757]">Contemplar</h4>
+              <p class="text-xs sm:text-sm text-[#3D342F]/80 leading-relaxed">
+                Momentos de calma, respiração ao ar livre, escuta atenta dos pássaros e admiração silenciosa pela beleza
+                das árvores e do céu.
+              </p>
+            </div>
+            <span
+              class="text-[11px] font-semibold text-[#D97757] bg-[#D97757]/10 px-3 py-1 rounded-full inline-block w-fit">Presença
+              & Serenidade</span>
+          </div>
+
+          <!-- 6. Integrar -->
+          <div
+            class="bg-white p-6 rounded-3xl border border-[#E8F0E6] shadow-sm hover:shadow-md transition-all space-y-3 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div
+                class="w-12 h-12 rounded-2xl bg-[#F4C542]/25 text-[#3D342F] flex items-center justify-center font-bold">
+                <i data-lucide="palette" class="w-6 h-6"></i>
+              </div>
+              <span class="text-xs font-bold text-[#3D342F] uppercase tracking-wider block">Sentido 6</span>
+              <h4 class="font-fredoka text-xl font-bold text-[#4A6B53]">Integrar</h4>
+              <p class="text-xs sm:text-sm text-[#3D342F]/80 leading-relaxed">
+                Síntese orgânica das vivências através da expressão plástica, música, dança criativa, teatro de sombras
+                e narrativas de contos.
+              </p>
+            </div>
+            <span
+              class="text-[11px] font-semibold text-[#3D342F] bg-[#F4C542]/20 px-3 py-1 rounded-full inline-block w-fit">Arte
+              & Expressão</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- DYNAMIC CONTINUOUS PHOTO STRIP / FRISO DE FOTOGRAFIAS (GALERIA VIVA) -->
+    <div class="mt-20 overflow-hidden py-4 bg-white/70 border-y border-[#E8F0E6]">
+      <div class="photo-marquee-track flex gap-4 items-center">
+        <!-- Photo 1 -->
+        <div class="w-64 sm:w-72 h-44 rounded-2xl overflow-hidden shadow-sm shrink-0 relative group">
+          <img src="assets/images/Kids/contacto com a natureza.jpg" alt="Contacto com a Natureza"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span
+            class="absolute bottom-2.5 left-2.5 bg-black/60 backdrop-blur-sm text-white text-[11px] font-semibold px-2.5 py-1 rounded-lg">🌿
+            Natureza Viva</span>
+        </div>
+        <!-- Photo 2 -->
+        <div class="w-64 sm:w-72 h-44 rounded-2xl overflow-hidden shadow-sm shrink-0 relative group">
+          <img src="assets/images/Kids/apren senso.jpg" alt="Aprendizagem Sensorial"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span
+            class="absolute bottom-2.5 left-2.5 bg-black/60 backdrop-blur-sm text-white text-[11px] font-semibold px-2.5 py-1 rounded-lg">🎨
+            Aprendizagem Sensorial</span>
+        </div>
+        <!-- Photo 3 -->
+        <div class="w-64 sm:w-72 h-44 rounded-2xl overflow-hidden shadow-sm shrink-0 relative group">
+          <img src="assets/images/Space/animais.jpg" alt="Animais da Quinta"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span
+            class="absolute bottom-2.5 left-2.5 bg-black/60 backdrop-blur-sm text-white text-[11px] font-semibold px-2.5 py-1 rounded-lg">🐴
+            Animais da Quinta</span>
+        </div>
+        <!-- Photo 4 -->
+        <div class="w-64 sm:w-72 h-44 rounded-2xl overflow-hidden shadow-sm shrink-0 relative group">
+          <img src="assets/images/Kids/Exploração ou curiosidade.jpg" alt="Curiosidade e Descoberta"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span
+            class="absolute bottom-2.5 left-2.5 bg-black/60 backdrop-blur-sm text-white text-[11px] font-semibold px-2.5 py-1 rounded-lg">🔍
+            Curiosidade Nata</span>
+        </div>
+        <!-- Photo 5 -->
+        <div class="w-64 sm:w-72 h-44 rounded-2xl overflow-hidden shadow-sm shrink-0 relative group">
+          <img src="assets/images/Open_Day/trampolim.jpg" alt="Brincadeira Livre"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span
+            class="absolute bottom-2.5 left-2.5 bg-black/60 backdrop-blur-sm text-white text-[11px] font-semibold px-2.5 py-1 rounded-lg">🎪
+            Brincadeira Livre</span>
+        </div>
+        <!-- Photo 6 -->
+        <div class="w-64 sm:w-72 h-44 rounded-2xl overflow-hidden shadow-sm shrink-0 relative group">
+          <img src="assets/images/Kids/crianças.jpeg" alt="Crianças Felizes"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span
+            class="absolute bottom-2.5 left-2.5 bg-black/60 backdrop-blur-sm text-white text-[11px] font-semibold px-2.5 py-1 rounded-lg">🌸
+            Sorrisos & Convivência</span>
+        </div>
+        <!-- Photo 7 -->
+        <div class="w-64 sm:w-72 h-44 rounded-2xl overflow-hidden shadow-sm shrink-0 relative group">
+          <img src="assets/images/Space/tenda e trampolim.jpg" alt="Espaço Exterior"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span
+            class="absolute bottom-2.5 left-2.5 bg-black/60 backdrop-blur-sm text-white text-[11px] font-semibold px-2.5 py-1 rounded-lg">⛺
+            Tenda & Exterior</span>
+        </div>
+        <!-- Photo 8 -->
+        <div class="w-64 sm:w-72 h-44 rounded-2xl overflow-hidden shadow-sm shrink-0 relative group">
+          <img src="assets/images/Open_Day/atividade ou dome.jpg" alt="Dome Geodésico"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span
+            class="absolute bottom-2.5 left-2.5 bg-black/60 backdrop-blur-sm text-white text-[11px] font-semibold px-2.5 py-1 rounded-lg">🏛️
+            Dome Geodésico</span>
+        </div>
+
+        <!-- DUPLICATE FOR SEAMLESS LOOP -->
+        <div class="w-64 sm:w-72 h-44 rounded-2xl overflow-hidden shadow-sm shrink-0 relative group">
+          <img src="assets/images/Kids/contacto com a natureza.jpg" alt="Contacto com a Natureza"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span
+            class="absolute bottom-2.5 left-2.5 bg-black/60 backdrop-blur-sm text-white text-[11px] font-semibold px-2.5 py-1 rounded-lg">🌿
+            Natureza Viva</span>
+        </div>
+        <div class="w-64 sm:w-72 h-44 rounded-2xl overflow-hidden shadow-sm shrink-0 relative group">
+          <img src="assets/images/Kids/apren senso.jpg" alt="Aprendizagem Sensorial"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span
+            class="absolute bottom-2.5 left-2.5 bg-black/60 backdrop-blur-sm text-white text-[11px] font-semibold px-2.5 py-1 rounded-lg">🎨
+            Aprendizagem Sensorial</span>
+        </div>
+        <div class="w-64 sm:w-72 h-44 rounded-2xl overflow-hidden shadow-sm shrink-0 relative group">
+          <img src="assets/images/Space/animais.jpg" alt="Animais da Quinta"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span
+            class="absolute bottom-2.5 left-2.5 bg-black/60 backdrop-blur-sm text-white text-[11px] font-semibold px-2.5 py-1 rounded-lg">🐴
+            Animais da Quinta</span>
+        </div>
+        <div class="w-64 sm:w-72 h-44 rounded-2xl overflow-hidden shadow-sm shrink-0 relative group">
+          <img src="assets/images/Kids/Exploração ou curiosidade.jpg" alt="Curiosidade e Descoberta"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span
+            class="absolute bottom-2.5 left-2.5 bg-black/60 backdrop-blur-sm text-white text-[11px] font-semibold px-2.5 py-1 rounded-lg">🔍
+            Curiosidade Nata</span>
+        </div>
+        <div class="w-64 sm:w-72 h-44 rounded-2xl overflow-hidden shadow-sm shrink-0 relative group">
+          <img src="assets/images/Open_Day/trampolim.jpg" alt="Brincadeira Livre"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span
+            class="absolute bottom-2.5 left-2.5 bg-black/60 backdrop-blur-sm text-white text-[11px] font-semibold px-2.5 py-1 rounded-lg">🎪
+            Brincadeira Livre</span>
+        </div>
+        <div class="w-64 sm:w-72 h-44 rounded-2xl overflow-hidden shadow-sm shrink-0 relative group">
+          <img src="assets/images/Kids/crianças.jpeg" alt="Crianças Felizes"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span
+            class="absolute bottom-2.5 left-2.5 bg-black/60 backdrop-blur-sm text-white text-[11px] font-semibold px-2.5 py-1 rounded-lg">🌸
+            Sorrisos & Convivência</span>
+        </div>
+        <div class="w-64 sm:w-72 h-44 rounded-2xl overflow-hidden shadow-sm shrink-0 relative group">
+          <img src="assets/images/Space/tenda e trampolim.jpg" alt="Espaço Exterior"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span
+            class="absolute bottom-2.5 left-2.5 bg-black/60 backdrop-blur-sm text-white text-[11px] font-semibold px-2.5 py-1 rounded-lg">⛺
+            Tenda & Exterior</span>
+        </div>
+        <div class="w-64 sm:w-72 h-44 rounded-2xl overflow-hidden shadow-sm shrink-0 relative group">
+          <img src="assets/images/Open_Day/atividade ou dome.jpg" alt="Dome Geodésico"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span
+            class="absolute bottom-2.5 left-2.5 bg-black/60 backdrop-blur-sm text-white text-[11px] font-semibold px-2.5 py-1 rounded-lg">🏛️
+            Dome Geodésico</span>
+        </div>
       </div>
     </div>
   </section>
@@ -396,7 +839,9 @@
   <section id="pedagogia" class="py-20 bg-white relative">
     <div class="max-w-[1400px] w-full mx-auto px-4 sm:px-8 lg:px-12">
       <div class="text-center max-w-3xl mx-auto mb-12 gsap-reveal">
-        <span class="text-xs uppercase tracking-widest font-bold text-[#D97757] bg-[#FAF7F2] px-4 py-1.5 rounded-full border border-[#D97757]/20 inline-block mb-3">Fundamentos Educativos</span>
+        <span
+          class="text-xs uppercase tracking-widest font-bold text-[#D97757] bg-[#FAF7F2] px-4 py-1.5 rounded-full border border-[#D97757]/20 inline-block mb-3">Fundamentos
+          Educativos</span>
         <h2 class="font-fredoka text-3xl sm:text-4xl font-bold text-[#4A6B53]">Abordagem Pedagógica Integrativa</h2>
         <p class="text-base text-[#3D342F]/80 mt-3">
           Combinamos o melhor de três grandes correntes pedagógicas inovadoras com uma sólida matriz de valores humanos.
@@ -405,71 +850,89 @@
 
       <!-- Pedagogy Tabs -->
       <div class="flex flex-wrap justify-center gap-3 mb-8 gsap-reveal">
-        <button class="pedagogy-tab active px-6 py-3 rounded-2xl font-fredoka font-semibold text-sm transition-all" data-pane="montessori">
+        <button class="pedagogy-tab active px-6 py-3 rounded-2xl font-fredoka font-semibold text-sm transition-all"
+          data-pane="montessori">
           🌼 Pedagogia Montessori
         </button>
-        <button class="pedagogy-tab bg-[#FAF7F2] text-[#3D342F] hover:bg-[#E8F0E6] px-6 py-3 rounded-2xl font-fredoka font-semibold text-sm transition-all" data-pane="waldorf">
+        <button
+          class="pedagogy-tab bg-[#FAF7F2] text-[#3D342F] hover:bg-[#E8F0E6] px-6 py-3 rounded-2xl font-fredoka font-semibold text-sm transition-all"
+          data-pane="waldorf">
           🎨 Pedagogia Waldorf
         </button>
-        <button class="pedagogy-tab bg-[#FAF7F2] text-[#3D342F] hover:bg-[#E8F0E6] px-6 py-3 rounded-2xl font-fredoka font-semibold text-sm transition-all" data-pane="mem">
+        <button
+          class="pedagogy-tab bg-[#FAF7F2] text-[#3D342F] hover:bg-[#E8F0E6] px-6 py-3 rounded-2xl font-fredoka font-semibold text-sm transition-all"
+          data-pane="mem">
           🤝 Movimento da Escola Moderna (MEM)
         </button>
       </div>
 
       <!-- Pedagogy Detailed Panes with External Links -->
       <div class="max-w-4xl mx-auto mb-16 gsap-reveal">
-        
+
         <div id="montessori" class="pedagogy-pane block bg-[#FAF7F2] p-8 rounded-3xl border border-[#E8F0E6] space-y-4">
           <div class="flex items-center justify-between flex-wrap gap-4">
             <div class="flex items-center gap-4">
-              <div class="w-12 h-12 rounded-2xl bg-[#D97757] text-white flex items-center justify-center font-bold text-xl">M</div>
+              <div
+                class="w-12 h-12 rounded-2xl bg-[#D97757] text-white flex items-center justify-center font-bold text-xl">
+                M</div>
               <div>
                 <h3 class="font-fredoka text-2xl font-bold text-[#4A6B53]">Pedagogia Montessori</h3>
                 <p class="text-xs text-gray-500 font-semibold uppercase tracking-wider">Autonomia & Ritmo Individual</p>
               </div>
             </div>
-            <a href="https://montessori.org.pt/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#4A6B53] bg-[#E8F0E6] px-4 py-2 rounded-xl hover:bg-[#4A6B53] hover:text-white transition-colors">
+            <a href="https://pt.wikipedia.org/wiki/M%C3%A9todo_Montessori" target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 text-xs font-bold text-[#4A6B53] bg-[#E8F0E6] px-4 py-2 rounded-xl hover:bg-[#4A6B53] hover:text-white transition-colors">
               Saber mais sobre Montessori <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
             </a>
           </div>
           <p class="text-sm text-[#3D342F]/85 leading-relaxed">
-            Ambiente preparado com materiais ao alcance dos mais pequenos, incentivando a escolha livre de atividades, a independência física e o desenvolvimento da concentração natural sem pressas nem juízos comparativos.
+            Ambiente preparado com materiais ao alcance dos mais pequenos, incentivando a escolha livre de atividades, a
+            independência física e o desenvolvimento da concentração natural sem pressas nem juízos comparativos.
           </p>
         </div>
 
         <div id="waldorf" class="pedagogy-pane hidden bg-[#FAF7F2] p-8 rounded-3xl border border-[#E8F0E6] space-y-4">
           <div class="flex items-center justify-between flex-wrap gap-4">
             <div class="flex items-center gap-4">
-              <div class="w-12 h-12 rounded-2xl bg-[#4A6B53] text-white flex items-center justify-center font-bold text-xl">W</div>
+              <div
+                class="w-12 h-12 rounded-2xl bg-[#4A6B53] text-white flex items-center justify-center font-bold text-xl">
+                W</div>
               <div>
                 <h3 class="font-fredoka text-2xl font-bold text-[#4A6B53]">Pedagogia Waldorf</h3>
                 <p class="text-xs text-gray-500 font-semibold uppercase tracking-wider">Imaginação, Arte & Natureza</p>
               </div>
             </div>
-            <a href="https://waldorfportugal.org/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#4A6B53] bg-[#E8F0E6] px-4 py-2 rounded-xl hover:bg-[#4A6B53] hover:text-white transition-colors">
+            <a href="https://pt.wikipedia.org/wiki/Pedagogia_Waldorf" target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 text-xs font-bold text-[#4A6B53] bg-[#E8F0E6] px-4 py-2 rounded-xl hover:bg-[#4A6B53] hover:text-white transition-colors">
               Saber mais sobre Waldorf <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
             </a>
           </div>
           <p class="text-sm text-[#3D342F]/85 leading-relaxed">
-            Valorização do brincar livre não estruturado, contos de fadas, canções sazonais, contacto direto com elementos naturais, trabalhos manuais, nutrição dos sentidos e respeito pelo ritmo biológico da infância.
+            Valorização do brincar livre não estruturado, contos de fadas, canções sazonais, contacto direto com
+            elementos naturais, trabalhos manuais, nutrição dos sentidos e respeito pelo ritmo biológico da infância.
           </p>
         </div>
 
         <div id="mem" class="pedagogy-pane hidden bg-[#FAF7F2] p-8 rounded-3xl border border-[#E8F0E6] space-y-4">
           <div class="flex items-center justify-between flex-wrap gap-4">
             <div class="flex items-center gap-4">
-              <div class="w-12 h-12 rounded-2xl bg-[#F4C542] text-[#3D342F] flex items-center justify-center font-bold text-xl">MEM</div>
+              <div
+                class="w-12 h-12 rounded-2xl bg-[#F4C542] text-[#3D342F] flex items-center justify-center font-bold text-xl">
+                MEM</div>
               <div>
                 <h3 class="font-fredoka text-2xl font-bold text-[#4A6B53]">Movimento da Escola Moderna (MEM)</h3>
-                <p class="text-xs text-gray-500 font-semibold uppercase tracking-wider">Participação, Cooperação & Democracia</p>
+                <p class="text-xs text-gray-500 font-semibold uppercase tracking-wider">Participação, Cooperação &
+                  Democracia</p>
               </div>
             </div>
-            <a href="https://www.movimentoescolamoderna.pt/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#4A6B53] bg-[#E8F0E6] px-4 py-2 rounded-xl hover:bg-[#4A6B53] hover:text-white transition-colors">
+            <a href="https://www.escolamoderna.pt/quem-somos/" target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 text-xs font-bold text-[#4A6B53] bg-[#E8F0E6] px-4 py-2 rounded-xl hover:bg-[#4A6B53] hover:text-white transition-colors">
               Saber mais sobre o MEM <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
             </a>
           </div>
           <p class="text-sm text-[#3D342F]/85 leading-relaxed">
-            Organização em comunidade, escuta ativa das crianças no conselho de grupo, projetos cooperativos e entreajuda entre idades diferenciadas numa prática pedagógica viva e democrática.
+            Organização em comunidade, escuta ativa das crianças no conselho de grupo, projetos cooperativos e
+            entreajuda entre idades diferenciadas numa prática pedagógica viva e democrática.
           </p>
         </div>
 
@@ -489,33 +952,48 @@
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
           <div class="p-5 rounded-3xl bg-[#FAF7F2] border border-[#E8F0E6] space-y-2.5 hover:shadow-md transition-all">
-            <div class="w-10 h-10 rounded-2xl bg-[#D97757]/20 text-[#D97757] flex items-center justify-center font-bold text-sm">1</div>
+            <div
+              class="w-10 h-10 rounded-2xl bg-[#D97757]/20 text-[#D97757] flex items-center justify-center font-bold text-sm">
+              1</div>
             <h4 class="font-fredoka font-bold text-[#4A6B53] text-base">Respeito</h4>
-            <p class="text-xs text-gray-600 leading-relaxed">Escuta atenta e consideração genuína pelo tempo e ritmo interior de cada criança.</p>
+            <p class="text-xs text-gray-600 leading-relaxed">Escuta atenta e consideração genuína pelo tempo e ritmo
+              interior de cada criança.</p>
           </div>
 
           <div class="p-5 rounded-3xl bg-[#FAF7F2] border border-[#E8F0E6] space-y-2.5 hover:shadow-md transition-all">
-            <div class="w-10 h-10 rounded-2xl bg-[#D97757]/20 text-[#D97757] flex items-center justify-center font-bold text-sm">2</div>
+            <div
+              class="w-10 h-10 rounded-2xl bg-[#D97757]/20 text-[#D97757] flex items-center justify-center font-bold text-sm">
+              2</div>
             <h4 class="font-fredoka font-bold text-[#4A6B53] text-base">Criatividade</h4>
-            <p class="text-xs text-gray-600 leading-relaxed">Expressão livre através da arte plástica, movimento corporal, música e teatro.</p>
+            <p class="text-xs text-gray-600 leading-relaxed">Expressão livre através da arte plástica, movimento
+              corporal, música e teatro.</p>
           </div>
 
           <div class="p-5 rounded-3xl bg-[#FAF7F2] border border-[#E8F0E6] space-y-2.5 hover:shadow-md transition-all">
-            <div class="w-10 h-10 rounded-2xl bg-[#D97757]/20 text-[#D97757] flex items-center justify-center font-bold text-sm">3</div>
+            <div
+              class="w-10 h-10 rounded-2xl bg-[#D97757]/20 text-[#D97757] flex items-center justify-center font-bold text-sm">
+              3</div>
             <h4 class="font-fredoka font-bold text-[#4A6B53] text-base">Presença</h4>
-            <p class="text-xs text-gray-600 leading-relaxed">Atenção plena dos educadores e crianças, cultivando momentos sem pressa.</p>
+            <p class="text-xs text-gray-600 leading-relaxed">Atenção plena dos educadores e crianças, cultivando
+              momentos sem pressa.</p>
           </div>
 
           <div class="p-5 rounded-3xl bg-[#FAF7F2] border border-[#E8F0E6] space-y-2.5 hover:shadow-md transition-all">
-            <div class="w-10 h-10 rounded-2xl bg-[#D97757]/20 text-[#D97757] flex items-center justify-center font-bold text-sm">4</div>
+            <div
+              class="w-10 h-10 rounded-2xl bg-[#D97757]/20 text-[#D97757] flex items-center justify-center font-bold text-sm">
+              4</div>
             <h4 class="font-fredoka font-bold text-[#4A6B53] text-base">Comunidade</h4>
-            <p class="text-xs text-gray-600 leading-relaxed">Entreajuda entre famílias, educadores e crianças num ambiente fraterno.</p>
+            <p class="text-xs text-gray-600 leading-relaxed">Entreajuda entre famílias, educadores e crianças num
+              ambiente fraterno.</p>
           </div>
 
           <div class="p-5 rounded-3xl bg-[#FAF7F2] border border-[#E8F0E6] space-y-2.5 hover:shadow-md transition-all">
-            <div class="w-10 h-10 rounded-xl bg-[#D97757]/20 text-[#D97757] flex items-center justify-center font-bold text-sm">5</div>
+            <div
+              class="w-10 h-10 rounded-xl bg-[#D97757]/20 text-[#D97757] flex items-center justify-center font-bold text-sm">
+              5</div>
             <h4 class="font-fredoka font-bold text-[#4A6B53] text-base">Natureza</h4>
-            <p class="text-xs text-gray-600 leading-relaxed">Contacto diário com árvores, terra, horta e animais na Terra da Fonte.</p>
+            <p class="text-xs text-gray-600 leading-relaxed">Contacto diário com árvores, terra, horta e animais na
+              Terra da Fonte.</p>
           </div>
         </div>
       </div>
@@ -606,26 +1084,31 @@
   <section id="espaco" class="py-20 bg-[#FAF7F2] relative">
     <div class="max-w-[1400px] w-full mx-auto px-4 sm:px-8 lg:px-12">
       <div class="text-center max-w-3xl mx-auto mb-12 gsap-reveal">
-        <span class="text-xs uppercase tracking-widest font-bold text-[#4A6B53] bg-[#E8F0E6] px-4 py-1.5 rounded-full inline-block mb-3">Infraestrutura</span>
-        <h2 class="font-fredoka text-3xl sm:text-4xl font-bold text-[#4A6B53]">O Nosso Espaço & Adaptações de Segurança</h2>
+        <span
+          class="text-xs uppercase tracking-widest font-bold text-[#4A6B53] bg-[#E8F0E6] px-4 py-1.5 rounded-full inline-block mb-3">Infraestrutura</span>
+        <h2 class="font-fredoka text-3xl sm:text-4xl font-bold text-[#4A6B53]">O Nosso Espaço & Adaptações de Segurança
+        </h2>
         <p class="text-base text-[#3D342F]/80 mt-3">
           Localizado no Caminho da Encosta 330, Milharado, Mafra. Um espaço amplo e seguro adaptado com carinho e rigor.
         </p>
       </div>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 gsap-reveal">
-        
+
         <!-- Space Card 1: Cozinha de Lama Exterior -->
-        <div class="space-card group cursor-pointer bg-white rounded-3xl overflow-hidden border border-[#E8F0E6] shadow-sm hover:shadow-xl transition-all"
-             data-img="assets/images/Space/jardim (2).jpg"
-             data-title="Cozinha Exterior de Lama"
-             data-desc="Construção de cozinha exterior de lama totalmente equipada com utensílios em madeira e elementos naturais para exploração sensorial ao ar livre.">
+        <div
+          class="space-card group cursor-pointer bg-white rounded-3xl overflow-hidden border border-[#E8F0E6] shadow-sm hover:shadow-xl transition-all"
+          data-img="assets/images/Space/jardim (2).jpg" data-title="Cozinha Exterior de Lama"
+          data-desc="Construção de cozinha exterior de lama totalmente equipada com utensílios em madeira e elementos naturais para exploração sensorial ao ar livre.">
           <div class="h-52 overflow-hidden relative">
-            <img src="assets/images/Space/jardim (2).jpg" alt="Cozinha de Lama Exterior" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-            <span class="absolute top-3 left-3 bg-[#4A6B53] text-white text-[10px] uppercase font-bold px-2.5 py-1 rounded-full">Exterior</span>
+            <img src="assets/images/Space/jardim (2).jpg" alt="Cozinha de Lama Exterior"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <span
+              class="absolute top-3 left-3 bg-[#4A6B53] text-white text-[10px] uppercase font-bold px-2.5 py-1 rounded-full">Exterior</span>
           </div>
           <div class="p-5 space-y-2">
-            <h4 class="font-fredoka text-lg font-bold text-[#4A6B53] group-hover:text-[#D97757] transition-colors">Cozinha Exterior de Lama</h4>
+            <h4 class="font-fredoka text-lg font-bold text-[#4A6B53] group-hover:text-[#D97757] transition-colors">
+              Cozinha Exterior de Lama</h4>
             <p class="text-xs text-gray-600">Espaço para experiências de terra, água, sementes e criatividade livre.</p>
             <span class="text-xs font-bold text-[#D97757] inline-flex items-center gap-1 pt-1">
               Ver Detalhes <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
@@ -634,17 +1117,21 @@
         </div>
 
         <!-- Space Card 2: Sala Interior & Mesas Baixas -->
-        <div class="space-card group cursor-pointer bg-white rounded-3xl overflow-hidden border border-[#E8F0E6] shadow-sm hover:shadow-xl transition-all"
-             data-img="assets/images/Space/sala de brincar.jpg"
-             data-title="Salas Interiores & Mesas Baixas"
-             data-desc="Ambiente interior acolhedor com mesas de refeição baixas, construção de 2 bancos corridos e móveis Montessori de acesso direto.">
+        <div
+          class="space-card group cursor-pointer bg-white rounded-3xl overflow-hidden border border-[#E8F0E6] shadow-sm hover:shadow-xl transition-all"
+          data-img="assets/images/Space/sala de brincar.jpg" data-title="Salas Interiores & Mesas Baixas"
+          data-desc="Ambiente interior acolhedor com mesas de refeição baixas, construção de 2 bancos corridos e móveis Montessori de acesso direto.">
           <div class="h-52 overflow-hidden relative">
-            <img src="assets/images/Space/sala de brincar.jpg" alt="Espaços Interiores" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-            <span class="absolute top-3 left-3 bg-[#D97757] text-white text-[10px] uppercase font-bold px-2.5 py-1 rounded-full">Interior</span>
+            <img src="assets/images/Space/sala de brincar.jpg" alt="Espaços Interiores"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <span
+              class="absolute top-3 left-3 bg-[#D97757] text-white text-[10px] uppercase font-bold px-2.5 py-1 rounded-full">Interior</span>
           </div>
           <div class="p-5 space-y-2">
-            <h4 class="font-fredoka text-lg font-bold text-[#4A6B53] group-hover:text-[#D97757] transition-colors">Salas Interiores & Bancos</h4>
-            <p class="text-xs text-gray-600">Mesas baixas de refeição e 2 bancos corridos adaptados à ergonomia infantil.</p>
+            <h4 class="font-fredoka text-lg font-bold text-[#4A6B53] group-hover:text-[#D97757] transition-colors">Salas
+              Interiores & Bancos</h4>
+            <p class="text-xs text-gray-600">Mesas baixas de refeição e 2 bancos corridos adaptados à ergonomia
+              infantil.</p>
             <span class="text-xs font-bold text-[#D97757] inline-flex items-center gap-1 pt-1">
               Ver Detalhes <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
             </span>
@@ -652,16 +1139,20 @@
         </div>
 
         <!-- Space Card 3: Proteção de Escadas -->
-        <div class="space-card group cursor-pointer bg-white rounded-3xl overflow-hidden border border-[#E8F0E6] shadow-sm hover:shadow-xl transition-all"
-             data-img="assets/images/Space/CC_Terra-da-Fonte-768x512.jpg"
-             data-title="Proteção de Escadas (Piso Superior e Piso Inferior)"
-             data-desc="Portões de segurança reforçados e proteção de escadas no piso superior e piso inferior garantindo total proteção contra quedas.">
+        <div
+          class="space-card group cursor-pointer bg-white rounded-3xl overflow-hidden border border-[#E8F0E6] shadow-sm hover:shadow-xl transition-all"
+          data-img="assets/images/Space/CC_Terra-da-Fonte-768x512.jpg"
+          data-title="Proteção de Escadas (Piso Superior e Piso Inferior)"
+          data-desc="Portões de segurança reforçados e proteção de escadas no piso superior e piso inferior garantindo total proteção contra quedas.">
           <div class="h-52 overflow-hidden relative">
-            <img src="assets/images/Space/CC_Terra-da-Fonte-768x512.jpg" alt="Proteções de Segurança" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-            <span class="absolute top-3 left-3 bg-[#F4C542] text-[#3D342F] text-[10px] uppercase font-bold px-2.5 py-1 rounded-full">Segurança</span>
+            <img src="assets/images/Space/CC_Terra-da-Fonte-768x512.jpg" alt="Proteções de Segurança"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <span
+              class="absolute top-3 left-3 bg-[#F4C542] text-[#3D342F] text-[10px] uppercase font-bold px-2.5 py-1 rounded-full">Segurança</span>
           </div>
           <div class="p-5 space-y-2">
-            <h4 class="font-fredoka text-lg font-bold text-[#4A6B53] group-hover:text-[#D97757] transition-colors">Proteção de Escadas</h4>
+            <h4 class="font-fredoka text-lg font-bold text-[#4A6B53] group-hover:text-[#D97757] transition-colors">
+              Proteção de Escadas</h4>
             <p class="text-xs text-gray-600">Portões de segurança nos pisos superior e inferior.</p>
             <span class="text-xs font-bold text-[#D97757] inline-flex items-center gap-1 pt-1">
               Ver Detalhes <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
@@ -670,16 +1161,19 @@
         </div>
 
         <!-- Space Card 4: Proteções Exteriores & Lago -->
-        <div class="space-card group cursor-pointer bg-white rounded-3xl overflow-hidden border border-[#E8F0E6] shadow-sm hover:shadow-xl transition-all"
-             data-img="assets/images/Space/tenda e trampolim.jpg"
-             data-title="Recinto Exterior, Tenda & Pavilhão"
-             data-desc="Cobertura e proteção no corredor do pavilhão exterior + vedação rigorosa e trancada no portão da piscina/lago da quinta.">
+        <div
+          class="space-card group cursor-pointer bg-white rounded-3xl overflow-hidden border border-[#E8F0E6] shadow-sm hover:shadow-xl transition-all"
+          data-img="assets/images/Space/tenda e trampolim.jpg" data-title="Recinto Exterior, Tenda & Pavilhão"
+          data-desc="Cobertura e proteção no corredor do pavilhão exterior + vedação rigorosa e trancada no portão da piscina/lago da quinta.">
           <div class="h-52 overflow-hidden relative">
-            <img src="assets/images/Space/tenda e trampolim.jpg" alt="Recinto Exterior Seguro" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-            <span class="absolute top-3 left-3 bg-[#4A6B53] text-white text-[10px] uppercase font-bold px-2.5 py-1 rounded-full">Exterior</span>
+            <img src="assets/images/Space/tenda e trampolim.jpg" alt="Recinto Exterior Seguro"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <span
+              class="absolute top-3 left-3 bg-[#4A6B53] text-white text-[10px] uppercase font-bold px-2.5 py-1 rounded-full">Exterior</span>
           </div>
           <div class="p-5 space-y-2">
-            <h4 class="font-fredoka text-lg font-bold text-[#4A6B53] group-hover:text-[#D97757] transition-colors">Recinto Exterior & Tenda</h4>
+            <h4 class="font-fredoka text-lg font-bold text-[#4A6B53] group-hover:text-[#D97757] transition-colors">
+              Recinto Exterior & Tenda</h4>
             <p class="text-xs text-gray-600">Cobertura de pavilhão e vedação segura no portão da piscina/lago.</p>
             <span class="text-xs font-bold text-[#D97757] inline-flex items-center gap-1 pt-1">
               Ver Detalhes <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
@@ -695,7 +1189,9 @@
   <section id="programa" class="py-20 bg-[#E8F0E6] relative">
     <div class="max-w-[1400px] w-full mx-auto px-4 sm:px-8 lg:px-12">
       <div class="text-center max-w-3xl mx-auto mb-10 gsap-reveal">
-        <span class="text-xs uppercase tracking-widest font-bold text-[#D97757] bg-white px-4 py-1.5 rounded-full border border-[#D97757]/20 inline-block mb-3">Rotina & Ritmo</span>
+        <span
+          class="text-xs uppercase tracking-widest font-bold text-[#D97757] bg-white px-4 py-1.5 rounded-full border border-[#D97757]/20 inline-block mb-3">Rotina
+          & Ritmo</span>
         <h2 class="font-fredoka text-3xl sm:text-4xl font-bold text-[#4A6B53]">Programa Diário Estruturado</h2>
         <p class="text-base text-[#3D342F]/80 mt-3">
           O ritmo diário traz segurança emocional às crianças, equilibrando momentos de expansão e recolhimento.
@@ -704,22 +1200,29 @@
 
       <!-- Filter Tabs for Schedule -->
       <div class="flex flex-wrap justify-center gap-3 mb-10 gsap-reveal">
-        <button class="schedule-tab active px-6 py-3 rounded-2xl font-fredoka text-sm font-semibold transition-all shadow-sm" data-mode="all">
+        <button
+          class="schedule-tab active px-6 py-3 rounded-2xl font-fredoka text-sm font-semibold transition-all shadow-sm"
+          data-mode="all">
           📅 Ver Dia Completo
         </button>
-        <button class="schedule-tab bg-white text-[#3D342F] hover:bg-[#FAF7F2] px-6 py-3 rounded-2xl font-fredoka text-sm font-semibold transition-all shadow-sm" data-mode="manha">
+        <button
+          class="schedule-tab bg-white text-[#3D342F] hover:bg-[#FAF7F2] px-6 py-3 rounded-2xl font-fredoka text-sm font-semibold transition-all shadow-sm"
+          data-mode="manha">
           ☀️ Manhãs (08:15 às 13:00)
         </button>
-        <button class="schedule-tab bg-white text-[#3D342F] hover:bg-[#FAF7F2] px-6 py-3 rounded-2xl font-fredoka text-sm font-semibold transition-all shadow-sm" data-mode="tarde">
+        <button
+          class="schedule-tab bg-white text-[#3D342F] hover:bg-[#FAF7F2] px-6 py-3 rounded-2xl font-fredoka text-sm font-semibold transition-all shadow-sm"
+          data-mode="tarde">
           🌙 Tardes (13:00 às 18:00)
         </button>
       </div>
 
       <!-- Schedule Dynamic Grid -->
       <div class="grid lg:grid-cols-2 gap-8 items-stretch gsap-reveal">
-        
+
         <!-- COLUNA 1: MANHÃ (Timeline) -->
-        <div id="schedule-col-manha" class="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-[#4A6B53]/15 space-y-6">
+        <div id="schedule-col-manha"
+          class="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-[#4A6B53]/15 space-y-6">
           <div class="flex items-center justify-between border-b border-gray-100 pb-4">
             <div class="flex items-center gap-3">
               <div class="w-10 h-10 rounded-2xl bg-[#F4C542]/20 text-[#D97757] flex items-center justify-center">
@@ -743,7 +1246,8 @@
               <span class="font-fredoka text-sm font-bold text-[#D97757] shrink-0 w-28">09:30 - 10:00</span>
               <div>
                 <h4 class="font-bold text-[#4A6B53] text-sm">Círculo da Manhã</h4>
-                <p class="text-xs text-gray-600 mt-0.5">Histórias sazonais, canções de roda e momentos de ligação comunitária.</p>
+                <p class="text-xs text-gray-600 mt-0.5">Histórias sazonais, canções de roda e momentos de ligação
+                  comunitária.</p>
               </div>
             </div>
 
@@ -751,7 +1255,8 @@
               <span class="font-fredoka text-sm font-bold text-[#D97757] shrink-0 w-28">10:00 - 10:15</span>
               <div>
                 <h4 class="font-bold text-[#4A6B53] text-sm">Lanche da Manhã</h4>
-                <p class="text-xs text-gray-600 mt-0.5">Lanche saudável trazido de casa com partilha em mesa redonda.</p>
+                <p class="text-xs text-gray-600 mt-0.5">Lanche saudável trazido de casa com partilha em mesa redonda.
+                </p>
               </div>
             </div>
 
@@ -759,7 +1264,8 @@
               <span class="font-fredoka text-sm font-bold text-[#D97757] shrink-0 w-28">10:15 - 12:00</span>
               <div>
                 <h4 class="font-bold text-[#4A6B53] text-sm">Explorar, Criar & Aprender</h4>
-                <p class="text-xs text-gray-600 mt-0.5">Ateliers de expressão artística, jogos de exploração e ligação à natureza.</p>
+                <p class="text-xs text-gray-600 mt-0.5">Ateliers de expressão artística, jogos de exploração e ligação à
+                  natureza.</p>
               </div>
             </div>
 
@@ -767,14 +1273,16 @@
               <span class="font-fredoka text-sm font-bold text-[#D97757] shrink-0 w-28">12:00 - 13:00</span>
               <div>
                 <h4 class="font-bold text-[#4A6B53] text-sm">Almoço em Comunidade</h4>
-                <p class="text-xs text-gray-600 mt-0.5">Refeição trazida de casa servida em mesas baixas comunitárias.</p>
+                <p class="text-xs text-gray-600 mt-0.5">Refeição trazida de casa servida em mesas baixas comunitárias.
+                </p>
               </div>
             </div>
           </div>
         </div>
 
         <!-- COLUNA 2: TARDE (Timeline) -->
-        <div id="schedule-col-tarde" class="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-[#4A6B53]/15 space-y-6">
+        <div id="schedule-col-tarde"
+          class="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-[#4A6B53]/15 space-y-6">
           <div class="flex items-center justify-between border-b border-gray-100 pb-4">
             <div class="flex items-center gap-3">
               <div class="w-10 h-10 rounded-2xl bg-[#4A6B53]/20 text-[#4A6B53] flex items-center justify-center">
@@ -790,7 +1298,8 @@
               <span class="font-fredoka text-sm font-bold text-[#D97757] shrink-0 w-28">13:00 - 13:45</span>
               <div>
                 <h4 class="font-bold text-[#4A6B53] text-sm">Cuidados e Transição</h4>
-                <p class="text-xs text-gray-600 mt-0.5">Higiene pessoal, autonomia e preparação tranquila para o descanso.</p>
+                <p class="text-xs text-gray-600 mt-0.5">Higiene pessoal, autonomia e preparação tranquila para o
+                  descanso.</p>
               </div>
             </div>
 
@@ -798,7 +1307,8 @@
               <span class="font-fredoka text-sm font-bold text-[#D97757] shrink-0 w-28">13:45 - 15:00</span>
               <div>
                 <h4 class="font-bold text-[#4A6B53] text-sm">Hora da Calma</h4>
-                <p class="text-xs text-gray-600 mt-0.5">Sesta reconfortante para os bebés ou repouso individual acolhedor.</p>
+                <p class="text-xs text-gray-600 mt-0.5">Sesta reconfortante para os bebés ou repouso individual
+                  acolhedor.</p>
               </div>
             </div>
 
@@ -806,7 +1316,8 @@
               <span class="font-fredoka text-sm font-bold text-[#D97757] shrink-0 w-28">15:00 - 15:45</span>
               <div>
                 <h4 class="font-bold text-[#4A6B53] text-sm">Natureza & Movimento</h4>
-                <p class="text-xs text-gray-600 mt-0.5">Ar livre, exploração de plantas, horta e observação dos animais.</p>
+                <p class="text-xs text-gray-600 mt-0.5">Ar livre, exploração de plantas, horta e observação dos animais.
+                </p>
               </div>
             </div>
 
@@ -822,7 +1333,8 @@
               <span class="font-fredoka text-sm font-bold text-[#D97757] shrink-0 w-28">16:15 - 17:15</span>
               <div>
                 <h4 class="font-bold text-[#4A6B53] text-sm">Histórias, Música & Expressão</h4>
-                <p class="text-xs text-gray-600 mt-0.5">Dança, instrumentos musicais, contos dramatizados e ateliers criativos.</p>
+                <p class="text-xs text-gray-600 mt-0.5">Dança, instrumentos musicais, contos dramatizados e ateliers
+                  criativos.</p>
               </div>
             </div>
 
@@ -830,22 +1342,27 @@
               <span class="font-fredoka text-sm font-bold text-[#D97757] shrink-0 w-28">17:15 - 18:00</span>
               <div>
                 <h4 class="font-bold text-[#4A6B53] text-sm">Despedida & Saída</h4>
-                <p class="text-xs text-gray-600 mt-0.5">Encontro acolhedor com a família e partilha dos acontecimentos do dia.</p>
+                <p class="text-xs text-gray-600 mt-0.5">Encontro acolhedor com a família e partilha dos acontecimentos
+                  do dia.</p>
               </div>
             </div>
           </div>
         </div>
 
         <!-- PAIRED CONTEXT CARD: MANHÃ (Aparece quando a aba Manhã está ativa) -->
-        <div id="schedule-media-manha" class="hidden bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-[#4A6B53]/15 flex flex-col justify-between space-y-6">
+        <div id="schedule-media-manha"
+          class="hidden bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-[#4A6B53]/15 flex flex-col justify-between space-y-6">
           <div class="space-y-4">
             <div class="h-64 rounded-2xl overflow-hidden relative">
-              <img src="assets/images/Kids/IMG_1814.jpg" alt="Manhãs na Terra da Fonte" class="w-full h-full object-cover">
-              <div class="absolute top-3 left-3 bg-[#4A6B53] text-white text-xs font-bold px-3 py-1 rounded-full">Destaques da Manhã</div>
+              <img src="assets/images/Kids/apren senso.jpg" alt="Manhãs na Terra da Fonte"
+                class="w-full h-full object-cover">
+              <div class="absolute top-3 left-3 bg-[#4A6B53] text-white text-xs font-bold px-3 py-1 rounded-full">
+                Destaques da Manhã</div>
             </div>
             <h3 class="font-fredoka text-2xl font-bold text-[#4A6B53]">Despertar para o Dia com Natureza e Arte</h3>
             <p class="text-sm text-gray-600 leading-relaxed">
-              As manhãs são dedicadas à exploração ativa, acolhimento afetuoso no círculo, exploração na horta e atividades artísticas que estimulam a criatividade das crianças.
+              As manhãs são dedicadas à exploração ativa, acolhimento afetuoso no círculo, exploração na horta e
+              atividades artísticas que estimulam a criatividade das crianças.
             </p>
           </div>
           <div class="p-4 rounded-2xl bg-[#E8F0E6] flex items-center gap-3 text-xs text-[#4A6B53] font-bold">
@@ -855,18 +1372,24 @@
         </div>
 
         <!-- PAIRED CONTEXT CARD: TARDE (Aparece quando a aba Tarde está ativa) -->
-        <div id="schedule-media-tarde" class="hidden bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-[#4A6B53]/15 flex flex-col justify-between space-y-6">
+        <div id="schedule-media-tarde"
+          class="hidden bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-[#4A6B53]/15 flex flex-col justify-between space-y-6">
           <div class="space-y-4">
             <div class="h-64 rounded-2xl overflow-hidden relative">
-              <img src="assets/images/Kids/apren senso.jpg" alt="Tardes na Terra da Fonte" class="w-full h-full object-cover">
-              <div class="absolute top-3 left-3 bg-[#D97757] text-white text-xs font-bold px-3 py-1 rounded-full">Destaques da Tarde</div>
+              <img src="assets/images/Kids/IMG_1814.jpg" alt="Tardes na Terra da Fonte"
+                class="w-full h-full object-cover">
+              <div class="absolute top-3 left-3 bg-[#D97757] text-white text-xs font-bold px-3 py-1 rounded-full">
+                Destaques da Tarde</div>
             </div>
-            <h3 class="font-fredoka text-2xl font-bold text-[#4A6B53]">Tranquilidade, Música e Movimento ao Ar Livre</h3>
+            <h3 class="font-fredoka text-2xl font-bold text-[#4A6B53]">Tranquilidade, Música e Movimento ao Ar Livre
+            </h3>
             <p class="text-sm text-gray-600 leading-relaxed">
-              As tardes proporcionam o equilíbrio perfeito entre o recolhimento na Hora da Calma, passeios pelos animais da quinta e momentos de expressão musical e contos.
+              As tardes proporcionam o equilíbrio perfeito entre o recolhimento na Hora da Calma, passeios pelos animais
+              da quinta e momentos de expressão musical e contos.
             </p>
           </div>
-          <div class="p-4 rounded-2xl bg-[#FAF7F2] border border-[#D97757]/20 flex items-center gap-3 text-xs text-[#3D342F] font-bold">
+          <div
+            class="p-4 rounded-2xl bg-[#FAF7F2] border border-[#D97757]/20 flex items-center gap-3 text-xs text-[#3D342F] font-bold">
             <i data-lucide="moon" class="w-5 h-5 text-[#D97757]"></i>
             <span>Ambiente sereno com música suave para respeitar a sesta e o descanso dos mais pequenos.</span>
           </div>
@@ -880,7 +1403,9 @@
   <section id="atividades" class="py-20 bg-white">
     <div class="max-w-[1400px] w-full mx-auto px-4 sm:px-8 lg:px-12">
       <div class="text-center max-w-3xl mx-auto mb-10 gsap-reveal">
-        <span class="text-xs uppercase tracking-widest font-bold text-[#4A6B53] bg-[#E8F0E6] px-4 py-1.5 rounded-full inline-block mb-3">Diversidade Lúdica</span>
+        <span
+          class="text-xs uppercase tracking-widest font-bold text-[#4A6B53] bg-[#E8F0E6] px-4 py-1.5 rounded-full inline-block mb-3">Diversidade
+          Lúdica</span>
         <h2 class="font-fredoka text-3xl sm:text-4xl font-bold text-[#4A6B53]">Leque de Atividades Oferecidas</h2>
         <p class="text-base text-[#3D342F]/80 mt-3">
           Experiências ricas e variadas que estimulam o corpo, a mente e o espírito em pleno contacto com a natureza.
@@ -889,27 +1414,39 @@
 
       <!-- Filter Buttons -->
       <div class="flex flex-wrap justify-center gap-2.5 mb-10 gsap-reveal">
-        <button class="activity-filter-btn active px-5 py-2.5 rounded-2xl font-fredoka text-xs sm:text-sm font-semibold transition-all" data-filter="all">
+        <button
+          class="activity-filter-btn active px-5 py-2.5 rounded-2xl font-fredoka text-xs sm:text-sm font-semibold transition-all"
+          data-filter="all">
           ✨ Todas as Atividades (15)
         </button>
-        <button class="activity-filter-btn bg-[#FAF7F2] text-[#3D342F] hover:bg-[#E8F0E6] px-5 py-2.5 rounded-2xl font-fredoka text-xs sm:text-sm font-semibold transition-all" data-filter="natureza">
+        <button
+          class="activity-filter-btn bg-[#FAF7F2] text-[#3D342F] hover:bg-[#E8F0E6] px-5 py-2.5 rounded-2xl font-fredoka text-xs sm:text-sm font-semibold transition-all"
+          data-filter="natureza">
           🌿 Natureza & Exploração
         </button>
-        <button class="activity-filter-btn bg-[#FAF7F2] text-[#3D342F] hover:bg-[#E8F0E6] px-5 py-2.5 rounded-2xl font-fredoka text-xs sm:text-sm font-semibold transition-all" data-filter="arte">
+        <button
+          class="activity-filter-btn bg-[#FAF7F2] text-[#3D342F] hover:bg-[#E8F0E6] px-5 py-2.5 rounded-2xl font-fredoka text-xs sm:text-sm font-semibold transition-all"
+          data-filter="arte">
           🎨 Arte & Criatividade
         </button>
-        <button class="activity-filter-btn bg-[#FAF7F2] text-[#3D342F] hover:bg-[#E8F0E6] px-5 py-2.5 rounded-2xl font-fredoka text-xs sm:text-sm font-semibold transition-all" data-filter="movimento">
+        <button
+          class="activity-filter-btn bg-[#FAF7F2] text-[#3D342F] hover:bg-[#E8F0E6] px-5 py-2.5 rounded-2xl font-fredoka text-xs sm:text-sm font-semibold transition-all"
+          data-filter="movimento">
           🧘 Movimento & Corpo
         </button>
-        <button class="activity-filter-btn bg-[#FAF7F2] text-[#3D342F] hover:bg-[#E8F0E6] px-5 py-2.5 rounded-2xl font-fredoka text-xs sm:text-sm font-semibold transition-all" data-filter="comunidade">
+        <button
+          class="activity-filter-btn bg-[#FAF7F2] text-[#3D342F] hover:bg-[#E8F0E6] px-5 py-2.5 rounded-2xl font-fredoka text-xs sm:text-sm font-semibold transition-all"
+          data-filter="comunidade">
           🏡 Família & Comunidade
         </button>
       </div>
 
       <!-- Activities Grid -->
       <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 gsap-stagger-container">
-        
-        <div class="activity-item gsap-stagger-item p-4 bg-[#FAF7F2] rounded-2xl border border-gray-100 hover:border-[#4A6B53]/30 hover:shadow-md transition-all space-y-2" data-category="comunidade">
+
+        <div
+          class="activity-item gsap-stagger-item p-4 bg-[#FAF7F2] rounded-2xl border border-gray-100 hover:border-[#4A6B53]/30 hover:shadow-md transition-all space-y-2"
+          data-category="comunidade">
           <div class="w-10 h-10 rounded-xl bg-[#E8F0E6] text-[#4A6B53] flex items-center justify-center">
             <i data-lucide="home" class="w-5 h-5"></i>
           </div>
@@ -917,7 +1454,9 @@
           <p class="text-xs text-gray-500">Acompanhamento contínuo de Segunda a Sexta-feira.</p>
         </div>
 
-        <div class="activity-item gsap-stagger-item p-4 bg-[#FAF7F2] rounded-2xl border border-gray-100 hover:border-[#4A6B53]/30 hover:shadow-md transition-all space-y-2" data-category="arte">
+        <div
+          class="activity-item gsap-stagger-item p-4 bg-[#FAF7F2] rounded-2xl border border-gray-100 hover:border-[#4A6B53]/30 hover:shadow-md transition-all space-y-2"
+          data-category="arte">
           <div class="w-10 h-10 rounded-xl bg-[#F4C542]/20 text-[#3D342F] flex items-center justify-center">
             <i data-lucide="palette" class="w-5 h-5"></i>
           </div>
@@ -925,7 +1464,9 @@
           <p class="text-xs text-gray-500">Pintura, modelagem com barro e trabalhos manuais.</p>
         </div>
 
-        <div class="activity-item gsap-stagger-item p-4 bg-[#FAF7F2] rounded-2xl border border-gray-100 hover:border-[#4A6B53]/30 hover:shadow-md transition-all space-y-2" data-category="arte">
+        <div
+          class="activity-item gsap-stagger-item p-4 bg-[#FAF7F2] rounded-2xl border border-gray-100 hover:border-[#4A6B53]/30 hover:shadow-md transition-all space-y-2"
+          data-category="arte">
           <div class="w-10 h-10 rounded-xl bg-[#D97757]/20 text-[#D97757] flex items-center justify-center">
             <i data-lucide="music" class="w-5 h-5"></i>
           </div>
@@ -933,7 +1474,9 @@
           <p class="text-xs text-gray-500">Canto, ritmos naturais e iniciação aos instrumentos.</p>
         </div>
 
-        <div class="activity-item gsap-stagger-item p-4 bg-[#FAF7F2] rounded-2xl border border-gray-100 hover:border-[#4A6B53]/30 hover:shadow-md transition-all space-y-2" data-category="movimento">
+        <div
+          class="activity-item gsap-stagger-item p-4 bg-[#FAF7F2] rounded-2xl border border-gray-100 hover:border-[#4A6B53]/30 hover:shadow-md transition-all space-y-2"
+          data-category="movimento">
           <div class="w-10 h-10 rounded-xl bg-[#E8F0E6] text-[#4A6B53] flex items-center justify-center">
             <i data-lucide="heart-pulse" class="w-5 h-5"></i>
           </div>
@@ -941,7 +1484,9 @@
           <p class="text-xs text-gray-500">Consciência corporal, relaxamento e respiração.</p>
         </div>
 
-        <div class="activity-item gsap-stagger-item p-4 bg-[#FAF7F2] rounded-2xl border border-gray-100 hover:border-[#4A6B53]/30 hover:shadow-md transition-all space-y-2" data-category="arte">
+        <div
+          class="activity-item gsap-stagger-item p-4 bg-[#FAF7F2] rounded-2xl border border-gray-100 hover:border-[#4A6B53]/30 hover:shadow-md transition-all space-y-2"
+          data-category="arte">
           <div class="w-10 h-10 rounded-xl bg-[#F4C542]/20 text-[#3D342F] flex items-center justify-center">
             <i data-lucide="book-open" class="w-5 h-5"></i>
           </div>
@@ -949,7 +1494,9 @@
           <p class="text-xs text-gray-500">Teatro de sombras, contos sazonais e dramatização.</p>
         </div>
 
-        <div class="activity-item gsap-stagger-item p-4 bg-[#FAF7F2] rounded-2xl border border-gray-100 hover:border-[#4A6B53]/30 hover:shadow-md transition-all space-y-2" data-category="natureza">
+        <div
+          class="activity-item gsap-stagger-item p-4 bg-[#FAF7F2] rounded-2xl border border-gray-100 hover:border-[#4A6B53]/30 hover:shadow-md transition-all space-y-2"
+          data-category="natureza">
           <div class="w-10 h-10 rounded-xl bg-[#E8F0E6] text-[#4A6B53] flex items-center justify-center">
             <i data-lucide="trees" class="w-5 h-5"></i>
           </div>
@@ -957,7 +1504,9 @@
           <p class="text-xs text-gray-500">Caminhadas guiadas e contacto com o ecossistema.</p>
         </div>
 
-        <div class="activity-item gsap-stagger-item p-4 bg-[#FAF7F2] rounded-2xl border border-gray-100 hover:border-[#4A6B53]/30 hover:shadow-md transition-all space-y-2" data-category="natureza">
+        <div
+          class="activity-item gsap-stagger-item p-4 bg-[#FAF7F2] rounded-2xl border border-gray-100 hover:border-[#4A6B53]/30 hover:shadow-md transition-all space-y-2"
+          data-category="natureza">
           <div class="w-10 h-10 rounded-xl bg-[#D97757]/20 text-[#D97757] flex items-center justify-center">
             <i data-lucide="sparkles" class="w-5 h-5"></i>
           </div>
@@ -965,7 +1514,9 @@
           <p class="text-xs text-gray-500">Texturas de folhas, sementes, terra e água.</p>
         </div>
 
-        <div class="activity-item gsap-stagger-item p-4 bg-[#FAF7F2] rounded-2xl border border-gray-100 hover:border-[#4A6B53]/30 hover:shadow-md transition-all space-y-2" data-category="comunidade">
+        <div
+          class="activity-item gsap-stagger-item p-4 bg-[#FAF7F2] rounded-2xl border border-gray-100 hover:border-[#4A6B53]/30 hover:shadow-md transition-all space-y-2"
+          data-category="comunidade">
           <div class="w-10 h-10 rounded-xl bg-[#F4C542]/20 text-[#3D342F] flex items-center justify-center">
             <i data-lucide="users" class="w-5 h-5"></i>
           </div>
@@ -973,7 +1524,9 @@
           <p class="text-xs text-gray-500">Momentos dedicados em família aos fins de semana.</p>
         </div>
 
-        <div class="activity-item gsap-stagger-item p-4 bg-[#FAF7F2] rounded-2xl border border-gray-100 hover:border-[#4A6B53]/30 hover:shadow-md transition-all space-y-2" data-category="movimento">
+        <div
+          class="activity-item gsap-stagger-item p-4 bg-[#FAF7F2] rounded-2xl border border-gray-100 hover:border-[#4A6B53]/30 hover:shadow-md transition-all space-y-2"
+          data-category="movimento">
           <div class="w-10 h-10 rounded-xl bg-[#E8F0E6] text-[#4A6B53] flex items-center justify-center">
             <i data-lucide="activity" class="w-5 h-5"></i>
           </div>
@@ -981,7 +1534,9 @@
           <p class="text-xs text-gray-500">Circuitos de equilíbrio, agilidade e coordenação.</p>
         </div>
 
-        <div class="activity-item gsap-stagger-item p-4 bg-[#FAF7F2] rounded-2xl border border-gray-100 hover:border-[#4A6B53]/30 hover:shadow-md transition-all space-y-2" data-category="natureza">
+        <div
+          class="activity-item gsap-stagger-item p-4 bg-[#FAF7F2] rounded-2xl border border-gray-100 hover:border-[#4A6B53]/30 hover:shadow-md transition-all space-y-2"
+          data-category="natureza">
           <div class="w-10 h-10 rounded-xl bg-[#D97757]/20 text-[#D97757] flex items-center justify-center">
             <i data-lucide="dog" class="w-5 h-5"></i>
           </div>
@@ -989,7 +1544,9 @@
           <p class="text-xs text-gray-500">Cuidado respeitoso e contacto com os animais da quinta.</p>
         </div>
 
-        <div class="activity-item gsap-stagger-item p-4 bg-[#FAF7F2] rounded-2xl border border-gray-100 hover:border-[#4A6B53]/30 hover:shadow-md transition-all space-y-2" data-category="natureza">
+        <div
+          class="activity-item gsap-stagger-item p-4 bg-[#FAF7F2] rounded-2xl border border-gray-100 hover:border-[#4A6B53]/30 hover:shadow-md transition-all space-y-2"
+          data-category="natureza">
           <div class="w-10 h-10 rounded-xl bg-[#E8F0E6] text-[#4A6B53] flex items-center justify-center">
             <i data-lucide="flower" class="w-5 h-5"></i>
           </div>
@@ -997,7 +1554,9 @@
           <p class="text-xs text-gray-500">Cultivo na horta e aprendizagem botânica prática.</p>
         </div>
 
-        <div class="activity-item gsap-stagger-item p-4 bg-[#FAF7F2] rounded-2xl border border-gray-100 hover:border-[#4A6B53]/30 hover:shadow-md transition-all space-y-2" data-category="natureza">
+        <div
+          class="activity-item gsap-stagger-item p-4 bg-[#FAF7F2] rounded-2xl border border-gray-100 hover:border-[#4A6B53]/30 hover:shadow-md transition-all space-y-2"
+          data-category="natureza">
           <div class="w-10 h-10 rounded-xl bg-[#F4C542]/20 text-[#3D342F] flex items-center justify-center">
             <i data-lucide="globe" class="w-5 h-5"></i>
           </div>
@@ -1005,7 +1564,9 @@
           <p class="text-xs text-gray-500">Compostagem, reciclagem e consciência ecológica.</p>
         </div>
 
-        <div class="activity-item gsap-stagger-item p-4 bg-[#FAF7F2] rounded-2xl border border-gray-100 hover:border-[#4A6B53]/30 hover:shadow-md transition-all space-y-2" data-category="movimento">
+        <div
+          class="activity-item gsap-stagger-item p-4 bg-[#FAF7F2] rounded-2xl border border-gray-100 hover:border-[#4A6B53]/30 hover:shadow-md transition-all space-y-2"
+          data-category="movimento">
           <div class="w-10 h-10 rounded-xl bg-[#D97757]/20 text-[#D97757] flex items-center justify-center">
             <i data-lucide="bike" class="w-5 h-5"></i>
           </div>
@@ -1013,7 +1574,9 @@
           <p class="text-xs text-gray-500">Atividades ao ar livre e desenvolvimento motor.</p>
         </div>
 
-        <div class="activity-item gsap-stagger-item p-4 bg-[#FAF7F2] rounded-2xl border border-gray-100 hover:border-[#4A6B53]/30 hover:shadow-md transition-all space-y-2" data-category="comunidade">
+        <div
+          class="activity-item gsap-stagger-item p-4 bg-[#FAF7F2] rounded-2xl border border-gray-100 hover:border-[#4A6B53]/30 hover:shadow-md transition-all space-y-2"
+          data-category="comunidade">
           <div class="w-10 h-10 rounded-xl bg-[#E8F0E6] text-[#4A6B53] flex items-center justify-center">
             <i data-lucide="sun-medium" class="w-5 h-5"></i>
           </div>
@@ -1021,7 +1584,9 @@
           <p class="text-xs text-gray-500">Programas intensivos em períodos de pausas escolares.</p>
         </div>
 
-        <div class="activity-item gsap-stagger-item p-4 bg-[#FAF7F2] rounded-2xl border border-gray-100 hover:border-[#4A6B53]/30 hover:shadow-md transition-all space-y-2" data-category="comunidade">
+        <div
+          class="activity-item gsap-stagger-item p-4 bg-[#FAF7F2] rounded-2xl border border-gray-100 hover:border-[#4A6B53]/30 hover:shadow-md transition-all space-y-2"
+          data-category="comunidade">
           <div class="w-10 h-10 rounded-xl bg-[#F4C542]/20 text-[#3D342F] flex items-center justify-center">
             <i data-lucide="party-popper" class="w-5 h-5"></i>
           </div>
@@ -1037,7 +1602,9 @@
   <section id="equipa" class="py-20 bg-[#FAF7F2] relative">
     <div class="max-w-[1400px] w-full mx-auto px-4 sm:px-8 lg:px-12">
       <div class="text-center max-w-3xl mx-auto mb-12 gsap-reveal">
-        <span class="text-xs uppercase tracking-widest font-bold text-[#D97757] bg-white px-4 py-1.5 rounded-full border border-[#D97757]/20 inline-block mb-3">Profissionais Dedicados</span>
+        <span
+          class="text-xs uppercase tracking-widest font-bold text-[#D97757] bg-white px-4 py-1.5 rounded-full border border-[#D97757]/20 inline-block mb-3">Profissionais
+          Dedicados</span>
         <h2 class="font-fredoka text-3xl sm:text-4xl font-bold text-[#4A6B53]">A Nossa Equipa Multidisciplinar</h2>
         <p class="text-base text-[#3D342F]/80 mt-3">
           Experiência sólida nas áreas artística, pedagógica e no acompanhamento afetuoso dos mais pequenos.
@@ -1058,11 +1625,15 @@
 
         <div class="grid md:grid-cols-3 gap-8">
           <!-- Alexandra Battaglia -->
-          <div class="bg-white rounded-3xl border border-[#E8F0E6] shadow-sm hover:shadow-xl transition-all duration-300 group overflow-hidden flex flex-col justify-between">
+          <div
+            class="bg-white rounded-3xl border border-[#E8F0E6] shadow-sm hover:shadow-xl transition-all duration-300 group overflow-hidden flex flex-col justify-between">
             <div>
               <div class="h-80 w-full overflow-hidden relative bg-[#FAF7F2]">
-                <img src="assets/images/Team/Alexandra.jpg" alt="Alexandra Battaglia" class="team-img-alexandra w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <img src="assets/images/Team/Alexandra.jpg" alt="Alexandra Battaglia"
+                  class="team-img-alexandra w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                </div>
               </div>
               <div class="p-6 space-y-2">
                 <span class="inline-block bg-[#E8F0E6] text-[#4A6B53] text-xs font-semibold px-3 py-1 rounded-full">
@@ -1078,14 +1649,19 @@
           </div>
 
           <!-- Margarida Battaglia -->
-          <div class="bg-white rounded-3xl border border-[#E8F0E6] shadow-sm hover:shadow-xl transition-all duration-300 group overflow-hidden flex flex-col justify-between">
+          <div
+            class="bg-white rounded-3xl border border-[#E8F0E6] shadow-sm hover:shadow-xl transition-all duration-300 group overflow-hidden flex flex-col justify-between">
             <div>
               <div class="h-80 w-full overflow-hidden relative bg-[#FAF7F2]">
-                <img src="assets/images/Team/Margarida.jpg" alt="Margarida Battaglia" class="team-img-margarida w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <img src="assets/images/Team/Margarida.jpg" alt="Margarida Battaglia"
+                  class="team-img-margarida w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                </div>
               </div>
               <div class="p-6 space-y-2">
-                <span class="inline-block bg-[#FAF7F2] text-[#D97757] border border-[#D97757]/20 text-xs font-semibold px-3 py-1 rounded-full">
+                <span
+                  class="inline-block bg-[#FAF7F2] text-[#D97757] border border-[#D97757]/20 text-xs font-semibold px-3 py-1 rounded-full">
                   Coordenação
                 </span>
                 <h4 class="font-fredoka text-xl font-bold text-[#4A6B53] pt-1">Margarida Battaglia</h4>
@@ -1098,11 +1674,15 @@
           </div>
 
           <!-- Tiago Rocha -->
-          <div class="bg-white rounded-3xl border border-[#E8F0E6] shadow-sm hover:shadow-xl transition-all duration-300 group overflow-hidden flex flex-col justify-between">
+          <div
+            class="bg-white rounded-3xl border border-[#E8F0E6] shadow-sm hover:shadow-xl transition-all duration-300 group overflow-hidden flex flex-col justify-between">
             <div>
               <div class="h-80 w-full overflow-hidden relative bg-[#FAF7F2]">
-                <img src="assets/images/Team/Tiago.jpg" alt="Tiago Rocha" class="team-img-tiago w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <img src="assets/images/Team/Tiago.jpg" alt="Tiago Rocha"
+                  class="team-img-tiago w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                </div>
               </div>
               <div class="p-6 space-y-2">
                 <span class="inline-block bg-[#F4C542]/20 text-[#3D342F] text-xs font-semibold px-3 py-1 rounded-full">
@@ -1133,11 +1713,15 @@
 
         <div class="grid md:grid-cols-3 gap-8 mb-8">
           <!-- Sílvia Cabral -->
-          <div class="bg-white rounded-3xl border border-[#E8F0E6] shadow-sm hover:shadow-xl transition-all duration-300 group overflow-hidden flex flex-col justify-between">
+          <div
+            class="bg-white rounded-3xl border border-[#E8F0E6] shadow-sm hover:shadow-xl transition-all duration-300 group overflow-hidden flex flex-col justify-between">
             <div>
               <div class="h-80 w-full overflow-hidden relative bg-[#FAF7F2]">
-                <img src="assets/images/Team/Sílvia.jpeg" alt="Sílvia Cabral" class="team-img-silvia w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <img src="assets/images/Team/Sílvia.jpeg" alt="Sílvia Cabral"
+                  class="team-img-silvia w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                </div>
               </div>
               <div class="p-6 space-y-2">
                 <span class="inline-block bg-[#E8F0E6] text-[#4A6B53] text-xs font-semibold px-3 py-1 rounded-full">
@@ -1153,14 +1737,19 @@
           </div>
 
           <!-- Catarina Martins -->
-          <div class="bg-white rounded-3xl border border-[#E8F0E6] shadow-sm hover:shadow-xl transition-all duration-300 group overflow-hidden flex flex-col justify-between">
+          <div
+            class="bg-white rounded-3xl border border-[#E8F0E6] shadow-sm hover:shadow-xl transition-all duration-300 group overflow-hidden flex flex-col justify-between">
             <div>
               <div class="h-80 w-full overflow-hidden relative bg-[#FAF7F2]">
-                <img src="assets/images/Team/Catarina.jpg" alt="Catarina Martins" class="team-img-catarina w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <img src="assets/images/Team/Catarina.jpg" alt="Catarina Martins"
+                  class="team-img-catarina w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                </div>
               </div>
               <div class="p-6 space-y-2">
-                <span class="inline-block bg-[#FAF7F2] text-[#D97757] border border-[#D97757]/20 text-xs font-semibold px-3 py-1 rounded-full">
+                <span
+                  class="inline-block bg-[#FAF7F2] text-[#D97757] border border-[#D97757]/20 text-xs font-semibold px-3 py-1 rounded-full">
                   Psicologia da Educação
                 </span>
                 <h4 class="font-fredoka text-xl font-bold text-[#4A6B53] pt-1">Catarina Martins</h4>
@@ -1173,11 +1762,15 @@
           </div>
 
           <!-- Natália Kozhevnikova -->
-          <div class="bg-white rounded-3xl border border-[#E8F0E6] shadow-sm hover:shadow-xl transition-all duration-300 group overflow-hidden flex flex-col justify-between">
+          <div
+            class="bg-white rounded-3xl border border-[#E8F0E6] shadow-sm hover:shadow-xl transition-all duration-300 group overflow-hidden flex flex-col justify-between">
             <div>
               <div class="h-80 w-full overflow-hidden relative bg-[#FAF7F2]">
-                <img src="assets/images/Team/Natalia.jpeg" alt="Natália Kozhevnikova" class="team-img-natalia w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <img src="assets/images/Team/Natalia.jpeg" alt="Natália Kozhevnikova"
+                  class="team-img-natalia w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                </div>
               </div>
               <div class="p-6 space-y-2">
                 <span class="inline-block bg-[#F4C542]/20 text-[#3D342F] text-xs font-semibold px-3 py-1 rounded-full">
@@ -1194,164 +1787,243 @@
         </div>
 
         <!-- Equipa de Ajudantes Note -->
-        <div class="p-5 rounded-2xl bg-[#E8F0E6]/60 border border-[#4A6B53]/20 flex items-center gap-4 text-xs sm:text-sm text-[#3D342F]/80">
+        <div
+          class="p-5 rounded-2xl bg-[#E8F0E6]/60 border border-[#4A6B53]/20 flex items-center gap-4 text-xs sm:text-sm text-[#3D342F]/80">
           <i data-lucide="info" class="w-6 h-6 text-[#4A6B53] shrink-0"></i>
-          <span><strong>Equipa de Ajudantes:</strong> Dispomos de apoio adicional ajustado às necessidades específicas e ao número total de inscrições de cada ano letivo.</span>
+          <span><strong>Equipa de Ajudantes:</strong> Dispomos de apoio adicional ajustado às necessidades específicas e
+            ao número total de inscrições de cada ano letivo.</span>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- 9. MODALIDADES, PREÇÁRIO E CONTACTOS -->
+  <!-- 9. MODALIDADES & PREÇÁRIO -->
   <section id="precario" class="py-20 bg-white relative">
     <div class="max-w-[1400px] w-full mx-auto px-4 sm:px-8 lg:px-12">
-      <div class="text-center max-w-3xl mx-auto mb-12 gsap-reveal">
-        <span class="text-xs uppercase tracking-widest font-bold text-[#D97757] bg-[#FAF7F2] px-4 py-1.5 rounded-full border border-[#D97757]/20 inline-block mb-3">Valores & Inscrição</span>
+      <div class="text-center max-w-3xl mx-auto mb-8 gsap-reveal">
+        <span
+          class="text-xs uppercase tracking-widest font-bold text-[#D97757] bg-[#FAF7F2] px-4 py-1.5 rounded-full border border-[#D97757]/20 inline-block mb-3">Valores
+          & Modalidades</span>
         <h2 class="font-fredoka text-3xl sm:text-4xl font-bold text-[#4A6B53]">Modalidades & Preçário</h2>
         <p class="text-base text-[#3D342F]/80 mt-3">
-          Inscrições anuais abertas oficialmente entre <strong class="text-[#D97757]">1 de Julho e 15 de Agosto</strong> (Vagas limitadas).
+          Inscrições anuais abertas oficialmente entre <strong class="text-[#D97757]">1 de Julho e 15 de Agosto</strong>
+          (Vagas limitadas).
         </p>
       </div>
 
-      <!-- Pricing Cards -->
-      <div class="grid lg:grid-cols-3 gap-8 items-stretch mb-16 gsap-reveal">
-        
+      <!-- Recommendation Notice Banner -->
+      <div
+        class="max-w-4xl mx-auto mb-12 p-4 sm:p-5 rounded-2xl bg-[#E8F0E6] border border-[#4A6B53]/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-[#4A6B53] gsap-reveal">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-[#4A6B53] text-white flex items-center justify-center shrink-0 font-bold">
+            <i data-lucide="sparkles" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <strong class="block text-[#4A6B53]">Método Recomendado de Inscrição:</strong>
+            <span class="text-[#3D342F]/80">Para validação prioritária da vaga, preencha o formulário oficial
+              online.</span>
+          </div>
+        </div>
+        <a href="https://docs.google.com/forms/d/11l4VuL1tLVeBoZVqpM1so1B5nwW7g1xuZIPPCdEGzOw/viewform?edit_requested=true"
+          target="_blank" rel="noopener noreferrer"
+          class="shrink-0 bg-[#4A6B53] hover:bg-[#3b5743] text-white font-fredoka px-5 py-2.5 rounded-xl font-bold text-xs shadow-sm hover:shadow transition-all flex items-center gap-1.5">
+          <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Abrir Google Forms
+        </a>
+      </div>
+
+      <!-- Pricing Cards (Apenas as 2 modalidades oficiais para inscrição) -->
+      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch gsap-reveal">
+
         <!-- Meio Dia (Manhã ou Tarde) -->
-        <div class="bg-[#FAF7F2] p-8 rounded-3xl border border-[#E8F0E6] flex flex-col justify-between hover:shadow-lg transition-all space-y-6">
+        <div
+          class="bg-[#FAF7F2] p-8 sm:p-10 rounded-3xl border border-[#E8F0E6] flex flex-col justify-between hover:shadow-lg transition-all space-y-6">
           <div class="space-y-4">
-            <span class="text-xs font-bold text-[#4A6B53] bg-[#E8F0E6] px-3.5 py-1 rounded-full uppercase">Período Parcial (4 horas por dia)</span>
-            <h3 class="font-fredoka text-2xl font-bold text-[#4A6B53]">Manhã ou Tarde</h3>
+            <span class="text-xs font-bold text-[#4A6B53] bg-[#E8F0E6] px-3.5 py-1 rounded-full uppercase">Período
+              Parcial (4 horas por dia)</span>
+            <h3 class="font-fredoka text-3xl font-bold text-[#4A6B53]">Manhã ou Tarde</h3>
             <div class="flex items-baseline gap-1">
-              <span class="font-fredoka text-4xl font-bold text-[#4A6B53]">200€</span>
+              <span class="font-fredoka text-5xl font-bold text-[#4A6B53]">200€</span>
               <span class="text-xs text-gray-500 font-semibold">/ mês</span>
             </div>
-            <p class="text-xs text-gray-600">Período de 4 horas diárias contínuas de Segunda a Sexta-feira.</p>
-            <ul class="space-y-2.5 text-xs text-[#3D342F] pt-2">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#4A6B53]"></i> Horário: 08h15-12h15 ou 14h00-18h00</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#4A6B53]"></i> Participação em todas as atividades do turno</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#4A6B53]"></i> Lanche saudável incluído na rotina</li>
+            <p class="text-sm text-gray-600">Período de 4 horas diárias contínuas de Segunda a Sexta-feira.</p>
+            <ul class="space-y-3 text-xs sm:text-sm text-[#3D342F] pt-2">
+              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-[#4A6B53]"></i> Horário:
+                08h15-12h15 ou 14h00-18h00</li>
+              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-[#4A6B53]"></i>
+                Participação em todas as atividades do turno</li>
+              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-[#4A6B53]"></i> Lanche
+                saudável incluído na rotina</li>
+              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-[#4A6B53]"></i> Desconto
+                especial de 10% para irmãos</li>
             </ul>
           </div>
-          <button class="open-enrollment-btn w-full bg-white hover:bg-[#E8F0E6] text-[#4A6B53] border border-[#4A6B53]/30 font-fredoka py-3.5 rounded-2xl font-bold text-sm transition-all" data-plan="meio-dia">
-            Selecionar Meio Dia
+          <button
+            class="open-enrollment-btn w-full bg-white hover:bg-[#E8F0E6] text-[#4A6B53] border-2 border-[#4A6B53]/30 font-fredoka py-4 rounded-2xl font-bold text-sm transition-all shadow-sm"
+            data-plan="meio-dia">
+            Inscrever Meio Dia
           </button>
         </div>
 
-        <!-- Dia Inteiro (RECOMENDADO) -->
-        <div class="bg-[#E8F0E6] p-8 rounded-3xl border-2 border-[#4A6B53] flex flex-col justify-between shadow-xl relative space-y-6">
-          <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#D97757] text-white font-fredoka text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider shadow-sm">
+        <!-- Dia Inteiro -->
+        <div
+          class="bg-[#E8F0E6] p-8 sm:p-10 rounded-3xl border-2 border-[#4A6B53] flex flex-col justify-between shadow-xl relative space-y-6">
+          <span
+            class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#D97757] text-white font-fredoka text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider shadow-sm">
             Mais Procurado
           </span>
           <div class="space-y-4 pt-2">
-            <span class="text-xs font-bold text-[#4A6B53] bg-white px-3.5 py-1 rounded-full uppercase">Período Completo (08h15 às 18h00)</span>
+            <span class="text-xs font-bold text-[#4A6B53] bg-white px-3.5 py-1 rounded-full uppercase">Período Completo
+              (08h15 às 18h00)</span>
             <h3 class="font-fredoka text-3xl font-bold text-[#4A6B53]">Dia Inteiro</h3>
             <div class="flex items-baseline gap-1">
               <span class="font-fredoka text-5xl font-bold text-[#4A6B53]">350€</span>
               <span class="text-xs text-[#3D342F] font-semibold">/ mês</span>
             </div>
-            <p class="text-xs text-[#3D342F]/90">Acompanhamento completo de Segunda a Sexta-feira com flexibilidade total de horário.</p>
-            <ul class="space-y-2.5 text-xs text-[#3D342F] pt-2">
-              <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-[#4A6B53]"></i> Horário alargado das 08h15 às 18h00</li>
-              <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-[#4A6B53]"></i> Acesso a todas as 15 atividades pedagógicas</li>
-              <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-[#4A6B53]"></i> Inclui a Hora da Calma e descanso individual</li>
-              <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-[#4A6B53]"></i> Desconto especial de 10% para irmãos</li>
+            <p class="text-sm text-[#3D342F]/90">Acompanhamento completo de Segunda a Sexta-feira com flexibilidade
+              total de horário.</p>
+            <ul class="space-y-3 text-xs sm:text-sm text-[#3D342F] pt-2">
+              <li class="flex items-center gap-2.5"><i data-lucide="check-circle" class="w-4 h-4 text-[#4A6B53]"></i>
+                Horário alargado das 08h15 às 18h00</li>
+              <li class="flex items-center gap-2.5"><i data-lucide="check-circle" class="w-4 h-4 text-[#4A6B53]"></i>
+                Acesso a todas as 15 atividades pedagógicas</li>
+              <li class="flex items-center gap-2.5"><i data-lucide="check-circle" class="w-4 h-4 text-[#4A6B53]"></i>
+                Inclui a Hora da Calma e descanso individual</li>
+              <li class="flex items-center gap-2.5"><i data-lucide="check-circle" class="w-4 h-4 text-[#4A6B53]"></i>
+                Desconto especial de 10% para irmãos</li>
             </ul>
           </div>
-          <button class="open-enrollment-btn w-full bg-[#4A6B53] hover:bg-[#3b5743] text-white font-fredoka py-4 rounded-2xl font-bold text-sm shadow-md hover:shadow-lg transition-all" data-plan="dia-inteiro">
-            Garantir Vaga Dia Inteiro
-          </button>
-        </div>
-
-        <!-- Avulso -->
-        <div class="bg-[#FAF7F2] p-8 rounded-3xl border border-[#E8F0E6] flex flex-col justify-between hover:shadow-lg transition-all space-y-6">
-          <div class="space-y-4">
-            <span class="text-xs font-bold text-[#D97757] bg-[#FAF7F2] border border-[#D97757]/30 px-3.5 py-1 rounded-full uppercase">Utilização Pontual Avulsa</span>
-            <h3 class="font-fredoka text-2xl font-bold text-[#4A6B53]">Manhã / Tarde Avulso</h3>
-            <div class="flex items-baseline gap-1">
-              <span class="font-fredoka text-4xl font-bold text-[#4A6B53]">50€</span>
-              <span class="text-xs text-gray-500 font-semibold">/ sessão</span>
-            </div>
-            <p class="text-xs text-gray-600">Apenas uma manhã ou tarde pontual, mediante acordo prévio de disponibilidade.</p>
-            <ul class="space-y-2.5 text-xs text-[#3D342F] pt-2">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#D97757]"></i> Sujeito à lotação do dia</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#D97757]"></i> Ideal para necessidades esporádicas</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#D97757]"></i> Reserva com 48h de antecedência</li>
-            </ul>
-          </div>
-          <button class="open-enrollment-btn w-full bg-white hover:bg-[#E8F0E6] text-[#3D342F] border border-gray-300 font-fredoka py-3.5 rounded-2xl font-bold text-sm transition-all" data-plan="avulso">
-            Solicitar Avulso
+          <button
+            class="open-enrollment-btn w-full bg-[#4A6B53] hover:bg-[#3b5743] text-white font-fredoka py-4 rounded-2xl font-bold text-sm shadow-md hover:shadow-lg transition-all"
+            data-plan="dia-inteiro">
+            Inscrever Dia Inteiro
           </button>
         </div>
 
       </div>
 
-      <!-- Contact Info Box & Google Maps Card -->
-      <div class="bg-[#FAF7F2] p-8 sm:p-12 rounded-3xl border border-[#E8F0E6] shadow-sm grid lg:grid-cols-12 gap-10 items-center gsap-reveal">
-        <div class="lg:col-span-7 space-y-5">
-          <span class="text-xs uppercase font-bold text-[#4A6B53] tracking-widest bg-[#E8F0E6] px-3.5 py-1 rounded-full inline-block">Informações Directas</span>
-          <h3 class="font-fredoka text-2xl sm:text-3xl font-bold text-[#4A6B53]">Contactos & Localização</h3>
-          <p class="text-sm text-gray-600 leading-relaxed">
-            As inscrições decorrem oficialmente de <strong class="text-[#D97757]">1 de Julho a 15 de Agosto</strong>. Entre em contacto direto com a coordenadora Margarida Battaglia para agendar uma visita ou esclarecer dúvidas.
-          </p>
+      <!-- Nota Simples e Elegante no Rodapé da Secção -->
+      <div class="max-w-3xl mx-auto mt-10 pt-6 border-t border-gray-100 text-center gsap-reveal">
+        <p class="text-xs sm:text-sm text-[#3D342F]/80 inline-flex flex-wrap items-center justify-center gap-2">
+          <span
+            class="inline-flex items-center gap-1 font-semibold text-[#D97757] bg-[#FAF7F2] border border-[#D97757]/20 px-2.5 py-0.5 rounded-full text-xs">
+            <i data-lucide="info" class="w-3.5 h-3.5"></i> Outra Modalidade
+          </span>
+          <span><strong>Utilização Pontual Avulsa (Manhã / Tarde):</strong> 50€ por sessão (sujeito à lotação diária e
+            reserva com 48h de antecedência).</span>
+        </p>
+      </div>
+    </div>
+  </section>
 
-          <div class="space-y-3.5 pt-2">
-            <!-- Telefone -->
-            <div class="flex items-center gap-3.5 cursor-pointer group" onclick="copyToClipboard('+351918080412', 'Telefone')">
-              <div class="w-11 h-11 rounded-2xl bg-[#E8F0E6] text-[#4A6B53] flex items-center justify-center group-hover:scale-105 transition-transform shrink-0 shadow-sm">
-                <i data-lucide="phone" class="w-5 h-5"></i>
-              </div>
-              <div>
-                <span class="text-[10px] text-gray-400 font-bold uppercase block">Telemóvel (Margarida Battaglia)</span>
-                <span class="font-fredoka text-base font-bold text-[#4A6B53] group-hover:text-[#D97757] transition-colors">+351 918 080 412</span>
-              </div>
-            </div>
-
-            <!-- Email -->
-            <div class="flex items-center gap-3.5 cursor-pointer group" onclick="copyToClipboard('info.terradafonte@gmail.com', 'E-mail')">
-              <div class="w-11 h-11 rounded-2xl bg-[#FAF7F2] border border-[#D97757]/30 text-[#D97757] flex items-center justify-center group-hover:scale-105 transition-transform shrink-0 shadow-sm">
-                <i data-lucide="mail" class="w-5 h-5"></i>
-              </div>
-              <div>
-                <span class="text-[10px] text-gray-400 font-bold uppercase block">E-mail Oficial</span>
-                <span class="font-fredoka text-base font-bold text-[#4A6B53] group-hover:text-[#D97757] transition-colors">info.terradafonte@gmail.com</span>
-              </div>
-            </div>
-
-            <!-- Morada & Google Maps Button -->
-            <div class="flex items-start gap-3.5 pt-1">
-              <div class="w-11 h-11 rounded-2xl bg-[#F4C542]/25 text-[#3D342F] flex items-center justify-center shrink-0 shadow-sm">
-                <i data-lucide="map-pin" class="w-5 h-5"></i>
-              </div>
-              <div class="space-y-1.5">
-                <span class="text-[10px] text-gray-400 font-bold uppercase block">Morada Completa</span>
-                <p class="font-fredoka text-sm font-bold text-[#3D342F]">Terra da Fonte — Caminho da Encosta 330, Vale de São Gião, Milharado, Mafra</p>
-                <a href="https://share.google/4I5WJADX6dg8YqiBi" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-[#4A6B53] hover:text-[#D97757] transition-colors">
-                  <i data-lucide="navigation" class="w-3.5 h-3.5"></i> Abrir Localização no Google Maps
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Google Maps Preview & Online Form Card -->
-        <div class="lg:col-span-5 bg-white p-7 rounded-3xl border border-gray-100 shadow-sm space-y-5 text-center">
-          <div class="w-16 h-16 rounded-2xl bg-[#E8F0E6] text-[#4A6B53] flex items-center justify-center mx-auto text-2xl font-bold shadow-sm">
-            <i data-lucide="file-text" class="w-8 h-8"></i>
-          </div>
-          <h4 class="font-fredoka text-2xl font-bold text-[#4A6B53]">Ficha de Pré-Inscrição</h4>
-          <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
-            Preencha os dados do seu filho para calcular a mensalidade e enviar diretamente à coordenação.
-          </p>
-          <button class="open-enrollment-btn w-full bg-[#D97757] hover:bg-[#c26547] text-white font-fredoka py-4 rounded-2xl font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
-            <i data-lucide="edit-3" class="w-4 h-4"></i> Abrir Formulário de Inscrição
-          </button>
-          <a href="https://share.google/4I5WJADX6dg8YqiBi" target="_blank" rel="noopener noreferrer" class="block text-xs font-bold text-[#4A6B53] hover:underline pt-1">
-            📍 Ver no Google Maps (Caminho da Encosta 330)
-          </a>
-        </div>
+  <!-- 10. INFORMAÇÕES DIRECTAS & LOCALIZAÇÃO -->
+  <section id="contactos" class="py-20 bg-[#FAF7F2] relative border-t border-[#E8F0E6]">
+    <div class="max-w-[1400px] w-full mx-auto px-4 sm:px-8 lg:px-12">
+      <div class="text-center max-w-3xl mx-auto mb-12 gsap-reveal">
+        <span
+          class="text-xs uppercase tracking-widest font-bold text-[#4A6B53] bg-[#E8F0E6] px-4 py-1.5 rounded-full inline-block mb-3">Contactos</span>
+        <h2 class="font-fredoka text-3xl sm:text-4xl font-bold text-[#4A6B53]">Informações Directas & Localização</h2>
+        <p class="text-base text-[#3D342F]/80 mt-3">
+          Estamos disponíveis para responder a todas as questões da sua família e agendar visitas à quinta.
+        </p>
       </div>
 
+      <div class="grid lg:grid-cols-12 gap-8 items-stretch gsap-reveal">
+        <!-- Coluna 1: Fale Connosco -->
+        <div
+          class="lg:col-span-6 space-y-6 bg-white p-8 sm:p-10 rounded-3xl border border-[#E8F0E6] shadow-sm flex flex-col justify-between">
+          <div>
+            <span
+              class="text-xs uppercase font-bold text-[#4A6B53] tracking-widest bg-[#E8F0E6] px-3.5 py-1 rounded-full inline-block mb-3">Canais
+              de Contacto</span>
+            <h3 class="font-fredoka text-2xl sm:text-3xl font-bold text-[#4A6B53]">Fale Connosco</h3>
+            <p class="text-sm text-gray-600 leading-relaxed mt-2">
+              As inscrições decorrem oficialmente de <strong class="text-[#D97757]">1 de Julho a 15 de Agosto</strong>.
+              Entre em contacto direto com a coordenadora Margarida Battaglia para agendar uma visita ou esclarecer
+              dúvidas.
+            </p>
+
+            <div class="space-y-4 pt-5">
+              <!-- Telefone -->
+              <div class="flex items-center gap-3.5 cursor-pointer group"
+                onclick="copyToClipboard('+351918080412', 'Telefone')">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-[#E8F0E6] text-[#4A6B53] flex items-center justify-center group-hover:scale-105 transition-transform shrink-0 shadow-sm">
+                  <i data-lucide="phone" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <span class="text-[10px] text-gray-400 font-bold uppercase block">Telemóvel (Margarida
+                    Battaglia)</span>
+                  <span
+                    class="font-fredoka text-base sm:text-lg font-bold text-[#4A6B53] group-hover:text-[#D97757] transition-colors">+351
+                    918 080 412</span>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="flex items-center gap-3.5 cursor-pointer group"
+                onclick="copyToClipboard('info.terradafonte@gmail.com', 'E-mail')">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-[#FAF7F2] border border-[#D97757]/30 text-[#D97757] flex items-center justify-center group-hover:scale-105 transition-transform shrink-0 shadow-sm">
+                  <i data-lucide="mail" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <span class="text-[10px] text-gray-400 font-bold uppercase block">E-mail Oficial</span>
+                  <span
+                    class="font-fredoka text-base sm:text-lg font-bold text-[#4A6B53] group-hover:text-[#D97757] transition-colors">info.terradafonte@gmail.com</span>
+                </div>
+              </div>
+
+              <!-- Morada -->
+              <div class="flex items-start gap-3.5 pt-1">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-[#F4C542]/25 text-[#3D342F] flex items-center justify-center shrink-0 shadow-sm mt-0.5">
+                  <i data-lucide="map-pin" class="w-5 h-5"></i>
+                </div>
+                <div class="space-y-1">
+                  <span class="text-[10px] text-gray-400 font-bold uppercase block">Morada Completa</span>
+                  <p class="font-fredoka text-sm sm:text-base font-bold text-[#3D342F] leading-snug">Terra da Fonte —
+                    Caminho da Encosta 330, Vale de São Gião, Milharado, Mafra</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-gray-100 flex flex-wrap items-center justify-between gap-3">
+            <span class="text-xs text-gray-400 font-medium">Toque nos contactos para copiar</span>
+            <span class="text-xs text-[#4A6B53] font-semibold flex items-center gap-1"><i data-lucide="clock"
+                class="w-3.5 h-3.5"></i> Resposta rápida</span>
+          </div>
+        </div>
+
+        <!-- Coluna 2: Google Maps Frame (Efeito de Quadro) -->
+        <div
+          class="lg:col-span-6 rounded-3xl overflow-hidden shadow-lg border-2 border-[#4A6B53]/20 bg-white flex flex-col min-h-[420px]">
+          <div
+            class="p-4 sm:p-5 bg-gradient-to-r from-[#4A6B53] to-[#3b5743] text-white flex items-center justify-between gap-3 shrink-0">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-white/20 text-white flex items-center justify-center font-bold">
+                <i data-lucide="map" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-fredoka text-base sm:text-lg font-bold">Localização no Google Maps</h4>
+                <p class="text-xs text-white/80">Terra da Fonte • Milharado, Mafra</p>
+              </div>
+            </div>
+            <a href="https://maps.app.goo.gl/dowysSnuh8zuxSBN6" target="_blank" rel="noopener noreferrer"
+              class="bg-[#F4C542] hover:bg-[#e0b435] text-[#3D342F] font-fredoka px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shadow-sm shrink-0">
+              <i data-lucide="navigation" class="w-3.5 h-3.5"></i> Abrir Mapa
+            </a>
+          </div>
+          <div class="relative w-full flex-1 min-h-[320px]">
+            <iframe title="Google Maps - Terra da Fonte, Milharado, Mafra"
+              src="https://maps.google.com/maps?q=Terra%20da%20Fonte%2C%20Caminho%20da%20Encosta%20330%2C%20Milharado%2C%20Mafra&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              class="w-full h-full border-0 absolute inset-0" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1359,18 +2031,21 @@
   <footer class="bg-[#3D342F] text-white pt-16 pb-12 border-t border-gray-800">
     <div class="max-w-[1400px] w-full mx-auto px-4 sm:px-8 lg:px-12">
       <div class="grid md:grid-cols-2 lg:grid-cols-12 gap-10 border-b border-gray-700/60 pb-12">
-        
+
         <!-- Col 1: Brand & Lema -->
         <div class="lg:col-span-4 space-y-4">
           <div class="flex items-center gap-3">
-            <img src="assets/images/Logo/Logo2.jpg" alt="Logo KidsClub.daFonte" class="w-11 h-11 rounded-2xl object-cover border border-white/20 bg-white">
-            <span class="font-fredoka text-2xl font-bold text-white tracking-tight">KidsClub<span class="text-[#F4C542]">.daFonte</span></span>
+            <img src="assets/images/Logo/Logo2.jpg" alt="Logo KidsClub.daFonte"
+              class="w-11 h-11 rounded-2xl object-cover border border-white/20 bg-white">
+            <span class="font-fredoka text-2xl font-bold text-white tracking-tight">KidsClub<span
+                class="text-[#F4C542]">.daFonte</span></span>
           </div>
           <p class="text-sm text-gray-300 italic">
             cuidar e educar | natureza e arte | brincar e crescer
           </p>
           <p class="text-xs text-gray-400 leading-relaxed">
-            Um projeto da Terra da Fonte sob coordenação artística e pedagógica da <strong>Amálgama Associação Cultural</strong>. Espaço de liberdade, ecopedagogia e desenvolvimento integral da criança em Mafra.
+            Um projeto da Terra da Fonte sob coordenação artística e pedagógica da <strong>Amálgama Associação
+              Cultural</strong>. Espaço de liberdade, ecopedagogia e desenvolvimento integral da criança em Mafra.
           </p>
         </div>
 
@@ -1378,14 +2053,16 @@
         <div class="lg:col-span-3 space-y-3">
           <h4 class="font-fredoka text-base font-bold text-[#F4C542]">Navegação Rápida</h4>
           <ul class="space-y-2 text-xs text-gray-300">
-            <li><a href="#apresentacao" class="hover:text-[#F4C542] transition-colors">Dia Aberto & Apresentação</a></li>
+            <li><a href="#apresentacao" class="hover:text-[#F4C542] transition-colors">Dia Aberto & Apresentação</a>
+            </li>
             <li><a href="#proposito" class="hover:text-[#F4C542] transition-colors">Quem Somos & Ecopedagogia</a></li>
             <li><a href="#pedagogia" class="hover:text-[#F4C542] transition-colors">Pedagogias & Valores</a></li>
             <li><a href="#espaco" class="hover:text-[#F4C542] transition-colors">O Nosso Espaço</a></li>
             <li><a href="#programa" class="hover:text-[#F4C542] transition-colors">Programa Diário</a></li>
             <li><a href="#atividades" class="hover:text-[#F4C542] transition-colors">Leque de Atividades</a></li>
             <li><a href="#equipa" class="hover:text-[#F4C542] transition-colors">Nossa Equipa</a></li>
-            <li><a href="#precario" class="hover:text-[#F4C542] transition-colors">Preçário & Inscrições</a></li>
+            <li><a href="#precario" class="hover:text-[#F4C542] transition-colors">Modalidades & Preçário</a></li>
+            <li><a href="#contactos" class="hover:text-[#F4C542] transition-colors">Informações & Contactos</a></li>
           </ul>
         </div>
 
@@ -1406,7 +2083,8 @@
               <span>Terra da Fonte, Caminho da Encosta 330, Milharado, Mafra</span>
             </li>
             <li class="pt-1">
-              <a href="https://share.google/4I5WJADX6dg8YqiBi" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs text-[#F4C542] hover:underline font-semibold">
+              <a href="https://share.google/4I5WJADX6dg8YqiBi" target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 text-xs text-[#F4C542] hover:underline font-semibold">
                 <i data-lucide="navigation" class="w-3.5 h-3.5"></i> Abrir no Google Maps
               </a>
             </li>
@@ -1417,17 +2095,40 @@
         <div class="lg:col-span-2 space-y-3">
           <h4 class="font-fredoka text-base font-bold text-[#F4C542]">Redes Sociais</h4>
           <div class="flex flex-col space-y-2.5 text-xs">
-            <a href="https://www.instagram.com/terra_da_fonte/" target="_blank" rel="noopener noreferrer" class="social-icon-btn inline-flex items-center gap-2.5 text-gray-300 hover:text-white bg-white/10 hover:bg-[#D97757] px-3.5 py-2 rounded-xl transition-all">
-              <i data-lucide="instagram" class="w-4 h-4"></i> Instagram
+            <a href="https://www.instagram.com/terra_da_fonte/" target="_blank" rel="noopener noreferrer"
+              class="social-icon-btn inline-flex items-center gap-2.5 text-gray-300 hover:text-white bg-white/10 hover:bg-[#D97757] px-3.5 py-2.5 rounded-xl transition-all">
+              <svg class="w-4 h-4 shrink-0 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+              <span>Instagram</span>
             </a>
-            <a href="https://www.facebook.com/info.terradafonte/?locale=pt_PT" target="_blank" rel="noopener noreferrer" class="social-icon-btn inline-flex items-center gap-2.5 text-gray-300 hover:text-white bg-white/10 hover:bg-[#4A6B53] px-3.5 py-2 rounded-xl transition-all">
-              <i data-lucide="facebook" class="w-4 h-4"></i> Facebook
+            <a href="https://www.facebook.com/info.terradafonte/?locale=pt_PT" target="_blank" rel="noopener noreferrer"
+              class="social-icon-btn inline-flex items-center gap-2.5 text-gray-300 hover:text-white bg-white/10 hover:bg-[#4A6B53] px-3.5 py-2.5 rounded-xl transition-all">
+              <svg class="w-4 h-4 shrink-0 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+              <span>Facebook</span>
             </a>
-            <a href="https://www.amalgama.pt/terra-da-fonte/" target="_blank" rel="noopener noreferrer" class="social-icon-btn inline-flex items-center gap-2.5 text-gray-300 hover:text-white bg-white/10 hover:bg-[#D97757] px-3.5 py-2 rounded-xl transition-all">
-              <i data-lucide="globe" class="w-4 h-4"></i> Amálgama
+            <a href="https://www.amalgama.pt/terra-da-fonte/" target="_blank" rel="noopener noreferrer"
+              class="social-icon-btn inline-flex items-center gap-2.5 text-gray-300 hover:text-white bg-white/10 hover:bg-[#D97757] px-3.5 py-2.5 rounded-xl transition-all">
+              <svg class="w-4 h-4 shrink-0 stroke-current fill-none" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                </path>
+              </svg>
+              <span>Amálgama</span>
             </a>
-            <a href="https://linktr.ee/terradafonte" target="_blank" rel="noopener noreferrer" class="social-icon-btn inline-flex items-center gap-2.5 text-gray-300 hover:text-white bg-white/10 hover:bg-[#4A6B53] px-3.5 py-2 rounded-xl transition-all">
-              <i data-lucide="link" class="w-4 h-4"></i> Linktree
+            <a href="https://linktr.ee/terradafonte" target="_blank" rel="noopener noreferrer"
+              class="social-icon-btn inline-flex items-center gap-2.5 text-gray-300 hover:text-white bg-white/10 hover:bg-[#4A6B53] px-3.5 py-2.5 rounded-xl transition-all">
+              <svg class="w-4 h-4 shrink-0 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="m13.736 5.853 4.006-4.115 2.325 2.38-4.14 4.004H24v3.333h-8.073l4.14 4.004-2.325 2.38-4.006-4.115v10.128h-3.472V13.724l-4.006 4.115-2.325-2.38 4.14-4.004H0V8.122h8.073L3.933 4.118 6.258 1.738l4.006 4.115V0h3.472v5.853z" />
+              </svg>
+              <span>Linktree</span>
             </a>
           </div>
         </div>
@@ -1442,9 +2143,11 @@
   </footer>
 
   <!-- LIGHTBOX MODAL FOR SPACES -->
-  <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+  <div id="lightbox-modal"
+    class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
     <div class="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl relative animate-scaleUp">
-      <button id="lightbox-close" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/70 transition-colors">
+      <button id="lightbox-close"
+        class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/70 transition-colors">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
       <div class="h-72 sm:h-96 overflow-hidden">
@@ -1458,56 +2161,77 @@
   </div>
 
   <!-- ONLINE ENROLLMENT MODAL (COM ENVIO DIRETO WHATSAPP & EMAIL) -->
-  <div id="enrollment-modal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-md hidden items-center justify-center p-4 overflow-y-auto">
+  <div id="enrollment-modal"
+    class="fixed inset-0 z-50 bg-black/75 backdrop-blur-md hidden items-center justify-center p-4 overflow-y-auto">
     <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative my-8">
-      
-      <button id="close-enrollment-btn" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-gray-100 text-gray-600 flex items-center justify-center hover:bg-gray-200 transition-colors">
+
+      <button id="close-enrollment-btn"
+        class="absolute top-5 right-5 w-8 h-8 rounded-full bg-gray-100 text-gray-600 flex items-center justify-center hover:bg-gray-200 transition-colors">
         <i data-lucide="x" class="w-4 h-4"></i>
       </button>
 
       <div class="space-y-3 mb-6 border-b pb-4">
-        <div class="inline-flex items-center gap-1.5 text-xs font-bold text-[#D97757] bg-[#FAF7F2] px-3.5 py-1 rounded-full border border-[#D97757]/20">
-          <i data-lucide="calendar" class="w-3.5 h-3.5"></i> Período: 1 de Julho a 15 de Agosto
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div
+            class="inline-flex items-center gap-1.5 text-xs font-bold text-[#D97757] bg-[#FAF7F2] px-3.5 py-1 rounded-full border border-[#D97757]/20">
+            <i data-lucide="mail" class="w-3.5 h-3.5"></i> Inscrição por E-mail
+          </div>
         </div>
-        <h3 class="font-fredoka text-2xl font-bold text-[#4A6B53]">Ficha de Pré-Inscrição Online</h3>
-        <p class="text-xs text-gray-600">Garanta a vaga do seu filho na Terra da Fonte. Os dados serão transmitidos diretamente à coordenação.</p>
+        <h3 class="font-fredoka text-2xl font-bold text-[#4A6B53]">Ficha de Inscrição via E-mail</h3>
+        <p class="text-xs text-gray-600">
+          Preencha os dados abaixo. Ao clicar em enviar, será gerado o e-mail oficial de inscrição endereçado à
+          coordenação.
+        </p>
+        <div
+          class="p-2.5 bg-[#E8F0E6] rounded-xl border border-[#4A6B53]/20 flex items-center justify-between text-xs text-[#4A6B53]">
+          <span class="font-medium">Prefere o método oficial recomendado?</span>
+          <a href="https://docs.google.com/forms/d/11l4VuL1tLVeBoZVqpM1so1B5nwW7g1xuZIPPCdEGzOw/viewform?edit_requested=true"
+            target="_blank" rel="noopener noreferrer" class="font-bold underline hover:text-[#D97757] ml-2">
+            Abrir Google Forms
+          </a>
+        </div>
       </div>
 
       <!-- FORM -->
       <form id="enrollment-form" class="space-y-4">
         <div>
           <label class="block text-xs font-bold text-[#3D342F] uppercase mb-1">Nome do Encarregado de Educação</label>
-          <input type="text" id="input-guardian-name" required placeholder="Ex: Maria Santos" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#4A6B53]">
+          <input type="text" id="input-guardian-name" required placeholder="Ex: Maria Santos"
+            class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#4A6B53]">
         </div>
 
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block text-xs font-bold text-[#3D342F] uppercase mb-1">Telemóvel</label>
-            <input type="tel" id="input-guardian-phone" required placeholder="912 345 678" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#4A6B53]">
+            <input type="tel" id="input-guardian-phone" required placeholder="912 345 678"
+              class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#4A6B53]">
           </div>
           <div>
             <label class="block text-xs font-bold text-[#3D342F] uppercase mb-1">E-mail</label>
-            <input type="email" id="input-guardian-email" required placeholder="exemplo@gmail.com" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#4A6B53]">
+            <input type="email" id="input-guardian-email" required placeholder="exemplo@gmail.com"
+              class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#4A6B53]">
           </div>
         </div>
 
         <div>
           <label class="block text-xs font-bold text-[#3D342F] uppercase mb-1">Nome & Idade da Criança</label>
-          <input type="text" id="input-child-info" required placeholder="Ex: Lucas, 2 anos (6 meses aos 6 anos)" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#4A6B53]">
+          <input type="text" id="input-child-info" required placeholder="Ex: Lucas, 2 anos (6 meses aos 6 anos)"
+            class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#4A6B53]">
         </div>
 
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block text-xs font-bold text-[#3D342F] uppercase mb-1">Modalidade Pretendida</label>
-            <select id="modal-plan" class="w-full px-3 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#4A6B53] font-semibold text-[#4A6B53]">
+            <select id="modal-plan"
+              class="w-full px-3 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#4A6B53] font-semibold text-[#4A6B53]">
               <option value="dia-inteiro">Dia Inteiro (350€/mês)</option>
               <option value="meio-dia">Manhã / Tarde (200€/mês)</option>
-              <option value="avulso">Avulso (50€/dia)</option>
             </select>
           </div>
           <div>
             <label class="block text-xs font-bold text-[#3D342F] uppercase mb-1">N.º de Crianças</label>
-            <select id="modal-kids" class="w-full px-3 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#4A6B53] font-semibold text-[#3D342F]">
+            <select id="modal-kids"
+              class="w-full px-3 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#4A6B53] font-semibold text-[#3D342F]">
               <option value="1">1 Criança</option>
               <option value="2">2 Crianças (Desconto de 10%)</option>
               <option value="3">3 Crianças (Desconto de 10%)</option>
@@ -1522,35 +2246,41 @@
         </div>
 
         <div>
-          <label class="block text-xs font-bold text-[#3D342F] uppercase mb-1">Mensagem ou Observações (Opcional)</label>
-          <textarea id="input-notes" rows="2" placeholder="Alguma necessidade alimentar ou dúvida..." class="w-full px-4 py-2 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#4A6B53]"></textarea>
+          <label class="block text-xs font-bold text-[#3D342F] uppercase mb-1">Mensagem ou Observações
+            (Opcional)</label>
+          <textarea id="input-notes" rows="2" placeholder="Alguma necessidade alimentar ou dúvida..."
+            class="w-full px-4 py-2 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#4A6B53]"></textarea>
         </div>
 
-        <button type="submit" class="w-full bg-[#4A6B53] hover:bg-[#3b5743] text-white font-fredoka py-3.5 rounded-2xl font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2">
-          <i data-lucide="send" class="w-4 h-4"></i> Confirmar & Prosseguir para Envio
+        <button type="submit"
+          class="w-full bg-[#4A6B53] hover:bg-[#3b5743] text-white font-fredoka py-3.5 rounded-2xl font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2">
+          <i data-lucide="mail" class="w-4 h-4"></i> Enviar Inscrição por E-mail
         </button>
       </form>
 
       <!-- SUCCESS CONFIRMATION & 1-CLICK ACTION BUTTONS -->
       <div id="form-success-message" class="hidden text-center py-6 space-y-5">
-        <div class="w-14 h-14 rounded-full bg-[#E8F0E6] text-[#4A6B53] flex items-center justify-center mx-auto text-2xl font-bold shadow-sm">
+        <div
+          class="w-14 h-14 rounded-full bg-[#E8F0E6] text-[#4A6B53] flex items-center justify-center mx-auto text-2xl font-bold shadow-sm">
           <i data-lucide="check" class="w-7 h-7"></i>
         </div>
         <div>
-          <h4 class="font-fredoka text-2xl font-bold text-[#4A6B53]">Pré-Inscrição Preparada!</h4>
+          <h4 class="font-fredoka text-2xl font-bold text-[#4A6B53]">E-mail de Inscrição Preparado!</h4>
           <p id="summary-display" class="text-xs font-semibold text-[#D97757] mt-1"></p>
           <p class="text-xs text-gray-600 leading-relaxed max-w-sm mx-auto mt-2">
-            Escolha como prefere enviar os dados à coordenadora <strong>Margarida Battaglia</strong>:
+            Caso o compositor de e-mail não tenha aberto automaticamente no seu navegador, utilize os botões abaixo:
           </p>
         </div>
 
         <div class="space-y-2.5 pt-2">
-          <a id="btn-whatsapp-submit" href="#" target="_blank" rel="noopener noreferrer" class="w-full bg-[#25D366] hover:bg-[#20b858] text-white font-fredoka py-3 rounded-2xl font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2">
-            <i data-lucide="message-circle" class="w-4 h-4"></i> Enviar por WhatsApp (+351 918 080 412)
+          <a id="btn-gmail-web-submit" href="#" target="_blank" rel="noopener noreferrer"
+            class="w-full bg-[#EA4335] hover:bg-[#d33828] text-white font-fredoka py-3 rounded-2xl font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2">
+            <i data-lucide="mail" class="w-4 h-4"></i> Abrir & Enviar no Gmail Web
           </a>
-          <a id="btn-email-submit" href="#" class="w-full bg-[#4A6B53] hover:bg-[#3b5743] text-white font-fredoka py-3 rounded-2xl font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2">
-            <i data-lucide="mail" class="w-4 h-4"></i> Enviar por E-mail (info.terradafonte@gmail.com)
-          </a>
+          <button type="button" onclick="copyEmailSummary()"
+            class="w-full bg-white hover:bg-gray-50 text-gray-600 border border-gray-200 font-fredoka py-2.5 rounded-2xl font-medium text-xs transition-all flex items-center justify-center gap-1.5">
+            <i data-lucide="copy" class="w-3.5 h-3.5 text-[#D97757]"></i> Copiar Texto da Inscrição
+          </button>
         </div>
       </div>
 
@@ -1560,4 +2290,5 @@
   <!-- Custom App JS -->
   <script src="js/main.js"></script>
 </body>
+
 </html>
