@@ -334,6 +334,49 @@ document.addEventListener('DOMContentLoaded', () => {
       if (window.lucide) lucide.createIcons();
     });
   }
+
+// --- SCROLLSPY (DESTAQUE DA SECÇÃO ATIVA) ---
+  const sections = document.querySelectorAll('section[id], header[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+  function updateActiveNav() {
+    let currentId = '';
+    const scrollPosition = window.scrollY + 140;
+
+    sections.forEach((section) => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      if (scrollPosition >= top && scrollPosition < top + height) {
+        currentId = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach((link) => {
+      const href = link.getAttribute('href')?.replace('#', '');
+      if (href === currentId) {
+        link.classList.add('bg-[#4A6B53]', 'text-white', 'shadow-xs');
+        link.classList.remove('text-[#3D342F]', 'hover:text-[#4A6B53]', 'hover:bg-[#E8F0E6]/60');
+      } else {
+        link.classList.remove('bg-[#4A6B53]', 'text-white', 'shadow-xs');
+        link.classList.add('text-[#3D342F]', 'hover:text-[#4A6B53]', 'hover:bg-[#E8F0E6]/60');
+      }
+    });
+
+    mobileNavLinks.forEach((link) => {
+      const href = link.getAttribute('href')?.replace('#', '');
+      if (href === currentId) {
+        link.classList.add('bg-[#4A6B53]', 'text-white', 'font-bold');
+        link.classList.remove('text-[#3D342F]', 'hover:bg-[#E8F0E6]');
+      } else {
+        link.classList.remove('bg-[#4A6B53]', 'text-white', 'font-bold');
+        link.classList.add('text-[#3D342F]', 'hover:bg-[#E8F0E6]');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
+  updateActiveNav();
 });
 
 // Helper to copy current email text
