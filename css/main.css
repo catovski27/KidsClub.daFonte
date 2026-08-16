@@ -23,6 +23,29 @@ body {
   overflow-x: hidden;
 }
 
+.brand-link {
+  min-width: 0;
+}
+
+.brand-copy {
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.brand-title,
+.brand-subtitle {
+  white-space: nowrap;
+}
+
+.brand-title {
+  line-height: 1.05;
+}
+
+.brand-subtitle {
+  letter-spacing: 0.12em;
+}
+
 h1, h2, h3, .font-heading {
   font-family: 'Fredoka', 'Quicksand', sans-serif;
 }
