@@ -24,16 +24,16 @@ O projeto destina-se a bebés e crianças das faixas etárias dos **6 meses aos 
 
 ## 🗺️ Estrutura do Site & Conteúdos
 
-1. **Header & Hero Section:** Identidade visual, lema, coordenação da Amálgama Associação Cultural e destaque para o período de inscrição (**1 de Julho a 15 de Agosto**).
-2. **Dia Aberto (Apresentação Presencial):** Cronograma detalhado do evento de acolhimento (10h00 às 12h00).
-3. **Quem Somos & Ecopedagogia:** Missão, faixas etárias e desenvolvimento do Ser através dos **6 Sentidos da Ecopedagogia** (Experimentar, Sentir, Interpretar, Socializar, Contemplar, Integrar).
-4. **Abordagem Pedagógica & Valores:** Integração de **Montessori**, **Waldorf** e **MEM**, juntamente com os **5 Pilares** e os **8 Valores Fundamentais**.
-5. **O Nosso Espaço & Adaptações:** Galeria interativa (Cozinha exterior de lama, mesas baixas, 2 bancos corridos, proteção de escadas superior/inferior, vedação do lago e pavilhão exterior).
-6. **Programa Diário:** Comutador de horários detalhados para o período da **Manhã (08:15 - 13:00)** e da **Tarde (13:00 - 18:00)**.
-7. **Leque de Atividades:** Grelha com 15 experiências (yoga infantil, oficinas criativas, passeios na floresta, horta, contos, ética ambiental, festas de aniversário, etc.).
-8. **Nossa Equipa:** Perfis da Equipa de Direção (Alexandra Battaglia, Margarida Battaglia, Tiago Rocha) e Cuidadoras/Educadoras (Sílvia Cabral, Catarina Martins, Natália Kozhevnikova).
-9. **Modalidades & Preçário:** Tabela com as 2 modalidades oficiais de inscrição (**Dia Inteiro 350€/mês**, **Meio Dia 200€/mês** com 10% de desconto de irmão) e informação sobre a utilização pontual avulsa (50€/sessão).
-10. **Informações Directas & Localização:** Contactos oficiais da coordenação (telefone, e-mail) e Google Maps integrado em layout lado a lado ("efeito de quadro").
+1. **Quem Somos:** Identidade, génese do projeto KidsClub.daFonte na Terra da Fonte, ligação à Amálgama Associação Cultural e faixas etárias (**6 meses aos 3 anos** e **3 aos 6 anos**).
+2. **Propósito e Missão:** Missão, vídeo da natureza e desenvolvimento do Ser através dos **6 Sentidos da Ecopedagogia** (Experimentar, Sentir, Interpretar, Socializar, Contemplar, Integrar) e friso contínuo de fotografias (*marquee*).
+3. **Princípios e Valores:** Abordagem pedagógica integrativa (**Montessori**, **Waldorf** e **MEM**), juntamente com os **5 Pilares** e os **8 Valores Fundamentais**.
+4. **Equipa:** Perfis da Equipa de Direção (Alexandra Battaglia, Margarida Battaglia, Tiago Rocha), Cuidadoras/Educadoras (Sílvia Cabral, Catarina Martins, Natália Kozhevnikova) e Ajudantes.
+5. **Espaço:** Galeria interativa das instalações e adaptações de segurança (Cozinha exterior de lama, salas interiores/mesas baixas, 2 bancos corridos, proteção de escadas superior/inferior, recinto exterior e vedação da piscina/lago).
+6. **Programa Diário:** Comutador de horários detalhados para o período da **Manhã (08:15 - 13:00)** e da **Tarde (13:00 - 18:00)** com cartões visuais pareados.
+7. **Atividades:** Grelha com 15 experiências categorizadas com filtros (yoga infantil, oficinas criativas, passeios na floresta, horta, contos, ética ambiental, festas de aniversário, etc.).
+8. **Preçário:** Tabela com as 2 modalidades oficiais de inscrição (**Dia Inteiro 350€/mês**, **Meio Dia 200€/mês** com 10% de desconto de irmão) e nota informativa sobre utilização pontual avulsa (50€/sessão).
+9. **Dia Aberto:** Apresentação presencial com cronograma detalhado do evento de acolhimento (10h00 às 12h00), leitor de vídeo oficial e grelha de memórias fotográficas.
+10. **Contactos:** Contactos oficiais da coordenação (telefone, e-mail oficial) e Google Maps interativo integrado.
 
 ---
 

@@ -74,99 +74,311 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Schedule Switcher (Manhãs / Tardes / Ver Dia Completo)
+  // --- PROGRAMA DIÁRIO TABS & ANIMAÇÃO SELETIVA INTELIGENTE ---
   const scheduleTabs = document.querySelectorAll('.schedule-tab');
+  const scheduleSlotLeft = document.getElementById('schedule-slot-left');
+  const scheduleSlotRight = document.getElementById('schedule-slot-right');
   const scheduleColManha = document.getElementById('schedule-col-manha');
   const scheduleColTarde = document.getElementById('schedule-col-tarde');
   const scheduleMediaManha = document.getElementById('schedule-media-manha');
   const scheduleMediaTarde = document.getElementById('schedule-media-tarde');
 
+  let currentScheduleMode = 'all';
+
+  function updateScheduleDOM(mode) {
+    if (mode === 'all') {
+      if (scheduleColManha) scheduleColManha.classList.remove('hidden');
+      if (scheduleColTarde) scheduleColTarde.classList.remove('hidden');
+      if (scheduleMediaManha) scheduleMediaManha.classList.add('hidden');
+      if (scheduleMediaTarde) scheduleMediaTarde.classList.add('hidden');
+    } else if (mode === 'manha') {
+      if (scheduleColManha) scheduleColManha.classList.remove('hidden');
+      if (scheduleColTarde) scheduleColTarde.classList.add('hidden');
+      if (scheduleMediaManha) scheduleMediaManha.classList.remove('hidden');
+      if (scheduleMediaTarde) scheduleMediaTarde.classList.add('hidden');
+    } else if (mode === 'tarde') {
+      if (scheduleColManha) scheduleColManha.classList.add('hidden');
+      if (scheduleColTarde) scheduleColTarde.classList.remove('hidden');
+      if (scheduleMediaManha) scheduleMediaManha.classList.add('hidden');
+      if (scheduleMediaTarde) scheduleMediaTarde.classList.remove('hidden');
+    }
+
+    if (window.lucide) lucide.createIcons();
+  }
+
+  function getChangingSlots(prevMode, nextMode) {
+    if (prevMode === nextMode) return [];
+
+    // Slot Left displays: 'manha' schedule in 'all' and 'manha'; 'media' in 'tarde'
+    const prevLeftType = (prevMode === 'tarde') ? 'media' : 'manha';
+    const nextLeftType = (nextMode === 'tarde') ? 'media' : 'manha';
+    const leftChanges = prevLeftType !== nextLeftType;
+
+    // Slot Right displays: 'tarde' schedule in 'all' and 'tarde'; 'media' in 'manha'
+    const prevRightType = (prevMode === 'manha') ? 'media' : 'tarde';
+    const nextRightType = (nextMode === 'manha') ? 'media' : 'tarde';
+    const rightChanges = prevRightType !== nextRightType;
+
+    const changing = [];
+    if (leftChanges && scheduleSlotLeft) changing.push(scheduleSlotLeft);
+    if (rightChanges && scheduleSlotRight) changing.push(scheduleSlotRight);
+    return changing;
+  }
+
   scheduleTabs.forEach((tab) => {
     tab.addEventListener('click', () => {
+      if (tab.classList.contains('active')) return;
+
+      const newMode = tab.getAttribute('data-mode');
+      const changingSlots = getChangingSlots(currentScheduleMode, newMode);
+
       scheduleTabs.forEach((t) => {
-        t.classList.remove('active', 'bg-[#4A6B53]', 'text-white');
-        t.classList.add('bg-white', 'text-[#3D342F]');
+        t.classList.remove('active', 'bg-[#4A6B53]', 'text-white', 'shadow-xs');
+        t.classList.add('bg-transparent', 'text-[#3D342F]');
       });
 
-      tab.classList.add('active', 'bg-[#4A6B53]', 'text-white');
-      tab.classList.remove('bg-white', 'text-[#3D342F]');
+      tab.classList.add('active', 'bg-[#4A6B53]', 'text-white', 'shadow-xs');
+      tab.classList.remove('bg-transparent', 'text-[#3D342F]');
 
-      const mode = tab.getAttribute('data-mode');
-
-      if (mode === 'all') {
-        // Show both schedule lists side by side
-        if (scheduleColManha) scheduleColManha.classList.remove('hidden');
-        if (scheduleColTarde) scheduleColTarde.classList.remove('hidden');
-        if (scheduleMediaManha) scheduleMediaManha.classList.add('hidden');
-        if (scheduleMediaTarde) scheduleMediaTarde.classList.add('hidden');
-      } else if (mode === 'manha') {
-        // Show Morning Schedule on left + Morning Media Card on right
-        if (scheduleColManha) scheduleColManha.classList.remove('hidden');
-        if (scheduleColTarde) scheduleColTarde.classList.add('hidden');
-        if (scheduleMediaManha) scheduleMediaManha.classList.remove('hidden');
-        if (scheduleMediaTarde) scheduleMediaTarde.classList.add('hidden');
-      } else if (mode === 'tarde') {
-        // Show Afternoon Media Card on left + Afternoon Schedule on right
-        if (scheduleColManha) scheduleColManha.classList.add('hidden');
-        if (scheduleColTarde) scheduleColTarde.classList.remove('hidden');
-        if (scheduleMediaManha) scheduleMediaManha.classList.add('hidden');
-        if (scheduleMediaTarde) scheduleMediaTarde.classList.remove('hidden');
+      // Only animate slots whose content actually changes!
+      if (window.gsap && changingSlots.length > 0) {
+        gsap.to(changingSlots, {
+          opacity: 0.15,
+          y: 4,
+          duration: 0.15,
+          ease: 'power1.out',
+          onComplete: () => {
+            updateScheduleDOM(newMode);
+            currentScheduleMode = newMode;
+            gsap.fromTo(
+              changingSlots,
+              { opacity: 0.15, y: 10 },
+              { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' }
+            );
+          }
+        });
+      } else {
+        updateScheduleDOM(newMode);
+        currentScheduleMode = newMode;
       }
-
-      if (window.lucide) lucide.createIcons();
     });
   });
 
-  // Activity Categories Filter
+  // Activity Categories Filter with GSAP Stagger Animation
   const filterBtns = document.querySelectorAll('.activity-filter-btn');
   const activityItems = document.querySelectorAll('.activity-item');
 
   filterBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
+      if (btn.classList.contains('active')) return;
+
       filterBtns.forEach((b) => {
-        b.classList.remove('active', 'bg-[#4A6B53]', 'text-white');
-        b.classList.add('bg-[#FAF7F2]', 'text-[#3D342F]');
+        b.classList.remove('active', 'bg-[#4A6B53]', 'text-white', 'shadow-xs');
+        b.classList.add('bg-transparent', 'text-[#3D342F]');
       });
-      btn.classList.add('active', 'bg-[#4A6B53]', 'text-white');
-      btn.classList.remove('bg-[#FAF7F2]', 'text-[#3D342F]');
+      btn.classList.add('active', 'bg-[#4A6B53]', 'text-white', 'shadow-xs');
+      btn.classList.remove('bg-transparent', 'text-[#3D342F]');
 
       const category = btn.getAttribute('data-filter');
+      const visibleItems = [];
+
       activityItems.forEach((item) => {
         const itemCat = item.getAttribute('data-category');
         if (category === 'all' || itemCat === category) {
           item.classList.remove('hidden');
-          item.classList.add('block');
+          item.classList.add('flex');
+          visibleItems.push(item);
         } else {
           item.classList.add('hidden');
-          item.classList.remove('block');
+          item.classList.remove('flex');
         }
       });
+
+      if (window.gsap && visibleItems.length > 0) {
+        gsap.fromTo(
+          visibleItems,
+          { opacity: 0.2, scale: 0.96, y: 12 },
+          { opacity: 1, scale: 1, y: 0, duration: 0.35, stagger: 0.03, ease: 'power2.out' }
+        );
+      }
     });
   });
 
-  // Pedagogy Tabs Switcher
-  const pedagogyTabs = document.querySelectorAll('.pedagogy-tab');
-  const pedagogyPanes = document.querySelectorAll('.pedagogy-pane');
+  // --- INTERACTIVE ECOPEDAGOGY SENSES EXPLORER ---
+  const senseTabBtns = document.querySelectorAll('.sense-tab-btn');
+  const senseImg = document.getElementById('sense-img');
+  const senseImgCaption = document.getElementById('sense-img-caption');
+  const senseBadgeText = document.getElementById('sense-badge-text');
+  const senseBadgeContainer = document.getElementById('sense-badge-container');
+  const senseTitle = document.getElementById('sense-title');
+  const senseSubtitle = document.getElementById('sense-subtitle');
+  const senseTagsContainer = document.getElementById('sense-tags-container');
 
-  pedagogyTabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
-      pedagogyTabs.forEach((t) => {
-        t.classList.remove('active', 'bg-[#D97757]', 'text-white');
-        t.classList.add('bg-[#FAF7F2]', 'text-[#3D342F]');
-      });
-      tab.classList.add('active', 'bg-[#D97757]', 'text-white');
-      tab.classList.remove('bg-[#FAF7F2]', 'text-[#3D342F]');
+  const sensesData = {
+    experimentar: {
+      title: 'Experimentar',
+      badge: 'Tato & Matéria Viva',
+      subtitle: 'Aprender e descobrir através do toque e da manipulação direta de terra, argila, sementes e água.',
+      image: 'assets/images/Kids/contacto com a natureza.jpg',
+      imageCaption: 'Contacto tátil com a terra, água e elementos naturais',
+      accentColor: '#4A6B53',
+      bgLight: '#E8F0E6',
+      iconBgInactive: '#E8F0E6',
+      iconColorInactive: '#4A6B53',
+      tags: ['Tato e Exploração', 'Manipulação Direta', 'Terra, Argila e Sementes']
+    },
+    sentir: {
+      title: 'Sentir',
+      badge: 'Coração & Segurança Afetiva',
+      subtitle: 'Acolhimento afetivo diário, escuta ativa das emoções, desenvolvimento da empatia e vínculos seguros.',
+      image: 'assets/images/Kids/crianças.jpeg',
+      imageCaption: 'Círculo de boas-vindas e acolhimento afetuoso',
+      accentColor: '#D97757',
+      bgLight: '#FAF0EB',
+      iconBgInactive: '#FAF0EB',
+      iconColorInactive: '#D97757',
+      tags: ['Escuta Afetiva', 'Empatia Interpessoal', 'Vínculo e Segurança']
+    },
+    interpretar: {
+      title: 'Interpretar',
+      badge: 'Mente & Curiosidade',
+      subtitle: 'Estímulo à curiosidade natural, levantamento de hipóteses e compreensão dos ciclos e fenómenos vivos.',
+      image: 'assets/images/Kids/Exploração ou curiosidade.jpg',
+      imageCaption: 'Descoberta orientada e estímulo à curiosidade nata',
+      accentColor: '#C58B1A',
+      bgLight: '#FEF9E7',
+      iconBgInactive: '#FEF9E7',
+      iconColorInactive: '#C58B1A',
+      tags: ['Curiosidade Nata', 'Pensamento Crítico', 'Investigação da Natureza']
+    },
+    socializar: {
+      title: 'Socializar',
+      badge: 'Comunidade & Pares',
+      subtitle: 'Brincadeira livre partilhada, tarefas cooperativas na quinta e construção de relações harmoniosas.',
+      image: 'assets/images/Open_Day/jogo do galo.jpg',
+      imageCaption: 'Jogos cooperativos e entreajuda na quinta',
+      accentColor: '#3D7858',
+      bgLight: '#E8F0E6',
+      iconBgInactive: '#E8F0E6',
+      iconColorInactive: '#3D7858',
+      tags: ['Brincadeira Partilhada', 'Tarefas Comunitárias', 'Respeito e Cooperação']
+    },
+    contemplar: {
+      title: 'Contemplar',
+      badge: 'Presença & Serenidade',
+      subtitle: 'Momentos de calma e respiração ao ar livre, escuta atenta dos pássaros e admiração da natureza.',
+      image: 'assets/images/Space/espaço.jpg',
+      imageCaption: 'Pausa serena, respiração ao ar livre e admiração silenciosa',
+      accentColor: '#C86D51',
+      bgLight: '#FAF0EB',
+      iconBgInactive: '#FAF0EB',
+      iconColorInactive: '#C86D51',
+      tags: ['Presença Serena', 'Escuta dos Pássaros', 'Momentos Sem Pressa']
+    },
+    integrar: {
+      title: 'Integrar',
+      badge: 'Arte, Expressão & Criação',
+      subtitle: 'Síntese das vivências através da expressão plástica, música, ritmo corporal, teatro e contos.',
+      image: 'assets/images/Kids/aprendi sensorial.jpg',
+      imageCaption: 'Expressão plástica, música, teatro e contos',
+      accentColor: '#935D43',
+      bgLight: '#F5EDE8',
+      iconBgInactive: '#F5EDE8',
+      iconColorInactive: '#935D43',
+      tags: ['Expressão Plástica', 'Música & Ritmo', 'Narrativas e Dança']
+    }
+  };
 
-      const targetPane = tab.getAttribute('data-pane');
-      pedagogyPanes.forEach((pane) => {
-        if (pane.id === targetPane) {
-          pane.classList.remove('hidden');
-          pane.classList.add('block');
-        } else {
-          pane.classList.add('hidden');
-          pane.classList.remove('block');
+  function activateSense(senseKey) {
+    const data = sensesData[senseKey];
+    if (!data) return;
+
+    senseTabBtns.forEach((btn) => {
+      const btnSense = btn.getAttribute('data-sense');
+      const isCurrent = btnSense === senseKey;
+      const iconBox = btn.querySelector('div');
+      const btnTitle = btn.querySelector('h4');
+      const btnDesc = btn.querySelector('span');
+      const senseConfig = sensesData[btnSense] || data;
+
+      if (isCurrent) {
+        btn.classList.add('active', 'shadow-md', 'scale-102');
+        btn.style.backgroundColor = data.accentColor;
+        btn.style.borderColor = data.accentColor;
+        btn.style.color = '#FFFFFF';
+        if (iconBox) {
+          iconBox.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
+          iconBox.style.color = '#FFFFFF';
         }
-      });
+        if (btnTitle) btnTitle.style.color = '#FFFFFF';
+        if (btnDesc) {
+          btnDesc.style.color = 'rgba(255, 255, 255, 0.9)';
+          btnDesc.classList.remove('text-gray-500');
+        }
+      } else {
+        btn.classList.remove('active', 'shadow-md', 'scale-102');
+        btn.style.backgroundColor = '#FFFFFF';
+        btn.style.borderColor = '#E8F0E6';
+        btn.style.color = '#3D342F';
+        if (iconBox) {
+          iconBox.style.backgroundColor = senseConfig.iconBgInactive;
+          iconBox.style.color = senseConfig.iconColorInactive;
+        }
+        if (btnTitle) btnTitle.style.color = '#3D342F';
+        if (btnDesc) {
+          btnDesc.style.color = '#6B7280';
+          btnDesc.classList.add('text-gray-500');
+        }
+      }
+    });
+
+    if (senseImg) {
+      senseImg.style.transition = 'opacity 0.2s ease';
+      senseImg.style.opacity = '0';
+      setTimeout(() => {
+        senseImg.src = data.image;
+        senseImg.alt = `Sentido: ${data.title}`;
+        if (senseImgCaption) senseImgCaption.textContent = data.imageCaption;
+        senseImg.style.opacity = '1';
+      }, 150);
+    }
+
+    if (senseTitle) {
+      senseTitle.textContent = data.title;
+      senseTitle.style.color = data.accentColor;
+    }
+    if (senseSubtitle) {
+      senseSubtitle.textContent = data.subtitle;
+    }
+    if (senseBadgeText) {
+      senseBadgeText.textContent = data.badge;
+    }
+    if (senseBadgeContainer) {
+      senseBadgeContainer.style.backgroundColor = data.bgLight;
+      senseBadgeContainer.style.color = data.accentColor;
+      senseBadgeContainer.style.borderColor = data.accentColor + '40';
+    }
+
+    if (senseTagsContainer) {
+      senseTagsContainer.innerHTML = data.tags
+        .map(
+          (tag) =>
+            `<span class="inline-flex items-center gap-1.5 bg-white px-3.5 py-1.5 rounded-xl text-xs font-bold border border-[#E8F0E6] shadow-xs" style="color: ${data.accentColor}">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5" style="color: ${data.accentColor}"></i> ${tag}
+            </span>`
+        )
+        .join('');
+    }
+
+    if (window.lucide) {
+      lucide.createIcons();
+    }
+  }
+
+  senseTabBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const senseKey = btn.getAttribute('data-sense');
+      activateSense(senseKey);
     });
   });
 
@@ -285,7 +497,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const estimatedPrice = document.getElementById('calculated-price')?.textContent || '';
       const notes = document.getElementById('input-notes')?.value || '';
 
-      const summaryText = 
+      const summaryText =
         `Pré-Inscrição KidsClub.daFonte\n\n` +
         `Encarregado de Educação: ${guardianName}\n` +
         `Telemóvel: ${guardianPhone}\n` +
@@ -335,7 +547,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-// --- SCROLLSPY (DESTAQUE DA SECÇÃO ATIVA) ---
+  // --- SCROLLSPY (DESTAQUE DA SECÇÃO ATIVA) ---
   const sections = document.querySelectorAll('section[id], header[id]');
   const navLinks = document.querySelectorAll('.nav-link');
   const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
@@ -377,6 +589,188 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('scroll', updateActiveNav, { passive: true });
   updateActiveNav();
+
+  // --- MOTOR DE MÚSICA & SONS DA NATUREZA (Web Audio API) ---
+  let audioCtx = null;
+  let isAudioPlaying = false;
+  let masterGain = null;
+  let soundIntervals = [];
+
+  const ambientWidget = document.getElementById('ambient-sound-widget');
+  const ambientButtons = document.querySelectorAll('.ambient-sound-toggle');
+  const ambientIcons = document.querySelectorAll('#ambient-sound-icon');
+  const ambientStatuses = document.querySelectorAll('#ambient-sound-status');
+  const footerElement = document.querySelector('footer');
+
+  function syncAmbientSurfaceState(isOverFooter) {
+    if (!ambientWidget) return;
+    ambientWidget.classList.toggle('ambient-sound-widget--footer', isOverFooter);
+  }
+
+  function updateAmbientSurfaceState() {
+    if (!footerElement) return;
+    const footerRect = footerElement.getBoundingClientRect();
+    const isFooterVisible = footerRect.top < window.innerHeight - 120 && footerRect.bottom > 0;
+    syncAmbientSurfaceState(isFooterVisible);
+  }
+
+  if (ambientWidget && footerElement) {
+    window.addEventListener('scroll', updateAmbientSurfaceState, { passive: true });
+    window.addEventListener('resize', updateAmbientSurfaceState, { passive: true });
+    updateAmbientSurfaceState();
+  }
+
+  function syncAmbientControls() {
+    ambientButtons.forEach((button) => {
+      button.classList.toggle('audio-playing', isAudioPlaying);
+      button.classList.toggle('audio-paused', !isAudioPlaying);
+      button.classList.toggle('shadow-xl', isAudioPlaying);
+      button.classList.toggle('border-[#4A6B53]/35', isAudioPlaying);
+      button.classList.toggle('bg-[#E8F0E6]', isAudioPlaying);
+    });
+
+    ambientIcons.forEach((icon) => {
+      icon.setAttribute('data-lucide', isAudioPlaying ? 'volume-2' : 'music');
+    });
+
+    ambientStatuses.forEach((status) => {
+      status.textContent = isAudioPlaying ? 'A reproduzir sons suaves' : 'Toque para ouvir';
+    });
+
+    if (window.lucide) lucide.createIcons();
+  }
+
+  function initAudioContext() {
+    if (!audioCtx) {
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      audioCtx = new AudioContextClass();
+      masterGain = audioCtx.createGain();
+      masterGain.gain.setValueAtTime(0.001, audioCtx.currentTime);
+      masterGain.connect(audioCtx.destination);
+    }
+  }
+
+  // Notas suaves pentatónicas tipo Kalimba / Glockenspiel acústico
+  function playKalimbaNote(freq, time, duration = 2.4, volume = 0.08) {
+    if (!audioCtx || !isAudioPlaying) return;
+    try {
+      const osc = audioCtx.createOscillator();
+      const noteGain = audioCtx.createGain();
+      const filter = audioCtx.createBiquadFilter();
+
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, time);
+
+      filter.type = 'lowpass';
+      filter.frequency.setValueAtTime(1200, time);
+
+      noteGain.gain.setValueAtTime(0.001, time);
+      noteGain.gain.exponentialRampToValueAtTime(volume, time + 0.03);
+      noteGain.gain.exponentialRampToValueAtTime(0.0001, time + duration);
+
+      osc.connect(filter);
+      filter.connect(noteGain);
+      noteGain.connect(masterGain);
+
+      osc.start(time);
+      osc.stop(time + duration + 0.1);
+    } catch (e) { }
+  }
+
+  // Canto suave de pássaros da floresta
+  function playBirdChirp() {
+    if (!audioCtx || !isAudioPlaying) return;
+    try {
+      const now = audioCtx.currentTime;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+
+      const baseFreq = 2200 + Math.random() * 600;
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(baseFreq, now);
+      osc.frequency.exponentialRampToValueAtTime(baseFreq + 500, now + 0.07);
+      osc.frequency.exponentialRampToValueAtTime(baseFreq - 200, now + 0.14);
+
+      gain.gain.setValueAtTime(0.0001, now);
+      gain.gain.linearRampToValueAtTime(0.025, now + 0.03);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.2);
+
+      osc.connect(gain);
+      gain.connect(masterGain);
+
+      osc.start(now);
+      osc.stop(now + 0.22);
+    } catch (e) { }
+  }
+
+  // Escala pentatónica suave da natureza (C, D, E, G, A, C5, D5, E5)
+  const pentatonicScale = [261.63, 293.66, 329.63, 392.00, 440.00, 523.25, 587.33, 659.25];
+
+  function triggerAmbientSequence() {
+    if (!audioCtx || !isAudioPlaying) return;
+    const now = audioCtx.currentTime;
+
+    const note1 = pentatonicScale[Math.floor(Math.random() * pentatonicScale.length)];
+    const note2 = pentatonicScale[Math.floor(Math.random() * pentatonicScale.length)];
+
+    playKalimbaNote(note1, now, 2.8, 0.07);
+    playKalimbaNote(note2, now + 0.35 + Math.random() * 0.3, 2.2, 0.05);
+
+    if (Math.random() > 0.4) {
+      setTimeout(playBirdChirp, 700 + Math.random() * 1000);
+    }
+  }
+
+  function startAmbientMusic() {
+    initAudioContext();
+    if (audioCtx.state === 'suspended') {
+      audioCtx.resume();
+    }
+    isAudioPlaying = true;
+
+    masterGain.gain.cancelScheduledValues(audioCtx.currentTime);
+    masterGain.gain.linearRampToValueAtTime(0.65, audioCtx.currentTime + 1.0);
+
+    triggerAmbientSequence();
+
+    const loopInterval = setInterval(() => {
+      if (isAudioPlaying) triggerAmbientSequence();
+    }, 2800);
+    soundIntervals.push(loopInterval);
+
+    const birdInterval = setInterval(() => {
+      if (isAudioPlaying && Math.random() > 0.3) playBirdChirp();
+    }, 4200);
+    soundIntervals.push(birdInterval);
+
+    syncAmbientControls();
+  }
+
+  function pauseAmbientMusic() {
+    if (!audioCtx) return;
+    isAudioPlaying = false;
+
+    masterGain.gain.cancelScheduledValues(audioCtx.currentTime);
+    masterGain.gain.linearRampToValueAtTime(0.0001, audioCtx.currentTime + 0.8);
+
+    soundIntervals.forEach(clearInterval);
+    soundIntervals = [];
+
+    syncAmbientControls();
+  }
+
+  if (ambientButtons.length > 0) {
+    ambientButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        if (!isAudioPlaying) {
+          startAmbientMusic();
+        } else {
+          pauseAmbientMusic();
+        }
+      });
+    });
+    syncAmbientControls();
+  }
 });
 
 // Helper to copy current email text
