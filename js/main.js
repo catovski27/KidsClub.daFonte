@@ -771,6 +771,47 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     syncAmbientControls();
   }
+
+  // --- FILTRO DE ATIVIDADES ---
+  const actFilterBtns = document.querySelectorAll('.activity-filter-btn');
+  const actItems = document.querySelectorAll('.activity-item');
+
+  if (actFilterBtns.length > 0 && actItems.length > 0) {
+    actFilterBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        actFilterBtns.forEach((b) => {
+          b.classList.remove('active', 'bg-[#4A6B53]', 'text-white', 'border-[#4A6B53]', 'shadow-sm');
+          b.classList.add('bg-[#FAF7F2]', 'text-[#3D342F]', 'border-[#E8F0E6]', 'shadow-xs');
+        });
+
+        btn.classList.add('active', 'bg-[#4A6B53]', 'text-white', 'border-[#4A6B53]', 'shadow-sm');
+        btn.classList.remove('bg-[#FAF7F2]', 'text-[#3D342F]', 'border-[#E8F0E6]', 'shadow-xs');
+
+        const filter = btn.getAttribute('data-filter');
+        const visibleItems = [];
+
+        actItems.forEach((item) => {
+          const category = item.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            item.style.display = 'flex';
+            visibleItems.push(item);
+          } else {
+            item.style.display = 'none';
+          }
+        });
+
+        // Always animate all visible items on every click
+        if (typeof gsap !== 'undefined' && visibleItems.length > 0) {
+          gsap.killTweensOf(visibleItems);
+          gsap.fromTo(
+            visibleItems,
+            { opacity: 0, scale: 0.92, y: 14 },
+            { opacity: 1, scale: 1, y: 0, duration: 0.3, stagger: 0.035, ease: 'power2.out', overwrite: 'auto' }
+          );
+        }
+      });
+    });
+  }
 });
 
 // Helper to copy current email text

@@ -64,7 +64,10 @@ body::before {
   letter-spacing: 0.12em;
 }
 
-h1, h2, h3, .font-heading {
+h1,
+h2,
+h3,
+.font-heading {
   font-family: 'Fredoka', 'Quicksand', sans-serif;
 }
 
@@ -83,6 +86,7 @@ h1, h2, h3, .font-heading {
 .glass-card-hover {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .glass-card-hover:hover {
   transform: translateY(-4px);
   box-shadow: 0 20px 30px -10px rgba(74, 107, 83, 0.12);
@@ -93,9 +97,11 @@ h1, h2, h3, .font-heading {
   0% {
     transform: translateY(0px) rotate(0deg);
   }
+
   50% {
     transform: translateY(-15px) rotate(6deg);
   }
+
   100% {
     transform: translateY(0px) rotate(0deg);
   }
@@ -113,13 +119,16 @@ h1, h2, h3, .font-heading {
 ::-webkit-scrollbar {
   width: 10px;
 }
+
 ::-webkit-scrollbar-track {
   background: #FAF7F2;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #4A6B53;
   border-radius: 5px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #3d5844;
 }
@@ -157,9 +166,11 @@ h1, h2, h3, .font-heading {
   0% {
     box-shadow: 0 0 0 0 rgba(244, 197, 66, 0.7);
   }
+
   70% {
     box-shadow: 0 0 0 10px rgba(244, 197, 66, 0);
   }
+
   100% {
     box-shadow: 0 0 0 0 rgba(244, 197, 66, 0);
   }
@@ -169,18 +180,23 @@ h1, h2, h3, .font-heading {
 .team-img-alexandra {
   object-position: center 18% !important;
 }
+
 .team-img-margarida {
   object-position: center 25% !important;
 }
+
 .team-img-tiago {
   object-position: center 12% !important;
 }
+
 .team-img-silvia {
   object-position: center 30% !important;
 }
+
 .team-img-catarina {
   object-position: center 12% !important;
 }
+
 .team-img-natalia {
   object-position: center 18% !important;
 }
@@ -189,6 +205,7 @@ h1, h2, h3, .font-heading {
 .social-icon-btn {
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .social-icon-btn:hover {
   transform: translateY(-2px);
 }
@@ -198,6 +215,7 @@ h1, h2, h3, .font-heading {
   0% {
     transform: translateX(0%);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -223,25 +241,61 @@ h1, h2, h3, .font-heading {
 
 /* Celestial Morning Sun & Afternoon Sunset Animations */
 @keyframes sun-spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes sun-rise-bounce {
-  0% { transform: translateY(30px) scale(0.7); opacity: 0; }
-  60% { transform: translateY(-8px) scale(1.08); opacity: 1; }
-  100% { transform: translateY(0) scale(1); opacity: 1; }
+  0% {
+    transform: translateY(30px) scale(0.7);
+    opacity: 0;
+  }
+
+  60% {
+    transform: translateY(-8px) scale(1.08);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
 }
 
 @keyframes sunset-dip-horizon {
-  0% { transform: translateY(-15px) scale(1); opacity: 1; }
-  50% { transform: translateY(8px) scale(0.92); opacity: 0.9; }
-  100% { transform: translateY(18px) scale(0.85); opacity: 0.8; }
+  0% {
+    transform: translateY(-15px) scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(8px) scale(0.92);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: translateY(18px) scale(0.85);
+    opacity: 0.8;
+  }
 }
 
 @keyframes pulse-gentle {
-  0%, 100% { opacity: 0.8; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.05); }
+
+  0%,
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
 }
 
 .animate-sun-spin {
@@ -304,15 +358,69 @@ h1, h2, h3, .font-heading {
 }
 
 /* Floating Ambient Nature Music Widget & Equalizer */
-@keyframes eq-bounce-1 { 0%, 100% { height: 4px; } 50% { height: 14px; } }
-@keyframes eq-bounce-2 { 0%, 100% { height: 12px; } 50% { height: 5px; } }
-@keyframes eq-bounce-3 { 0%, 100% { height: 6px; } 50% { height: 15px; } }
-@keyframes eq-bounce-4 { 0%, 100% { height: 10px; } 50% { height: 4px; } }
+@keyframes eq-bounce-1 {
 
-.audio-playing .eq-bar-1 { animation: eq-bounce-1 0.75s ease-in-out infinite; }
-.audio-playing .eq-bar-2 { animation: eq-bounce-2 0.65s ease-in-out infinite 0.12s; }
-.audio-playing .eq-bar-3 { animation: eq-bounce-3 0.85s ease-in-out infinite 0.25s; }
-.audio-playing .eq-bar-4 { animation: eq-bounce-4 0.7s ease-in-out infinite 0.18s; }
+  0%,
+  100% {
+    height: 4px;
+  }
+
+  50% {
+    height: 14px;
+  }
+}
+
+@keyframes eq-bounce-2 {
+
+  0%,
+  100% {
+    height: 12px;
+  }
+
+  50% {
+    height: 5px;
+  }
+}
+
+@keyframes eq-bounce-3 {
+
+  0%,
+  100% {
+    height: 6px;
+  }
+
+  50% {
+    height: 15px;
+  }
+}
+
+@keyframes eq-bounce-4 {
+
+  0%,
+  100% {
+    height: 10px;
+  }
+
+  50% {
+    height: 4px;
+  }
+}
+
+.audio-playing .eq-bar-1 {
+  animation: eq-bounce-1 0.75s ease-in-out infinite;
+}
+
+.audio-playing .eq-bar-2 {
+  animation: eq-bounce-2 0.65s ease-in-out infinite 0.12s;
+}
+
+.audio-playing .eq-bar-3 {
+  animation: eq-bounce-3 0.85s ease-in-out infinite 0.25s;
+}
+
+.audio-playing .eq-bar-4 {
+  animation: eq-bounce-4 0.7s ease-in-out infinite 0.18s;
+}
 
 .audio-paused .eq-bar {
   animation: none !important;
@@ -419,4 +527,26 @@ h1, h2, h3, .font-heading {
   .ambient-sound-toggle.audio-playing .ambient-sound-details {
     max-width: 8rem;
   }
+}
+
+/* Activity Categories Filter Buttons */
+.activity-filter-btn {
+  background-color: #FAF7F2;
+  color: #3D342F;
+  border: 1px solid #E8F0E6;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.activity-filter-btn:not(.active):hover {
+  background-color: #E8F0E6 !important;
+  color: #4A6B53 !important;
+  border-color: rgba(74, 107, 83, 0.3) !important;
+}
+
+.activity-filter-btn.active {
+  background-color: #4A6B53 !important;
+  color: #FFFFFF !important;
+  border-color: #4A6B53 !important;
+  box-shadow: 0 4px 12px rgba(74, 107, 83, 0.25) !important;
 }

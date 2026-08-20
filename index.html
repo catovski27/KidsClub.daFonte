@@ -1642,325 +1642,188 @@
         </p>
       </div>
 
-      <!-- Floating Glass Category Dock Filter -->
-      <div class="flex justify-center mb-12 gsap-reveal">
-        <div
-          class="inline-flex p-1.5 bg-[#FAF7F2] rounded-3xl border border-[#4A6B53]/15 shadow-sm gap-1.5 flex-wrap justify-center backdrop-blur-md">
-          <button
-            class="activity-filter-btn active px-5 py-2.5 rounded-2xl font-fredoka text-xs sm:text-sm font-semibold transition-all duration-300 shadow-xs flex items-center gap-2"
-            data-filter="all">
-            <span>✨ Todas as Atividades</span>
-            <span class="text-[10px] bg-white/30 px-2 py-0.5 rounded-full font-bold">15</span>
-          </button>
-          <button
-            class="activity-filter-btn bg-transparent text-[#3D342F] hover:bg-white px-5 py-2.5 rounded-2xl font-fredoka text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center gap-2"
-            data-filter="natureza">
-            <span>🌿 Natureza & Exploração</span>
-            <span class="text-[10px] bg-[#E8F0E6] text-[#4A6B53] px-2 py-0.5 rounded-full font-bold">5</span>
-          </button>
-          <button
-            class="activity-filter-btn bg-transparent text-[#3D342F] hover:bg-white px-5 py-2.5 rounded-2xl font-fredoka text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center gap-2"
-            data-filter="arte">
-            <span>🎨 Arte & Criatividade</span>
-            <span class="text-[10px] bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full font-bold">3</span>
-          </button>
-          <button
-            class="activity-filter-btn bg-transparent text-[#3D342F] hover:bg-white px-5 py-2.5 rounded-2xl font-fredoka text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center gap-2"
-            data-filter="movimento">
-            <span>🧘 Movimento & Corpo</span>
-            <span class="text-[10px] bg-teal-100 text-teal-800 px-2 py-0.5 rounded-full font-bold">3</span>
-          </button>
-          <button
-            class="activity-filter-btn bg-transparent text-[#3D342F] hover:bg-white px-5 py-2.5 rounded-2xl font-fredoka text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center gap-2"
-            data-filter="comunidade">
-            <span>🏡 Família & Comunidade</span>
-            <span
-              class="text-[10px] bg-[#FAF7F2] border border-[#D97757]/30 text-[#D97757] px-2 py-0.5 rounded-full font-bold">4</span>
-          </button>
-        </div>
+      <!-- Category Filter Buttons -->
+      <div class="flex flex-wrap justify-center gap-2.5 mb-12 gsap-reveal">
+        <button
+          class="activity-filter-btn active bg-[#4A6B53] text-white border border-[#4A6B53] px-5 py-2.5 rounded-2xl font-fredoka text-xs sm:text-sm font-semibold transition-all shadow-sm"
+          data-filter="all">
+          ✨ Todas as Atividades (15)
+        </button>
+        <button
+          class="activity-filter-btn bg-[#FAF7F2] text-[#3D342F] hover:bg-[#E8F0E6] border border-[#E8F0E6] px-5 py-2.5 rounded-2xl font-fredoka text-xs sm:text-sm font-semibold transition-all shadow-xs"
+          data-filter="natureza">
+          🌾 Natureza & Exploração
+        </button>
+        <button
+          class="activity-filter-btn bg-[#FAF7F2] text-[#3D342F] hover:bg-[#E8F0E6] border border-[#E8F0E6] px-5 py-2.5 rounded-2xl font-fredoka text-xs sm:text-sm font-semibold transition-all shadow-xs"
+          data-filter="arte">
+          🌸 Arte & Criatividade
+        </button>
+        <button
+          class="activity-filter-btn bg-[#FAF7F2] text-[#3D342F] hover:bg-[#E8F0E6] border border-[#E8F0E6] px-5 py-2.5 rounded-2xl font-fredoka text-xs sm:text-sm font-semibold transition-all shadow-xs"
+          data-filter="movimento">
+          🧘 Movimento & Corpo
+        </button>
+        <button
+          class="activity-filter-btn bg-[#FAF7F2] text-[#3D342F] hover:bg-[#E8F0E6] border border-[#E8F0E6] px-5 py-2.5 rounded-2xl font-fredoka text-xs sm:text-sm font-semibold transition-all shadow-xs"
+          data-filter="comunidade">
+          🏡 Família & Comunidade
+        </button>
       </div>
 
-      <!-- Activities Luxury Bento Grid -->
+      <!-- Activities Grid (Centrado, Elegante & Harmonioso) -->
       <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-5 gsap-stagger-container">
 
         <!-- 01: Clube Diário -->
         <div
-          class="activity-item gsap-stagger-item group p-5 sm:p-6 bg-[#FAF7F2] rounded-3xl border-2 border-[#E8F0E6] hover:border-[#C58B1A]/50 shadow-[0_4px_16px_rgba(74,107,83,0.06)] hover:shadow-[0_12px_28px_rgba(197,139,26,0.15)] hover:-translate-y-2 transition-all duration-300 relative flex flex-col justify-between overflow-hidden cursor-default min-h-[185px]"
+          class="activity-item gsap-stagger-item p-5 sm:p-6 bg-[#FAF7F2] rounded-3xl border border-[#E8F0E6] hover:border-[#4A6B53]/40 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center text-center group cursor-default min-h-[135px]"
           data-category="comunidade">
-          <div class="flex items-center justify-between w-full">
-            <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-100 text-[#C58B1A] border border-[#C58B1A]/30">Comunidade</span>
-            <span class="font-fredoka text-base font-bold text-[#C58B1A]/30 group-hover:text-[#C58B1A] transition-colors">01</span>
+          <div class="w-12 h-12 rounded-2xl bg-[#E8F0E6] text-[#4A6B53] flex items-center justify-center mb-3 shadow-xs group-hover:scale-110 transition-transform duration-300">
+            <i data-lucide="home" class="w-6 h-6"></i>
           </div>
-          <div class="my-auto py-2 flex flex-col items-center text-center">
-            <div class="w-14 h-14 rounded-2xl bg-[#C58B1A] text-white shadow-md flex items-center justify-center ring-4 ring-amber-100 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-              <i data-lucide="home" class="w-6 h-6"></i>
-            </div>
-            <h3 class="font-fredoka font-bold text-[#3D342F] group-hover:text-[#4A6B53] text-base leading-snug mt-3 transition-colors">Clube Diário</h3>
-          </div>
-          <div class="h-1.5 w-12 mx-auto rounded-full bg-gradient-to-r from-amber-400 to-[#C58B1A] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <h4 class="font-fredoka font-bold text-[#4A6B53] group-hover:text-[#3D342F] text-sm sm:text-base leading-snug transition-colors">Clube Diário</h4>
         </div>
 
         <!-- 02: Oficinas Criativas -->
         <div
-          class="activity-item gsap-stagger-item group p-5 sm:p-6 bg-[#FAF7F2] rounded-3xl border-2 border-[#E8F0E6] hover:border-[#D97757]/50 shadow-[0_4px_16px_rgba(74,107,83,0.06)] hover:shadow-[0_12px_28px_rgba(217,119,87,0.15)] hover:-translate-y-2 transition-all duration-300 relative flex flex-col justify-between overflow-hidden cursor-default min-h-[185px]"
+          class="activity-item gsap-stagger-item p-5 sm:p-6 bg-[#FAF7F2] rounded-3xl border border-[#E8F0E6] hover:border-[#4A6B53]/40 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center text-center group cursor-default min-h-[135px]"
           data-category="arte">
-          <div class="flex items-center justify-between w-full">
-            <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-orange-100 text-[#D97757] border border-[#D97757]/30">Arte</span>
-            <span class="font-fredoka text-base font-bold text-[#D97757]/30 group-hover:text-[#D97757] transition-colors">02</span>
+          <div class="w-12 h-12 rounded-2xl bg-[#FAF0E6] text-[#8C6D53] flex items-center justify-center mb-3 shadow-xs group-hover:scale-110 transition-transform duration-300">
+            <i data-lucide="palette" class="w-6 h-6"></i>
           </div>
-          <div class="my-auto py-2 flex flex-col items-center text-center">
-            <div class="w-14 h-14 rounded-2xl bg-[#D97757] text-white shadow-md flex items-center justify-center ring-4 ring-orange-100 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-              <i data-lucide="palette" class="w-6 h-6"></i>
-            </div>
-            <h3 class="font-fredoka font-bold text-[#3D342F] group-hover:text-[#4A6B53] text-base leading-snug mt-3 transition-colors">Oficinas Criativas</h3>
-          </div>
-          <div class="h-1.5 w-12 mx-auto rounded-full bg-gradient-to-r from-orange-400 to-[#D97757] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <h4 class="font-fredoka font-bold text-[#4A6B53] group-hover:text-[#3D342F] text-sm sm:text-base leading-snug transition-colors">Oficinas Criativas</h4>
         </div>
 
         <!-- 03: Música & Ritmo -->
         <div
-          class="activity-item gsap-stagger-item group p-5 sm:p-6 bg-[#FAF7F2] rounded-3xl border-2 border-[#E8F0E6] hover:border-[#D97757]/50 shadow-[0_4px_16px_rgba(74,107,83,0.06)] hover:shadow-[0_12px_28px_rgba(217,119,87,0.15)] hover:-translate-y-2 transition-all duration-300 relative flex flex-col justify-between overflow-hidden cursor-default min-h-[185px]"
+          class="activity-item gsap-stagger-item p-5 sm:p-6 bg-[#FAF7F2] rounded-3xl border border-[#E8F0E6] hover:border-[#4A6B53]/40 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center text-center group cursor-default min-h-[135px]"
           data-category="arte">
-          <div class="flex items-center justify-between w-full">
-            <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-orange-100 text-[#D97757] border border-[#D97757]/30">Arte</span>
-            <span class="font-fredoka text-base font-bold text-[#D97757]/30 group-hover:text-[#D97757] transition-colors">03</span>
+          <div class="w-12 h-12 rounded-2xl bg-[#FAF0EB] text-[#D97757] flex items-center justify-center mb-3 shadow-xs group-hover:scale-110 transition-transform duration-300">
+            <i data-lucide="music" class="w-6 h-6"></i>
           </div>
-          <div class="my-auto py-2 flex flex-col items-center text-center">
-            <div class="w-14 h-14 rounded-2xl bg-[#D97757] text-white shadow-md flex items-center justify-center ring-4 ring-orange-100 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-              <i data-lucide="music" class="w-6 h-6"></i>
-            </div>
-            <h3 class="font-fredoka font-bold text-[#3D342F] group-hover:text-[#4A6B53] text-base leading-snug mt-3 transition-colors">Música & Ritmo</h3>
-          </div>
-          <div class="h-1.5 w-12 mx-auto rounded-full bg-gradient-to-r from-orange-400 to-[#D97757] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <h4 class="font-fredoka font-bold text-[#4A6B53] group-hover:text-[#3D342F] text-sm sm:text-base leading-snug transition-colors">Música & Ritmo</h4>
         </div>
 
         <!-- 04: Yoga Infantil -->
         <div
-          class="activity-item gsap-stagger-item group p-5 sm:p-6 bg-[#FAF7F2] rounded-3xl border-2 border-[#E8F0E6] hover:border-[#2D7A78]/50 shadow-[0_4px_16px_rgba(74,107,83,0.06)] hover:shadow-[0_12px_28px_rgba(45,122,120,0.15)] hover:-translate-y-2 transition-all duration-300 relative flex flex-col justify-between overflow-hidden cursor-default min-h-[185px]"
+          class="activity-item gsap-stagger-item p-5 sm:p-6 bg-[#FAF7F2] rounded-3xl border border-[#E8F0E6] hover:border-[#4A6B53]/40 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center text-center group cursor-default min-h-[135px]"
           data-category="movimento">
-          <div class="flex items-center justify-between w-full">
-            <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-teal-100 text-[#2D7A78] border border-[#2D7A78]/30">Movimento</span>
-            <span class="font-fredoka text-base font-bold text-[#2D7A78]/30 group-hover:text-[#2D7A78] transition-colors">04</span>
+          <div class="w-12 h-12 rounded-2xl bg-[#E8F0E6] text-[#4A6B53] flex items-center justify-center mb-3 shadow-xs group-hover:scale-110 transition-transform duration-300">
+            <i data-lucide="heart" class="w-6 h-6"></i>
           </div>
-          <div class="my-auto py-2 flex flex-col items-center text-center">
-            <div class="w-14 h-14 rounded-2xl bg-[#2D7A78] text-white shadow-md flex items-center justify-center ring-4 ring-teal-100 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-              <i data-lucide="heart-pulse" class="w-6 h-6"></i>
-            </div>
-            <h3 class="font-fredoka font-bold text-[#3D342F] group-hover:text-[#4A6B53] text-base leading-snug mt-3 transition-colors">Yoga Infantil</h3>
-          </div>
-          <div class="h-1.5 w-12 mx-auto rounded-full bg-gradient-to-r from-teal-400 to-[#2D7A78] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <h4 class="font-fredoka font-bold text-[#4A6B53] group-hover:text-[#3D342F] text-sm sm:text-base leading-snug transition-colors">Yoga Infantil</h4>
         </div>
 
         <!-- 05: Contos & Histórias -->
         <div
-          class="activity-item gsap-stagger-item group p-5 sm:p-6 bg-[#FAF7F2] rounded-3xl border-2 border-[#E8F0E6] hover:border-[#D97757]/50 shadow-[0_4px_16px_rgba(74,107,83,0.06)] hover:shadow-[0_12px_28px_rgba(217,119,87,0.15)] hover:-translate-y-2 transition-all duration-300 relative flex flex-col justify-between overflow-hidden cursor-default min-h-[185px]"
+          class="activity-item gsap-stagger-item p-5 sm:p-6 bg-[#FAF7F2] rounded-3xl border border-[#E8F0E6] hover:border-[#4A6B53]/40 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center text-center group cursor-default min-h-[135px]"
           data-category="arte">
-          <div class="flex items-center justify-between w-full">
-            <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-orange-100 text-[#D97757] border border-[#D97757]/30">Arte</span>
-            <span class="font-fredoka text-base font-bold text-[#D97757]/30 group-hover:text-[#D97757] transition-colors">05</span>
+          <div class="w-12 h-12 rounded-2xl bg-[#FAF0E6] text-[#8C6D53] flex items-center justify-center mb-3 shadow-xs group-hover:scale-110 transition-transform duration-300">
+            <i data-lucide="book-open" class="w-6 h-6"></i>
           </div>
-          <div class="my-auto py-2 flex flex-col items-center text-center">
-            <div class="w-14 h-14 rounded-2xl bg-[#D97757] text-white shadow-md flex items-center justify-center ring-4 ring-orange-100 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-              <i data-lucide="book-open" class="w-6 h-6"></i>
-            </div>
-            <h3 class="font-fredoka font-bold text-[#3D342F] group-hover:text-[#4A6B53] text-base leading-snug mt-3 transition-colors">Contos & Histórias</h3>
-          </div>
-          <div class="h-1.5 w-12 mx-auto rounded-full bg-gradient-to-r from-orange-400 to-[#D97757] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <h4 class="font-fredoka font-bold text-[#4A6B53] group-hover:text-[#3D342F] text-sm sm:text-base leading-snug transition-colors">Contos & Histórias</h4>
         </div>
 
         <!-- 06: Passeios na Floresta -->
         <div
-          class="activity-item gsap-stagger-item group p-5 sm:p-6 bg-[#FAF7F2] rounded-3xl border-2 border-[#E8F0E6] hover:border-[#4A6B53]/50 shadow-[0_4px_16px_rgba(74,107,83,0.06)] hover:shadow-[0_12px_28px_rgba(74,107,83,0.15)] hover:-translate-y-2 transition-all duration-300 relative flex flex-col justify-between overflow-hidden cursor-default min-h-[185px]"
+          class="activity-item gsap-stagger-item p-5 sm:p-6 bg-[#FAF7F2] rounded-3xl border border-[#E8F0E6] hover:border-[#4A6B53]/40 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center text-center group cursor-default min-h-[135px]"
           data-category="natureza">
-          <div class="flex items-center justify-between w-full">
-            <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#E8F0E6] text-[#4A6B53] border border-[#4A6B53]/25">Natureza</span>
-            <span class="font-fredoka text-base font-bold text-[#4A6B53]/30 group-hover:text-[#4A6B53] transition-colors">06</span>
+          <div class="w-12 h-12 rounded-2xl bg-[#E8F0E6] text-[#4A6B53] flex items-center justify-center mb-3 shadow-xs group-hover:scale-110 transition-transform duration-300">
+            <i data-lucide="trees" class="w-6 h-6"></i>
           </div>
-          <div class="my-auto py-2 flex flex-col items-center text-center">
-            <div class="w-14 h-14 rounded-2xl bg-[#4A6B53] text-white shadow-md flex items-center justify-center ring-4 ring-[#E8F0E6] group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-              <i data-lucide="trees" class="w-6 h-6"></i>
-            </div>
-            <h3 class="font-fredoka font-bold text-[#3D342F] group-hover:text-[#4A6B53] text-base leading-snug mt-3 transition-colors">Passeios na Floresta</h3>
-          </div>
-          <div class="h-1.5 w-12 mx-auto rounded-full bg-gradient-to-r from-emerald-400 to-[#4A6B53] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <h4 class="font-fredoka font-bold text-[#4A6B53] group-hover:text-[#3D342F] text-sm sm:text-base leading-snug transition-colors">Passeios na Floresta</h4>
         </div>
 
         <!-- 07: Atividades Sensoriais -->
         <div
-          class="activity-item gsap-stagger-item group p-5 sm:p-6 bg-[#FAF7F2] rounded-3xl border-2 border-[#E8F0E6] hover:border-[#4A6B53]/50 shadow-[0_4px_16px_rgba(74,107,83,0.06)] hover:shadow-[0_12px_28px_rgba(74,107,83,0.15)] hover:-translate-y-2 transition-all duration-300 relative flex flex-col justify-between overflow-hidden cursor-default min-h-[185px]"
+          class="activity-item gsap-stagger-item p-5 sm:p-6 bg-[#FAF7F2] rounded-3xl border border-[#E8F0E6] hover:border-[#4A6B53]/40 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center text-center group cursor-default min-h-[135px]"
           data-category="natureza">
-          <div class="flex items-center justify-between w-full">
-            <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#E8F0E6] text-[#4A6B53] border border-[#4A6B53]/25">Natureza</span>
-            <span class="font-fredoka text-base font-bold text-[#4A6B53]/30 group-hover:text-[#4A6B53] transition-colors">07</span>
+          <div class="w-12 h-12 rounded-2xl bg-[#FAF0EB] text-[#D97757] flex items-center justify-center mb-3 shadow-xs group-hover:scale-110 transition-transform duration-300">
+            <i data-lucide="sparkles" class="w-6 h-6"></i>
           </div>
-          <div class="my-auto py-2 flex flex-col items-center text-center">
-            <div class="w-14 h-14 rounded-2xl bg-[#4A6B53] text-white shadow-md flex items-center justify-center ring-4 ring-[#E8F0E6] group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-              <i data-lucide="sparkles" class="w-6 h-6"></i>
-            </div>
-            <h3 class="font-fredoka font-bold text-[#3D342F] group-hover:text-[#4A6B53] text-base leading-snug mt-3 transition-colors">Atividades Sensoriais</h3>
-          </div>
-          <div class="h-1.5 w-12 mx-auto rounded-full bg-gradient-to-r from-emerald-400 to-[#4A6B53] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <h4 class="font-fredoka font-bold text-[#4A6B53] group-hover:text-[#3D342F] text-sm sm:text-base leading-snug transition-colors">Atividades Sensoriais</h4>
         </div>
 
         <!-- 08: Workshops Pais & Filhos -->
         <div
-          class="activity-item gsap-stagger-item group p-5 sm:p-6 bg-[#FAF7F2] rounded-3xl border-2 border-[#E8F0E6] hover:border-[#C58B1A]/50 shadow-[0_4px_16px_rgba(74,107,83,0.06)] hover:shadow-[0_12px_28px_rgba(197,139,26,0.15)] hover:-translate-y-2 transition-all duration-300 relative flex flex-col justify-between overflow-hidden cursor-default min-h-[185px]"
+          class="activity-item gsap-stagger-item p-5 sm:p-6 bg-[#FAF7F2] rounded-3xl border border-[#E8F0E6] hover:border-[#4A6B53]/40 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center text-center group cursor-default min-h-[135px]"
           data-category="comunidade">
-          <div class="flex items-center justify-between w-full">
-            <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-100 text-[#C58B1A] border border-[#C58B1A]/30">Comunidade</span>
-            <span class="font-fredoka text-base font-bold text-[#C58B1A]/30 group-hover:text-[#C58B1A] transition-colors">08</span>
+          <div class="w-12 h-12 rounded-2xl bg-[#FAF0E6] text-[#8C6D53] flex items-center justify-center mb-3 shadow-xs group-hover:scale-110 transition-transform duration-300">
+            <i data-lucide="users" class="w-6 h-6"></i>
           </div>
-          <div class="my-auto py-2 flex flex-col items-center text-center">
-            <div class="w-14 h-14 rounded-2xl bg-[#C58B1A] text-white shadow-md flex items-center justify-center ring-4 ring-amber-100 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-              <i data-lucide="users" class="w-6 h-6"></i>
-            </div>
-            <h3 class="font-fredoka font-bold text-[#3D342F] group-hover:text-[#4A6B53] text-base leading-snug mt-3 transition-colors">Workshops Pais & Filhos</h3>
-          </div>
-          <div class="h-1.5 w-12 mx-auto rounded-full bg-gradient-to-r from-amber-400 to-[#C58B1A] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <h4 class="font-fredoka font-bold text-[#4A6B53] group-hover:text-[#3D342F] text-sm sm:text-base leading-snug transition-colors">Workshops Pais & Filhos</h4>
         </div>
 
         <!-- 09: Estimulação Psicomotora -->
         <div
-          class="activity-item gsap-stagger-item group p-5 sm:p-6 bg-[#FAF7F2] rounded-3xl border-2 border-[#E8F0E6] hover:border-[#2D7A78]/50 shadow-[0_4px_16px_rgba(74,107,83,0.06)] hover:shadow-[0_12px_28px_rgba(45,122,120,0.15)] hover:-translate-y-2 transition-all duration-300 relative flex flex-col justify-between overflow-hidden cursor-default min-h-[185px]"
+          class="activity-item gsap-stagger-item p-5 sm:p-6 bg-[#FAF7F2] rounded-3xl border border-[#E8F0E6] hover:border-[#4A6B53]/40 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center text-center group cursor-default min-h-[135px]"
           data-category="movimento">
-          <div class="flex items-center justify-between w-full">
-            <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-teal-100 text-[#2D7A78] border border-[#2D7A78]/30">Movimento</span>
-            <span class="font-fredoka text-base font-bold text-[#2D7A78]/30 group-hover:text-[#2D7A78] transition-colors">09</span>
+          <div class="w-12 h-12 rounded-2xl bg-[#E8F0E6] text-[#4A6B53] flex items-center justify-center mb-3 shadow-xs group-hover:scale-110 transition-transform duration-300">
+            <i data-lucide="activity" class="w-6 h-6"></i>
           </div>
-          <div class="my-auto py-2 flex flex-col items-center text-center">
-            <div class="w-14 h-14 rounded-2xl bg-[#2D7A78] text-white shadow-md flex items-center justify-center ring-4 ring-teal-100 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-              <i data-lucide="activity" class="w-6 h-6"></i>
-            </div>
-            <h3 class="font-fredoka font-bold text-[#3D342F] group-hover:text-[#4A6B53] text-base leading-snug mt-3 transition-colors">Estimulação Psicomotora</h3>
-          </div>
-          <div class="h-1.5 w-12 mx-auto rounded-full bg-gradient-to-r from-teal-400 to-[#2D7A78] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <h4 class="font-fredoka font-bold text-[#4A6B53] group-hover:text-[#3D342F] text-sm sm:text-base leading-snug transition-colors">Estimulação Psicomotora</h4>
         </div>
 
         <!-- 10: Relação com Animais -->
         <div
-          class="activity-item gsap-stagger-item group p-5 sm:p-6 bg-[#FAF7F2] rounded-3xl border-2 border-[#E8F0E6] hover:border-[#4A6B53]/50 shadow-[0_4px_16px_rgba(74,107,83,0.06)] hover:shadow-[0_12px_28px_rgba(74,107,83,0.15)] hover:-translate-y-2 transition-all duration-300 relative flex flex-col justify-between overflow-hidden cursor-default min-h-[185px]"
+          class="activity-item gsap-stagger-item p-5 sm:p-6 bg-[#FAF7F2] rounded-3xl border border-[#E8F0E6] hover:border-[#4A6B53]/40 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center text-center group cursor-default min-h-[135px]"
           data-category="natureza">
-          <div class="flex items-center justify-between w-full">
-            <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#E8F0E6] text-[#4A6B53] border border-[#4A6B53]/25">Natureza</span>
-            <span class="font-fredoka text-base font-bold text-[#4A6B53]/30 group-hover:text-[#4A6B53] transition-colors">10</span>
+          <div class="w-12 h-12 rounded-2xl bg-[#FAF0EB] text-[#D97757] flex items-center justify-center mb-3 shadow-xs group-hover:scale-110 transition-transform duration-300">
+            <i data-lucide="dog" class="w-6 h-6"></i>
           </div>
-          <div class="my-auto py-2 flex flex-col items-center text-center">
-            <div class="w-14 h-14 rounded-2xl bg-[#4A6B53] text-white shadow-md flex items-center justify-center ring-4 ring-[#E8F0E6] group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-              <i data-lucide="dog" class="w-6 h-6"></i>
-            </div>
-            <h3 class="font-fredoka font-bold text-[#3D342F] group-hover:text-[#4A6B53] text-base leading-snug mt-3 transition-colors">Relação com Animais</h3>
-          </div>
-          <div class="h-1.5 w-12 mx-auto rounded-full bg-gradient-to-r from-emerald-400 to-[#4A6B53] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <h4 class="font-fredoka font-bold text-[#4A6B53] group-hover:text-[#3D342F] text-sm sm:text-base leading-snug transition-colors">Relação com Animais</h4>
         </div>
 
         <!-- 11: Identificação de Plantas -->
         <div
-          class="activity-item gsap-stagger-item group p-5 sm:p-6 bg-[#FAF7F2] rounded-3xl border-2 border-[#E8F0E6] hover:border-[#4A6B53]/50 shadow-[0_4px_16px_rgba(74,107,83,0.06)] hover:shadow-[0_12px_28px_rgba(74,107,83,0.15)] hover:-translate-y-2 transition-all duration-300 relative flex flex-col justify-between overflow-hidden cursor-default min-h-[185px]"
+          class="activity-item gsap-stagger-item p-5 sm:p-6 bg-[#FAF7F2] rounded-3xl border border-[#E8F0E6] hover:border-[#4A6B53]/40 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center text-center group cursor-default min-h-[135px]"
           data-category="natureza">
-          <div class="flex items-center justify-between w-full">
-            <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#E8F0E6] text-[#4A6B53] border border-[#4A6B53]/25">Natureza</span>
-            <span class="font-fredoka text-base font-bold text-[#4A6B53]/30 group-hover:text-[#4A6B53] transition-colors">11</span>
+          <div class="w-12 h-12 rounded-2xl bg-[#E8F0E6] text-[#4A6B53] flex items-center justify-center mb-3 shadow-xs group-hover:scale-110 transition-transform duration-300">
+            <i data-lucide="flower" class="w-6 h-6"></i>
           </div>
-          <div class="my-auto py-2 flex flex-col items-center text-center">
-            <div class="w-14 h-14 rounded-2xl bg-[#4A6B53] text-white shadow-md flex items-center justify-center ring-4 ring-[#E8F0E6] group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-              <i data-lucide="flower" class="w-6 h-6"></i>
-            </div>
-            <h3 class="font-fredoka font-bold text-[#3D342F] group-hover:text-[#4A6B53] text-base leading-snug mt-3 transition-colors">Identificação de Plantas</h3>
-          </div>
-          <div class="h-1.5 w-12 mx-auto rounded-full bg-gradient-to-r from-emerald-400 to-[#4A6B53] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <h4 class="font-fredoka font-bold text-[#4A6B53] group-hover:text-[#3D342F] text-sm sm:text-base leading-snug transition-colors">Identificação de Plantas</h4>
         </div>
 
         <!-- 12: Ética Ambiental -->
         <div
-          class="activity-item gsap-stagger-item group p-5 sm:p-6 bg-[#FAF7F2] rounded-3xl border-2 border-[#E8F0E6] hover:border-[#4A6B53]/50 shadow-[0_4px_16px_rgba(74,107,83,0.06)] hover:shadow-[0_12px_28px_rgba(74,107,83,0.15)] hover:-translate-y-2 transition-all duration-300 relative flex flex-col justify-between overflow-hidden cursor-default min-h-[185px]"
+          class="activity-item gsap-stagger-item p-5 sm:p-6 bg-[#FAF7F2] rounded-3xl border border-[#E8F0E6] hover:border-[#4A6B53]/40 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center text-center group cursor-default min-h-[135px]"
           data-category="natureza">
-          <div class="flex items-center justify-between w-full">
-            <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#E8F0E6] text-[#4A6B53] border border-[#4A6B53]/25">Natureza</span>
-            <span class="font-fredoka text-base font-bold text-[#4A6B53]/30 group-hover:text-[#4A6B53] transition-colors">12</span>
+          <div class="w-12 h-12 rounded-2xl bg-[#FAF0E6] text-[#8C6D53] flex items-center justify-center mb-3 shadow-xs group-hover:scale-110 transition-transform duration-300">
+            <i data-lucide="globe" class="w-6 h-6"></i>
           </div>
-          <div class="my-auto py-2 flex flex-col items-center text-center">
-            <div class="w-14 h-14 rounded-2xl bg-[#4A6B53] text-white shadow-md flex items-center justify-center ring-4 ring-[#E8F0E6] group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-              <i data-lucide="globe" class="w-6 h-6"></i>
-            </div>
-            <h3 class="font-fredoka font-bold text-[#3D342F] group-hover:text-[#4A6B53] text-base leading-snug mt-3 transition-colors">Ética Ambiental</h3>
-          </div>
-          <div class="h-1.5 w-12 mx-auto rounded-full bg-gradient-to-r from-emerald-400 to-[#4A6B53] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <h4 class="font-fredoka font-bold text-[#4A6B53] group-hover:text-[#3D342F] text-sm sm:text-base leading-snug transition-colors">Ética Ambiental</h4>
         </div>
 
         <!-- 13: Passeios de Bicicleta -->
         <div
-          class="activity-item gsap-stagger-item group p-5 sm:p-6 bg-[#FAF7F2] rounded-3xl border-2 border-[#E8F0E6] hover:border-[#2D7A78]/50 shadow-[0_4px_16px_rgba(74,107,83,0.06)] hover:shadow-[0_12px_28px_rgba(45,122,120,0.15)] hover:-translate-y-2 transition-all duration-300 relative flex flex-col justify-between overflow-hidden cursor-default min-h-[185px]"
+          class="activity-item gsap-stagger-item p-5 sm:p-6 bg-[#FAF7F2] rounded-3xl border border-[#E8F0E6] hover:border-[#4A6B53]/40 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center text-center group cursor-default min-h-[135px]"
           data-category="movimento">
-          <div class="flex items-center justify-between w-full">
-            <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-teal-100 text-[#2D7A78] border border-[#2D7A78]/30">Movimento</span>
-            <span class="font-fredoka text-base font-bold text-[#2D7A78]/30 group-hover:text-[#2D7A78] transition-colors">13</span>
+          <div class="w-12 h-12 rounded-2xl bg-[#FAF0EB] text-[#D97757] flex items-center justify-center mb-3 shadow-xs group-hover:scale-110 transition-transform duration-300">
+            <i data-lucide="bike" class="w-6 h-6"></i>
           </div>
-          <div class="my-auto py-2 flex flex-col items-center text-center">
-            <div class="w-14 h-14 rounded-2xl bg-[#2D7A78] text-white shadow-md flex items-center justify-center ring-4 ring-teal-100 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-              <i data-lucide="bike" class="w-6 h-6"></i>
-            </div>
-            <h3 class="font-fredoka font-bold text-[#3D342F] group-hover:text-[#4A6B53] text-base leading-snug mt-3 transition-colors">Passeios de Bicicleta</h3>
-          </div>
-          <div class="h-1.5 w-12 mx-auto rounded-full bg-gradient-to-r from-teal-400 to-[#2D7A78] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <h4 class="font-fredoka font-bold text-[#4A6B53] group-hover:text-[#3D342F] text-sm sm:text-base leading-snug transition-colors">Passeios de Bicicleta</h4>
         </div>
 
         <!-- 14: Ateliers de Férias -->
         <div
-          class="activity-item gsap-stagger-item group p-5 sm:p-6 bg-[#FAF7F2] rounded-3xl border-2 border-[#E8F0E6] hover:border-[#C58B1A]/50 shadow-[0_4px_16px_rgba(74,107,83,0.06)] hover:shadow-[0_12px_28px_rgba(197,139,26,0.15)] hover:-translate-y-2 transition-all duration-300 relative flex flex-col justify-between overflow-hidden cursor-default min-h-[185px]"
+          class="activity-item gsap-stagger-item p-5 sm:p-6 bg-[#FAF7F2] rounded-3xl border border-[#E8F0E6] hover:border-[#4A6B53]/40 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center text-center group cursor-default min-h-[135px]"
           data-category="comunidade">
-          <div class="flex items-center justify-between w-full">
-            <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-100 text-[#C58B1A] border border-[#C58B1A]/30">Comunidade</span>
-            <span class="font-fredoka text-base font-bold text-[#C58B1A]/30 group-hover:text-[#C58B1A] transition-colors">14</span>
+          <div class="w-12 h-12 rounded-2xl bg-[#E8F0E6] text-[#4A6B53] flex items-center justify-center mb-3 shadow-xs group-hover:scale-110 transition-transform duration-300">
+            <i data-lucide="sun-medium" class="w-6 h-6"></i>
           </div>
-          <div class="my-auto py-2 flex flex-col items-center text-center">
-            <div class="w-14 h-14 rounded-2xl bg-[#C58B1A] text-white shadow-md flex items-center justify-center ring-4 ring-amber-100 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-              <i data-lucide="sun-medium" class="w-6 h-6"></i>
-            </div>
-            <h3 class="font-fredoka font-bold text-[#3D342F] group-hover:text-[#4A6B53] text-base leading-snug mt-3 transition-colors">Ateliers de Férias</h3>
-          </div>
-          <div class="h-1.5 w-12 mx-auto rounded-full bg-gradient-to-r from-amber-400 to-[#C58B1A] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <h4 class="font-fredoka font-bold text-[#4A6B53] group-hover:text-[#3D342F] text-sm sm:text-base leading-snug transition-colors">Ateliers de Férias</h4>
         </div>
 
         <!-- 15: Festas de Aniversário -->
         <div
-          class="activity-item gsap-stagger-item group p-5 sm:p-6 bg-[#FAF7F2] rounded-3xl border-2 border-[#E8F0E6] hover:border-[#C58B1A]/50 shadow-[0_4px_16px_rgba(74,107,83,0.06)] hover:shadow-[0_12px_28px_rgba(197,139,26,0.15)] hover:-translate-y-2 transition-all duration-300 relative flex flex-col justify-between overflow-hidden cursor-default min-h-[185px]"
+          class="activity-item gsap-stagger-item p-5 sm:p-6 bg-[#FAF7F2] rounded-3xl border border-[#E8F0E6] hover:border-[#4A6B53]/40 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center text-center group cursor-default min-h-[135px]"
           data-category="comunidade">
-          <div class="flex items-center justify-between w-full">
-            <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-100 text-[#C58B1A] border border-[#C58B1A]/30">Comunidade</span>
-            <span class="font-fredoka text-base font-bold text-[#C58B1A]/30 group-hover:text-[#C58B1A] transition-colors">15</span>
+          <div class="w-12 h-12 rounded-2xl bg-[#FAF0E6] text-[#8C6D53] flex items-center justify-center mb-3 shadow-xs group-hover:scale-110 transition-transform duration-300">
+            <i data-lucide="party-popper" class="w-6 h-6"></i>
           </div>
-          <div class="my-auto py-2 flex flex-col items-center text-center">
-            <div class="w-14 h-14 rounded-2xl bg-[#C58B1A] text-white shadow-md flex items-center justify-center ring-4 ring-amber-100 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-              <i data-lucide="party-popper" class="w-6 h-6"></i>
-            </div>
-            <h3 class="font-fredoka font-bold text-[#3D342F] group-hover:text-[#4A6B53] text-base leading-snug mt-3 transition-colors">Festas de Aniversário</h3>
-          </div>
-          <div class="h-1.5 w-12 mx-auto rounded-full bg-gradient-to-r from-amber-400 to-[#C58B1A] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <h4 class="font-fredoka font-bold text-[#4A6B53] group-hover:text-[#3D342F] text-sm sm:text-base leading-snug transition-colors">Festas de Aniversário</h4>
         </div>
 
-      </div>
-
-      <!-- 4 Pillars of Development Bottom Showcase Ribbon -->
-      <div class="mt-14 p-6 rounded-3xl bg-[#FAF7F2] border border-[#4A6B53]/15 shadow-xs gsap-reveal">
-        <div
-          class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center divide-y md:divide-y-0 md:divide-x divide-[#4A6B53]/15">
-          <div class="p-3">
-            <span class="font-fredoka text-xl font-bold text-[#4A6B53] block">5 Práticas</span>
-            <span class="text-xs text-[#3D342F]/80 font-medium mt-0.5 block">🌿 Natureza & Conexão à Terra</span>
-          </div>
-          <div class="p-3 pt-4 md:pt-3">
-            <span class="font-fredoka text-xl font-bold text-[#C58B1A] block">3 Ateliers</span>
-            <span class="text-xs text-[#3D342F]/80 font-medium mt-0.5 block">🎨 Expressão Criativa & Arte</span>
-          </div>
-          <div class="p-3 pt-4 md:pt-3">
-            <span class="font-fredoka text-xl font-bold text-[#4A6B53] block">3 Dimensões</span>
-            <span class="text-xs text-[#3D342F]/80 font-medium mt-0.5 block">🧘 Corpo, Equilíbrio & Movimento</span>
-          </div>
-          <div class="p-3 pt-4 md:pt-3">
-            <span class="font-fredoka text-xl font-bold text-[#D97757] block">4 Laços</span>
-            <span class="text-xs text-[#3D342F]/80 font-medium mt-0.5 block">🏡 Família & Espírito Comunitário</span>
-          </div>
-        </div>
       </div>
 
     </div>
