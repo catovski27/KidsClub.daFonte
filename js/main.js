@@ -5,6 +5,40 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Prevenção Rigorosa de Zoom-in / Zoom-out involuntário no Telemóvel (Experiência App Nativa)
+  document.addEventListener('gesturestart', (e) => e.preventDefault(), { passive: false });
+  document.addEventListener('gesturechange', (e) => e.preventDefault(), { passive: false });
+  document.addEventListener('gestureend', (e) => e.preventDefault(), { passive: false });
+
+  // Previne zoom por múltiplos toques simultâneos no telemóvel
+  document.addEventListener('touchstart', (e) => {
+    if (e.touches.length > 1) {
+      e.preventDefault();
+    }
+  }, { passive: false });
+
+  // Prevenção de Zoom no Computador (Ctrl + Roda do Rato e Atalhos Ctrl + / Ctrl -)
+  window.addEventListener('wheel', (e) => {
+    if (e.ctrlKey || e.metaKey) {
+      e.preventDefault();
+    }
+  }, { passive: false });
+
+  window.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && (
+      e.key === '+' ||
+      e.key === '-' ||
+      e.key === '=' ||
+      e.key === '_' ||
+      e.code === 'NumpadAdd' ||
+      e.code === 'NumpadSubtract' ||
+      e.code === 'Minus' ||
+      e.code === 'Equal'
+    )) {
+      e.preventDefault();
+    }
+  });
+
   // Initialize Lucide Icons
   if (window.lucide) {
     lucide.createIcons();
@@ -32,23 +66,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // GSAP Animations setup
+  // GSAP Animations setup (Otimizado: Instantâneo e Fluido no Telemóvel)
   if (typeof gsap !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
+
+    const isMobile = window.innerWidth < 768;
 
     gsap.utils.toArray('.gsap-reveal').forEach((elem) => {
       gsap.fromTo(
         elem,
-        { opacity: 0, y: 25 },
+        { opacity: 0, y: isMobile ? 10 : 20 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.7,
+          duration: isMobile ? 0.28 : 0.45,
           ease: 'power2.out',
           scrollTrigger: {
             trigger: elem,
-            start: 'top 88%',
+            start: isMobile ? 'top 92%' : 'top 88%',
             toggleActions: 'play none none none',
+            once: true,
           },
         }
       );
@@ -58,16 +95,17 @@ document.addEventListener('DOMContentLoaded', () => {
       const cards = container.querySelectorAll('.gsap-stagger-item');
       gsap.fromTo(
         cards,
-        { opacity: 0, y: 20 },
+        { opacity: 0, y: isMobile ? 8 : 15 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.5,
-          stagger: 0.08,
+          duration: isMobile ? 0.22 : 0.35,
+          stagger: isMobile ? 0.03 : 0.05,
           ease: 'power2.out',
           scrollTrigger: {
             trigger: container,
-            start: 'top 85%',
+            start: isMobile ? 'top 92%' : 'top 88%',
+            once: true,
           },
         }
       );
@@ -600,33 +638,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const ambientButtons = document.querySelectorAll('.ambient-sound-toggle');
   const ambientIcons = document.querySelectorAll('#ambient-sound-icon');
   const ambientStatuses = document.querySelectorAll('#ambient-sound-status');
-  const footerElement = document.querySelector('footer');
-
-  function syncAmbientSurfaceState(isOverFooter) {
-    if (!ambientWidget) return;
-    ambientWidget.classList.toggle('ambient-sound-widget--footer', isOverFooter);
-  }
-
-  function updateAmbientSurfaceState() {
-    if (!footerElement) return;
-    const footerRect = footerElement.getBoundingClientRect();
-    const isFooterVisible = footerRect.top < window.innerHeight - 120 && footerRect.bottom > 0;
-    syncAmbientSurfaceState(isFooterVisible);
-  }
-
-  if (ambientWidget && footerElement) {
-    window.addEventListener('scroll', updateAmbientSurfaceState, { passive: true });
-    window.addEventListener('resize', updateAmbientSurfaceState, { passive: true });
-    updateAmbientSurfaceState();
-  }
 
   function syncAmbientControls() {
     ambientButtons.forEach((button) => {
       button.classList.toggle('audio-playing', isAudioPlaying);
       button.classList.toggle('audio-paused', !isAudioPlaying);
-      button.classList.toggle('shadow-xl', isAudioPlaying);
-      button.classList.toggle('border-[#4A6B53]/35', isAudioPlaying);
-      button.classList.toggle('bg-[#E8F0E6]', isAudioPlaying);
     });
 
     ambientIcons.forEach((icon) => {
