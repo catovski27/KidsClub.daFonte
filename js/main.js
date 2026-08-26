@@ -123,6 +123,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let currentScheduleMode = 'all';
 
+  function syncScheduleHeight() {
+    if (!scheduleColTarde) return;
+    if (window.innerWidth < 1024) {
+      if (scheduleColManha) scheduleColManha.style.minHeight = '';
+      if (scheduleMediaManha) scheduleMediaManha.style.minHeight = '';
+      if (scheduleMediaTarde) scheduleMediaTarde.style.minHeight = '';
+      return;
+    }
+    // Período da Tarde defines the master natural height
+    const naturalHeight = scheduleColTarde.offsetHeight;
+    if (naturalHeight > 100) {
+      if (scheduleColManha) scheduleColManha.style.minHeight = `${naturalHeight}px`;
+      if (scheduleMediaManha) scheduleMediaManha.style.minHeight = `${naturalHeight}px`;
+      if (scheduleMediaTarde) scheduleMediaTarde.style.minHeight = `${naturalHeight}px`;
+    }
+  }
+
   function updateScheduleDOM(mode) {
     if (mode === 'all') {
       if (scheduleColManha) scheduleColManha.classList.remove('hidden');
@@ -141,6 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (scheduleMediaTarde) scheduleMediaTarde.classList.remove('hidden');
     }
 
+    syncScheduleHeight();
     if (window.lucide) lucide.createIcons();
   }
 
@@ -202,6 +220,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Initial sync on load and resize
+  window.addEventListener('load', syncScheduleHeight);
+  window.addEventListener('resize', syncScheduleHeight);
+  setTimeout(syncScheduleHeight, 150);
+
   // Activity Categories Filter with GSAP Stagger Animation
   const filterBtns = document.querySelectorAll('.activity-filter-btn');
   const activityItems = document.querySelectorAll('.activity-item');
@@ -242,183 +265,419 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- INTERACTIVE ECOPEDAGOGY SENSES EXPLORER ---
-  const senseTabBtns = document.querySelectorAll('.sense-tab-btn');
-  const senseImg = document.getElementById('sense-img');
-  const senseImgCaption = document.getElementById('sense-img-caption');
-  const senseBadgeText = document.getElementById('sense-badge-text');
-  const senseBadgeContainer = document.getElementById('sense-badge-container');
-  const senseTitle = document.getElementById('sense-title');
-  const senseSubtitle = document.getElementById('sense-subtitle');
-  const senseTagsContainer = document.getElementById('sense-tags-container');
+  // --- ATIVIDADES TERRA DA FONTE: 15 SONS ÚNICOS & ANIMAÇÃO LÚDICA ---
+  let activityAudioCtx = null;
 
-  const sensesData = {
-    experimentar: {
-      title: 'Experimentar',
-      badge: 'Tato & Matéria Viva',
-      subtitle: 'Aprender e descobrir através do toque e da manipulação direta de terra, argila, sementes e água.',
-      image: 'assets/images/Kids/contacto com a natureza.jpg',
-      imageCaption: 'Contacto tátil com a terra, água e elementos naturais',
-      accentColor: '#4A6B53',
-      bgLight: '#E8F0E6',
-      iconBgInactive: '#E8F0E6',
-      iconColorInactive: '#4A6B53',
-      tags: ['Tato e Exploração', 'Manipulação Direta', 'Terra, Argila e Sementes']
+  function getActivityAudioContext() {
+    if (!activityAudioCtx) {
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      if (AudioContextClass) activityAudioCtx = new AudioContextClass();
+    }
+    if (activityAudioCtx && activityAudioCtx.state === 'suspended') {
+      activityAudioCtx.resume();
+    }
+    return activityAudioCtx;
+  }
+
+  // 15 Sound Synthesizer Presets exclusivos para cada atividade
+  const activitySoundEffects = [
+    // 01: Clube Diário -> Acorde acolhedor de boas-vindas
+    (ctx) => {
+      [523.25, 659.25].forEach((f, i) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(f, ctx.currentTime + i * 0.05);
+        gain.gain.setValueAtTime(0.16, ctx.currentTime + i * 0.05);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.35 + i * 0.05);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(ctx.currentTime + i * 0.05);
+        osc.stop(ctx.currentTime + 0.36 + i * 0.05);
+      });
     },
-    sentir: {
-      title: 'Sentir',
-      badge: 'Coração & Segurança Afetiva',
-      subtitle: 'Acolhimento afetivo diário, escuta ativa das emoções, desenvolvimento da empatia e vínculos seguros.',
-      image: 'assets/images/Kids/crianças.jpeg',
-      imageCaption: 'Círculo de boas-vindas e acolhimento afetuoso',
-      accentColor: '#D97757',
-      bgLight: '#FAF0EB',
-      iconBgInactive: '#FAF0EB',
-      iconColorInactive: '#D97757',
-      tags: ['Escuta Afetiva', 'Empatia Interpessoal', 'Vínculo e Segurança']
+    // 02: Oficinas Criativas -> Pincelada mágica pop
+    (ctx) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(440, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.12);
+      gain.gain.setValueAtTime(0.2, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.25);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(ctx.currentTime);
+      osc.stop(ctx.currentTime + 0.26);
     },
-    interpretar: {
-      title: 'Interpretar',
-      badge: 'Mente & Curiosidade',
-      subtitle: 'Estímulo à curiosidade natural, levantamento de hipóteses e compreensão dos ciclos e fenómenos vivos.',
-      image: 'assets/images/Kids/Exploração ou curiosidade.jpg',
-      imageCaption: 'Descoberta orientada e estímulo à curiosidade nata',
-      accentColor: '#C58B1A',
-      bgLight: '#FEF9E7',
-      iconBgInactive: '#FEF9E7',
-      iconColorInactive: '#C58B1A',
-      tags: ['Curiosidade Nata', 'Pensamento Crítico', 'Investigação da Natureza']
+    // 03: Música & Ritmo -> Arpejo musical rápido (Dó-Mi-Sol-Dó)
+    (ctx) => {
+      [523.25, 659.25, 783.99, 1046.50].forEach((f, i) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(f, ctx.currentTime + i * 0.045);
+        gain.gain.setValueAtTime(0.12, ctx.currentTime + i * 0.045);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.2 + i * 0.045);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(ctx.currentTime + i * 0.045);
+        osc.stop(ctx.currentTime + 0.22 + i * 0.045);
+      });
     },
-    socializar: {
-      title: 'Socializar',
-      badge: 'Comunidade & Pares',
-      subtitle: 'Brincadeira livre partilhada, tarefas cooperativas na quinta e construção de relações harmoniosas.',
-      image: 'assets/images/Open_Day/jogo do galo.jpg',
-      imageCaption: 'Jogos cooperativos e entreajuda na quinta',
-      accentColor: '#3D7858',
-      bgLight: '#E8F0E6',
-      iconBgInactive: '#E8F0E6',
-      iconColorInactive: '#3D7858',
-      tags: ['Brincadeira Partilhada', 'Tarefas Comunitárias', 'Respeito e Cooperação']
+    // 04: Yoga Infantil -> Taça tibetana zen relaxante
+    (ctx) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(432, ctx.currentTime);
+      gain.gain.setValueAtTime(0.25, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.7);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(ctx.currentTime);
+      osc.stop(ctx.currentTime + 0.72);
     },
-    contemplar: {
-      title: 'Contemplar',
-      badge: 'Presença & Serenidade',
-      subtitle: 'Momentos de calma e respiração ao ar livre, escuta atenta dos pássaros e admiração da natureza.',
-      image: 'assets/images/Space/espaço.jpg',
-      imageCaption: 'Pausa serena, respiração ao ar livre e admiração silenciosa',
-      accentColor: '#C86D51',
-      bgLight: '#FAF0EB',
-      iconBgInactive: '#FAF0EB',
-      iconColorInactive: '#C86D51',
-      tags: ['Presença Serena', 'Escuta dos Pássaros', 'Momentos Sem Pressa']
+    // 05: Contos & Histórias -> Glockenspiel de magia de fadas
+    (ctx) => {
+      [880, 1174.66, 1396.91].forEach((f, i) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(f, ctx.currentTime + i * 0.06);
+        gain.gain.setValueAtTime(0.14, ctx.currentTime + i * 0.06);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.3 + i * 0.06);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(ctx.currentTime + i * 0.06);
+        osc.stop(ctx.currentTime + 0.32 + i * 0.06);
+      });
     },
-    integrar: {
-      title: 'Integrar',
-      badge: 'Arte, Expressão & Criação',
-      subtitle: 'Síntese das vivências através da expressão plástica, música, ritmo corporal, teatro e contos.',
-      image: 'assets/images/Kids/aprendi sensorial.jpg',
-      imageCaption: 'Expressão plástica, música, teatro e contos',
-      accentColor: '#935D43',
-      bgLight: '#F5EDE8',
-      iconBgInactive: '#F5EDE8',
-      iconColorInactive: '#935D43',
-      tags: ['Expressão Plástica', 'Música & Ritmo', 'Narrativas e Dança']
+    // 06: Passeios na Floresta -> Chilreio de pássaro na floresta
+    (ctx) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(1200, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(2400, ctx.currentTime + 0.08);
+      osc.frequency.exponentialRampToValueAtTime(1800, ctx.currentTime + 0.16);
+      gain.gain.setValueAtTime(0.18, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.22);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(ctx.currentTime);
+      osc.stop(ctx.currentTime + 0.23);
+    },
+    // 07: Atividades Sensoriais -> Gota de água / Water droplet bubble
+    (ctx) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(450, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(1200, ctx.currentTime + 0.1);
+      gain.gain.setValueAtTime(0.25, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.2);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(ctx.currentTime);
+      osc.stop(ctx.currentTime + 0.21);
+    },
+    // 08: Workshops Pais & Filhos -> Harmonia calorosa em duo
+    (ctx) => {
+      [659.25, 987.77].forEach((f) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(f, ctx.currentTime);
+        gain.gain.setValueAtTime(0.15, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.4);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(ctx.currentTime);
+        osc.stop(ctx.currentTime + 0.42);
+      });
+    },
+    // 09: Estimulação Psicomotora -> Mola elástica "Boing!"
+    (ctx) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(250, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(800, ctx.currentTime + 0.18);
+      gain.gain.setValueAtTime(0.25, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.28);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(ctx.currentTime);
+      osc.stop(ctx.currentTime + 0.29);
+    },
+    // 10: Relação com Animais -> Dois mini-pops lúdicos
+    (ctx) => {
+      [700, 950].forEach((f, i) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(f, ctx.currentTime + i * 0.08);
+        gain.gain.setValueAtTime(0.18, ctx.currentTime + i * 0.08);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.12 + i * 0.08);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(ctx.currentTime + i * 0.08);
+        osc.stop(ctx.currentTime + 0.13 + i * 0.08);
+      });
+    },
+    // 11: Identificação de Plantas -> Marimba de madeira orgânica
+    (ctx) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(587.33, ctx.currentTime);
+      gain.gain.setValueAtTime(0.25, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.3);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(ctx.currentTime);
+      osc.stop(ctx.currentTime + 0.31);
+    },
+    // 12: Ética Ambiental -> Sino harmónico da terra
+    (ctx) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(392, ctx.currentTime);
+      gain.gain.setValueAtTime(0.22, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.55);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(ctx.currentTime);
+      osc.stop(ctx.currentTime + 0.56);
+    },
+    // 13: Passeios de Bicicleta -> Campainha "Trin-trin"
+    (ctx) => {
+      [1400, 1400].forEach((f, i) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(f, ctx.currentTime + i * 0.09);
+        gain.gain.setValueAtTime(0.18, ctx.currentTime + i * 0.09);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.12 + i * 0.09);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(ctx.currentTime + i * 0.09);
+        osc.stop(ctx.currentTime + 0.13 + i * 0.09);
+      });
+    },
+    // 14: Ateliers de Férias -> Fanfarra solar festiva
+    (ctx) => {
+      [587.33, 783.99, 1046.50].forEach((f, i) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(f, ctx.currentTime + i * 0.07);
+        gain.gain.setValueAtTime(0.15, ctx.currentTime + i * 0.07);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.28 + i * 0.07);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(ctx.currentTime + i * 0.07);
+        osc.stop(ctx.currentTime + 0.3 + i * 0.07);
+      });
+    },
+    // 15: Festas de Aniversário -> Celebração mágica vibrante
+    (ctx) => {
+      [523.25, 659.25, 783.99, 1046.50, 1318.51].forEach((f, i) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(f, ctx.currentTime + i * 0.04);
+        gain.gain.setValueAtTime(0.14, ctx.currentTime + i * 0.04);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.35 + i * 0.04);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(ctx.currentTime + i * 0.04);
+        osc.stop(ctx.currentTime + 0.36 + i * 0.04);
+      });
     }
-  };
+  ];
 
-  function activateSense(senseKey) {
-    const data = sensesData[senseKey];
-    if (!data) return;
-
-    senseTabBtns.forEach((btn) => {
-      const btnSense = btn.getAttribute('data-sense');
-      const isCurrent = btnSense === senseKey;
-      const iconBox = btn.querySelector('div');
-      const btnTitle = btn.querySelector('h4');
-      const btnDesc = btn.querySelector('span');
-      const senseConfig = sensesData[btnSense] || data;
-
-      if (isCurrent) {
-        btn.classList.add('active', 'shadow-md', 'scale-102');
-        btn.style.backgroundColor = data.accentColor;
-        btn.style.borderColor = data.accentColor;
-        btn.style.color = '#FFFFFF';
-        if (iconBox) {
-          iconBox.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
-          iconBox.style.color = '#FFFFFF';
-        }
-        if (btnTitle) btnTitle.style.color = '#FFFFFF';
-        if (btnDesc) {
-          btnDesc.style.color = 'rgba(255, 255, 255, 0.9)';
-          btnDesc.classList.remove('text-gray-500');
-        }
-      } else {
-        btn.classList.remove('active', 'shadow-md', 'scale-102');
-        btn.style.backgroundColor = '#FFFFFF';
-        btn.style.borderColor = '#E8F0E6';
-        btn.style.color = '#3D342F';
-        if (iconBox) {
-          iconBox.style.backgroundColor = senseConfig.iconBgInactive;
-          iconBox.style.color = senseConfig.iconColorInactive;
-        }
-        if (btnTitle) btnTitle.style.color = '#3D342F';
-        if (btnDesc) {
-          btnDesc.style.color = '#6B7280';
-          btnDesc.classList.add('text-gray-500');
-        }
-      }
-    });
-
-    if (senseImg) {
-      senseImg.style.transition = 'opacity 0.2s ease';
-      senseImg.style.opacity = '0';
-      setTimeout(() => {
-        senseImg.src = data.image;
-        senseImg.alt = `Sentido: ${data.title}`;
-        if (senseImgCaption) senseImgCaption.textContent = data.imageCaption;
-        senseImg.style.opacity = '1';
-      }, 150);
-    }
-
-    if (senseTitle) {
-      senseTitle.textContent = data.title;
-      senseTitle.style.color = data.accentColor;
-    }
-    if (senseSubtitle) {
-      senseSubtitle.textContent = data.subtitle;
-    }
-    if (senseBadgeText) {
-      senseBadgeText.textContent = data.badge;
-    }
-    if (senseBadgeContainer) {
-      senseBadgeContainer.style.backgroundColor = data.bgLight;
-      senseBadgeContainer.style.color = data.accentColor;
-      senseBadgeContainer.style.borderColor = data.accentColor + '40';
-    }
-
-    if (senseTagsContainer) {
-      senseTagsContainer.innerHTML = data.tags
-        .map(
-          (tag) =>
-            `<span class="inline-flex items-center gap-1.5 bg-white px-3.5 py-1.5 rounded-xl text-xs font-bold border border-[#E8F0E6] shadow-xs" style="color: ${data.accentColor}">
-              <i data-lucide="check-circle" class="w-3.5 h-3.5" style="color: ${data.accentColor}"></i> ${tag}
-            </span>`
-        )
-        .join('');
-    }
-
-    if (window.lucide) {
-      lucide.createIcons();
+  function playActivitySound(index) {
+    try {
+      const ctx = getActivityAudioContext();
+      if (!ctx) return;
+      const soundFn = activitySoundEffects[index % activitySoundEffects.length];
+      if (soundFn) soundFn(ctx);
+    } catch (e) {
+      // Audio playback silently ignored if browser permissions restrict it
     }
   }
 
-  senseTabBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const senseKey = btn.getAttribute('data-sense');
-      activateSense(senseKey);
+  function spawnActivitySparkle(element) {
+    const rect = element.getBoundingClientRect();
+    const emojis = ['✨', '🌱', '🌸', '🍃', '⭐', '🎈', '🎨', '🎵', '💛', '🎶'];
+
+    // Spawn 3 cute mini particles with slight delay and spread
+    for (let i = 0; i < 3; i++) {
+      setTimeout(() => {
+        const emoji = emojis[Math.floor(Math.random() * emojis.length)];
+        const particle = document.createElement('span');
+        particle.innerText = emoji;
+        particle.style.position = 'fixed';
+        particle.style.left = `${rect.left + rect.width / 2 - 12 + (Math.random() - 0.5) * 36}px`;
+        particle.style.top = `${rect.top + 8}px`;
+        particle.style.pointerEvents = 'none';
+        particle.style.fontSize = `${18 + Math.floor(Math.random() * 8)}px`;
+        particle.style.zIndex = '9999';
+        particle.style.transition = 'all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+        document.body.appendChild(particle);
+
+        requestAnimationFrame(() => {
+          const offsetX = (Math.random() - 0.5) * 70;
+          const offsetY = -45 - Math.random() * 35;
+          const rot = (Math.random() - 0.5) * 60;
+          particle.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(1.4) rotate(${rot}deg)`;
+          particle.style.opacity = '0';
+        });
+
+        setTimeout(() => particle.remove(), 750);
+      }, i * 60);
+    }
+  }
+
+  activityItems.forEach((item, index) => {
+    const iconBox = item.querySelector('.activity-icon-container') || item.querySelector('.w-12');
+    let danceTimeline = null;
+
+    // Smooth rhythmic dance on hover
+    item.addEventListener('mouseenter', () => {
+      if (!iconBox || !window.gsap) return;
+      if (danceTimeline) danceTimeline.kill();
+
+      danceTimeline = gsap.timeline({ repeat: -1 })
+        .to(iconBox, { y: -7, rotation: -13, duration: 0.28, ease: 'power1.out' })
+        .to(iconBox, { y: 0, rotation: -2, duration: 0.26, ease: 'power1.in' })
+        .to(iconBox, { y: -7, rotation: 13, duration: 0.28, ease: 'power1.out' })
+        .to(iconBox, { y: 0, rotation: 0, duration: 0.26, ease: 'power1.in' });
+    });
+
+    // Soft, organic post-hover return to rest position (never abrupt)
+    item.addEventListener('mouseleave', () => {
+      if (!iconBox || !window.gsap) return;
+      if (danceTimeline) {
+        danceTimeline.kill();
+        danceTimeline = null;
+      }
+      gsap.to(iconBox, {
+        y: 0,
+        rotation: 0,
+        scale: 1,
+        duration: 0.45,
+        ease: 'elastic.out(1.2, 0.4)',
+        overwrite: 'auto'
+      });
+    });
+
+    item.addEventListener('click', () => {
+      playActivitySound(index);
+      spawnActivitySparkle(item);
+
+      const title = item.querySelector('h4');
+
+      if (window.gsap) {
+        // Full cute jelly wiggle dance on the entire card!
+        gsap.timeline()
+          // 1. Squish down to prepare jump
+          .to(item, {
+            scaleX: 1.16,
+            scaleY: 0.84,
+            y: 4,
+            duration: 0.08,
+            ease: 'power1.in'
+          })
+          // 2. High jump & happy tilt right
+          .to(item, {
+            y: -20,
+            scaleX: 0.88,
+            scaleY: 1.18,
+            rotation: 14,
+            boxShadow: '0 20px 30px -8px rgba(74,107,83,0.3)',
+            duration: 0.16,
+            ease: 'power2.out'
+          })
+          // 3. Wiggle dance left in mid-air
+          .to(item, {
+            y: -14,
+            rotation: -14,
+            scaleX: 1.08,
+            scaleY: 0.92,
+            duration: 0.14,
+            ease: 'power1.inOut'
+          })
+          // 4. Wiggle dance right
+          .to(item, {
+            y: -6,
+            rotation: 10,
+            scaleX: 0.95,
+            scaleY: 1.05,
+            duration: 0.12,
+            ease: 'power1.inOut'
+          })
+          // 5. Wiggle dance left
+          .to(item, {
+            y: -2,
+            rotation: -5,
+            scaleX: 1.02,
+            scaleY: 0.98,
+            duration: 0.1,
+            ease: 'power1.inOut'
+          })
+          // 6. Elastic happy jelly landing!
+          .to(item, {
+            y: 0,
+            rotation: 0,
+            scaleX: 1,
+            scaleY: 1,
+            boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)',
+            duration: 0.45,
+            ease: 'elastic.out(1.4, 0.35)'
+          });
+
+        // Title bounce wave
+        if (title) {
+          gsap.timeline()
+            .to(title, { y: -4, scale: 1.08, duration: 0.15, ease: 'power2.out' })
+            .to(title, { y: 0, scale: 1, duration: 0.35, ease: 'elastic.out(1.2, 0.4)' });
+        }
+      }
     });
   });
+
+  // --- FAIXA DE FOTOS (7.Faixa_fotos) DYNAMIC LOADER ---
+  const faixaPhotos = [
+    '1.jpg',
+    '2.jpg',
+    '3.jpg',
+    '4.jpg',
+    '5.png',
+    '6.png',
+    '7.jpg',
+    '8.png'
+  ];
+
+  function initFaixaMarquee() {
+    const marqueeTrack = document.querySelector('.photo-marquee-track');
+    if (!marqueeTrack) return;
+
+    const cardsHTML = faixaPhotos.map((file, idx) => `
+      <div class="w-72 sm:w-80 lg:w-[380px] h-52 sm:h-60 lg:h-64 rounded-3xl overflow-hidden shadow-sm shrink-0 relative group">
+        <img src="assets/images/7.Faixa_fotos/${file}" alt="Faixa Foto ${idx + 1}"
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+      </div>
+    `).join('');
+
+    // Duplicate for infinite marquee loop
+    marqueeTrack.innerHTML = cardsHTML + cardsHTML;
+  }
+
+  initFaixaMarquee();
 
   // Lightbox Modal for Space Images & Videos
   const lightboxModal = document.getElementById('lightbox-modal');

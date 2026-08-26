@@ -774,3 +774,10 @@ h3,
     flex: 1 1 0% !important;
   }
 }
+
+/* ============================================================
+   Ícones das Atividades - Estabilidade e Performance
+   ============================================================ */
+.activity-icon-container {
+  will-change: transform;
+}
