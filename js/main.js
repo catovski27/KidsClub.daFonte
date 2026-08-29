@@ -5,38 +5,209 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Prevenção Rigorosa de Zoom-in / Zoom-out involuntário no Telemóvel (Experiência App Nativa)
-  document.addEventListener('gesturestart', (e) => e.preventDefault(), { passive: false });
-  document.addEventListener('gesturechange', (e) => e.preventDefault(), { passive: false });
-  document.addEventListener('gestureend', (e) => e.preventDefault(), { passive: false });
+  // 3. 💻 Assinatura Completa na Consola (F12)
+  const crabAsciiArt = `
+   __       __
+  / <\`     \'> \\
+ (  / @   @ \\  )
+  \\(_ _\\_/_ _)/
+(\\ \`-/     \\-\' /)
+ "===\\     /==="
+  .==\')___(\`==.
+ ' .=\'     \`=.
 
-  // Previne zoom por múltiplos toques simultâneos no telemóvel
-  document.addEventListener('touchstart', (e) => {
-    if (e.touches.length > 1) {
-      e.preventDefault();
-    }
-  }, { passive: false });
+ 🦀 Vullkano was here 🦀
+  `;
+  console.log(
+    `%c${crabAsciiArt}`,
+    "color: #D97757; font-family: monospace; font-weight: bold; font-size: 13px; line-height: 1.3;"
+  );
+  console.log(
+    "%c🌿 KidsClub.daFonte • Terra da Fonte, Mafra 🌟",
+    "color: #4A6B53; font-weight: bold; font-size: 11px; padding: 2px 0;"
+  );
 
-  // Prevenção de Zoom no Computador (Ctrl + Roda do Rato e Atalhos Ctrl + / Ctrl -)
-  window.addEventListener('wheel', (e) => {
-    if (e.ctrlKey || e.metaKey) {
-      e.preventDefault();
-    }
-  }, { passive: false });
+  // Easter Eggs Audio Synthesizer (Web Audio API)
+  function playEasterEggSound(type) {
+    try {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) return;
+      const ctx = new AudioCtx();
 
-  window.addEventListener('keydown', (e) => {
-    if ((e.ctrlKey || e.metaKey) && (
-      e.key === '+' ||
-      e.key === '-' ||
-      e.key === '=' ||
-      e.key === '_' ||
-      e.code === 'NumpadAdd' ||
-      e.code === 'NumpadSubtract' ||
-      e.code === 'Minus' ||
-      e.code === 'Equal'
-    )) {
-      e.preventDefault();
+      if (type === 'crab') {
+        // Som caranguejo: duplo pop alegre e suave
+        const now = ctx.currentTime;
+        const osc1 = ctx.createOscillator();
+        const gain1 = ctx.createGain();
+        osc1.type = 'sine';
+        osc1.frequency.setValueAtTime(380, now);
+        osc1.frequency.exponentialRampToValueAtTime(760, now + 0.12);
+        gain1.gain.setValueAtTime(0.2, now);
+        gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+        osc1.connect(gain1);
+        gain1.connect(ctx.destination);
+        osc1.start(now);
+        osc1.stop(now + 0.12);
+
+        const osc2 = ctx.createOscillator();
+        const gain2 = ctx.createGain();
+        osc2.type = 'sine';
+        osc2.frequency.setValueAtTime(520, now + 0.14);
+        osc2.frequency.exponentialRampToValueAtTime(1040, now + 0.28);
+        gain2.gain.setValueAtTime(0.22, now + 0.14);
+        gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.28);
+        osc2.connect(gain2);
+        gain2.connect(ctx.destination);
+        osc2.start(now + 0.14);
+        osc2.stop(now + 0.28);
+      } else if (type === 'confetti') {
+        // Som confetes / magia: arpeggio brilhante de harpa e sinos
+        const freqs = [523.25, 659.25, 783.99, 1046.50, 1318.51, 1567.98];
+        freqs.forEach((freq, idx) => {
+          const startTime = ctx.currentTime + idx * 0.055;
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(freq, startTime);
+          gain.gain.setValueAtTime(0.14, startTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, startTime + 0.45);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(startTime);
+          osc.stop(startTime + 0.45);
+        });
+      }
+    } catch (e) {
+      // Ignora silenciosamente se o áudio não for permitido pelo browser
     }
+  }
+
+  // 1. 🦀 O Caranguejo Vullkano no Canto Inferior Direito (3 cliques no Rodapé)
+  const footerTrigger = document.getElementById('footer-copyright-trigger');
+  let footerClickCount = 0;
+  let footerClickTimer = null;
+  let crabPopupTimeout = null;
+
+  function showVullkanoCrab() {
+    playEasterEggSound('crab');
+
+    let popup = document.getElementById('vullkano-crab-popup');
+    if (!popup) {
+      popup = document.createElement('div');
+      popup.id = 'vullkano-crab-popup';
+      popup.className =
+        'fixed bottom-5 left-3 sm:left-4 z-50 flex items-center gap-2.5 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl border-2 border-[#D97757] shadow-2xl transition-all duration-500 transform translate-y-24 opacity-0 pointer-events-auto cursor-pointer select-none';
+      popup.innerHTML = `
+        <span class="text-3xl sm:text-4xl shrink-0 animate-crab-wiggle select-none leading-none">🦀</span>
+        <span class="font-fredoka text-sm sm:text-base font-bold text-[#D97757] whitespace-nowrap">Vullkano was here</span>
+      `;
+      document.body.appendChild(popup);
+
+      popup.addEventListener('click', () => {
+        playEasterEggSound('crab');
+        popup.classList.add('scale-110');
+        setTimeout(() => popup.classList.remove('scale-110'), 200);
+      });
+    }
+
+    if (crabPopupTimeout) clearTimeout(crabPopupTimeout);
+
+    requestAnimationFrame(() => {
+      popup.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+      popup.classList.add('translate-y-0', 'opacity-100');
+    });
+
+    crabPopupTimeout = setTimeout(() => {
+      popup.classList.remove('translate-y-0', 'opacity-100');
+      popup.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+    }, 3000);
+  }
+
+  if (footerTrigger) {
+    footerTrigger.addEventListener('click', () => {
+      footerClickCount++;
+      if (footerClickTimer) clearTimeout(footerClickTimer);
+      footerClickTimer = setTimeout(() => {
+        footerClickCount = 0;
+      }, 1500);
+
+      if (footerClickCount >= 3) {
+        footerClickCount = 0;
+        showVullkanoCrab();
+      }
+    });
+  }
+
+  // 2. 🍃 Chuva de Natureza & Confetes (5 cliques no Logo)
+  const logoTriggers = [
+    document.getElementById('navbar-logo-trigger'),
+    document.getElementById('hero-logo-trigger')
+  ].filter(Boolean);
+
+  let logoClickCount = 0;
+  let logoClickTimer = null;
+
+  function triggerNatureConfetti() {
+    playEasterEggSound('confetti');
+
+    const particlesContainer = document.createElement('div');
+    particlesContainer.className = 'fixed inset-0 pointer-events-none z-50 overflow-hidden';
+    document.body.appendChild(particlesContainer);
+
+    const icons = ['🍃', '🌿', '🌸', '🌼', '🧡', '✨', '☀️', '🦀', '🍀'];
+    const particleCount = 45;
+
+    for (let i = 0; i < particleCount; i++) {
+      const p = document.createElement('div');
+      const icon = icons[Math.floor(Math.random() * icons.length)];
+      p.innerText = icon;
+      p.style.position = 'absolute';
+      p.style.left = `${Math.random() * 100}vw`;
+      p.style.top = '-40px';
+      p.style.fontSize = `${18 + Math.random() * 22}px`;
+      p.style.opacity = '1';
+      p.style.userSelect = 'none';
+      particlesContainer.appendChild(p);
+
+      const duration = 2.8 + Math.random() * 2.2;
+      const delay = Math.random() * 0.8;
+      const xEnd = (Math.random() - 0.5) * 220;
+      const rotation = (Math.random() - 0.5) * 720;
+
+      if (window.gsap) {
+        gsap.to(p, {
+          y: window.innerHeight + 80,
+          x: `+=${xEnd}`,
+          rotation: rotation,
+          duration: duration,
+          delay: delay,
+          ease: 'power1.inOut',
+          opacity: 0.9
+        });
+      } else {
+        p.style.transition = `transform ${duration}s ease, opacity ${duration}s ease`;
+        p.style.transform = `translateY(${window.innerHeight + 80}px) rotate(${rotation}deg)`;
+      }
+    }
+
+    setTimeout(() => {
+      particlesContainer.remove();
+    }, 5500);
+  }
+
+  logoTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      logoClickCount++;
+      if (logoClickTimer) clearTimeout(logoClickTimer);
+      logoClickTimer = setTimeout(() => {
+        logoClickCount = 0;
+      }, 2000);
+
+      if (logoClickCount >= 5) {
+        logoClickCount = 0;
+        triggerNatureConfetti();
+      }
+    });
   });
 
   // Initialize Lucide Icons
@@ -723,25 +894,35 @@ document.addEventListener('DOMContentLoaded', () => {
   const enrollmentForm = document.getElementById('enrollment-form');
   const calculatedPriceElem = document.getElementById('calculated-price');
   const modalPlanSelect = document.getElementById('modal-plan');
-  const modalKidsSelect = document.getElementById('modal-kids');
+  const modalKidsInput = document.getElementById('modal-kids');
+
+  function getValidKidsCount() {
+    if (!modalKidsInput) return 1;
+    let val = parseInt(modalKidsInput.value, 10);
+    if (isNaN(val) || val < 1) {
+      return 1;
+    }
+    return val;
+  }
 
   function calculatePrice() {
     if (!modalPlanSelect || !calculatedPriceElem) return;
     const plan = modalPlanSelect.value;
-    const kids = parseInt(modalKidsSelect ? modalKidsSelect.value : '1', 10);
+    const kids = getValidKidsCount();
     const basePrice = (plan === 'meio-dia') ? 200 : 350;
+    const total = basePrice * kids;
 
-    let total = basePrice * kids;
-    if (kids > 1) {
-      total = Math.round(total * 0.9);
-    }
-
-    calculatedPriceElem.textContent = `${total}€ / mês ${kids > 1 ? '(com 10% de desconto de irmão)' : ''}`;
+    calculatedPriceElem.textContent = `${total}€ / mês`;
   }
 
-  if (modalPlanSelect && modalKidsSelect) {
+  if (modalPlanSelect && modalKidsInput) {
     modalPlanSelect.addEventListener('change', calculatePrice);
-    modalKidsSelect.addEventListener('change', calculatePrice);
+    modalKidsInput.addEventListener('input', calculatePrice);
+    modalKidsInput.addEventListener('change', () => {
+      const valid = getValidKidsCount();
+      modalKidsInput.value = valid;
+      calculatePrice();
+    });
   }
 
   openEnrollmentBtns.forEach((btn) => {
@@ -778,7 +959,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Direct Submission handler via WhatsApp & Email
   // Direct Submission handler via E-mail (Gmail Web & Mailto)
   if (enrollmentForm) {
     enrollmentForm.addEventListener('submit', (e) => {
@@ -790,7 +970,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const childInfo = document.getElementById('input-child-info')?.value || '';
       const planSelect = document.getElementById('modal-plan');
       const planText = planSelect ? planSelect.options[planSelect.selectedIndex].text : '';
-      const kidsCount = document.getElementById('modal-kids')?.value || '1';
+      const validKids = getValidKidsCount();
+      const kidsText = validKids === 1 ? '1 criança' : `${validKids} crianças`;
       const estimatedPrice = document.getElementById('calculated-price')?.textContent || '';
       const notes = document.getElementById('input-notes')?.value || '';
 
@@ -801,7 +982,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `E-mail: ${guardianEmail}\n` +
         `Criança (Nome e Idade): ${childInfo}\n` +
         `Modalidade: ${planText}\n` +
-        `N.º de Crianças: ${kidsCount}\n` +
+        `N.º de Crianças: ${kidsText}\n` +
         `Estimativa Mensal: ${estimatedPrice}\n` +
         (notes ? `Observações: ${notes}\n` : '') +
         `\n--\nEnviado através do site KidsClub.daFonte`;
