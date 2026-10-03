@@ -32,7 +32,7 @@ O projeto destina-se a bebés e crianças das faixas etárias dos **6 meses aos 
 6. **Programa Diário:** Comutador de horários detalhados para o período da **Manhã (08:15 - 13:00)** e da **Tarde (13:00 - 18:00)** com cartões visuais pareados.
 7. **Atividades:** Grelha com 15 experiências categorizadas com filtros (yoga infantil, oficinas criativas, passeios na floresta, horta, contos, ética ambiental, festas de aniversário, etc.).
 8. **Preçário:** Tabela com as 2 modalidades oficiais de inscrição (**Dia Inteiro 350€/mês**, **Meio Dia 200€/mês** com 10% de desconto de irmão) e nota informativa sobre utilização pontual avulsa (50€/sessão).
-9. **Dia Aberto:** Apresentação presencial com cronograma detalhado do evento de acolhimento (10h00 às 12h00), leitor de vídeo oficial e grelha de memórias fotográficas.
+9. **Dia Aberto:** Registo do Dia Aberto de 5 de setembro, com álbum de fotografias legendadas (abre em galeria com navegação), convite para quem não pôde vir e friso contínuo de fotografias do dia a dia.
 10. **Contactos:** Contactos oficiais da coordenação (telefone, e-mail oficial) e Google Maps interativo integrado.
 
 ---
@@ -112,5 +112,5 @@ KidsClub.daFonte/
 
 - **Período de Inscrição Anual:** 1 de Julho a 15 de Agosto (Vagas Limitadas)
 - **Telemóvel:** +351 918 080 412 (Margarida Battaglia)
-- **E-mail:** `info.terradafonte@gmail.com`
+- **E-mail:** `kidsclub.dafonte@gmail.com`
 - **Endereço:** Terra da Fonte — Caminho da Encosta 330, Vale de São Gião, Milharado, Mafra

@@ -27,54 +27,56 @@ document.addEventListener('DOMContentLoaded', () => {
     "color: #4A6B53; font-weight: bold; font-size: 11px; padding: 2px 0;"
   );
 
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   // Easter Eggs Audio Synthesizer (Web Audio API)
+  // Um único AudioContext partilhado: os browsers limitam quantos podem existir em simultâneo.
+  let easterEggCtx = null;
+
+  function getEasterEggCtx() {
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    if (!AudioCtx) return null;
+    if (!easterEggCtx) easterEggCtx = new AudioCtx();
+    if (easterEggCtx.state === 'suspended') easterEggCtx.resume();
+    return easterEggCtx;
+  }
+
+  function playTone(ctx, { type = 'sine', from, to, start, duration, volume }) {
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = type;
+    osc.frequency.setValueAtTime(from, start);
+    if (to) osc.frequency.exponentialRampToValueAtTime(to, start + duration);
+    gain.gain.setValueAtTime(volume, start);
+    gain.gain.exponentialRampToValueAtTime(0.001, start + duration);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start(start);
+    osc.stop(start + duration);
+  }
+
   function playEasterEggSound(type) {
     try {
-      const AudioCtx = window.AudioContext || window.webkitAudioContext;
-      if (!AudioCtx) return;
-      const ctx = new AudioCtx();
+      const ctx = getEasterEggCtx();
+      if (!ctx) return;
+      const now = ctx.currentTime;
 
       if (type === 'crab') {
         // Som caranguejo: duplo pop alegre e suave
-        const now = ctx.currentTime;
-        const osc1 = ctx.createOscillator();
-        const gain1 = ctx.createGain();
-        osc1.type = 'sine';
-        osc1.frequency.setValueAtTime(380, now);
-        osc1.frequency.exponentialRampToValueAtTime(760, now + 0.12);
-        gain1.gain.setValueAtTime(0.2, now);
-        gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
-        osc1.connect(gain1);
-        gain1.connect(ctx.destination);
-        osc1.start(now);
-        osc1.stop(now + 0.12);
-
-        const osc2 = ctx.createOscillator();
-        const gain2 = ctx.createGain();
-        osc2.type = 'sine';
-        osc2.frequency.setValueAtTime(520, now + 0.14);
-        osc2.frequency.exponentialRampToValueAtTime(1040, now + 0.28);
-        gain2.gain.setValueAtTime(0.22, now + 0.14);
-        gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.28);
-        osc2.connect(gain2);
-        gain2.connect(ctx.destination);
-        osc2.start(now + 0.14);
-        osc2.stop(now + 0.28);
+        playTone(ctx, { from: 380, to: 760, start: now, duration: 0.12, volume: 0.2 });
+        playTone(ctx, { from: 520, to: 1040, start: now + 0.14, duration: 0.14, volume: 0.22 });
+      } else if (type === 'step') {
+        // Passinho do caranguejo
+        playTone(ctx, { type: 'triangle', from: 900 + Math.random() * 200, start: now, duration: 0.05, volume: 0.04 });
       } else if (type === 'confetti') {
         // Som confetes / magia: arpeggio brilhante de harpa e sinos
-        const freqs = [523.25, 659.25, 783.99, 1046.50, 1318.51, 1567.98];
-        freqs.forEach((freq, idx) => {
-          const startTime = ctx.currentTime + idx * 0.055;
-          const osc = ctx.createOscillator();
-          const gain = ctx.createGain();
-          osc.type = 'triangle';
-          osc.frequency.setValueAtTime(freq, startTime);
-          gain.gain.setValueAtTime(0.14, startTime);
-          gain.gain.exponentialRampToValueAtTime(0.001, startTime + 0.45);
-          osc.connect(gain);
-          gain.connect(ctx.destination);
-          osc.start(startTime);
-          osc.stop(startTime + 0.45);
+        [523.25, 659.25, 783.99, 1046.50, 1318.51, 1567.98].forEach((freq, idx) => {
+          playTone(ctx, { type: 'triangle', from: freq, start: now + idx * 0.055, duration: 0.45, volume: 0.14 });
+        });
+      } else if (type === 'fanfare') {
+        // Fanfarra do código secreto
+        [392, 523.25, 659.25, 783.99, 659.25, 783.99, 1046.5].forEach((freq, idx) => {
+          playTone(ctx, { type: 'square', from: freq, start: now + idx * 0.1, duration: 0.16, volume: 0.05 });
         });
       }
     } catch (e) {
@@ -82,45 +84,76 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 1. 🦀 O Caranguejo Vullkano no Canto Inferior Direito (3 cliques no Rodapé)
+  // 1. 🦀 O Caranguejo Vullkano atravessa o ecrã
+  //    (segredo: 3 cliques no texto de copyright do rodapé)
   const footerTrigger = document.getElementById('footer-copyright-trigger');
   let footerClickCount = 0;
   let footerClickTimer = null;
-  let crabPopupTimeout = null;
+  let crabIsWalking = false;
 
-  function showVullkanoCrab() {
-    playEasterEggSound('crab');
+  const crabMessages = [
+    'Vullkano was here!',
+    'Fui eu que fiz este site 🌿',
+    'Olá! Sou o caranguejo do Vullkano',
+    'Clac clac! Bom dia na Terra da Fonte',
+  ];
+  let crabMessageIndex = 0;
 
-    let popup = document.getElementById('vullkano-crab-popup');
-    if (!popup) {
-      popup = document.createElement('div');
-      popup.id = 'vullkano-crab-popup';
-      popup.className =
-        'fixed bottom-5 left-3 sm:left-4 z-50 flex items-center gap-2.5 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl border-2 border-[#D97757] shadow-2xl transition-all duration-500 transform translate-y-24 opacity-0 pointer-events-auto cursor-pointer select-none';
-      popup.innerHTML = `
-        <span class="text-3xl sm:text-4xl shrink-0 animate-crab-wiggle select-none leading-none">🦀</span>
-        <span class="font-fredoka text-sm sm:text-base font-bold text-[#D97757] whitespace-nowrap">Vullkano was here</span>
-      `;
-      document.body.appendChild(popup);
+  function spawnCrab({ bottom = 18, duration = 5.5, delay = 0, message = null, size = 44 } = {}) {
+    const crab = document.createElement('div');
+    crab.className = 'walking-crab';
+    crab.setAttribute('aria-hidden', 'true');
+    crab.style.bottom = `${bottom}px`;
+    crab.style.fontSize = `${size}px`;
+    if (message) {
+      const bubble = document.createElement('span');
+      bubble.className = 'walking-crab-bubble';
+      bubble.textContent = message;
+      crab.appendChild(bubble);
+    }
+    const body = document.createElement('span');
+    body.className = 'walking-crab-body';
+    body.textContent = '🦀';
+    crab.appendChild(body);
+    document.body.appendChild(crab);
 
-      popup.addEventListener('click', () => {
-        playEasterEggSound('crab');
-        popup.classList.add('scale-110');
-        setTimeout(() => popup.classList.remove('scale-110'), 200);
-      });
+    const bubble = crab.querySelector('.walking-crab-bubble');
+
+    if (reduceMotion || !window.gsap) {
+      // Sem animação: aparece parado no canto, com o balão visível, e desaparece
+      crab.style.left = '16px';
+      if (bubble) bubble.style.opacity = '1';
+      setTimeout(() => crab.remove(), 3500);
+      return;
     }
 
-    if (crabPopupTimeout) clearTimeout(crabPopupTimeout);
+    gsap.set(crab, { x: window.innerWidth + 40 });
+    const tl = gsap.timeline({ delay, onComplete: () => crab.remove() });
+    // Entra pela direita, para a meio para "falar" e sai pela esquerda
+    tl.to(crab, { x: window.innerWidth * 0.42, duration: duration * 0.4, ease: 'none' });
+    if (bubble) {
+      tl.to(bubble, { autoAlpha: 1, scale: 1, duration: 0.25, ease: 'back.out(2)' })
+        .to({}, { duration: 1.6 })
+        .to(bubble, { autoAlpha: 0, duration: 0.2 });
+    }
+    tl.to(crab, { x: -(size * 3 + 260), duration: duration * 0.6, ease: 'none' });
+  }
 
-    requestAnimationFrame(() => {
-      popup.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
-      popup.classList.add('translate-y-0', 'opacity-100');
-    });
+  function showVullkanoCrab() {
+    if (crabIsWalking) return;
+    crabIsWalking = true;
+    playEasterEggSound('crab');
+    spawnCrab({ message: crabMessages[crabMessageIndex++ % crabMessages.length] });
 
-    crabPopupTimeout = setTimeout(() => {
-      popup.classList.remove('translate-y-0', 'opacity-100');
-      popup.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
-    }, 3000);
+    if (!reduceMotion) {
+      let steps = 0;
+      const stepTimer = setInterval(() => {
+        playEasterEggSound('step');
+        if (++steps > 12) clearInterval(stepTimer);
+      }, 170);
+    }
+
+    setTimeout(() => { crabIsWalking = false; }, reduceMotion ? 3500 : 7600);
   }
 
   if (footerTrigger) {
@@ -149,6 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function triggerNatureConfetti() {
     playEasterEggSound('confetti');
+    if (reduceMotion) return;
 
     const particlesContainer = document.createElement('div');
     particlesContainer.className = 'fixed inset-0 pointer-events-none z-50 overflow-hidden';
@@ -210,6 +244,44 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // 3. 🎮 Código secreto (↑ ↑ ↓ ↓ ← → ← → B A): desfile de caranguejos
+  const konamiSequence = ['arrowup', 'arrowup', 'arrowdown', 'arrowdown', 'arrowleft', 'arrowright', 'arrowleft', 'arrowright', 'b', 'a'];
+  let konamiPosition = 0;
+
+  function triggerCrabParade() {
+    playEasterEggSound('fanfare');
+    triggerNatureConfetti();
+    const count = window.innerWidth < 640 ? 5 : 9;
+    for (let i = 0; i < count; i++) {
+      spawnCrab({
+        bottom: 12 + Math.random() * Math.min(260, window.innerHeight * 0.35),
+        duration: 4 + Math.random() * 2.5,
+        delay: i * 0.35,
+        size: 28 + Math.random() * 26,
+        message: i === Math.floor(count / 2) ? 'Desfile oficial dos caranguejos! 🦀' : null,
+      });
+    }
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.target.closest && e.target.closest('input, textarea, select')) return;
+    const key = (e.key || '').toLowerCase();
+    if (key === konamiSequence[konamiPosition]) {
+      konamiPosition++;
+    } else {
+      konamiPosition = key === konamiSequence[0] ? 1 : 0;
+    }
+    if (konamiPosition === konamiSequence.length) {
+      konamiPosition = 0;
+      triggerCrabParade();
+    }
+  });
+
+  console.log(
+    '%cPsst… há segredos escondidos neste site. Experimenta ↑ ↑ ↓ ↓ ← → ← → B A 🦀',
+    'color: #3D342F; font-size: 11px;'
+  );
+
   // Initialize Lucide Icons
   if (window.lucide) {
     lucide.createIcons();
@@ -229,16 +301,33 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
   if (mobileMenuBtn && mobileMenu) {
+    const setMenuOpen = (open) => {
+      mobileMenu.classList.toggle('hidden', !open);
+      mobileMenuBtn.setAttribute('aria-expanded', String(open));
+      mobileMenuBtn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+      mobileMenuBtn.querySelector('.menu-icon-open')?.classList.toggle('hidden', open);
+      mobileMenuBtn.querySelector('.menu-icon-close')?.classList.toggle('hidden', !open);
+    };
+
     mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
+      setMenuOpen(mobileMenu.classList.contains('hidden'));
     });
     mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+      link.addEventListener('click', () => setMenuOpen(false));
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+        setMenuOpen(false);
+        mobileMenuBtn.focus();
+      }
+    });
+    window.matchMedia('(min-width: 1280px)').addEventListener('change', (e) => {
+      if (e.matches) setMenuOpen(false);
     });
   }
 
   // GSAP Animations setup (Otimizado: Instantâneo e Fluido no Telemóvel)
-  if (typeof gsap !== 'undefined') {
+  if (typeof gsap !== 'undefined' && !reduceMotion) {
     gsap.registerPlugin(ScrollTrigger);
 
     const isMobile = window.innerWidth < 768;
@@ -823,67 +912,137 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- FAIXA DE FOTOS (7.Faixa_fotos) DYNAMIC LOADER ---
   const faixaPhotos = [
-    '1.jpg',
-    '2.jpg',
-    '3.jpg',
-    '4.jpg',
-    '5.png',
-    '6.png',
-    '7.jpg',
-    '8.png'
+    { file: '1.jpg', alt: 'Criança a observar com uma lupa' },
+    { file: '2.jpg', alt: 'Relvado com tenda e trampolim' },
+    { file: '3.jpg', alt: 'Galinhas no jardim' },
+    { file: '4.jpg', alt: 'Trampolim com rede de proteção' },
+    { file: '5.png', alt: 'Crianças e adultos no jardim' },
+    { file: '6.png', alt: 'Crianças a fazer um jogo no chão do salão' },
+    { file: '7.jpg', alt: 'Criança a dar folhas a uma cabra' },
+    { file: '8.png', alt: 'Crianças a caminhar no jardim' },
   ];
 
   function initFaixaMarquee() {
     const marqueeTrack = document.querySelector('.photo-marquee-track');
     if (!marqueeTrack) return;
 
-    const cardsHTML = faixaPhotos.map((file, idx) => `
-      <div class="w-72 sm:w-80 lg:w-[380px] h-52 sm:h-60 lg:h-64 rounded-3xl overflow-hidden shadow-sm shrink-0 relative group">
-        <img src="assets/images/7.Faixa_fotos/${file}" alt="Faixa Foto ${idx + 1}"
-          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+    const card = ({ file, alt }, hidden) => `
+      <div class="w-64 sm:w-80 lg:w-[380px] h-48 sm:h-60 lg:h-64 rounded-3xl overflow-hidden shadow-sm shrink-0 relative"${hidden ? ' aria-hidden="true"' : ''}>
+        <img src="assets/images/7.Faixa_fotos/${file}" alt="${hidden ? '' : alt}" loading="lazy" decoding="async"
+          class="w-full h-full object-cover">
       </div>
-    `).join('');
+    `;
 
-    // Duplicate for infinite marquee loop
-    marqueeTrack.innerHTML = cardsHTML + cardsHTML;
+    // Duplicado para o loop infinito (a cópia fica escondida dos leitores de ecrã)
+    marqueeTrack.innerHTML = faixaPhotos.map((p) => card(p, false)).join('') + faixaPhotos.map((p) => card(p, true)).join('');
   }
 
   initFaixaMarquee();
 
-  // Lightbox Modal for Space Images & Videos
+  // --- LIGHTBOX (Espaço e Dia Aberto) com anterior/seguinte, teclado e deslizar ---
   const lightboxModal = document.getElementById('lightbox-modal');
   const lightboxImg = document.getElementById('lightbox-img');
   const lightboxTitle = document.getElementById('lightbox-title');
   const lightboxDesc = document.getElementById('lightbox-desc');
+  const lightboxBadge = document.getElementById('lightbox-badge');
+  const lightboxCounter = document.getElementById('lightbox-counter');
   const lightboxClose = document.getElementById('lightbox-close');
+  const lightboxPrev = document.getElementById('lightbox-prev');
+  const lightboxNext = document.getElementById('lightbox-next');
 
+  const galleryBadges = {
+    espaco: 'Espaço Terra da Fonte',
+    'dia-aberto': 'Dia Aberto, 5 de setembro',
+  };
+
+  // Os cartões do Espaço são <div>: tornam-se acessíveis por teclado
   document.querySelectorAll('.space-card').forEach((card) => {
-    card.addEventListener('click', () => {
-      const imgSrc = card.getAttribute('data-img');
-      const title = card.getAttribute('data-title');
-      const desc = card.getAttribute('data-desc');
-
-      if (lightboxModal && lightboxImg) {
-        lightboxImg.src = imgSrc;
-        if (lightboxTitle) lightboxTitle.textContent = title;
-        if (lightboxDesc) lightboxDesc.textContent = desc;
-        lightboxModal.classList.remove('hidden');
-        lightboxModal.classList.add('flex');
-      }
-    });
+    card.dataset.gallery = card.dataset.gallery || 'espaco';
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('aria-label', `Ver fotografia: ${card.dataset.title}`);
   });
 
-  if (lightboxClose && lightboxModal) {
-    lightboxClose.addEventListener('click', () => {
-      lightboxModal.classList.add('hidden');
-      lightboxModal.classList.remove('flex');
+  const galleryItems = Array.from(document.querySelectorAll('.space-card, .album-card'));
+  let currentGallery = [];
+  let currentIndex = 0;
+  let lastFocused = null;
+
+  function renderLightbox() {
+    const item = currentGallery[currentIndex];
+    if (!item) return;
+    lightboxImg.src = item.dataset.img;
+    lightboxImg.alt = item.querySelector('img')?.alt || item.dataset.title || '';
+    if (lightboxTitle) lightboxTitle.textContent = item.dataset.title || '';
+    if (lightboxDesc) lightboxDesc.textContent = item.dataset.desc || '';
+    if (lightboxBadge) lightboxBadge.textContent = galleryBadges[item.dataset.gallery] || '';
+    const many = currentGallery.length > 1;
+    if (lightboxCounter) lightboxCounter.textContent = many ? `${currentIndex + 1} de ${currentGallery.length}` : '';
+    lightboxPrev?.classList.toggle('hidden', !many);
+    lightboxNext?.classList.toggle('hidden', !many);
+  }
+
+  function openLightbox(item) {
+    if (!lightboxModal || !lightboxImg) return;
+    currentGallery = galleryItems.filter((el) => el.dataset.gallery === item.dataset.gallery);
+    currentIndex = currentGallery.indexOf(item);
+    lastFocused = document.activeElement;
+    renderLightbox();
+    lightboxModal.classList.remove('hidden');
+    lightboxModal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+    lightboxClose?.focus();
+  }
+
+  function closeLightbox() {
+    if (!lightboxModal || lightboxModal.classList.contains('hidden')) return;
+    lightboxModal.classList.add('hidden');
+    lightboxModal.classList.remove('flex');
+    document.body.style.overflow = '';
+    lastFocused?.focus();
+  }
+
+  function stepLightbox(delta) {
+    if (currentGallery.length < 2) return;
+    currentIndex = (currentIndex + delta + currentGallery.length) % currentGallery.length;
+    renderLightbox();
+  }
+
+  galleryItems.forEach((item) => {
+    item.addEventListener('click', () => openLightbox(item));
+    if (item.classList.contains('space-card')) {
+      item.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openLightbox(item);
+        }
+      });
+    }
+  });
+
+  if (lightboxModal && lightboxImg) {
+    lightboxClose?.addEventListener('click', closeLightbox);
+    lightboxPrev?.addEventListener('click', () => stepLightbox(-1));
+    lightboxNext?.addEventListener('click', () => stepLightbox(1));
+    lightboxModal.addEventListener('click', (e) => {
+      if (e.target === lightboxModal) closeLightbox();
     });
 
-    lightboxModal.addEventListener('click', (e) => {
-      if (e.target === lightboxModal) {
-        lightboxModal.classList.add('hidden');
-        lightboxModal.classList.remove('flex');
-      }
+    document.addEventListener('keydown', (e) => {
+      if (lightboxModal.classList.contains('hidden')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') stepLightbox(-1);
+      if (e.key === 'ArrowRight') stepLightbox(1);
+    });
+
+    // Deslizar no telemóvel
+    let touchStartX = null;
+    lightboxImg.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    lightboxImg.addEventListener('touchend', (e) => {
+      if (touchStartX === null) return;
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 40) stepLightbox(dx < 0 ? 1 : -1);
+      touchStartX = null;
     });
   }
 
@@ -957,6 +1116,13 @@ document.addEventListener('DOMContentLoaded', () => {
         enrollmentModal.classList.remove('flex');
       }
     });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !enrollmentModal.classList.contains('hidden')) {
+        enrollmentModal.classList.add('hidden');
+        enrollmentModal.classList.remove('flex');
+      }
+    });
   }
 
   // Direct Submission handler via E-mail (Gmail Web & Mailto)
@@ -989,8 +1155,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const emailSubject = encodeURIComponent(`Pré-Inscrição KidsClub.daFonte - ${childInfo}`);
       const emailBody = encodeURIComponent(summaryText);
-      const gmailWebUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=info.terradafonte@gmail.com&su=${emailSubject}&body=${emailBody}`;
-      const mailtoUrl = `mailto:info.terradafonte@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+      const gmailWebUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=kidsclub.dafonte@gmail.com&su=${emailSubject}&body=${emailBody}`;
+      const mailtoUrl = `mailto:kidsclub.dafonte@gmail.com?subject=${emailSubject}&body=${emailBody}`;
 
       // Open Gmail Web in new tab automatically
       const newWin = window.open(gmailWebUrl, '_blank');
@@ -1042,31 +1208,71 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    navLinks.forEach((link) => {
-      const href = link.getAttribute('href')?.replace('#', '');
-      if (href === currentId) {
-        link.classList.add('bg-[#4A6B53]', 'text-white', 'shadow-xs');
-        link.classList.remove('text-[#3D342F]', 'hover:text-[#4A6B53]', 'hover:bg-[#E8F0E6]/60');
+    [...navLinks, ...mobileNavLinks].forEach((link) => {
+      const isCurrent = link.getAttribute('href')?.replace('#', '') === currentId;
+      link.classList.toggle('is-active', isCurrent);
+      if (isCurrent) {
+        link.setAttribute('aria-current', 'location');
       } else {
-        link.classList.remove('bg-[#4A6B53]', 'text-white', 'shadow-xs');
-        link.classList.add('text-[#3D342F]', 'hover:text-[#4A6B53]', 'hover:bg-[#E8F0E6]/60');
-      }
-    });
-
-    mobileNavLinks.forEach((link) => {
-      const href = link.getAttribute('href')?.replace('#', '');
-      if (href === currentId) {
-        link.classList.add('bg-[#4A6B53]', 'text-white', 'font-bold');
-        link.classList.remove('text-[#3D342F]', 'hover:bg-[#E8F0E6]');
-      } else {
-        link.classList.remove('bg-[#4A6B53]', 'text-white', 'font-bold');
-        link.classList.add('text-[#3D342F]', 'hover:bg-[#E8F0E6]');
+        link.removeAttribute('aria-current');
       }
     });
   }
 
   window.addEventListener('scroll', updateActiveNav, { passive: true });
   updateActiveNav();
+
+  // --- BARRA DE PROGRESSO + VOLTAR AO TOPO ---
+  const scrollProgress = document.getElementById('scroll-progress');
+  const backToTop = document.getElementById('back-to-top');
+  let scrollTicking = false;
+
+  function updateScrollUI() {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
+    if (scrollProgress) scrollProgress.style.transform = `scaleX(${progress})`;
+    if (backToTop) backToTop.classList.toggle('is-visible', window.scrollY > window.innerHeight * 1.2);
+    scrollTicking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!scrollTicking) {
+      scrollTicking = true;
+      requestAnimationFrame(updateScrollUI);
+    }
+  }, { passive: true });
+  updateScrollUI();
+
+  if (backToTop) {
+    backToTop.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+      document.getElementById('conteudo')?.focus({ preventScroll: true });
+    });
+  }
+
+  // --- ILUSTRAÇÃO DO TOPO: inclina ligeiramente com o rato (só desktop) ---
+  const heroIllustration = document.getElementById('hero-logo-trigger');
+  const heroCard = heroIllustration?.querySelector('.hero-illustration-card');
+  if (heroIllustration && heroCard && !reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    heroIllustration.addEventListener('pointermove', (e) => {
+      const rect = heroIllustration.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      heroCard.style.transform = `rotateX(${(-y * 8).toFixed(2)}deg) rotateY(${(x * 10).toFixed(2)}deg) scale(1.02)`;
+    });
+    heroIllustration.addEventListener('pointerleave', () => {
+      heroCard.style.transform = '';
+    });
+  }
+
+  // Links com âncora (ex.: .../#dia-aberto): o Tailwind via CDN e as imagens mudam a altura
+  // da página depois do salto inicial do browser, por isso repetimos o salto no fim do carregamento.
+  window.addEventListener('load', () => {
+    if (location.hash.length < 2) return;
+    const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) target.scrollIntoView({ behavior: 'instant', block: 'start' });
+  });
 
   // --- MOTOR DE MÚSICA & SONS DA NATUREZA (Web Audio API) ---
   let audioCtx = null;
