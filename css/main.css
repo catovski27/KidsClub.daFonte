@@ -11,6 +11,35 @@
   /* Variantes escuras para texto pequeno (contraste AA sobre creme/branco) */
   --terracota-texto: #A9533A;
   --verde-folha-escuro: #3B5743;
+  /* Amarelo do "Fonte" no logótipo, e um dourado escuro para texto pequeno */
+  --amarelo-fonte: #E9A90F;
+  --amarelo-texto: #AD7D08;
+}
+
+/* Nome da marca com as cores do logótipo: KidsClub (verde) .da (terracota) Fonte (amarelo) */
+.brand-kids {
+  color: var(--verde-folha);
+}
+
+.brand-da {
+  color: var(--terracota-texto);
+}
+
+.brand-fonte {
+  color: var(--amarelo-fonte);
+}
+
+/* Sobre fundo escuro (rodapé): os mesmos tons, mais claros para se lerem bem */
+.brand-on-dark .brand-kids {
+  color: #A5D4AE;
+}
+
+.brand-on-dark .brand-da {
+  color: #F0A285;
+}
+
+.brand-on-dark .brand-fonte {
+  color: var(--amarelo-sol);
 }
 
 html {
@@ -72,6 +101,23 @@ body::before {
     radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.65) 0, rgba(255, 255, 255, 0) 24%),
     radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.38) 0, rgba(255, 255, 255, 0) 18%);
   opacity: 0.72;
+}
+
+/* Textura subtil de papel por cima de tudo: dá um toque natural, feito à mão */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background: rgba(74, 107, 83, 0.22);
+  color: var(--castanho-texto);
 }
 
 .brand-link {
@@ -284,11 +330,504 @@ h3,
 .photo-marquee-track {
   display: flex;
   width: max-content;
-  animation: marqueeScroll 40s linear infinite;
+  animation: marqueeScroll 60s linear infinite;
 }
 
 .photo-marquee-track:hover {
   animation-play-state: paused;
+}
+
+/* Vídeo promocional (YouTube Short, 9:16) na secção Quem somos:
+   cartão com o texto e o vídeo dentro de uma moldura de telemóvel */
+.promo-block {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2.5rem 1.5rem;
+  border-radius: 2rem;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  /* Luz quente de fim de tarde: creme a passar para dourado, para contrastar com o verde da secção */
+  background:
+    radial-gradient(ellipse 60% 70% at 100% 100%, rgba(244, 197, 66, 0.28), transparent 70%),
+    radial-gradient(ellipse 45% 55% at 0% 0%, rgba(217, 119, 87, 0.08), transparent 70%),
+    linear-gradient(135deg, #FFFDF8 0%, #FCF7EC 55%, #F9EED3 100%);
+  border: 1px solid rgba(197, 139, 26, 0.18);
+  box-shadow: 0 24px 50px -30px rgba(74, 107, 83, 0.45);
+}
+
+/* Folhas grandes e muito suaves no fundo do cartão */
+.promo-deco {
+  position: absolute;
+  z-index: -1;
+  color: var(--verde-folha);
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+.promo-deco--1 {
+  width: 15rem;
+  height: 15rem;
+  top: -3rem;
+  left: -3.5rem;
+  transform: rotate(-20deg);
+}
+
+.promo-deco--2 {
+  width: 9rem;
+  height: 9rem;
+  bottom: -1.5rem;
+  left: 42%;
+  transform: rotate(12deg);
+}
+
+.promo-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--terracota-texto);
+}
+
+.promo-eyebrow-line {
+  width: 2rem;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--terracota);
+}
+
+.promo-title {
+  margin-top: 0.9rem;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+  line-height: 1.2;
+  color: var(--castanho-texto);
+}
+
+/* O nome da marca é o destaque do título */
+.promo-title-brand {
+  display: block;
+  margin-top: 0.2rem;
+  font-weight: 700;
+  font-size: clamp(2.2rem, 4.6vw, 3.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--verde-folha);
+  white-space: nowrap;
+}
+
+.promo-lede {
+  margin-top: 1.1rem;
+  max-width: 28rem;
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  line-height: 1.7;
+  color: rgba(61, 52, 47, 0.88);
+}
+
+.promo-lede strong {
+  color: var(--verde-folha);
+}
+
+.promo-place {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgba(61, 52, 47, 0.7);
+}
+
+.promo-place svg {
+  color: var(--terracota-texto);
+}
+
+@media (max-width: 767px) {
+  .promo-lede {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .promo-block {
+    grid-template-columns: 1.15fr 1fr;
+    gap: 3rem;
+    padding: 3rem 3.5rem;
+  }
+}
+
+.promo-text {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .promo-text {
+    text-align: left;
+  }
+}
+
+/* Ligação para o vídeo no YouTube, em formato de cartão */
+.promo-yt-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding: 1rem 1.25rem;
+  border-radius: 1.25rem;
+  background: #fff;
+  border: 1px solid rgba(74, 107, 83, 0.12);
+  box-shadow: 0 12px 28px -16px rgba(74, 107, 83, 0.45);
+  text-align: left;
+  transition: border-color 200ms ease, background-color 200ms ease, transform 200ms ease;
+}
+
+.promo-yt-card:hover {
+  border-color: var(--verde-folha);
+  background: #fff;
+  transform: translateY(-2px);
+}
+
+.promo-yt-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 999px;
+  background: var(--verde-folha);
+  color: #fff;
+  padding-left: 3px;
+}
+
+.promo-yt-title {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--verde-folha);
+}
+
+.promo-yt-url {
+  font-size: 0.8rem;
+  color: rgba(61, 52, 47, 0.7);
+}
+
+/* Em ecrãs pequenos o endereço partia-se a meio: basta o título */
+@media (max-width: 479px) {
+  .promo-yt-url {
+    display: none;
+  }
+}
+
+.promo-yt-arrow {
+  margin-left: auto;
+  flex-shrink: 0;
+  color: var(--terracota-texto);
+}
+
+.promo-phone-wrap {
+  position: relative;
+  isolation: isolate;
+  justify-self: center;
+  width: 100%;
+  max-width: 300px;
+}
+
+/* Forma de fundo inclinada atrás do telemóvel */
+.promo-phone-blob {
+  position: absolute;
+  z-index: -1;
+  inset: 6% -10% 6% -10%;
+  border-radius: 2.5rem;
+  background: linear-gradient(160deg, var(--verde-suave), rgba(244, 197, 66, 0.35));
+  transform: rotate(-5deg);
+}
+
+.promo-phone {
+  padding: 10px;
+  border-radius: 2.4rem;
+  background: var(--castanho-texto);
+  box-shadow: 0 30px 60px -20px rgba(61, 52, 47, 0.5);
+  transform: rotate(2deg);
+  transition: transform 500ms ease;
+}
+
+.promo-phone:hover {
+  transform: rotate(0deg);
+}
+
+.promo-video {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: 1.8rem;
+  overflow: hidden;
+  background: #000;
+}
+
+.promo-video iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .promo-phone,
+  .promo-phone:hover,
+  .promo-yt-card:hover {
+    transform: none;
+  }
+}
+
+/* Modalidades (separadores dos programas) e Preçário */
+.programa-info h4 {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--terracota-texto);
+}
+
+.programa-info p,
+.programa-list li {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--castanho-texto);
+}
+
+.programa-info strong,
+.programa-list strong {
+  color: var(--verde-folha);
+}
+
+.programa-list {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.programa-list li {
+  padding-left: 1.1rem;
+  position: relative;
+}
+
+.programa-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 999px;
+  background: var(--verde-folha);
+}
+
+.programa-prices {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.programa-prices li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: 0.9rem;
+  background: var(--creme-fundo);
+  border: 1px solid rgba(74, 107, 83, 0.12);
+  font-size: 0.95rem;
+  color: var(--castanho-texto);
+}
+
+/* Cartões do Preçário: todos iguais, só muda a cor de acento */
+.price-card {
+  --accent: var(--verde-folha);
+  --accent-soft: var(--verde-suave);
+  --accent-text: var(--verde-folha);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  padding: 2rem 1.75rem 1.75rem;
+  border-radius: 1.75rem;
+  background: #fff;
+  border: 1px solid rgba(74, 107, 83, 0.15);
+  overflow: hidden;
+  transition: transform 250ms ease, box-shadow 250ms ease;
+}
+
+.price-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 6px;
+  background: var(--accent);
+}
+
+.price-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 40px -24px rgba(61, 52, 47, 0.4);
+}
+
+/* Modalidades: cada programa com a sua cor (1 verde, 2 terracota, 3 amarelo) */
+.programa-panel {
+  --accent: var(--verde-folha);
+  --accent-soft: var(--verde-suave);
+  --accent-text: var(--verde-folha);
+}
+
+.price-card--terracota,
+.programa-panel--terracota {
+  --accent: var(--terracota-texto);
+  --accent-soft: #FAF0EB;
+  --accent-text: var(--terracota-texto);
+}
+
+.price-card--sol,
+.programa-panel--sol {
+  --accent: var(--amarelo-fonte);
+  --accent-soft: #FCF3D9;
+  --accent-text: var(--amarelo-texto);
+}
+
+.programa-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.programa-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 6px;
+  background: var(--accent);
+}
+
+.programa-emoji {
+  background: var(--accent-soft);
+}
+
+.programa-kicker {
+  color: var(--accent-text);
+}
+
+.programa-title {
+  color: var(--accent-text);
+}
+
+.programa-panel .programa-info h4,
+.programa-panel .programa-info h4 svg {
+  color: var(--accent-text);
+}
+
+.programa-panel .programa-list li::before {
+  background: var(--accent);
+}
+
+.programa-panel .programa-prices li {
+  background: var(--accent-soft);
+  border-color: transparent;
+}
+
+.programa-panel .programa-prices strong {
+  color: var(--accent-text);
+}
+
+.price-card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.price-card-emoji {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 1rem;
+  background: var(--accent-soft);
+  font-size: 1.6rem;
+}
+
+.price-card-kicker {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+.price-card-title {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--accent-text);
+}
+
+.price-card .programa-prices strong {
+  color: var(--accent-text);
+}
+
+.price-card-badge {
+  align-self: flex-start;
+  padding: 0.25rem 0.85rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--verde-folha);
+}
+
+.price-card-info {
+  display: grid;
+  gap: 0.45rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px dashed rgba(74, 107, 83, 0.2);
+  font-size: 0.9rem;
+  color: rgba(61, 52, 47, 0.9);
+}
+
+.price-card-info li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.price-card-info svg {
+  flex-shrink: 0;
+  color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .price-card:hover {
+    transform: none;
+  }
+}
+
+.programa-prices strong {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--verde-folha);
+  white-space: nowrap;
 }
 
 /* Video Player Card Container */
@@ -590,6 +1129,18 @@ h3,
   color: #FFFFFF !important;
 }
 
+/* O separador ativo fica com a cor do programa */
+.schedule-tab.active[data-accent="terracota"],
+.schedule-tab.active[data-accent="terracota"]:hover {
+  background-color: var(--terracota-texto) !important;
+}
+
+.schedule-tab.active[data-accent="sol"],
+.schedule-tab.active[data-accent="sol"]:hover {
+  background-color: var(--amarelo-fonte) !important;
+  color: var(--castanho-texto) !important;
+}
+
 /* Floating Ambient Nature Music Widget & Equalizer */
 @keyframes eq-bounce-1 {
 
@@ -791,8 +1342,7 @@ h3,
 }
 
 .hero-action-buttons-wrap a,
-.hero-action-buttons-wrap button,
-.open-enrollment-btn {
+.hero-action-buttons-wrap button {
   box-sizing: border-box;
 }
 
@@ -973,6 +1523,11 @@ h3,
 .hero {
   padding-top: 6.5rem;
   padding-bottom: 4.5rem;
+  /* Luz suave de manhã: sol no canto direito, prado verde do lado esquerdo */
+  background-image:
+    radial-gradient(ellipse 55% 60% at 85% 20%, rgba(244, 197, 66, 0.16), transparent 70%),
+    radial-gradient(ellipse 60% 55% at 5% 95%, rgba(74, 107, 83, 0.10), transparent 70%),
+    radial-gradient(ellipse 45% 40% at 45% 0%, rgba(232, 240, 230, 0.9), transparent 75%);
 }
 
 @media (min-width: 1024px) {
@@ -989,15 +1544,21 @@ h3,
 }
 
 /* O lema da marca em três linhas: o elemento de destaque do topo */
+/* Lema numa só linha, como no logótipo: "cuidar e educar | natureza e arte | brincar e crescer" */
 .hero-motto {
-  margin-top: 1.25rem;
-  font-size: clamp(1.5rem, 3.6vw, 2.35rem);
-  line-height: 1.12;
-  letter-spacing: -0.01em;
+  margin-top: 1rem;
+  font-size: clamp(1rem, 1.9vw, 1.4rem);
+  line-height: 1.5;
 }
 
 .hero-motto-line {
-  display: block;
+  white-space: nowrap;
+}
+
+.hero-motto-sep {
+  margin: 0 0.15em;
+  color: var(--castanho-texto);
+  opacity: 0.45;
 }
 
 .hero-lede {
@@ -1195,6 +1756,106 @@ h3,
   }
 }
 
+/* Texto de copyright do rodapé: mostra que é clicável (abre a "invasão de caranguejos") */
+.footer-secret {
+  cursor: pointer;
+  background: none;
+  border: 0;
+  padding: 0.25rem 0;
+  font: inherit;
+  color: inherit;
+  text-decoration: underline dotted rgba(244, 197, 66, 0.6);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 5px;
+  transition: color 150ms ease, text-decoration-color 150ms ease;
+}
+
+.footer-secret:hover {
+  color: var(--amarelo-sol);
+  text-decoration-color: var(--amarelo-sol);
+}
+
+.footer-secret:focus-visible {
+  outline: 2px solid var(--amarelo-sol);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+/* Passeio da família caranguejo (criado e removido por js/main.js) */
+.crab-walk {
+  position: fixed;
+  inset: auto 0 0 0;
+  height: 220px;
+  z-index: 80;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.crab-walk-shore {
+  position: absolute;
+  inset: auto 0 0 0;
+  width: 100%;
+  height: 70px;
+  fill: #EFE3CC;
+  filter: drop-shadow(0 -4px 10px rgba(61, 52, 47, 0.08));
+}
+
+.crab-walk-family {
+  position: absolute;
+  left: 0;
+  bottom: 22px;
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  line-height: 1;
+}
+
+.crab-walk-crab {
+  display: inline-block;
+  font-size: 26px;
+  filter: drop-shadow(0 3px 4px rgba(61, 52, 47, 0.2));
+}
+
+.crab-walk-crab--big {
+  font-size: 46px;
+}
+
+.crab-walk-bubble {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 0;
+  padding: 0.45rem 0.9rem;
+  border-radius: 1rem;
+  background: #fff;
+  border: 1px solid rgba(74, 107, 83, 0.25);
+  box-shadow: 0 8px 20px -8px rgba(61, 52, 47, 0.3);
+  color: var(--verde-folha);
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.crab-walk-bubble::after {
+  content: '';
+  position: absolute;
+  left: 18px;
+  bottom: -6px;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border-right: 1px solid rgba(74, 107, 83, 0.25);
+  border-bottom: 1px solid rgba(74, 107, 83, 0.25);
+  transform: rotate(45deg);
+}
+
+.crab-walk-leaf {
+  position: absolute;
+  font-size: 20px;
+  line-height: 1;
+}
+
 
 /* ============================================================
    Hero: citação, ilustração interativa e seta para descer
@@ -1250,6 +1911,7 @@ h3,
 
 .hero-illustration {
   perspective: 900px;
+  isolation: isolate;
 }
 
 .hero-illustration-card {
@@ -1404,32 +2066,140 @@ h3,
   }
 }
 
-/* Botões de inscrição no topo */
+/* Cartão de inscrição no topo: estado, dois botões e atalhos para os programas */
 .hero-enroll {
+  position: relative;
   margin-top: 2rem;
   max-width: 40rem;
+  padding: 1.25rem;
+  border-radius: 1.75rem;
+  background: #fff;
+  border: 1px solid rgba(74, 107, 83, 0.14);
+  box-shadow: 0 18px 40px -18px rgba(74, 107, 83, 0.35);
+  text-align: left;
   scroll-margin-top: 7rem;
 }
 
-.hero-enroll-note {
-  margin-top: 0.9rem;
+@media (min-width: 640px) {
+  .hero-enroll {
+    padding: 1.5rem;
+  }
+}
+
+.hero-enroll-status {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  color: var(--castanho-texto);
+}
+
+.hero-enroll-status strong {
+  color: var(--verde-folha);
+}
+
+/* Ponto verde a "respirar": inscrições a decorrer */
+.hero-enroll-dot {
+  position: relative;
+  flex-shrink: 0;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 999px;
+  background: #3E9B5A;
+}
+
+.hero-enroll-dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: inherit;
+  animation: enroll-pulse 1.8s ease-out infinite;
+}
+
+@keyframes enroll-pulse {
+  from {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+
+  to {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}
+
+.hero-enroll-actions {
+  display: grid;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .hero-enroll-actions {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.hero-programs {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.35rem 1.25rem;
-  font-size: 0.95rem;
-  color: rgba(61, 52, 47, 0.9);
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed rgba(74, 107, 83, 0.25);
 }
 
-.hero-text-link {
+@media (max-width: 1023px) {
+  .hero-programs {
+    justify-content: center;
+  }
+}
+
+.hero-programs a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  background: var(--verde-suave);
   color: var(--verde-folha);
+  font-family: 'Fredoka', sans-serif;
   font-weight: 600;
-  text-decoration: underline;
-  text-decoration-thickness: 1.5px;
-  text-underline-offset: 3px;
+  font-size: 0.875rem;
+  transition: background-color 150ms ease, color 150ms ease, transform 150ms ease;
 }
 
-.hero-text-link:hover {
+.hero-programs a:hover {
+  background: var(--verde-folha);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.hero-programs a.hero-program--terracota {
+  background: #FAF0EB;
   color: var(--terracota-texto);
+}
+
+.hero-programs a.hero-program--terracota:hover {
+  background: var(--terracota-texto);
+  color: #fff;
+}
+
+.hero-programs a.hero-program--sol {
+  background: #FCF3D9;
+  color: var(--amarelo-texto);
+}
+
+.hero-programs a.hero-program--sol:hover {
+  background: var(--amarelo-fonte);
+  color: var(--castanho-texto);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-enroll-dot::after {
+    animation: none;
+  }
 }
 
 /* Dados essenciais no topo: idades, horário e local */

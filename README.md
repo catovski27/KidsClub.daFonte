@@ -2,7 +2,7 @@
 
 > **"cuidar e educar | natureza e arte | brincar e crescer"**
 
-🌐 **Website Oficial (GitHub Pages):** [https://catovski27.github.io/KidsClub.daFonte/](https://catovski27.github.io/KidsClub.daFonte/)  
+🌐 **Website Oficial (GitHub Pages):** [https://catovski27.github.io/KidsClub.daFonte/](https://catovski27.github.io/KidsClub.daFonte/)
 📝 **Formulário de Inscrição Oficial (Google Forms):** [Preencher Formulário de Inscrição](https://docs.google.com/forms/d/11l4VuL1tLVeBoZVqpM1so1B5nwW7g1xuZIPPCdEGzOw/viewform?edit_requested=true)
 
 O **KidsClub.daFonte** é um projeto lúdico-pedagógico e comunitário localizado na **Terra da Fonte** (Milharado, Mafra), desenvolvido sob a coordenação artística e pedagógica da **Amálgama Associação Cultural** para o ano letivo **2026 | 2027**.
@@ -42,10 +42,13 @@ O projeto destina-se a bebés e crianças das faixas etárias dos **6 meses aos 
 Como o projeto é construído em HTML5, CSS3 e JavaScript puro, não necessita de etapas de compilação complexas:
 
 ### Opção 1: Abrir diretamente no Browser
+
 Basta dar dois cliques ou abrir o ficheiro [`index.html`](index.html) em qualquer navegador moderno.
 
 ### Opção 2: Servidor Local (Recomendado)
+
 Para uma melhor experiência com o carregamento de fontes e recursos:
+
 ```bash
 # Utilizando npx serve
 npx serve .
@@ -53,14 +56,17 @@ npx serve .
 # Ou utilizando Python
 python -m http.server 8080
 ```
+
 Em seguida, aceda a `http://localhost:8080` ou `http://127.0.0.1:8080`.
 
 ---
 
 ### Opção 3: Partilhar / Ver em Dispositivos na Mesma Rede (Wi-Fi / LAN)
+
 Para que outras pessoas na mesma rede Wi-Fi (em smartphones, tablets ou outros computadores) possam aceder e testar o website em tempo real:
 
 1. **Iniciar o Servidor Local:**
+
    ```bash
    # Com Python (acessível por toda a rede)
    python -m http.server 8080
@@ -68,21 +74,22 @@ Para que outras pessoas na mesma rede Wi-Fi (em smartphones, tablets ou outros c
    # Ou com npx serve
    npx serve .
    ```
-
 2. **Descobrir o teu Endereço IP Local:**
+
    * **Windows:** Abre o terminal (PowerShell ou CMD) e executa:
      ```powershell
      ipconfig
      ```
+
      Procura pela linha **Endereço IPv4** (exemplo: `192.168.1.75` ou `192.168.0.120`).
    * **macOS / Linux:** Abre o terminal e executa:
      ```bash
      ipconfig getifaddr en0   # macOS
      hostname -I              # Linux
      ```
-
 3. **Aceder a partir de Qualquer Dispositivo:**
    No telemóvel ou tablet ligado à mesma rede Wi-Fi, abre o navegador (Chrome, Safari, etc.) e escreve:
+
    ```text
    http://<O-TEU-IP-LOCAL>:8080
    # Exemplo: http://192.168.1.75:8080

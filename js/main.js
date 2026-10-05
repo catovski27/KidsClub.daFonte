@@ -1,25 +1,26 @@
 /**
  * KidsClub.daFonte - Main Application Logic
- * Integrates GSAP animations, interactive schedule with paired media,
- * activity filters, space lightbox, pedagogy tabs, and dynamic enrollment submission.
+ * Integrates GSAP animations, program tabs, activity filters,
+ * photo marquees, gallery lightbox and easter eggs.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   // 3. 💻 Assinatura Completa na Consola (F12)
-  const crabAsciiArt = `
-   __       __
-  / <\`     \'> \\
- (  / @   @ \\  )
-  \\(_ _\\_/_ _)/
-(\\ \`-/     \\-\' /)
- "===\\     /==="
-  .==\')___(\`==.
- ' .=\'     \`=.
-
- 🦀 Vullkano was here 🦀
-  `;
+  const crabAsciiArt = [
+    "     _                           _",
+    "    ( \\___                   ___/ )",
+    "     \\__  \\    .-.   .-.    /  __/",
+    "        \\  \\  ( o ) ( o )  /  /",
+    "         \\  '._`-'   `-'_.'  /",
+    "          '._    \\___/    _.'",
+    "          /  `-._______.-'  \\",
+    "         / /  / /     \\ \\  \\ \\",
+    "        /_/  /_/       \\_\\  \\_\\",
+    "",
+    "        🦀  Vullkano was here  🦀",
+  ].join('\n');
   console.log(
-    `%c${crabAsciiArt}`,
+    `%c\n${crabAsciiArt}\n`,
     "color: #D97757; font-family: monospace; font-weight: bold; font-size: 13px; line-height: 1.3;"
   );
   console.log(
@@ -71,12 +72,12 @@ document.addEventListener('DOMContentLoaded', () => {
       } else if (type === 'confetti') {
         // Som confetes / magia: arpeggio brilhante de harpa e sinos
         [523.25, 659.25, 783.99, 1046.50, 1318.51, 1567.98].forEach((freq, idx) => {
-          playTone(ctx, { type: 'triangle', from: freq, start: now + idx * 0.055, duration: 0.45, volume: 0.14 });
+          playTone(ctx, { type: 'triangle', from: freq, start: now + idx * 0.08, duration: 0.6, volume: 0.07 });
         });
       } else if (type === 'fanfare') {
         // Fanfarra do código secreto
         [392, 523.25, 659.25, 783.99, 659.25, 783.99, 1046.5].forEach((freq, idx) => {
-          playTone(ctx, { type: 'square', from: freq, start: now + idx * 0.1, duration: 0.16, volume: 0.05 });
+          playTone(ctx, { type: 'triangle', from: freq, start: now + idx * 0.14, duration: 0.3, volume: 0.06 });
         });
       }
     } catch (e) {
@@ -84,17 +85,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 1. 🦀 O Caranguejo Vullkano atravessa o ecrã
-  //    (segredo: 3 cliques no texto de copyright do rodapé)
+  // 1. 🦀 Passeio da família caranguejo (o caranguejo Vullkano e os filhotes)
+  //    (segredo: um clique no texto de copyright do rodapé, o que começa por "©")
   const footerTrigger = document.getElementById('footer-copyright-trigger');
-  let footerClickCount = 0;
-  let footerClickTimer = null;
   let crabIsWalking = false;
 
   const crabMessages = [
     'Vullkano was here!',
-    'Fui eu que fiz este site 🌿',
-    'Olá! Sou o caranguejo do Vullkano',
     'Clac clac! Bom dia na Terra da Fonte',
   ];
   let crabMessageIndex = 0;
@@ -139,36 +136,127 @@ document.addEventListener('DOMContentLoaded', () => {
     tl.to(crab, { x: -(size * 3 + 260), duration: duration * 0.6, ease: 'none' });
   }
 
+  // Melodia suave do passeio (escala pentatónica, como uma marimba ao longe)
+  function playCrabWalkSound() {
+    try {
+      const ctx = getEasterEggCtx();
+      if (!ctx) return;
+      const now = ctx.currentTime;
+      [523.25, 587.33, 659.25, 783.99, 659.25, 880].forEach((freq, i) => {
+        playTone(ctx, { from: freq, start: now + 2.4 + i * 0.22, duration: 0.6, volume: 0.07 });
+      });
+    } catch (e) {
+      // Sem áudio, o passeio continua em silêncio
+    }
+  }
+
+  // 🦀 Passeio da família caranguejo: sobe uma faixa de areia, a família atravessa o ecrã,
+  // para a meio para cumprimentar (com folhinhas a subir) e segue caminho (~7 segundos)
+  function crabFamilyWalk() {
+    const W = window.innerWidth;
+    const message = crabMessages[crabMessageIndex++ % crabMessages.length];
+
+    const stage = document.createElement('div');
+    stage.className = 'crab-walk';
+    stage.setAttribute('aria-hidden', 'true');
+    stage.innerHTML = `
+      <svg class="crab-walk-shore" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,40 C200,10 400,70 600,40 C800,10 1000,70 1200,40 L1200,120 L0,120 Z"></path>
+      </svg>
+      <div class="crab-walk-family">
+        <span class="crab-walk-bubble"></span>
+        <span class="crab-walk-crab crab-walk-crab--big">🦀</span>
+        <span class="crab-walk-crab">🦀</span>
+        <span class="crab-walk-crab">🦀</span>
+        <span class="crab-walk-crab">🦀</span>
+      </div>
+    `;
+    document.body.appendChild(stage);
+    stage.querySelector('.crab-walk-bubble').textContent = message;
+
+    const shore = stage.querySelector('.crab-walk-shore');
+    const family = stage.querySelector('.crab-walk-family');
+    const bubble = stage.querySelector('.crab-walk-bubble');
+    const crabs = stage.querySelectorAll('.crab-walk-crab');
+    const familyWidth = family.offsetWidth;
+
+    // Folhinhas que sobem devagar quando a família para
+    const leaves = ['🍃', '🌿', '🌸', '🍃', '🌼'].map((icon) => {
+      const leaf = document.createElement('span');
+      leaf.className = 'crab-walk-leaf';
+      leaf.textContent = icon;
+      stage.appendChild(leaf);
+      return leaf;
+    });
+
+    gsap.set(shore, { yPercent: 100 });
+    gsap.set(family, { x: W + 20 });
+    gsap.set(bubble, { autoAlpha: 0, y: 6 });
+    gsap.set(leaves, { left: W / 2, bottom: 70, autoAlpha: 0 });
+
+    const tl = gsap.timeline({
+      onComplete: () => {
+        stage.remove();
+        crabIsWalking = false;
+      },
+    });
+
+    // Passinhos: cada caranguejo balança ligeiramente, desencontrado dos outros
+    const steps = gsap.to(crabs, {
+      y: -3,
+      rotation: 4,
+      duration: 0.22,
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut',
+      stagger: 0.08,
+    });
+
+    tl.to(shore, { yPercent: 0, duration: 0.8, ease: 'power2.out' }, 0)
+      // Entram pela direita e param a meio
+      .to(family, { x: (W - familyWidth) / 2, duration: 2.2, ease: 'power1.out' }, 0.3)
+      .add(() => steps.pause(), 2.5)
+      .to(crabs, { y: 0, rotation: 0, duration: 0.2 }, 2.5)
+      // Cumprimentam: o grande acena, os pequenos dão um saltinho em sequência
+      .to(bubble, { autoAlpha: 1, y: 0, duration: 0.4, ease: 'power2.out' }, 2.6)
+      .to(crabs[0], { rotation: -10, duration: 0.25, repeat: 3, yoyo: true, ease: 'sine.inOut' }, 2.7)
+      .to([crabs[1], crabs[2], crabs[3]], { y: -10, duration: 0.2, repeat: 1, yoyo: true, ease: 'sine.out', stagger: 0.15 }, 2.8);
+
+    leaves.forEach((leaf, i) => {
+      tl.to(leaf, {
+        keyframes: [
+          { autoAlpha: 1, duration: 0.3 },
+          { x: (i - 2) * 40, y: -120 - i * 12, rotation: (i - 2) * 20, duration: 1.8, ease: 'sine.out' },
+          { autoAlpha: 0, duration: 0.4 },
+        ],
+      }, 2.8 + i * 0.12);
+    });
+
+    // Despedem-se e seguem caminho para a esquerda
+    tl.to(bubble, { autoAlpha: 0, duration: 0.3 }, 4.6)
+      .add(() => steps.resume(), 4.7)
+      .to(family, { x: -familyWidth - 20, duration: 2, ease: 'power1.in' }, 4.7)
+      .to(shore, { yPercent: 100, duration: 0.8, ease: 'power2.in' }, 6.2)
+      .add(() => steps.kill());
+  }
+
   function showVullkanoCrab() {
     if (crabIsWalking) return;
     crabIsWalking = true;
-    playEasterEggSound('crab');
-    spawnCrab({ message: crabMessages[crabMessageIndex++ % crabMessages.length] });
 
-    if (!reduceMotion) {
-      let steps = 0;
-      const stepTimer = setInterval(() => {
-        playEasterEggSound('step');
-        if (++steps > 12) clearInterval(stepTimer);
-      }, 170);
+    if (reduceMotion || !window.gsap) {
+      // Movimento reduzido: só o caranguejo parado com o balão
+      playEasterEggSound('crab');
+      spawnCrab({ message: crabMessages[crabMessageIndex++ % crabMessages.length] });
+      setTimeout(() => { crabIsWalking = false; }, 3500);
+      return;
     }
 
-    setTimeout(() => { crabIsWalking = false; }, reduceMotion ? 3500 : 7600);
+    playCrabWalkSound();
+    crabFamilyWalk();
   }
-
   if (footerTrigger) {
-    footerTrigger.addEventListener('click', () => {
-      footerClickCount++;
-      if (footerClickTimer) clearTimeout(footerClickTimer);
-      footerClickTimer = setTimeout(() => {
-        footerClickCount = 0;
-      }, 1500);
-
-      if (footerClickCount >= 3) {
-        footerClickCount = 0;
-        showVullkanoCrab();
-      }
-    });
+    footerTrigger.addEventListener('click', showVullkanoCrab);
   }
 
   // 2. 🍃 Chuva de Natureza & Confetes (5 cliques no Logo)
@@ -188,8 +276,9 @@ document.addEventListener('DOMContentLoaded', () => {
     particlesContainer.className = 'fixed inset-0 pointer-events-none z-50 overflow-hidden';
     document.body.appendChild(particlesContainer);
 
-    const icons = ['🍃', '🌿', '🌸', '🌼', '🧡', '✨', '☀️', '🦀', '🍀'];
-    const particleCount = 45;
+    // Folhas e flores a cair devagar, a baloiçar como no outono
+    const icons = ['🍃', '🌿', '🌸', '🌼', '🍀'];
+    const particleCount = window.innerWidth < 640 ? 12 : 20;
 
     for (let i = 0; i < particleCount; i++) {
       const p = document.createElement('div');
@@ -198,26 +287,19 @@ document.addEventListener('DOMContentLoaded', () => {
       p.style.position = 'absolute';
       p.style.left = `${Math.random() * 100}vw`;
       p.style.top = '-40px';
-      p.style.fontSize = `${18 + Math.random() * 22}px`;
+      p.style.fontSize = `${16 + Math.random() * 12}px`;
       p.style.opacity = '1';
       p.style.userSelect = 'none';
       particlesContainer.appendChild(p);
 
-      const duration = 2.8 + Math.random() * 2.2;
-      const delay = Math.random() * 0.8;
-      const xEnd = (Math.random() - 0.5) * 220;
-      const rotation = (Math.random() - 0.5) * 720;
+      const duration = 5 + Math.random() * 2.5;
+      const delay = Math.random() * 1.2;
+      const sway = 25 + Math.random() * 35;
+      const rotation = (Math.random() - 0.5) * 120;
 
       if (window.gsap) {
-        gsap.to(p, {
-          y: window.innerHeight + 80,
-          x: `+=${xEnd}`,
-          rotation: rotation,
-          duration: duration,
-          delay: delay,
-          ease: 'power1.inOut',
-          opacity: 0.9
-        });
+        gsap.to(p, { y: window.innerHeight + 80, rotation, duration, delay, ease: 'none' });
+        gsap.to(p, { x: sway, duration: duration / 4, delay, repeat: 3, yoyo: true, ease: 'sine.inOut' });
       } else {
         p.style.transition = `transform ${duration}s ease, opacity ${duration}s ease`;
         p.style.transform = `translateY(${window.innerHeight + 80}px) rotate(${rotation}deg)`;
@@ -226,7 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setTimeout(() => {
       particlesContainer.remove();
-    }, 5500);
+    }, 9000);
   }
 
   logoTriggers.forEach((trigger) => {
@@ -251,14 +333,15 @@ document.addEventListener('DOMContentLoaded', () => {
   function triggerCrabParade() {
     playEasterEggSound('fanfare');
     triggerNatureConfetti();
-    const count = window.innerWidth < 640 ? 5 : 9;
+    // Uma fila tranquila de caranguejos ao longo do fundo do ecrã
+    const count = window.innerWidth < 640 ? 4 : 6;
     for (let i = 0; i < count; i++) {
       spawnCrab({
-        bottom: 12 + Math.random() * Math.min(260, window.innerHeight * 0.35),
-        duration: 4 + Math.random() * 2.5,
-        delay: i * 0.35,
-        size: 28 + Math.random() * 26,
-        message: i === Math.floor(count / 2) ? 'Desfile oficial dos caranguejos! 🦀' : null,
+        bottom: 18,
+        duration: 7,
+        delay: i * 0.45,
+        size: i === 0 ? 40 : 28,
+        message: i === 0 ? 'Desfile dos caranguejos 🦀' : null,
       });
     }
   }
@@ -335,12 +418,12 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.utils.toArray('.gsap-reveal').forEach((elem) => {
       gsap.fromTo(
         elem,
-        { opacity: 0, y: isMobile ? 10 : 20 },
+        { opacity: 0, y: isMobile ? 12 : 24 },
         {
           opacity: 1,
           y: 0,
-          duration: isMobile ? 0.28 : 0.45,
-          ease: 'power2.out',
+          duration: isMobile ? 0.5 : 0.8,
+          ease: 'sine.out',
           scrollTrigger: {
             trigger: elem,
             start: isMobile ? 'top 92%' : 'top 88%',
@@ -372,118 +455,53 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- PROGRAMA DIÁRIO TABS & ANIMAÇÃO SELETIVA INTELIGENTE ---
-  const scheduleTabs = document.querySelectorAll('.schedule-tab');
-  const scheduleSlotLeft = document.getElementById('schedule-slot-left');
-  const scheduleSlotRight = document.getElementById('schedule-slot-right');
-  const scheduleColManha = document.getElementById('schedule-col-manha');
-  const scheduleColTarde = document.getElementById('schedule-col-tarde');
-  const scheduleMediaManha = document.getElementById('schedule-media-manha');
-  const scheduleMediaTarde = document.getElementById('schedule-media-tarde');
+  // --- MODALIDADES: SEPARADORES DOS 3 PROGRAMAS ---
+  const scheduleTabs = Array.from(document.querySelectorAll('.schedule-tab'));
 
-  let currentScheduleMode = 'all';
+  function selectProgramaTab(tab, focus = false) {
+    if (tab.classList.contains('active')) return;
 
-  function syncScheduleHeight() {
-    if (!scheduleColTarde) return;
-    if (window.innerWidth < 1024) {
-      if (scheduleColManha) scheduleColManha.style.minHeight = '';
-      if (scheduleMediaManha) scheduleMediaManha.style.minHeight = '';
-      if (scheduleMediaTarde) scheduleMediaTarde.style.minHeight = '';
-      return;
-    }
-    // Período da Tarde defines the master natural height
-    const naturalHeight = scheduleColTarde.offsetHeight;
-    if (naturalHeight > 100) {
-      if (scheduleColManha) scheduleColManha.style.minHeight = `${naturalHeight}px`;
-      if (scheduleMediaManha) scheduleMediaManha.style.minHeight = `${naturalHeight}px`;
-      if (scheduleMediaTarde) scheduleMediaTarde.style.minHeight = `${naturalHeight}px`;
+    scheduleTabs.forEach((t) => {
+      t.classList.remove('active', 'bg-[#4A6B53]', 'text-white', 'shadow-xs');
+      t.classList.add('bg-transparent', 'text-[#3D342F]');
+      t.setAttribute('aria-selected', 'false');
+      t.setAttribute('tabindex', '-1');
+      const panel = document.getElementById(t.getAttribute('aria-controls'));
+      if (panel) panel.classList.add('hidden');
+    });
+
+    tab.classList.add('active', 'bg-[#4A6B53]', 'text-white', 'shadow-xs');
+    tab.classList.remove('bg-transparent', 'text-[#3D342F]');
+    tab.setAttribute('aria-selected', 'true');
+    tab.removeAttribute('tabindex');
+    if (focus) tab.focus();
+
+    const panel = document.getElementById(tab.getAttribute('aria-controls'));
+    if (!panel) return;
+    panel.classList.remove('hidden');
+    if (window.gsap && !reduceMotion) {
+      gsap.fromTo(panel, { opacity: 0.15, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' });
     }
   }
 
-  function updateScheduleDOM(mode) {
-    if (mode === 'all') {
-      if (scheduleColManha) scheduleColManha.classList.remove('hidden');
-      if (scheduleColTarde) scheduleColTarde.classList.remove('hidden');
-      if (scheduleMediaManha) scheduleMediaManha.classList.add('hidden');
-      if (scheduleMediaTarde) scheduleMediaTarde.classList.add('hidden');
-    } else if (mode === 'manha') {
-      if (scheduleColManha) scheduleColManha.classList.remove('hidden');
-      if (scheduleColTarde) scheduleColTarde.classList.add('hidden');
-      if (scheduleMediaManha) scheduleMediaManha.classList.remove('hidden');
-      if (scheduleMediaTarde) scheduleMediaTarde.classList.add('hidden');
-    } else if (mode === 'tarde') {
-      if (scheduleColManha) scheduleColManha.classList.add('hidden');
-      if (scheduleColTarde) scheduleColTarde.classList.remove('hidden');
-      if (scheduleMediaManha) scheduleMediaManha.classList.add('hidden');
-      if (scheduleMediaTarde) scheduleMediaTarde.classList.remove('hidden');
-    }
-
-    syncScheduleHeight();
-    if (window.lucide) lucide.createIcons();
-  }
-
-  function getChangingSlots(prevMode, nextMode) {
-    if (prevMode === nextMode) return [];
-
-    // Slot Left displays: 'manha' schedule in 'all' and 'manha'; 'media' in 'tarde'
-    const prevLeftType = (prevMode === 'tarde') ? 'media' : 'manha';
-    const nextLeftType = (nextMode === 'tarde') ? 'media' : 'manha';
-    const leftChanges = prevLeftType !== nextLeftType;
-
-    // Slot Right displays: 'tarde' schedule in 'all' and 'tarde'; 'media' in 'manha'
-    const prevRightType = (prevMode === 'manha') ? 'media' : 'tarde';
-    const nextRightType = (nextMode === 'manha') ? 'media' : 'tarde';
-    const rightChanges = prevRightType !== nextRightType;
-
-    const changing = [];
-    if (leftChanges && scheduleSlotLeft) changing.push(scheduleSlotLeft);
-    if (rightChanges && scheduleSlotRight) changing.push(scheduleSlotRight);
-    return changing;
-  }
-
-  scheduleTabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
-      if (tab.classList.contains('active')) return;
-
-      const newMode = tab.getAttribute('data-mode');
-      const changingSlots = getChangingSlots(currentScheduleMode, newMode);
-
-      scheduleTabs.forEach((t) => {
-        t.classList.remove('active', 'bg-[#4A6B53]', 'text-white', 'shadow-xs');
-        t.classList.add('bg-transparent', 'text-[#3D342F]');
-      });
-
-      tab.classList.add('active', 'bg-[#4A6B53]', 'text-white', 'shadow-xs');
-      tab.classList.remove('bg-transparent', 'text-[#3D342F]');
-
-      // Only animate slots whose content actually changes!
-      if (window.gsap && changingSlots.length > 0) {
-        gsap.to(changingSlots, {
-          opacity: 0.15,
-          y: 4,
-          duration: 0.15,
-          ease: 'power1.out',
-          onComplete: () => {
-            updateScheduleDOM(newMode);
-            currentScheduleMode = newMode;
-            gsap.fromTo(
-              changingSlots,
-              { opacity: 0.15, y: 10 },
-              { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' }
-            );
-          }
-        });
-      } else {
-        updateScheduleDOM(newMode);
-        currentScheduleMode = newMode;
-      }
+  scheduleTabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => selectProgramaTab(tab));
+    // Setas esquerda/direita mudam de separador (padrão ARIA de tabs)
+    tab.addEventListener('keydown', (e) => {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      e.preventDefault();
+      const step = e.key === 'ArrowRight' ? 1 : -1;
+      selectProgramaTab(scheduleTabs[(i + step + scheduleTabs.length) % scheduleTabs.length], true);
     });
   });
 
-  // Initial sync on load and resize
-  window.addEventListener('load', syncScheduleHeight);
-  window.addEventListener('resize', syncScheduleHeight);
-  setTimeout(syncScheduleHeight, 150);
+  // Atalhos do topo (🌱 🌿 🌲): abrem o separador do programa escolhido antes de descer
+  document.querySelectorAll('[data-programa-tab]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const tab = document.getElementById(link.getAttribute('data-programa-tab'));
+      if (tab) selectProgramaTab(tab);
+    });
+  });
 
   // Activity Categories Filter with GSAP Stagger Animation
   const filterBtns = document.querySelectorAll('.activity-filter-btn');
@@ -772,7 +790,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function spawnActivitySparkle(element) {
     const rect = element.getBoundingClientRect();
-    const emojis = ['✨', '🌱', '🌸', '🍃', '⭐', '🎈', '🎨', '🎵', '💛', '🎶'];
+    const emojis = ['🌱', '🌸', '🍃', '🌼', '🍀'];
 
     // Spawn 3 cute mini particles with slight delay and spread
     for (let i = 0; i < 3; i++) {
@@ -786,18 +804,18 @@ document.addEventListener('DOMContentLoaded', () => {
         particle.style.pointerEvents = 'none';
         particle.style.fontSize = `${18 + Math.floor(Math.random() * 8)}px`;
         particle.style.zIndex = '9999';
-        particle.style.transition = 'all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+        particle.style.transition = 'transform 1.2s ease-out, opacity 1.2s ease-out';
         document.body.appendChild(particle);
 
         requestAnimationFrame(() => {
           const offsetX = (Math.random() - 0.5) * 70;
           const offsetY = -45 - Math.random() * 35;
           const rot = (Math.random() - 0.5) * 60;
-          particle.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(1.4) rotate(${rot}deg)`;
+          particle.style.transform = `translate(${offsetX}px, ${offsetY}px) rotate(${rot}deg)`;
           particle.style.opacity = '0';
         });
 
-        setTimeout(() => particle.remove(), 750);
+        setTimeout(() => particle.remove(), 1250);
       }, i * 60);
     }
   }
@@ -806,106 +824,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const iconBox = item.querySelector('.activity-icon-container') || item.querySelector('.w-12');
     let danceTimeline = null;
 
-    // Smooth rhythmic dance on hover
+    // Ao passar o rato, o ícone baloiça devagar, como uma folha ao vento
     item.addEventListener('mouseenter', () => {
-      if (!iconBox || !window.gsap) return;
+      if (!iconBox || !window.gsap || reduceMotion) return;
       if (danceTimeline) danceTimeline.kill();
 
-      danceTimeline = gsap.timeline({ repeat: -1 })
-        .to(iconBox, { y: -7, rotation: -13, duration: 0.28, ease: 'power1.out' })
-        .to(iconBox, { y: 0, rotation: -2, duration: 0.26, ease: 'power1.in' })
-        .to(iconBox, { y: -7, rotation: 13, duration: 0.28, ease: 'power1.out' })
-        .to(iconBox, { y: 0, rotation: 0, duration: 0.26, ease: 'power1.in' });
+      danceTimeline = gsap.timeline({ repeat: -1, yoyo: true })
+        .fromTo(iconBox, { y: 0, rotation: -5 }, { y: -4, rotation: 5, duration: 0.9, ease: 'sine.inOut' });
     });
 
-    // Soft, organic post-hover return to rest position (never abrupt)
     item.addEventListener('mouseleave', () => {
       if (!iconBox || !window.gsap) return;
       if (danceTimeline) {
         danceTimeline.kill();
         danceTimeline = null;
       }
-      gsap.to(iconBox, {
-        y: 0,
-        rotation: 0,
-        scale: 1,
-        duration: 0.45,
-        ease: 'elastic.out(1.2, 0.4)',
-        overwrite: 'auto'
-      });
+      gsap.to(iconBox, { y: 0, rotation: 0, scale: 1, duration: 0.6, ease: 'power2.out', overwrite: 'auto' });
     });
 
     item.addEventListener('click', () => {
       playActivitySound(index);
       spawnActivitySparkle(item);
 
-      const title = item.querySelector('h4');
-
-      if (window.gsap) {
-        // Full cute jelly wiggle dance on the entire card!
+      if (window.gsap && !reduceMotion) {
+        // Pequeno "respirar" do cartão: sobe um pouco e assenta com suavidade
         gsap.timeline()
-          // 1. Squish down to prepare jump
-          .to(item, {
-            scaleX: 1.16,
-            scaleY: 0.84,
-            y: 4,
-            duration: 0.08,
-            ease: 'power1.in'
-          })
-          // 2. High jump & happy tilt right
-          .to(item, {
-            y: -20,
-            scaleX: 0.88,
-            scaleY: 1.18,
-            rotation: 14,
-            boxShadow: '0 20px 30px -8px rgba(74,107,83,0.3)',
-            duration: 0.16,
-            ease: 'power2.out'
-          })
-          // 3. Wiggle dance left in mid-air
-          .to(item, {
-            y: -14,
-            rotation: -14,
-            scaleX: 1.08,
-            scaleY: 0.92,
-            duration: 0.14,
-            ease: 'power1.inOut'
-          })
-          // 4. Wiggle dance right
-          .to(item, {
-            y: -6,
-            rotation: 10,
-            scaleX: 0.95,
-            scaleY: 1.05,
-            duration: 0.12,
-            ease: 'power1.inOut'
-          })
-          // 5. Wiggle dance left
-          .to(item, {
-            y: -2,
-            rotation: -5,
-            scaleX: 1.02,
-            scaleY: 0.98,
-            duration: 0.1,
-            ease: 'power1.inOut'
-          })
-          // 6. Elastic happy jelly landing!
-          .to(item, {
-            y: 0,
-            rotation: 0,
-            scaleX: 1,
-            scaleY: 1,
-            boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)',
-            duration: 0.45,
-            ease: 'elastic.out(1.4, 0.35)'
-          });
-
-        // Title bounce wave
-        if (title) {
-          gsap.timeline()
-            .to(title, { y: -4, scale: 1.08, duration: 0.15, ease: 'power2.out' })
-            .to(title, { y: 0, scale: 1, duration: 0.35, ease: 'elastic.out(1.2, 0.4)' });
-        }
+          .to(item, { y: -6, scale: 1.02, boxShadow: '0 18px 30px -12px rgba(74,107,83,0.3)', duration: 0.25, ease: 'power2.out' })
+          .to(item, { y: 0, scale: 1, boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)', duration: 0.6, ease: 'sine.out' });
       }
     });
   });
@@ -922,10 +867,8 @@ document.addEventListener('DOMContentLoaded', () => {
     { file: '8.png', alt: 'Crianças a caminhar no jardim' },
   ];
 
+  // Friso de fotos em "Princípios e valores"
   function initFaixaMarquee() {
-    const marqueeTrack = document.querySelector('.photo-marquee-track');
-    if (!marqueeTrack) return;
-
     const card = ({ file, alt }, hidden) => `
       <div class="w-64 sm:w-80 lg:w-[380px] h-48 sm:h-60 lg:h-64 rounded-3xl overflow-hidden shadow-sm shrink-0 relative"${hidden ? ' aria-hidden="true"' : ''}>
         <img src="assets/images/7.Faixa_fotos/${file}" alt="${hidden ? '' : alt}" loading="lazy" decoding="async"
@@ -934,7 +877,10 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
 
     // Duplicado para o loop infinito (a cópia fica escondida dos leitores de ecrã)
-    marqueeTrack.innerHTML = faixaPhotos.map((p) => card(p, false)).join('') + faixaPhotos.map((p) => card(p, true)).join('');
+    const html = faixaPhotos.map((p) => card(p, false)).join('') + faixaPhotos.map((p) => card(p, true)).join('');
+    document.querySelectorAll('.photo-marquee-track').forEach((track) => {
+      track.innerHTML = html;
+    });
   }
 
   initFaixaMarquee();
@@ -1043,151 +989,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const dx = e.changedTouches[0].clientX - touchStartX;
       if (Math.abs(dx) > 40) stepLightbox(dx < 0 ? 1 : -1);
       touchStartX = null;
-    });
-  }
-
-  // Enrollment Modal & Dynamic Pricing Calculator
-  const enrollmentModal = document.getElementById('enrollment-modal');
-  const openEnrollmentBtns = document.querySelectorAll('.open-enrollment-btn');
-  const closeEnrollmentBtn = document.getElementById('close-enrollment-btn');
-  const enrollmentForm = document.getElementById('enrollment-form');
-  const calculatedPriceElem = document.getElementById('calculated-price');
-  const modalPlanSelect = document.getElementById('modal-plan');
-  const modalKidsInput = document.getElementById('modal-kids');
-
-  function getValidKidsCount() {
-    if (!modalKidsInput) return 1;
-    let val = parseInt(modalKidsInput.value, 10);
-    if (isNaN(val) || val < 1) {
-      return 1;
-    }
-    return val;
-  }
-
-  function calculatePrice() {
-    if (!modalPlanSelect || !calculatedPriceElem) return;
-    const plan = modalPlanSelect.value;
-    const kids = getValidKidsCount();
-    const basePrice = (plan === 'meio-dia') ? 200 : 350;
-    const total = basePrice * kids;
-
-    calculatedPriceElem.textContent = `${total}€ / mês`;
-  }
-
-  if (modalPlanSelect && modalKidsInput) {
-    modalPlanSelect.addEventListener('change', calculatePrice);
-    modalKidsInput.addEventListener('input', calculatePrice);
-    modalKidsInput.addEventListener('change', () => {
-      const valid = getValidKidsCount();
-      modalKidsInput.value = valid;
-      calculatePrice();
-    });
-  }
-
-  openEnrollmentBtns.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const planAttr = btn.getAttribute('data-plan');
-      if (planAttr && modalPlanSelect) {
-        modalPlanSelect.value = planAttr;
-      }
-      calculatePrice();
-      if (enrollmentModal) {
-        // Reset form view if previously submitted
-        const successBox = document.getElementById('form-success-message');
-        if (successBox) successBox.classList.add('hidden');
-        if (enrollmentForm) enrollmentForm.classList.remove('hidden');
-
-        enrollmentModal.classList.remove('hidden');
-        enrollmentModal.classList.add('flex');
-      }
-    });
-  });
-
-  if (closeEnrollmentBtn && enrollmentModal) {
-    closeEnrollmentBtn.addEventListener('click', () => {
-      enrollmentModal.classList.add('hidden');
-      enrollmentModal.classList.remove('flex');
-    });
-
-    enrollmentModal.addEventListener('click', (e) => {
-      if (e.target === enrollmentModal) {
-        enrollmentModal.classList.add('hidden');
-        enrollmentModal.classList.remove('flex');
-      }
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !enrollmentModal.classList.contains('hidden')) {
-        enrollmentModal.classList.add('hidden');
-        enrollmentModal.classList.remove('flex');
-      }
-    });
-  }
-
-  // Direct Submission handler via E-mail (Gmail Web & Mailto)
-  if (enrollmentForm) {
-    enrollmentForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const guardianName = document.getElementById('input-guardian-name')?.value || '';
-      const guardianPhone = document.getElementById('input-guardian-phone')?.value || '';
-      const guardianEmail = document.getElementById('input-guardian-email')?.value || '';
-      const childInfo = document.getElementById('input-child-info')?.value || '';
-      const planSelect = document.getElementById('modal-plan');
-      const planText = planSelect ? planSelect.options[planSelect.selectedIndex].text : '';
-      const validKids = getValidKidsCount();
-      const kidsText = validKids === 1 ? '1 criança' : `${validKids} crianças`;
-      const estimatedPrice = document.getElementById('calculated-price')?.textContent || '';
-      const notes = document.getElementById('input-notes')?.value || '';
-
-      const summaryText =
-        `Pré-Inscrição KidsClub.daFonte\n\n` +
-        `Encarregado de Educação: ${guardianName}\n` +
-        `Telemóvel: ${guardianPhone}\n` +
-        `E-mail: ${guardianEmail}\n` +
-        `Criança (Nome e Idade): ${childInfo}\n` +
-        `Modalidade: ${planText}\n` +
-        `N.º de Crianças: ${kidsText}\n` +
-        `Estimativa Mensal: ${estimatedPrice}\n` +
-        (notes ? `Observações: ${notes}\n` : '') +
-        `\n--\nEnviado através do site KidsClub.daFonte`;
-
-      const emailSubject = encodeURIComponent(`Pré-Inscrição KidsClub.daFonte - ${childInfo}`);
-      const emailBody = encodeURIComponent(summaryText);
-      const gmailWebUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=kidsclub.dafonte@gmail.com&su=${emailSubject}&body=${emailBody}`;
-      const mailtoUrl = `mailto:kidsclub.dafonte@gmail.com?subject=${emailSubject}&body=${emailBody}`;
-
-      // Open Gmail Web in new tab automatically
-      const newWin = window.open(gmailWebUrl, '_blank');
-      if (!newWin || newWin.closed || typeof newWin.closed === 'undefined') {
-        // If popup blocked, fallback to mailto
-        window.location.href = mailtoUrl;
-      }
-
-      const successBox = document.getElementById('form-success-message');
-      const summaryDisplay = document.getElementById('summary-display');
-      const gmailWebBtn = document.getElementById('btn-gmail-web-submit');
-      const emailBtn = document.getElementById('btn-email-submit');
-
-      if (summaryDisplay) {
-        summaryDisplay.textContent = `${guardianName} • ${childInfo} • ${planText}`;
-      }
-
-      if (gmailWebBtn) {
-        gmailWebBtn.href = gmailWebUrl;
-      }
-
-      if (emailBtn) {
-        emailBtn.href = mailtoUrl;
-      }
-
-      // Store summary for copying
-      window._currentEmailSummary = summaryText;
-
-      enrollmentForm.classList.add('hidden');
-      if (successBox) successBox.classList.remove('hidden');
-      if (window.lucide) lucide.createIcons();
     });
   }
 
@@ -1475,18 +1276,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
-
-// Helper to copy current email text
-function copyEmailSummary() {
-  const text = window._currentEmailSummary || '';
-  if (text) {
-    navigator.clipboard.writeText(text).then(() => {
-      alert('Texto da inscrição copiado com sucesso para a área de transferência!');
-    }).catch(() => {
-      alert('Selecione e copie os dados manualmente.');
-    });
-  }
-}
 
 // Helper for quick copy of phone / email / map
 function copyToClipboard(text, label) {

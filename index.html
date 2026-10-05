@@ -42,6 +42,7 @@
             verdeSuave: '#E8F0E6',
             terracota: '#D97757',
             amareloSol: '#F4C542',
+            amareloFonte: '#E9A90F',
             cremeFundo: '#FAF7F2',
             castanhoTexto: '#3D342F'
           },
@@ -63,7 +64,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
   <!-- Custom CSS (Cache-Busted) -->
-  <link rel="stylesheet" href="css/main.css?v=20261004_7">
+  <link rel="stylesheet" href="css/main.css?v=20261006_3">
 </head>
 
 <body class="bg-[#FAF7F2] text-[#3D342F] font-sans antialiased selection:bg-[#F4C542] selection:text-[#3D342F]">
@@ -83,7 +84,7 @@
             class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl object-cover group-hover:scale-105 transition-transform border border-[#4A6B53]/20 bg-white shrink-0">
           <span class="brand-copy min-w-0">
             <span class="brand-title font-fredoka text-lg sm:text-xl lg:text-2xl font-bold text-[#4A6B53] tracking-tight block">
-              KidsClub<span class="text-[#A9533A]">.daFonte</span>
+              KidsClub<span class="brand-da">.da</span><span class="brand-fonte">Fonte</span>
             </span>
             <span class="brand-subtitle hidden sm:block text-xs text-[#3D342F]/75 font-medium mt-0.5">
               Terra da Fonte, Mafra
@@ -162,13 +163,11 @@
         <!-- Texto -->
         <div class="lg:col-span-7 gsap-reveal text-center lg:text-left">
           <h1 class="hero-title font-fredoka font-bold text-[#4A6B53]">
-            KidsClub<span class="text-[#A9533A]">.daFonte</span>
+            KidsClub<span class="brand-da">.da</span><span class="brand-fonte">Fonte</span>
           </h1>
 
           <p class="hero-motto font-quicksand font-bold" aria-label="cuidar e educar, natureza e arte, brincar e crescer">
-            <span class="hero-motto-line text-[#4A6B53]">cuidar e educar</span>
-            <span class="hero-motto-line text-[#A9533A]">natureza e arte</span>
-            <span class="hero-motto-line text-[#8A6A1F]">brincar e crescer</span>
+            <span class="hero-motto-line text-[#4A6B53]">cuidar e educar</span> <span class="hero-motto-sep" aria-hidden="true">|</span> <span class="hero-motto-line text-[#A9533A]">natureza e arte</span> <span class="hero-motto-sep" aria-hidden="true">|</span> <span class="hero-motto-line text-[#8A6A1F]">brincar e crescer</span>
           </p>
 
           <p class="hero-lede text-[#3D342F] mx-auto lg:mx-0">
@@ -200,22 +199,30 @@
 
           <!-- Inscrição -->
           <div id="inscricao" class="hero-enroll mx-auto lg:mx-0">
-            <div class="flex flex-col sm:flex-row gap-3">
+            <p class="hero-enroll-status">
+              <span class="hero-enroll-dot" aria-hidden="true"></span>
+              <span><strong>Período de inscrições:</strong> a partir de Outubro.</span>
+            </p>
+
+            <div class="hero-enroll-actions">
               <a href="https://docs.google.com/forms/d/e/1FAIpQLSfZjtwh7shAgtTL6nWWpAKIzK1kKZ5E1fsbVm92gD4xVZxRJA/viewform?usp=preview"
-                target="_blank" rel="noopener noreferrer" class="btn-primary btn-lg sm:flex-1">
+                target="_blank" rel="noopener noreferrer" class="btn-primary btn-lg">
+                <i data-lucide="pencil-line" class="w-5 h-5 shrink-0" aria-hidden="true"></i>
                 Formulário de Inscrição
-                <i data-lucide="external-link" class="w-5 h-5 shrink-0" aria-hidden="true"></i>
                 <span class="sr-only">(abre numa nova janela)</span>
               </a>
-              <button type="button" class="open-enrollment-btn btn-secondary btn-lg sm:flex-1">
-                <i data-lucide="mail" class="w-5 h-5 shrink-0 text-[#A9533A]" aria-hidden="true"></i>
-                Inscrição por e-mail
-              </button>
+              <a href="#programa" class="btn-secondary btn-lg">
+                Conhecer os programas
+                <i data-lucide="arrow-down" class="w-5 h-5 shrink-0 text-[#A9533A]" aria-hidden="true"></i>
+              </a>
             </div>
-            <p class="hero-enroll-note justify-center lg:justify-start">
-              <span><strong>Período de inscrições:</strong> a partir de Outubro.</span>
-              <a href="#precario" class="hero-text-link">Ver preços e modalidades</a>
-            </p>
+
+            <!-- Atalhos para os 3 programas (abrem o separador certo em Modalidades) -->
+            <ul class="hero-programs" aria-label="Programas">
+              <li><a href="#programa" data-programa-tab="programa-tab-1" class="hero-program--green"><span aria-hidden="true">🌱</span> Bebés na Natureza</a></li>
+              <li><a href="#programa" data-programa-tab="programa-tab-2" class="hero-program--terracota"><span aria-hidden="true">🌿</span> Pequenos Exploradores</a></li>
+              <li><a href="#programa" data-programa-tab="programa-tab-3" class="hero-program--sol"><span aria-hidden="true">🌲</span> Floresta em Família</a></li>
+            </ul>
           </div>
         </div>
 
@@ -274,7 +281,7 @@
         <div class="w-20 h-1.5 bg-[#D97757] rounded-full mx-auto my-3.5"></div>
         <p
           class="text-base sm:text-lg lg:text-xl text-[#3D342F]/90 leading-relaxed font-medium max-w-7xl mx-auto text-center sm:text-justify sm:[text-align-last:center]">
-          Somos o <strong class="text-[#4A6B53]">Kids Club</strong>, um projeto da Associação Cultural Amalgama, que desenvolve atividades culturais, artísticas e lúdico-pedagógicas para bebés e crianças (<strong>6 meses aos 6 anos</strong>) com o objetivo de ajudar as famílias que procuram um lugar entre casa e escola para os seus filhos crescerem,
+          Somos o <strong class="text-[#4A6B53]">KidsClub<span class="brand-da">.da</span><span class="brand-fonte">Fonte</span></strong>, um projeto da Associação Cultural Amalgama, que desenvolve atividades culturais, artísticas e lúdico-pedagógicas para bebés e crianças (<strong>6 meses aos 6 anos</strong>) com o objetivo de ajudar as famílias que procuram um lugar entre casa e escola para os seus filhos crescerem,
           aprenderem, descobrirem-se e conviverem.
         </p>
       </div>
@@ -337,6 +344,50 @@
           </div>
         </div>
 
+      </div>
+
+      <!-- Vídeo promocional (YouTube Short, 9:16): texto à esquerda, "telemóvel" à direita -->
+      <div class="promo-block mt-12 sm:mt-14 lg:mt-16 gsap-reveal">
+        <!-- Folhas decorativas no fundo do cartão -->
+        <i data-lucide="leaf" class="promo-deco promo-deco--1" aria-hidden="true"></i>
+        <i data-lucide="sprout" class="promo-deco promo-deco--2" aria-hidden="true"></i>
+
+        <div class="promo-text">
+          <span class="promo-eyebrow"><span class="promo-eyebrow-line" aria-hidden="true"></span>Em vídeo</span>
+          <h3 class="promo-title">
+            Veja aqui como é o
+            <span class="promo-title-brand">KidsClub<span class="brand-da">.da</span><span class="brand-fonte">Fonte</span></span>
+          </h3>
+          <p class="promo-lede">
+            Carregue no play e conheça o projeto pela voz de quem o faz acontecer, <strong>na Terra da Fonte</strong>.
+          </p>
+          <a href="https://youtube.com/shorts/DeFuq86yIYw" target="_blank" rel="noopener noreferrer" class="promo-yt-card">
+            <span class="promo-yt-icon" aria-hidden="true">
+              <i data-lucide="play" class="w-6 h-6"></i>
+            </span>
+            <span class="flex flex-col">
+              <span class="promo-yt-title">Ver o vídeo no YouTube</span>
+              <span class="promo-yt-url">youtube.com/shorts/DeFuq86yIYw</span>
+            </span>
+            <i data-lucide="arrow-up-right" class="promo-yt-arrow w-5 h-5" aria-hidden="true"></i>
+            <span class="sr-only">(abre numa nova janela)</span>
+          </a>
+          <p class="promo-place">
+            <i data-lucide="map-pin" class="w-4 h-4" aria-hidden="true"></i> Vale de São Gião, Milharado, Mafra
+          </p>
+        </div>
+
+        <div class="promo-phone-wrap">
+          <div class="promo-phone-blob" aria-hidden="true"></div>
+          <div class="promo-phone">
+            <div class="promo-video">
+              <iframe src="https://www.youtube-nocookie.com/embed/DeFuq86yIYw?rel=0"
+                title="Vídeo promocional do KidsClub.daFonte" loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -641,7 +692,14 @@
         </div>
 
       </div>
+    </div>
 
+    <!-- Friso de fotografias (preenchido por js/main.js), a toda a largura -->
+    <div class="photo-marquee mb-10 sm:mb-12 lg:mb-14 overflow-hidden py-6 bg-white/70 border-y border-[#4A6B53]/10 w-full relative z-10" aria-label="Fotografias do dia a dia na Terra da Fonte">
+      <div class="photo-marquee-track flex gap-5 items-center"></div>
+    </div>
+
+    <div class="max-w-[1400px] w-full mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
       <!-- Pilares (5 Pilares Estruturais) -->
       <div class="mb-10 sm:mb-12 lg:mb-14 gsap-reveal">
         <div class="flex items-center justify-between flex-wrap gap-4 mb-5 sm:mb-6">
@@ -1549,199 +1607,148 @@
         </p>
       </div>
 
-      <!-- Segmented Pill Filter Switcher -->
+      <!-- Separadores dos 3 programas -->
       <div class="flex justify-center mb-10 gsap-reveal">
-        <div
+        <div role="tablist" aria-label="Programas"
           class="inline-flex p-1.5 bg-white rounded-2xl shadow-xs border border-[#4A6B53]/15 gap-1.5 flex-wrap justify-center">
-          <button
-            class="schedule-tab active px-5 py-2.5 rounded-xl font-fredoka text-xs sm:text-sm font-semibold shadow-xs"
-            data-mode="all">
-            Programa 1
+          <button type="button" role="tab" id="programa-tab-1" aria-controls="programa-panel-1" aria-selected="true"
+            class="schedule-tab active px-5 py-2.5 rounded-xl font-fredoka text-xs sm:text-sm font-semibold shadow-xs">
+            🌱 Programa 1
           </button>
-          <button
-            class="schedule-tab bg-transparent px-5 py-2.5 rounded-xl font-fredoka text-xs sm:text-sm font-semibold"
-            data-mode="manha">
-            Programa 2
+          <button type="button" role="tab" id="programa-tab-2" aria-controls="programa-panel-2" data-accent="terracota" aria-selected="false" tabindex="-1"
+            class="schedule-tab bg-transparent px-5 py-2.5 rounded-xl font-fredoka text-xs sm:text-sm font-semibold">
+            🌿 Programa 2
           </button>
-          <button
-            class="schedule-tab bg-transparent px-5 py-2.5 rounded-xl font-fredoka text-xs sm:text-sm font-semibold"
-            data-mode="tarde">
-           Programa 3
+          <button type="button" role="tab" id="programa-tab-3" aria-controls="programa-panel-3" data-accent="sol" aria-selected="false" tabindex="-1"
+            class="schedule-tab bg-transparent px-5 py-2.5 rounded-xl font-fredoka text-xs sm:text-sm font-semibold">
+            🌲 Programa 3
           </button>
         </div>
       </div>
 
-      <!-- Schedule Dynamic Grid -->
-      <div class="grid lg:grid-cols-2 gap-8 items-stretch gsap-reveal">
+      <div class="gsap-reveal">
 
-        <!-- SLOT 1: ESQUERDA (Timeline Manhã OU Media Card Tarde) -->
-        <div id="schedule-slot-left" class="flex flex-col h-full">
-          <!-- Timeline Manhã (Permanece à esquerda) -->
-          <div id="schedule-col-manha"
-            class="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-[#4A6B53]/15 space-y-6 flex-1 h-full flex flex-col justify-between">
-            <div class="flex items-center justify-between border-b border-gray-100 pb-4">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-2xl bg-[#F4C542]/20 text-[#D97757] flex items-center justify-center">
-                  <i data-lucide="sun" class="w-5 h-5"></i>
-                </div>
-                <h3 class="font-fredoka text-2xl font-bold text-[#4A6B53]">Período da Manhã</h3>
+        <!-- PROGRAMA 1 — Bebés na Natureza -->
+        <div id="programa-panel-1" role="tabpanel" aria-labelledby="programa-tab-1" class="programa-panel programa-panel--green grid lg:grid-cols-5 gap-6 lg:gap-8 items-stretch">
+          <div class="programa-card lg:col-span-3 bg-white p-6 sm:p-8 lg:p-10 rounded-3xl shadow-sm border border-[#4A6B53]/15 flex flex-col gap-6">
+            <div class="flex items-center gap-4 border-b border-gray-100 pb-5">
+              <div class="programa-emoji w-14 h-14 rounded-2xl flex items-center justify-center text-3xl shrink-0" aria-hidden="true">🌱</div>
+              <div>
+                <span class="programa-kicker text-xs sm:text-sm font-bold uppercase tracking-wider block">Programa 1</span>
+                <h3 class="programa-title font-fredoka text-2xl sm:text-3xl font-bold">Bebés na Natureza</h3>
               </div>
             </div>
 
-            <div class="space-y-3.5 flex-1 flex flex-col justify-between">
-              <div class="p-4 rounded-2xl bg-[#FAF7F2] border border-gray-100 flex flex-col sm:flex-row gap-1 sm:gap-4 items-start">
-                <span class="font-fredoka text-sm font-bold text-[#A9533A] shrink-0 sm:w-28">08:15 - 09:30</span>
-                <div>
-                  <h4 class="font-bold text-[#4A6B53] text-sm">Chegada e Boas-Vindas</h4>
-                  <p class="text-sm text-[#3D342F]/85 mt-0.5 sm:text-justify">Recebemos as crianças e iniciamos o dia com
-                    calma. Cantamos os
-                    bons-dias, partilhamos como nos sentimos e preparamo-nos para as descobertas do dia.</p>
-                </div>
-              </div>
+            <div class="programa-info">
+              <h4><i data-lucide="baby" class="w-4 h-4" aria-hidden="true"></i> Destinatários</h4>
+              <p><strong>Bebés dos 6 meses aos 2 anos</strong></p>
+            </div>
 
-              <div class="p-4 rounded-2xl bg-[#FAF7F2] border border-gray-100 flex flex-col sm:flex-row gap-1 sm:gap-4 items-start">
-                <span class="font-fredoka text-sm font-bold text-[#A9533A] shrink-0 sm:w-28">09:30 - 10:00</span>
-                <div>
-                  <h4 class="font-bold text-[#4A6B53] text-sm">Círculo da Manhã</h4>
-                  <p class="text-sm text-[#3D342F]/85 mt-0.5 sm:text-justify">Canções, histórias, jogos de grupo e momentos de
-                    ligação que
-                    fortalecem a confiança, a comunicação e o sentido de comunidade.</p>
-                </div>
-              </div>
+            <div class="programa-info">
+              <h4><i data-lucide="clock" class="w-4 h-4" aria-hidden="true"></i> Horário</h4>
+              <ul class="programa-list">
+                <li><strong>Terça à tarde</strong> · 15h00 – 18h00 <span class="block text-sm text-[#3D342F]/80">Inclui atividade de dança criativa (17h15 – 18h00)</span></li>
+                <li><strong>Quinta de manhã</strong> · 09h00 – 13h00</li>
+              </ul>
+            </div>
 
-              <div class="p-4 rounded-2xl bg-[#FAF7F2] border border-gray-100 flex flex-col sm:flex-row gap-1 sm:gap-4 items-start">
-                <span class="font-fredoka text-sm font-bold text-[#A9533A] shrink-0 sm:w-28">10:00 - 10:15</span>
-                <div>
-                  <h4 class="font-bold text-[#4A6B53] text-sm">Lanche da Manhã</h4>
-                  <p class="text-sm text-[#3D342F]/85 mt-0.5 sm:text-justify">Pausa para recuperar energia. Cada criança traz o
-                    seu lanche
-                    de casa.
-                  </p>
-                </div>
-              </div>
-
-              <div class="p-4 rounded-2xl bg-[#FAF7F2] border border-gray-100 flex flex-col sm:flex-row gap-1 sm:gap-4 items-start">
-                <span class="font-fredoka text-sm font-bold text-[#A9533A] shrink-0 sm:w-28">10:15 - 12:00</span>
-                <div>
-                  <h4 class="font-bold text-[#4A6B53] text-sm">Explorar, Criar e Aprender</h4>
-                  <p class="text-sm text-[#3D342F]/85 mt-0.5 sm:text-justify">Jogos, artes manuais, desenho, pintura,
-                    construções,
-                    experiências sensoriais e atividades inspiradas pela natureza, sempre respeitando o ritmo e os
-                    interesses de cada criança.</p>
-                </div>
-              </div>
-
-              <div class="p-4 rounded-2xl bg-[#FAF7F2] border border-gray-100 flex flex-col sm:flex-row gap-1 sm:gap-4 items-start">
-                <span class="font-fredoka text-sm font-bold text-[#A9533A] shrink-0 sm:w-28">12:00 - 13:00</span>
-                <div>
-                  <h4 class="font-bold text-[#4A6B53] text-sm">Almoço em Comunidade</h4>
-                  <p class="text-sm text-[#3D342F]/85 mt-0.5 sm:text-justify">Partilhamos a refeição num ambiente tranquilo e
-                    acolhedor.
-                    Cada criança traz o seu almoço de casa.
-                  </p>
-                </div>
-              </div>
+            <div class="programa-info">
+              <h4><i data-lucide="wallet" class="w-4 h-4" aria-hidden="true"></i> Valor</h4>
+              <ul class="programa-prices">
+                <li><span>1x por semana</span><strong>110€ / mês</strong></li>
+                <li><span>2x por semana</span><strong>180€ / mês</strong></li>
+                <li><span>Dia avulso</span><strong>30€ / dia</strong></li>
+              </ul>
             </div>
           </div>
-
-          <!-- PAIRED CONTEXT CARD: TARDE (Aparece aqui na ESQUERDA quando selecionado Tarde) -->
-          <div id="schedule-media-tarde" class="hidden flex-1 h-full flex flex-col gap-4">
-            <div
-              class="relative flex-1 min-h-0 rounded-3xl overflow-hidden shadow-sm border border-[#E8F0E6] bg-[#FAF7F2] group">
-              <img loading="lazy" decoding="async" src="assets/images/6.Programa_diario/1_Tardes.jpg" alt="Tardes na Terra da Fonte 1"
-                class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-            </div>
-            <div
-              class="relative flex-1 min-h-0 rounded-3xl overflow-hidden shadow-sm border border-[#E8F0E6] bg-[#FAF7F2] group">
-              <img loading="lazy" decoding="async" src="assets/images/6.Programa_diario/2_Tardes.jpg" alt="Tardes na Terra da Fonte 2"
-                class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-            </div>
+          <div class="lg:col-span-2 relative min-h-[280px] rounded-3xl overflow-hidden shadow-sm border-4 border-white bg-[#FAF7F2]">
+            <img loading="lazy" decoding="async" src="assets/images/6.Programa_diario/2_Manhas.jpg" alt="Bebé a folhear livros infantis no chão de madeira"
+              class="absolute inset-0 w-full h-full object-cover">
           </div>
         </div>
 
-        <!-- SLOT 2: DIREITA (Timeline Tarde OU Media Card Manhã) -->
-        <div id="schedule-slot-right" class="flex flex-col h-full">
-          <!-- Timeline Tarde (Permanece à direita) -->
-          <div id="schedule-col-tarde"
-            class="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-[#4A6B53]/15 space-y-6 flex-1 h-full flex flex-col justify-between">
-            <div class="flex items-center justify-between border-b border-gray-100 pb-4">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-2xl bg-[#4A6B53]/20 text-[#4A6B53] flex items-center justify-center">
-                  <i data-lucide="moon" class="w-5 h-5"></i>
-                </div>
-                <h3 class="font-fredoka text-2xl font-bold text-[#4A6B53]">Período da Tarde</h3>
+        <!-- PROGRAMA 2 — Pequenos Exploradores -->
+        <div id="programa-panel-2" role="tabpanel" aria-labelledby="programa-tab-2" class="programa-panel programa-panel--terracota hidden grid lg:grid-cols-5 gap-6 lg:gap-8 items-stretch">
+          <div class="programa-card lg:col-span-3 bg-white p-6 sm:p-8 lg:p-10 rounded-3xl shadow-sm border border-[#4A6B53]/15 flex flex-col gap-6">
+            <div class="flex items-center gap-4 border-b border-gray-100 pb-5">
+              <div class="programa-emoji w-14 h-14 rounded-2xl flex items-center justify-center text-3xl shrink-0" aria-hidden="true">🌿</div>
+              <div>
+                <span class="programa-kicker text-xs sm:text-sm font-bold uppercase tracking-wider block">Programa 2</span>
+                <h3 class="programa-title font-fredoka text-2xl sm:text-3xl font-bold">Pequenos Exploradores</h3>
               </div>
             </div>
 
-            <div class="space-y-3.5 flex-1 flex flex-col justify-between">
-              <div class="p-4 rounded-2xl bg-[#FAF7F2] border border-gray-100 flex flex-col sm:flex-row gap-1 sm:gap-4 items-start">
-                <span class="font-fredoka text-sm font-bold text-[#A9533A] shrink-0 sm:w-28">13:00 - 13:45</span>
-                <div>
-                  <h4 class="font-bold text-[#4A6B53] text-sm">Cuidados e Transição</h4>
-                  <p class="text-sm text-[#3D342F]/85 mt-0.5 sm:text-justify">Higiene, organização dos espaços e preparação
-                    para o momento de descanso.</p>
-                </div>
-              </div>
+            <div class="programa-info">
+              <h4><i data-lucide="users" class="w-4 h-4" aria-hidden="true"></i> Destinatários</h4>
+              <p><strong>Crianças dos 3 aos 6 anos</strong></p>
+            </div>
 
-              <div class="p-4 rounded-2xl bg-[#FAF7F2] border border-gray-100 flex flex-col sm:flex-row gap-1 sm:gap-4 items-start">
-                <span class="font-fredoka text-sm font-bold text-[#A9533A] shrink-0 sm:w-28">13:45 - 15:00</span>
-                <div>
-                  <h4 class="font-bold text-[#4A6B53] text-sm">Hora da Calma</h4>
-                  <p class="text-sm text-[#3D342F]/85 mt-0.5 sm:text-justify">Sesta ou descanso, respeitando as necessidades
-                    individuais de cada criança.</p>
-                </div>
-              </div>
+            <div class="programa-info">
+              <h4><i data-lucide="clock" class="w-4 h-4" aria-hidden="true"></i> Horário</h4>
+              <ul class="programa-list">
+                <li><strong>Terça à tarde</strong> · 15h00 – 18h00 <span class="block text-sm text-[#3D342F]/80">Inclui atividade de dança criativa (17h15 – 18h00)</span></li>
+                <li><strong>Quinta de manhã</strong> · 09h00 – 13h00</li>
+              </ul>
+            </div>
 
-              <div class="p-4 rounded-2xl bg-[#FAF7F2] border border-gray-100 flex flex-col sm:flex-row gap-1 sm:gap-4 items-start">
-                <span class="font-fredoka text-sm font-bold text-[#A9533A] shrink-0 sm:w-28">15:00 - 15:45</span>
-                <div>
-                  <h4 class="font-bold text-[#4A6B53] text-sm">Natureza e Movimento</h4>
-                  <p class="text-sm text-[#3D342F]/85 mt-0.5 sm:text-justify">Passeios, observação da natureza, cuidado das
-                    plantas, contacto com os animais e brincadeira ao ar livre.</p>
-                </div>
-              </div>
-
-              <div class="p-4 rounded-2xl bg-[#FAF7F2] border border-gray-100 flex flex-col sm:flex-row gap-1 sm:gap-4 items-start">
-                <span class="font-fredoka text-sm font-bold text-[#A9533A] shrink-0 sm:w-28">15:45 - 16:15</span>
-                <div>
-                  <h4 class="font-bold text-[#4A6B53] text-sm">Lanche da Tarde</h4>
-                  <p class="text-sm text-[#3D342F]/85 mt-0.5 sm:text-justify">Momento de pausa e convívio. Cada criança traz o
-                    seu lanche de casa.</p>
-                </div>
-              </div>
-
-              <div class="p-4 rounded-2xl bg-[#FAF7F2] border border-gray-100 flex flex-col sm:flex-row gap-1 sm:gap-4 items-start">
-                <span class="font-fredoka text-sm font-bold text-[#A9533A] shrink-0 sm:w-28">16:15 - 17:15</span>
-                <div>
-                  <h4 class="font-bold text-[#4A6B53] text-sm">Histórias, Música e Expressão</h4>
-                  <p class="text-sm text-[#3D342F]/85 mt-0.5 sm:text-justify">Ouvimos histórias, cantamos, dançamos, exploramos
-                    instrumentos, vemos ocasionalmente um filme ou participamos em atividades de expressão criativa.</p>
-                </div>
-              </div>
-
-              <div class="p-4 rounded-2xl bg-[#FAF7F2] border border-gray-100 flex flex-col sm:flex-row gap-1 sm:gap-4 items-start">
-                <span class="font-fredoka text-sm font-bold text-[#A9533A] shrink-0 sm:w-28">17:15 - 18:00</span>
-                <div>
-                  <h4 class="font-bold text-[#4A6B53] text-sm">Despedida e Saída</h4>
-                  <p class="text-sm text-[#3D342F]/85 mt-0.5 sm:text-justify">Terminamos o dia com tranquilidade, celebrando os
-                    momentos vividos e preparando o regresso a casa.</p>
-                </div>
-              </div>
+            <div class="programa-info">
+              <h4><i data-lucide="wallet" class="w-4 h-4" aria-hidden="true"></i> Valor</h4>
+              <ul class="programa-prices">
+                <li><span>1x por semana</span><strong>110€ / mês</strong></li>
+                <li><span>2x por semana</span><strong>180€ / mês</strong></li>
+                <li><span>Dia avulso</span><strong>30€ / dia</strong></li>
+              </ul>
             </div>
           </div>
+          <div class="lg:col-span-2 relative min-h-[280px] rounded-3xl overflow-hidden shadow-sm border-4 border-white bg-[#FAF7F2]">
+            <img loading="lazy" decoding="async" src="assets/images/6.Programa_diario/1_Manhas.jpg" alt="Criança a fazer uma atividade artística com papel"
+              class="absolute inset-0 w-full h-full object-cover">
+          </div>
+        </div>
 
-          <!-- PAIRED CONTEXT CARD: MANHÃ (Aparece aqui na DIREITA quando selecionado Manhã) -->
-          <div id="schedule-media-manha" class="hidden flex-1 h-full flex flex-col gap-4">
-            <div
-              class="relative flex-1 min-h-0 rounded-3xl overflow-hidden shadow-sm border border-[#E8F0E6] bg-[#FAF7F2] group">
-              <img loading="lazy" decoding="async" src="assets/images/6.Programa_diario/1_Manhas.jpg" alt="Manhãs na Terra da Fonte 1"
-                class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+        <!-- PROGRAMA 3 — Floresta em Família -->
+        <div id="programa-panel-3" role="tabpanel" aria-labelledby="programa-tab-3" class="programa-panel programa-panel--sol hidden grid lg:grid-cols-5 gap-6 lg:gap-8 items-stretch">
+          <div class="programa-card lg:col-span-3 bg-white p-6 sm:p-8 lg:p-10 rounded-3xl shadow-sm border border-[#4A6B53]/15 flex flex-col gap-6">
+            <div class="flex items-center gap-4 border-b border-gray-100 pb-5">
+              <div class="programa-emoji w-14 h-14 rounded-2xl flex items-center justify-center text-3xl shrink-0" aria-hidden="true">🌲</div>
+              <div>
+                <span class="programa-kicker text-xs sm:text-sm font-bold uppercase tracking-wider block">Programa 3</span>
+                <h3 class="programa-title font-fredoka text-2xl sm:text-3xl font-bold">Floresta em Família</h3>
+              </div>
             </div>
-            <div
-              class="relative flex-1 min-h-0 rounded-3xl overflow-hidden shadow-sm border border-[#E8F0E6] bg-[#FAF7F2] group">
-              <img loading="lazy" decoding="async" src="assets/images/6.Programa_diario/2_Manhas.jpg" alt="Manhãs na Terra da Fonte 2"
-                class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+
+            <div class="programa-info">
+              <h4><i data-lucide="heart-handshake" class="w-4 h-4" aria-hidden="true"></i> Destinatários</h4>
+              <p><strong>Pais + crianças de todas as idades</strong></p>
             </div>
+
+            <div class="programa-info">
+              <h4><i data-lucide="clock" class="w-4 h-4" aria-hidden="true"></i> Horário</h4>
+              <ul class="programa-list">
+                <li><strong>Um sábado por mês</strong> · 10h00 – 13h00</li>
+              </ul>
+            </div>
+
+            <div class="programa-info">
+              <h4><i data-lucide="wallet" class="w-4 h-4" aria-hidden="true"></i> Valor</h4>
+              <ul class="programa-prices">
+                <li><span>Por família</span><strong>30€</strong></li>
+              </ul>
+            </div>
+
+            <div class="programa-info">
+              <h4><i data-lucide="sparkles" class="w-4 h-4" aria-hidden="true"></i> Inclui</h4>
+              <ul class="programa-list">
+                <li><strong>Atividade física</strong> <span class="text-[#3D342F]/80">(por exemplo, yoga kids [10h às 11h], dança, movimento)</span></li>
+                <li><strong>Atividade artística</strong> <span class="text-[#3D342F]/80">(ateliê variado, artes, construções, pinturas, música, etc.)</span></li>
+                <li><strong>Atividade ecológica</strong> <span class="text-[#3D342F]/80">(passeio, reconhecimento de uma planta, árvore, reutilizações…)</span></li>
+                <li><strong>+ pequeno lanche coletivo</strong></li>
+              </ul>
+            </div>
+          </div>
+          <div class="lg:col-span-2 relative min-h-[280px] rounded-3xl overflow-hidden shadow-sm border-4 border-white bg-[#FAF7F2]">
+            <img loading="lazy" decoding="async" src="assets/images/6.Programa_diario/2_Tardes.jpg" alt="Criança e adulto junto aos cavalos na Terra da Fonte"
+              class="absolute inset-0 w-full h-full object-cover">
           </div>
         </div>
 
@@ -2054,15 +2061,16 @@
         </p>
       </div>
 
-      <!-- Recommendation Notice Banner -->
+      <!-- Formulário de inscrição (botão único da secção) -->
       <div
-        class="max-w-4xl mx-auto mb-12 p-4 sm:p-5 rounded-2xl bg-[#E8F0E6] border border-[#4A6B53]/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-[#4A6B53] gsap-reveal">
-        <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-xl bg-[#4A6B53] text-white flex items-center justify-center shrink-0 font-bold">
-            <i data-lucide="file-text" class="w-5 h-5"></i>
+        class="max-w-6xl mx-auto mb-10 p-4 sm:p-5 rounded-2xl bg-[#E8F0E6] border border-[#4A6B53]/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-[#4A6B53] gsap-reveal">
+        <div class="flex items-center gap-3 text-center sm:text-left">
+          <div class="w-10 h-10 rounded-xl bg-[#4A6B53] text-white hidden sm:flex items-center justify-center shrink-0">
+            <i data-lucide="file-text" class="w-5 h-5" aria-hidden="true"></i>
           </div>
           <div>
-            <strong class="block text-sm sm:text-base text-[#4A6B53]">Formulário de inscrição</strong>
+            <strong class="block text-base sm:text-lg font-fredoka text-[#4A6B53]">Formulário de inscrição</strong>
+            <span class="block text-sm text-[#3D342F]/85">Um só formulário para os três programas.</span>
           </div>
         </div>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSfZjtwh7shAgtTL6nWWpAKIzK1kKZ5E1fsbVm92gD4xVZxRJA/viewform?usp=preview"
@@ -2074,55 +2082,69 @@
         </a>
       </div>
 
-      <!-- Pricing Cards (Apenas as 2 modalidades oficiais para inscrição) -->
-      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto items-stretch gsap-reveal">
+      <!-- Pricing Cards: os 3 programas com o mesmo peso visual (cada um com a sua cor de acento) -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto items-stretch gsap-reveal">
 
-        <!-- Meio Dia (Manhã ou Tarde) -->
-        <div
-          class="bg-white p-8 sm:p-10 rounded-3xl border border-[#4A6B53]/15 flex flex-col justify-between hover:shadow-lg transition-all space-y-6">
-          <div class="space-y-4">
-            <span class="text-xs font-bold text-[#4A6B53] bg-[#E8F0E6] px-3.5 py-1 rounded-full">3ªf à Tarde & 5ªf de Manhã
-</span>
-            <h3 class="font-fredoka text-3xl font-bold text-[#4A6B53]">Programa 1: Bebés na Natureza</h3>
-            <div class="flex items-baseline gap-1">
-              <span class="font-fredoka text-5xl font-bold text-[#4A6B53]">1x por semana 110€; </span>
-    
-              <span class="font-fredoka text-5xl font-bold text-[#4A6B53]">2x por semana 180€; </span>
-              <span class="text-xs text-gray-500 font-semibold">/ mês</span>
+        <!-- Programa 1: Bebés na Natureza -->
+        <article class="price-card price-card--green">
+          <div class="price-card-head">
+            <span class="price-card-emoji" aria-hidden="true">🌱</span>
+            <div>
+              <span class="price-card-kicker">Programa 1</span>
+              <h3 class="price-card-title">Bebés na Natureza</h3>
             </div>
-            <p class="text-sm text-[#3D342F]/85 leading-relaxed">Bebés dos 6 meses aos 2 anos
-              3ªf (15h00 – 18h00) + 5ªf (09h00 – 13h00)</p>
           </div>
-          <button
-            class="open-enrollment-btn w-full bg-[#FAF7F2] hover:bg-[#E8F0E6] text-[#4A6B53] border-2 border-[#4A6B53]/30 font-fredoka py-4 rounded-2xl font-bold text-sm transition-all shadow-sm"
-            data-plan="meio-dia">
-            Inscrição
-          </button>
-        </div>
+          <span class="price-card-badge">3ªf à tarde &amp; 5ªf de manhã</span>
+          <ul class="programa-prices">
+            <li><span>1x por semana</span><strong>110€ / mês</strong></li>
+            <li><span>2x por semana</span><strong>180€ / mês</strong></li>
+          </ul>
+          <ul class="price-card-info">
+            <li><i data-lucide="baby" class="w-4 h-4" aria-hidden="true"></i> Bebés dos 6 meses aos 2 anos</li>
+            <li><i data-lucide="clock" class="w-4 h-4" aria-hidden="true"></i> 3ªf (15h00 – 18h00)</li>
+            <li><i data-lucide="clock" class="w-4 h-4" aria-hidden="true"></i> 5ªf (09h00 – 13h00)</li>
+          </ul>
+        </article>
 
-        <!-- Dia Inteiro -->
-        <div
-          class="bg-[#E8F0E6] p-8 sm:p-10 rounded-3xl border-2 border-[#4A6B53] flex flex-col justify-between shadow-lg relative space-y-6">
-          <div class="space-y-4">
-            <span class="text-xs font-bold text-[#4A6B53] bg-white px-3.5 py-1 rounded-full">3ªf à Tarde & 5ªf de Manhã
-</span>
-            <h3 class="font-fredoka text-3xl font-bold text-[#4A6B53]">Programa 2: Pequenos Exploradores</h3>
-            <div class="flex items-baseline gap-1">
-              <span class="font-fredoka text-5xl font-bold text-[#4A6B53]">1x por semana 110€; 2x por semana 180€</span>
-            
-              
-              <span class="text-xs text-[#3D342F] font-semibold">/ mês</span>
+        <!-- Programa 2: Pequenos Exploradores -->
+        <article class="price-card price-card--terracota">
+          <div class="price-card-head">
+            <span class="price-card-emoji" aria-hidden="true">🌿</span>
+            <div>
+              <span class="price-card-kicker">Programa 2</span>
+              <h3 class="price-card-title">Pequenos Exploradores</h3>
             </div>
-            <p class="text-sm text-[#3D342F]/90 leading-relaxed">Crianças dos 3 aos 6 anos
-              3ªf (15h00 – 18h00) + 5ªf (09h00 – 13h00)
-</p>
           </div>
-          <button
-            class="open-enrollment-btn w-full bg-[#4A6B53] hover:bg-[#3b5743] text-white font-fredoka py-4 rounded-2xl font-bold text-sm shadow-md hover:shadow-lg transition-all"
-            data-plan="dia-inteiro">
-            Inscrição
-          </button>
-        </div>
+          <span class="price-card-badge">3ªf à tarde &amp; 5ªf de manhã</span>
+          <ul class="programa-prices">
+            <li><span>1x por semana</span><strong>110€ / mês</strong></li>
+            <li><span>2x por semana</span><strong>180€ / mês</strong></li>
+          </ul>
+          <ul class="price-card-info">
+            <li><i data-lucide="users" class="w-4 h-4" aria-hidden="true"></i> Crianças dos 3 aos 6 anos</li>
+            <li><i data-lucide="clock" class="w-4 h-4" aria-hidden="true"></i> 3ªf (15h00 – 18h00)</li>
+            <li><i data-lucide="clock" class="w-4 h-4" aria-hidden="true"></i> 5ªf (09h00 – 13h00)</li>
+          </ul>
+        </article>
+
+        <!-- Programa 3: Floresta em Família -->
+        <article class="price-card price-card--sol md:col-span-2 lg:col-span-1">
+          <div class="price-card-head">
+            <span class="price-card-emoji" aria-hidden="true">🌲</span>
+            <div>
+              <span class="price-card-kicker">Programa 3</span>
+              <h3 class="price-card-title">Floresta em Família</h3>
+            </div>
+          </div>
+          <span class="price-card-badge">Sábados de manhã</span>
+          <ul class="programa-prices">
+            <li><span>Por família</span><strong>30€ / dia</strong></li>
+          </ul>
+          <ul class="price-card-info">
+            <li><i data-lucide="heart-handshake" class="w-4 h-4" aria-hidden="true"></i> Para todas as idades</li>
+            <li><i data-lucide="clock" class="w-4 h-4" aria-hidden="true"></i> Sáb (10h00 – 13h00)</li>
+          </ul>
+        </article>
 
       </div>
 
@@ -2238,11 +2260,6 @@
       </ul>
     </div>
 
-    <!-- Friso de fotografias do dia a dia (preenchido por js/main.js) -->
-    <div class="photo-marquee mt-14 mb-10 overflow-hidden py-6 bg-white/70 border-y border-[#4A6B53]/10 w-full" aria-label="Fotografias do dia a dia na Terra da Fonte">
-      <div class="photo-marquee-track flex gap-5 items-center"></div>
-    </div>
-
     <!-- Wave divider to White (Contactos) -->
     <div class="absolute bottom-0 inset-x-0 leading-none pointer-events-none" aria-hidden="true">
       <svg class="w-full h-8 sm:h-12 text-white fill-current" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -2252,7 +2269,7 @@
   </section>
 
   <!-- 10. CONTACTOS E LOCALIZAÇÃO -->
-  <section id="contactos" class="py-20 bg-white relative overflow-hidden">
+  <section id="contactos" class="pt-20 pb-24 sm:pb-28 bg-white relative overflow-hidden">
     <!-- Floating background decorative elements -->
     <div class="absolute top-16 left-8 text-[#4A6B53]/15 animate-leaf pointer-events-none">
       <i data-lucide="map-pin" class="w-12 h-12 sm:w-16 sm:h-16"></i>
@@ -2358,10 +2375,17 @@
         </div>
       </div>
     </div>
+
+    <!-- Wave divider to Footer (castanho) -->
+    <div class="absolute bottom-0 inset-x-0 leading-none pointer-events-none" aria-hidden="true">
+      <svg class="w-full h-8 sm:h-12 text-[#3D342F] fill-current" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,60 C200,20 380,100 600,60 C820,20 1000,100 1200,60 L1200,120 L0,120 Z"></path>
+      </svg>
+    </div>
   </section>
 
   <!-- 10. FOOTER COM REDES SOCIAIS -->
-  <footer class="bg-[#3D342F] text-white pt-16 pb-12 border-t border-gray-800">
+  <footer class="bg-[#3D342F] text-white pt-14 pb-12">
     <div class="max-w-[1400px] w-full mx-auto px-4 sm:px-8 lg:px-12">
       <div class="grid md:grid-cols-2 lg:grid-cols-12 gap-10 border-b border-gray-700/60 pb-12">
 
@@ -2370,8 +2394,7 @@
           <div class="flex items-center gap-3">
             <img loading="lazy" decoding="async" src="assets/images/Logo/Logo2.png" alt="Logo KidsClub.daFonte"
               class="w-11 h-11 rounded-2xl object-cover border border-white/20 bg-white">
-            <span class="font-fredoka text-2xl font-bold text-white tracking-tight">KidsClub<span
-                class="text-[#F4C542]">.daFonte</span></span>
+            <span class="brand-on-dark font-fredoka text-2xl font-bold tracking-tight"><span class="brand-kids">KidsClub</span><span class="brand-da">.da</span><span class="brand-fonte">Fonte</span></span>
           </div>
           <p class="text-sm text-gray-300 italic">
             cuidar e educar | natureza e arte | brincar e crescer
@@ -2452,7 +2475,7 @@
       </div>
 
       <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs sm:text-sm text-gray-300 gap-4">
-        <span id="footer-copyright-trigger" class="select-none text-center sm:text-left">© 2026 KidsClub.daFonte, Terra da Fonte, Milharado, Mafra. Todos os direitos reservados.</span>
+        <button type="button" id="footer-copyright-trigger" class="footer-secret select-none text-center sm:text-left" title="Clique aqui… se tiver coragem 🦀">© 2026 <span class="brand-on-dark font-semibold"><span class="brand-kids">KidsClub</span><span class="brand-da">.da</span><span class="brand-fonte">Fonte</span></span>, Terra da Fonte, Milharado, Mafra. Todos os direitos reservados.</button>
         <span>Coordenação: Amalgama Associação Cultural</span>
       </div>
     </div>
@@ -2497,129 +2520,6 @@
     </div>
   </div>
 
-  <!-- ONLINE ENROLLMENT MODAL (COM ENVIO DIRETO WHATSAPP & EMAIL) -->
-  <div id="enrollment-modal"
-    class="fixed inset-0 z-50 bg-black/75 backdrop-blur-md hidden items-center justify-center p-4 overflow-y-auto">
-    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative my-8">
-
-      <button id="close-enrollment-btn"
-        class="absolute top-5 right-5 w-8 h-8 rounded-full bg-gray-100 text-gray-600 flex items-center justify-center hover:bg-gray-200 transition-colors">
-        <i data-lucide="x" class="w-4 h-4"></i>
-      </button>
-
-      <div class="space-y-3 mb-6 border-b pb-4">
-        <div class="flex flex-wrap items-center justify-between gap-2">
-          <div
-            class="inline-flex items-center gap-1.5 text-xs font-bold text-[#D97757] bg-[#FAF7F2] px-3.5 py-1 rounded-full border border-[#D97757]/20">
-            <i data-lucide="mail" class="w-3.5 h-3.5"></i> Inscrição por E-mail
-          </div>
-        </div>
-        <h3 class="font-fredoka text-2xl font-bold text-[#4A6B53]">Ficha de Inscrição via E-mail</h3>
-        <p class="text-sm text-[#3D342F]/85">
-          Preencha os dados abaixo. Ao clicar em enviar, será gerado o e-mail oficial de inscrição endereçado à
-          coordenação.
-        </p>
-        <div
-          class="p-2.5 bg-[#E8F0E6] rounded-xl border border-[#4A6B53]/20 flex items-center justify-between text-xs text-[#4A6B53]">
-          <span class="font-medium">Prefere o método oficial recomendado?</span>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfZjtwh7shAgtTL6nWWpAKIzK1kKZ5E1fsbVm92gD4xVZxRJA/viewform?usp=preview"
-            target="_blank" rel="noopener noreferrer" class="font-bold underline hover:text-[#D97757] ml-2">
-            Abrir Google Forms
-          </a>
-        </div>
-      </div>
-
-      <!-- FORM -->
-      <form id="enrollment-form" class="space-y-4">
-        <div>
-          <label class="block text-xs font-bold text-[#3D342F] uppercase mb-1">Nome do Encarregado de Educação</label>
-          <input type="text" id="input-guardian-name" required placeholder="Ex: Maria Santos"
-            class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#4A6B53]">
-        </div>
-
-        <div class="grid grid-cols-2 gap-3">
-          <div>
-            <label class="block text-xs font-bold text-[#3D342F] uppercase mb-1">Telemóvel</label>
-            <input type="tel" id="input-guardian-phone" required placeholder="912 345 678"
-              class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#4A6B53]">
-          </div>
-          <div>
-            <label class="block text-xs font-bold text-[#3D342F] uppercase mb-1">E-mail</label>
-            <input type="email" id="input-guardian-email" required placeholder="exemplo@gmail.com"
-              class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#4A6B53]">
-          </div>
-        </div>
-
-        <div>
-          <label class="block text-xs font-bold text-[#3D342F] uppercase mb-1">Nome & Idade da Criança</label>
-          <input type="text" id="input-child-info" required placeholder="Ex: Lucas, 2 anos (6 meses aos 6 anos)"
-            class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#4A6B53]">
-        </div>
-
-        <div class="grid grid-cols-2 gap-3">
-          <div>
-            <label class="block text-xs font-bold text-[#3D342F] uppercase mb-1">Modalidade Pretendida</label>
-            <select id="modal-plan"
-              class="w-full px-3 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#4A6B53] font-semibold text-[#4A6B53]">
-              <option value="dia-inteiro">Dia Inteiro (350€/mês)</option>
-              <option value="meio-dia">Manhã / Tarde (200€/mês)</option>
-            </select>
-          </div>
-          <div>
-            <label class="block text-xs font-bold text-[#3D342F] uppercase mb-1">N.º de Crianças</label>
-            <input type="number" id="modal-kids" min="1" step="1" value="1" required placeholder="1"
-              class="w-full px-3 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#4A6B53] font-semibold text-[#3D342F]">
-          </div>
-        </div>
-
-        <!-- Dynamic Calculated Price -->
-        <div class="p-3.5 rounded-xl bg-[#E8F0E6] border border-[#4A6B53]/20 flex items-center justify-between">
-          <span class="text-xs font-bold text-[#4A6B53]">Estimativa Mensal:</span>
-          <span id="calculated-price" class="font-fredoka text-lg font-bold text-[#4A6B53]">350€ / mês</span>
-        </div>
-
-        <div>
-          <label class="block text-xs font-bold text-[#3D342F] uppercase mb-1">Mensagem ou Observações
-            (Opcional)</label>
-          <textarea id="input-notes" rows="2" placeholder="Alguma necessidade alimentar ou dúvida..."
-            class="w-full px-4 py-2 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#4A6B53]"></textarea>
-        </div>
-
-        <button type="submit"
-          class="w-full bg-[#4A6B53] hover:bg-[#3b5743] text-white font-fredoka py-3.5 rounded-2xl font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2">
-          <i data-lucide="mail" class="w-4 h-4"></i> Enviar Inscrição por E-mail
-        </button>
-      </form>
-
-      <!-- SUCCESS CONFIRMATION & 1-CLICK ACTION BUTTONS -->
-      <div id="form-success-message" class="hidden text-center py-6 space-y-5">
-        <div
-          class="w-14 h-14 rounded-full bg-[#E8F0E6] text-[#4A6B53] flex items-center justify-center mx-auto text-2xl font-bold shadow-sm">
-          <i data-lucide="check" class="w-7 h-7"></i>
-        </div>
-        <div>
-          <h4 class="font-fredoka text-2xl font-bold text-[#4A6B53]">E-mail de Inscrição Preparado!</h4>
-          <p id="summary-display" class="text-xs font-semibold text-[#D97757] mt-1"></p>
-          <p class="text-sm text-[#3D342F]/85 leading-relaxed max-w-sm mx-auto mt-2">
-            Caso o compositor de e-mail não tenha aberto automaticamente no seu navegador, utilize os botões abaixo:
-          </p>
-        </div>
-
-        <div class="space-y-2.5 pt-2">
-          <a id="btn-gmail-web-submit" href="#" target="_blank" rel="noopener noreferrer"
-            class="w-full bg-[#EA4335] hover:bg-[#d33828] text-white font-fredoka py-3 rounded-2xl font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2">
-            <i data-lucide="mail" class="w-4 h-4"></i> Abrir & Enviar no Gmail Web
-          </a>
-          <button type="button" onclick="copyEmailSummary()"
-            class="w-full bg-white hover:bg-gray-50 text-gray-600 border border-gray-200 font-fredoka py-2.5 rounded-2xl font-medium text-xs transition-all flex items-center justify-center gap-1.5">
-            <i data-lucide="copy" class="w-3.5 h-3.5 text-[#D97757]"></i> Copiar Texto da Inscrição
-          </button>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
   <!-- Voltar ao topo -->
   <a href="#" id="back-to-top" class="back-to-top" aria-label="Voltar ao topo">
     <i data-lucide="arrow-up" class="w-5 h-5" aria-hidden="true"></i>
@@ -2650,20 +2550,21 @@
   </div>
 
 <!--
-   __       __
-  / <`     '> \
- (  / @   @ \  )
-  \(_ _\_/_ _)/
-(\ `-/     \-' /)
- "===\     /==="
-  .==')___(`==.
- ' .='     `=.
+     _                           _
+    ( \___                   ___/ )
+     \__  \    .-.   .-.    /  __/
+        \  \  ( o ) ( o )  /  /
+         \  '._`-'   `-'_.'  /
+          '._    \___/    _.'
+          /  `-._______.-'  \
+         / /  / /     \ \  \ \
+        /_/  /_/       \_\  \_\
 
- 🦀 Vullkano was here 🦀
+        🦀  Vullkano was here  🦀
 -->
 
   <!-- Custom App JS (Cache-Busted) -->
-  <script src="js/main.js?v=20261004_7"></script>
+  <script src="js/main.js?v=20261006_3"></script>
 </body>
 
 </html>
